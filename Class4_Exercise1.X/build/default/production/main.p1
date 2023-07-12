@@ -586,25 +586,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 "83
 [; ;main.c: 83:     LATAbits.LA4 = 0;
 [e = . . _LATAbits 1 4 -> -> 0 `i `uc ]
-"84
-[; ;main.c: 84:     TRISAbits.RA1 = 0;
-[e = . . _TRISAbits 1 1 -> -> 0 `i `uc ]
 "85
-[; ;main.c: 85:     LATAbits.LA1 = 0;
+[; ;main.c: 85:     TRISAbits.RA1 = 0;
+[e = . . _TRISAbits 1 1 -> -> 0 `i `uc ]
+"86
+[; ;main.c: 86:     LATAbits.LA1 = 0;
 [e = . . _LATAbits 1 1 -> -> 0 `i `uc ]
-"94
-[; ;main.c: 94:     while (1) {
+"88
+[; ;main.c: 88:     TRISAbits.RA2 = 0;
+[e = . . _TRISAbits 1 2 -> -> 0 `i `uc ]
+"89
+[; ;main.c: 89:     LATAbits.LA2 = 0;
+[e = . . _LATAbits 1 2 -> -> 0 `i `uc ]
+"93
+[; ;main.c: 93:     while (1) {
 [e :U 369 ]
 {
-"98
-[; ;main.c: 98:         LATAbits.LA0 ^= 1;
+"97
+[; ;main.c: 97:         LATAbits.LA0 ^= 1;
 [e =^ . . _LATAbits 1 0 -> -> 1 `i `Vuc ]
-"99
-[; ;main.c: 99:         LATAbits.LA4 ^= 1;
+"98
+[; ;main.c: 98:         LATAbits.LA4 ^= 1;
 [e =^ . . _LATAbits 1 4 -> -> 1 `i `Vuc ]
-"100
-[; ;main.c: 100:         LATAbits.LA1 ^= 1;
+"99
+[; ;main.c: 99:         LATAbits.LA1 ^= 1;
 [e =^ . . _LATAbits 1 1 -> -> 1 `i `Vuc ]
+"100
+[; ;main.c: 100:         LATAbits.LA2 ^= 1;
+[e =^ . . _LATAbits 1 2 -> -> 1 `i `Vuc ]
 "102
 [; ;main.c: 102:         _delay((unsigned long)((500)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]

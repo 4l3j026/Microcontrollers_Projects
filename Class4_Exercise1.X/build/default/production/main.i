@@ -5777,9 +5777,15 @@ void main(void) {
 
     TRISAbits.RA4 = 0;
     LATAbits.LA4 = 0;
+
     TRISAbits.RA1 = 0;
     LATAbits.LA1 = 0;
-# 94 "main.c"
+
+    TRISAbits.RA2 = 0;
+    LATAbits.LA2 = 0;
+
+
+
     while (1) {
 
 
@@ -5787,6 +5793,7 @@ void main(void) {
         LATAbits.LA0 ^= 1;
         LATAbits.LA4 ^= 1;
         LATAbits.LA1 ^= 1;
+        LATAbits.LA2 ^= 1;
 
         _delay((unsigned long)((500)*(8000000/4000.0)));
 
