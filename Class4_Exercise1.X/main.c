@@ -79,6 +79,8 @@ void main(void) { //  This statement is the main and the most important function
     //Important resgiters 
     //CONFIG1L : 0b00000000; 
     //CONFIG1H : 0b00001000;
+    TRISAbits.RA4 = 0; 
+    LATAbits.LA4 = 0; 
 
     
 
@@ -91,6 +93,7 @@ void main(void) { //  This statement is the main and the most important function
          Here, with two lines I program an led to turn on and off every 500 ms. 
          */
         LATAbits.LA0 ^= 1;
+        LATAbits.LA4 ^= 1;
         //LATAbits.LA6 ^= 1;
         __delay_ms(500);
 
