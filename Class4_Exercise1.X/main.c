@@ -81,12 +81,9 @@ void main(void) { //  This statement is the main and the most important function
     //CONFIG1H : 0b00001000;
     TRISAbits.RA4 = 0; 
     LATAbits.LA4 = 0; 
-
+    TRISAbits.RA1 = 0;
+    LATAbits.LA1 = 0; 
     
-
-
-
-
     //  Infinite loop to perform microcontroller process. 
     while (1) {
         /*
@@ -94,6 +91,7 @@ void main(void) { //  This statement is the main and the most important function
          */
         LATAbits.LA0 ^= 1;
         LATAbits.LA4 ^= 1;
+        LATAbits.LA1 ^= 1;
         //LATAbits.LA6 ^= 1;
         __delay_ms(500);
 

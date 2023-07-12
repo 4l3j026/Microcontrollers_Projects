@@ -5771,13 +5771,23 @@ void main(void) {
 
     TRISAbits.RA6 = 0;
     LATAbits.LA6 = 0;
-# 87 "main.c"
+
+
+
+
+    TRISAbits.RA4 = 0;
+    LATAbits.LA4 = 0;
+    TRISAbits.RA1 = 0;
+    LATAbits.LA1 = 0;
+# 94 "main.c"
     while (1) {
 
 
 
         LATAbits.LA0 ^= 1;
-        LATAbits.LA6 ^= 1;
+        LATAbits.LA4 ^= 1;
+        LATAbits.LA1 ^= 1;
+
         _delay((unsigned long)((500)*(8000000/4000.0)));
 
     }
