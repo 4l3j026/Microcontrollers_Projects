@@ -6,7 +6,10 @@
  */
 
 
-#include <xc.h> //  This statement is a library for any microcontroller of microchip. 
+#include <xc.h> //  This statement is a library for any microcontroller of microchip.
+#include <pic18f4550.h>
+    
+
 
 // Configuration of some important fuses. 
 /*
@@ -14,7 +17,8 @@
  * Frequency OSCillator (FOSC) = Use INTernal OSCillator in High Speed (INTOSC_HS) 
  * In this microcontroller High Speed is from > 4 Mhz 
  */
-#pragma config FOSC = INTOSC_HS //  -------------?
+//#pragma config FOSC = INTOSC_HS //  -------------?
+#pragma config FOSC = INTOSCIO_EC
 /*
  * This pragma configuration use to power off the "Watch Dog Timer" 
  * Because we don't need restart the microcontroller after some time. 
@@ -33,8 +37,10 @@
  */
 #define _XTAL_FREQ 8000000  //  -------------?
 
+
 void main(void) { //  This statement is the main and the most important function.
 
+    
     //Configuration of other registers. 
     /*
      * (OSCillator CONtrol) OSCCON
@@ -56,37 +62,41 @@ void main(void) { //  This statement is the main and the most important function
     /*
      * With this register you can set specific pin from A port as output (0) or input (1). 
      */
-    TRISAbits.RA0 = 0; //  -------------?
-
-    /*
-     * But you can set the register of this way: 
-     * TRISA = 0b00000000; //Here I set all pins from A port as outputs. 
-     * And it´s the same way to the LAT and POR registers. 
-     */
-
-
-    /*
-     * With this register you can set specific pin from A port on low state (0 / 0v) or high state (1 / 5V). 
-     * Important note: Due to security reasons we set the pin as low state.
-     */
-    LATAbits.LA0 = 0; //  -------------?
-
-    //Pin 6 set
-
-    TRISAbits.RA6 = 0;
-    LATAbits.LA6 = 0;
-
-    //Important resgiters 
-    //CONFIG1L : 0b00000000; 
-    //CONFIG1H : 0b00001000;
-    TRISAbits.RA4 = 0; 
-    LATAbits.LA4 = 0; 
+//    TRISAbits.RA0 = 0; //  -------------?
+//
+//    /*
+//     * But you can set the register of this way: 
+//     * TRISA = 0b00000000; //Here I set all pins from A port as outputs. 
+//     * And it´s the same way to the LAT and POR registers. 
+//     */
+//
+//
+//    /*
+//     * With this register you can set specific pin from A port on low state (0 / 0v) or high state (1 / 5V). 
+//     * Important note: Due to security reasons we set the pin as low state.
+//     */
+//    LATAbits.LA0 = 0; //  -------------?
+//
+//    //Pin 6 set
+//
+//    TRISAbits.RA6 = 0;
+//    LATAbits.LA6 = 0;
+//
+//    //Important resgiters 
+//    //CONFIG1L : 0b00000000; 
+//    //CONFIG1H : 0b00001000;
+//    TRISAbits.RA4 = 0; 
+//    LATAbits.LA4 = 0; 
+//    
+//    TRISAbits.RA1 = 0;
+//    LATAbits.LA1 = 0; 
+//    
+//    TRISAbits.RA2 = 0; 
+//    LATAbits.LA2 = 0; 
     
-    TRISAbits.RA1 = 0;
-    LATAbits.LA1 = 0; 
+    TRISA = 0x00;
+    LATA = 0x00;
     
-    TRISAbits.RA2 = 0; 
-    LATAbits.LA2 = 0; 
     
     
     //  Infinite loop to perform microcontroller process. 
@@ -94,10 +104,11 @@ void main(void) { //  This statement is the main and the most important function
         /*
          Here, with two lines I program an led to turn on and off every 500 ms. 
          */
-        LATAbits.LA0 ^= 1;
-        LATAbits.LA4 ^= 1;
-        LATAbits.LA1 ^= 1;
-        LATAbits.LA2 ^= 1;
+        LATA ^= 0xFF;
+//        LATAbits.LA0 ^= 1;
+//        LATAbits.LA4 ^= 1;
+//        LATAbits.LA1 ^= 1;
+//        LATAbits.LA2 ^= 1;
         //LATAbits.LA6 ^= 1;
         __delay_ms(500);
 
