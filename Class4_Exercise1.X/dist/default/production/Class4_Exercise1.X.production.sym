@@ -5,10 +5,9 @@ __S5 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _LATA F89 0 ABS 0
-_main 7FCE 0 CODE 0
+_main 7FD2 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
-_TRISA F92 0 ABS 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
@@ -35,6 +34,7 @@ __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
+_LATAbits F89 0 ABS 0
 __Hintsave_regs 0 0 BIGRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
 __Hbigbss 0 0 BIGRAM 1
@@ -83,7 +83,8 @@ __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
-end_of_initialization 7FC8 0 CODE 0
+end_of_initialization 7FCC 0 CODE 0
+_TRISAbits F92 0 ABS 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -108,10 +109,10 @@ __Hbank7 0 0 ABS 0
 __Lbank7 0 0 ABS 0
 __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
-__ptext0 7FCE 0 CODE 0
+__ptext0 7FD2 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization 7FC8 0 CODE 0
+__end_of__initialization 7FCC 0 CODE 0
 ___rparam_used 1 0 ABS 0
 __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
@@ -140,7 +141,7 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 7FC8 0 CODE 0
+__pcinit 7FCC 0 CODE 0
 __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __Hconst 0 0 CONST 0
@@ -159,28 +160,28 @@ intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
-start_initialization 7FC8 0 CODE 0
-__initialization 7FC8 0 CODE 0
+start_initialization 7FCC 0 CODE 0
+__initialization 7FCC 0 CODE 0
 __activetblptr 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
 cstackCOMRAM 1 2 COMRAM 1 1
-text0 7FCE 7FFF CODE 7FCE 0
-cinit 7FC8 7FCD CODE 7FC8 0
+text0 7FD2 7FFF CODE 7FD2 0
+cinit 7FCC 7FD1 CODE 7FCC 0
 %locals
 dist/default/production\Class4_Exercise1.X.production.o
-C:\Users\ALEJAN~1\AppData\Local\Temp\xcAsa3s.\driver_tmp_1.s
-471 7FC8 0 CODE 0
-473 7FC8 0 CODE 0
-476 7FC8 0 CODE 0
-482 7FC8 0 CODE 0
-484 7FC8 0 CODE 0
-485 7FCA 0 CODE 0
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs67g.\driver_tmp_1.s
+473 7FCC 0 CODE 0
+475 7FCC 0 CODE 0
+478 7FCC 0 CODE 0
+484 7FCC 0 CODE 0
+486 7FCC 0 CODE 0
+487 7FCE 0 CODE 0
 main.c
-41 7FCE 0 CODE 0
-53 7FCE 0 CODE 0
-61 7FD2 0 CODE 0
-97 7FD6 0 CODE 0
-98 7FDA 0 CODE 0
-107 7FDE 0 CODE 0
-113 7FE2 0 CODE 0
+39 7FD2 0 CODE 0
+51 7FD2 0 CODE 0
+59 7FD6 0 CODE 0
+63 7FDA 0 CODE 0
+76 7FDC 0 CODE 0
+84 7FDE 0 CODE 0
+85 7FE2 0 CODE 0

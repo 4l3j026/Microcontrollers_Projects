@@ -5722,7 +5722,7 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 9 "main.c" 2
-# 21 "main.c"
+# 20 "main.c"
 #pragma config FOSC = INTOSCIO_EC
 
 
@@ -5734,9 +5734,16 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config LVP = OFF
-# 41 "main.c"
+
+
+
+
+
+
+
+
 void main(void) {
-# 53 "main.c"
+# 51 "main.c"
     OSCCON = 0x72;
 
 
@@ -5746,10 +5753,12 @@ void main(void) {
 
 
     ADCON1 = 0x0F;
-# 97 "main.c"
-    TRISA = 0x00;
-    LATA = 0x00;
 
+
+
+    TRISAbits.RA0 = 0;
+# 76 "main.c"
+    LATAbits.LA0 = 0;
 
 
 
@@ -5758,12 +5767,10 @@ void main(void) {
 
 
         LATA ^= 0xFF;
-
-
-
-
-
         _delay((unsigned long)((500)*(8000000/4000.0)));
+
+
+
 
     }
 
