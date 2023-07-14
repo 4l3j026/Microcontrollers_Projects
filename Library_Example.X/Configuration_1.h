@@ -1,7 +1,7 @@
 /* 
  * File:   
  * Author: Daniel Alejandro Reyes León 
- * Comments:
+ * Comments: This is a simple test about libraries. 
  * Revision history: 
  */
 // Configuration of some important fuses. 
@@ -32,5 +32,6 @@
 // more than once.  
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+
 
 

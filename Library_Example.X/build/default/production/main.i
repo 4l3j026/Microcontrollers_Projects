@@ -5741,8 +5741,28 @@ unsigned char __t3rd16on(void);
 
 
 
+
+void Settings();
+
+
+
 void main(void) {
-    while (1){
+    Settings();
+    while (1) {
+
+        RA0 ^= 1;
+        _delay((unsigned long)((500)*(8000000/4000.0)));
 
     }
+}
+
+
+
+void Settings() {
+
+    OSCCON = 0x72;
+    ADCON1 = 0x0F;
+    TRISAbits.RA0 = 0;
+    LATAbits.LA0 = 0;
+
 }
