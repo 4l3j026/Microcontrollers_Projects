@@ -8,6 +8,7 @@
 /*
  *   PROJECT DESCRIPTION : 
  * 
+ * 
  *      This is a simple exercise of microcontroller to use the all pins of 
  *      the all ports, set all the registers of each port of PIC18F4550. 
  * 
@@ -66,21 +67,19 @@ void main(void) { //  This statement is the main and the most important function
     /*
      * With this register you can set specific pin from A port as output (0) or input (1). 
      */
-    TRISAbits.RA0 = 0; //  -------------^
-
-    /*
-     * But you can set the register of this way: 
-     * TRISA = 0b00000000; //Here I set all pins from A port as outputs. 
-     * And it´s the same way to the LAT and POR registers. 
-     */
-
-
-    /*
-     * With this register you can set specific pin from A port on low state (0 / 0v) or high state (1 / 5V). 
-     * Important note: Due to security reasons we set the pin as low state.
-     */
-    LATAbits.LA0 = 0; //  -------------^
-
+        
+    TRISA = 0x00;
+    TRISB = 0x00;
+    TRISC = 0x00;
+    TRISD = 0x00;
+    TRISE = 0x00;
+    
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
+    LATD = 0x00;
+    LATE = 0x00;
+   
 
     //  Infinite loop to perform microcontroller process. 
     while (1) {
@@ -88,6 +87,10 @@ void main(void) { //  This statement is the main and the most important function
          Here, with two lines I program an led to turn on and off every 500 ms. 
          */
         LATA ^= 0xFF;
+        LATB ^= 0xFF;
+        LATC ^= 0xFF;
+        LATD ^= 0xFF;
+        LATE ^= 0xFF;
         __delay_ms(500);
         /*
          * This function use ms (__delay_ms(n value)) and use us (__delay_us(n value))
