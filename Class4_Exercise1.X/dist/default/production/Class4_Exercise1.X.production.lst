@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Thu Jul 13 23:01:53 2023
+                                                                                               Sat Jul 22 02:16:26 2023
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	18F4550
@@ -94,7 +94,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
     80 ;;
     81 ;; *************** function _main *****************
     82 ;; Defined at:
-    83 ;;		line 39 in file "main.c"
+    83 ;;		line 46 in file "main.c"
     84 ;; Parameters:    Size  Location     Type
     85 ;;		None
     86 ;; Auto vars:     Size  Location     Type
@@ -126,26 +126,26 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    112   007FD2                     _main:
    113                           	callstack 31
    114   007FD2                     
-   115                           ;main.c: 51:     OSCCON = 0x72;
+   115                           ;main.c: 58:     OSCCON = 0x72;
    116   007FD2  0E72               	movlw	114
    117   007FD4  6ED3               	movwf	211,c	;volatile
    118                           
-   119                           ;main.c: 59:     ADCON1 = 0x0F;
+   119                           ;main.c: 66:     ADCON1 = 0x0F;
    120   007FD6  0E0F               	movlw	15
    121   007FD8  6EC1               	movwf	193,c	;volatile
    122   007FDA                     
-   123                           ;main.c: 63:     TRISAbits.RA0 = 0;
+   123                           ;main.c: 70:     TRISAbits.RA0 = 0;
    124   007FDA  9092               	bcf	146,0,c	;volatile
    125   007FDC                     
-   126                           ;main.c: 76:     LATAbits.LA0 = 0;
+   126                           ;main.c: 83:     LATAbits.LA0 = 0;
    127   007FDC  9089               	bcf	137,0,c	;volatile
    128   007FDE                     l702:
    129                           
-   130                           ;main.c: 84:         LATA ^= 0xFF;
+   130                           ;main.c: 91:         LATA ^= 0xFF;
    131   007FDE  0EFF               	movlw	255
    132   007FE0  1A89               	xorwf	137,f,c	;volatile
    133   007FE2                     
-   134                           ;main.c: 85:         _delay((unsigned long)((500)*(8000000/4000.0)));
+   134                           ;main.c: 92:         _delay((unsigned long)((500)*(8000000/4000.0)));
    135   007FE2  0E06               	movlw	6
    136   007FE4  6E02               	movwf	(??_main+1)^0,c
    137   007FE6  0E13               	movlw	19
@@ -502,7 +502,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Thu Jul 13 23:01:53 2023
+Symbol Table                                                                                   Sat Jul 22 02:16:26 2023
 
                      u17 7FEC                      l700 7FDC                      l702 7FDE  
                     l704 7FE2                      l696 7FD2                      l698 7FDA  

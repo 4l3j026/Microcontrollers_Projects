@@ -22,6 +22,7 @@
  */
 #pragma config LVP = OFF //  -------------?
 
+
 //Define time delays
 /*
  * This is a function by library <xc.h> for calculate of delays. 

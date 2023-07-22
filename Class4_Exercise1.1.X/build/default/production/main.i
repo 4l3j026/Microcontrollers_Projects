@@ -7,7 +7,7 @@
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 10 "main.c"
+# 22 "main.c"
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5714,10 +5714,10 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 10 "main.c" 2
+# 22 "main.c" 2
 
 
-# 1 "./Configuration.h" 1
+# 1 "./Library.h" 1
 
 
 
@@ -5726,13 +5726,13 @@ unsigned char __t3rd16on(void);
 #pragma config USBDIV = 1
 
 
-#pragma config FOSC = INTOSC_HS
+#pragma config FOSC = INTOSCIO_EC
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
 
 
 #pragma config PWRT = OFF
-#pragma config BOR = OFF
+#pragma config BOR = ON
 #pragma config BORV = 3
 #pragma config VREGEN = OFF
 
@@ -5748,7 +5748,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config STVREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 #pragma config ICPRT = OFF
 #pragma config XINST = OFF
 
@@ -5781,28 +5781,25 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 12 "main.c" 2
-
-
-
+# 24 "main.c" 2
 
 
 
 void Settings();
+void Exercise();
 
 void main(void) {
 
     Settings();
 
-
     while (1) {
-
+        Exercise();
     }
 }
 
 
 
-void Settings() {
+void Settings(void) {
 
     OSCCON = 0x72;
     ADCON1 = 0x0F;
@@ -5820,5 +5817,14 @@ void Settings() {
     LATC = 0;
     LATD = 0;
     LATE = 0;
+
+}
+
+
+
+void Exercise(void) {
+
+    LATA ^= 1;
+    _delay((unsigned long)((500)*(8000000/4000.0)));
 
 }

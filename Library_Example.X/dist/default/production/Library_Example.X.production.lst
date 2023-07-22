@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Thu Jul 13 23:01:02 2023
+                                                                                               Sat Jul 22 03:05:54 2023
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	18F4550
@@ -95,7 +95,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
     81 ;;
     82 ;; *************** function _main *****************
     83 ;; Defined at:
-    84 ;;		line 19 in file "main.c"
+    84 ;;		line 28 in file "main.c"
     85 ;; Parameters:    Size  Location     Type
     86 ;;		None
     87 ;; Auto vars:     Size  Location     Type
@@ -128,14 +128,14 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    114   007FDC                     _main:
    115                           	callstack 30
    116   007FDC                     
-   117                           ;main.c: 20:     Settings();
+   117                           ;main.c: 29:     Settings();
    118   007FDC  ECE7  F03F         	call	_Settings	;wreg free
    119   007FE0                     l709:
    120                           
-   121                           ;main.c: 23:         RA0 ^= 1;
+   121                           ;main.c: 33:         RA0 ^= 1;
    122   007FE0  7080               	btg	3968,0,c	;volatile
    123   007FE2                     
-   124                           ;main.c: 24:         _delay((unsigned long)((500)*(8000000/4000.0)));
+   124                           ;main.c: 34:         _delay((unsigned long)((500)*(8000000/4000.0)));
    125   007FE2  0E06               	movlw	6
    126   007FE4  6E02               	movwf	(??_main+1)^0,c
    127   007FE6  0E13               	movlw	19
@@ -155,7 +155,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    141                           
    142 ;; *************** function _Settings *****************
    143 ;; Defined at:
-   144 ;;		line 31 in file "main.c"
+   144 ;;		line 41 in file "main.c"
    145 ;; Parameters:    Size  Location     Type
    146 ;;		None
    147 ;; Auto vars:     Size  Location     Type
@@ -188,18 +188,18 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    174   007FCE                     _Settings:
    175                           	callstack 30
    176   007FCE                     
-   177                           ;main.c: 33:     OSCCON = 0x72;
+   177                           ;main.c: 43:     OSCCON = 0x72;
    178   007FCE  0E72               	movlw	114
    179   007FD0  6ED3               	movwf	211,c	;volatile
    180                           
-   181                           ;main.c: 34:     ADCON1 = 0x0F;
+   181                           ;main.c: 44:     ADCON1 = 0x0F;
    182   007FD2  0E0F               	movlw	15
    183   007FD4  6EC1               	movwf	193,c	;volatile
    184   007FD6                     
-   185                           ;main.c: 35:     TRISAbits.RA0 = 0;
+   185                           ;main.c: 45:     TRISAbits.RA0 = 0;
    186   007FD6  9092               	bcf	146,0,c	;volatile
    187   007FD8                     
-   188                           ;main.c: 36:     LATAbits.LA0 = 0;
+   188                           ;main.c: 46:     LATAbits.LA0 = 0;
    189   007FD8  9089               	bcf	137,0,c	;volatile
    190   007FDA  0012               	return		;funcret
    191   007FDC                     __end_of_Settings:
@@ -549,7 +549,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Thu Jul 13 23:01:02 2023
+Symbol Table                                                                                   Sat Jul 22 03:05:54 2023
 
                      l25 7FDA                       u17 7FEC                      l701 7FCE  
                     l703 7FD6                      l711 7FE2                      l705 7FD8  

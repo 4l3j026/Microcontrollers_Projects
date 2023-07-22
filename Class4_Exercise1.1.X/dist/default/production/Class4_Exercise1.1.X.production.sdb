@@ -27,10 +27,12 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"20 B:\MPLAB_Projects\College\Class4_Exercise1.1.X\main.c
+"30 B:\MPLAB_Projects\College\Class4_Exercise1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"32
+"41
 [v _Settings Settings `(v  1 e 1 0 ]
+"64
+[v _Exercise Exercise `(v  1 e 1 0 ]
 "2974 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3074
@@ -55,13 +57,18 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "7987
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"20 B:\MPLAB_Projects\College\Class4_Exercise1.1.X\main.c
+"30 B:\MPLAB_Projects\College\Class4_Exercise1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"28
+"37
 } 0
-"32
+"41
 [v _Settings Settings `(v  1 e 1 0 ]
 {
-"51
+"60
+} 0
+"64
+[v _Exercise Exercise `(v  1 e 1 0 ]
+{
+"69
 } 0

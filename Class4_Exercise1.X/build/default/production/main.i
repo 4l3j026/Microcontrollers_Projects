@@ -7,14 +7,7 @@
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 18 "main.c"
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5721,8 +5714,8 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-# 20 "main.c"
+# 18 "main.c" 2
+# 27 "main.c"
 #pragma config FOSC = INTOSCIO_EC
 
 
@@ -5743,7 +5736,7 @@ unsigned char __t3rd16on(void);
 
 
 void main(void) {
-# 51 "main.c"
+# 58 "main.c"
     OSCCON = 0x72;
 
 
@@ -5757,7 +5750,7 @@ void main(void) {
 
 
     TRISAbits.RA0 = 0;
-# 76 "main.c"
+# 83 "main.c"
     LATAbits.LA0 = 0;
 
 

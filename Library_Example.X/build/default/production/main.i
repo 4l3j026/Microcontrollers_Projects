@@ -7,14 +7,7 @@
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 19 "main.c"
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5721,7 +5714,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 19 "main.c" 2
 
 
 # 1 "./Configuration_1.h" 1
@@ -5737,8 +5730,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config LVP = OFF
-# 11 "main.c" 2
-
+# 21 "main.c" 2
 
 
 
@@ -5749,6 +5741,7 @@ void Settings();
 void main(void) {
     Settings();
     while (1) {
+
 
         RA0 ^= 1;
         _delay((unsigned long)((500)*(8000000/4000.0)));
