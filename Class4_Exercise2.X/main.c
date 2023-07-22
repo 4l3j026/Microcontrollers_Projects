@@ -68,12 +68,13 @@ void main(void) { //  This statement is the main and the most important function
      * With this register you can set specific pin from A port as output (0) or input (1). 
      */
         
+    // Here, we´re set all ports as outputs. 
     TRISA = 0x00;
     TRISB = 0x00;
     TRISC = 0x00;
     TRISD = 0x00;
     TRISE = 0x00;
-    
+    // Here we´re set all pins of each port as low logic state. 
     LATA = 0x00;
     LATB = 0x00;
     LATC = 0x00;
