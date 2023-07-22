@@ -20,7 +20,6 @@
 #include <pic18f4550.h> //Library to specific registers of PIC18F4550.
 #include "Configuration_1.h" //Library example with some fuses. 
 
-
 //Prototype functions.
 void Settings();
 
