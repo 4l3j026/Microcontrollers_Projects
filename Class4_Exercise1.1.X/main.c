@@ -19,13 +19,16 @@
 
 // Fuses 
 // This two statements use to specific registers from PIC. 
-#include <xc.h> // Compiler libreries. 
+#include <xc.h> // Compiler libraries. 
 #include <pic18f4550.h> 
 #include "Library.h"
 
 //  Prototypes functions. 
-void Settings();    // Set registers. 
-void Exercise();    // Develop the exercise. 
+void Settings(); // Set registers. 
+void Exercise(); // Develop the exercise. 
+
+//Global variables.
+int Time = 500;
 
 void main(void) {
 
@@ -40,6 +43,7 @@ void main(void) {
 
 void Settings(void) {
 
+    //Oscillator control and digital pins. 
     OSCCON = 0x72;
     ADCON1 = 0x0F;
 
@@ -63,7 +67,25 @@ void Settings(void) {
 
 void Exercise(void) {
 
-    LATA ^= 1;
-    __delay_ms(500);
+    LATA = 0xFF;
+    __delay_ms(Time);
+    LATA = 0x00;
+    __delay_ms(Time);
+    LATB = 0xFF;
+    __delay_ms(Time);
+    LATB = 0x00;
+    __delay_ms(Time);
+    LATC = 0xFF;
+    __delay_ms(Time);
+    LATC = 0x00;
+    __delay_ms(Time);
+    LATD = 0xFF;
+    __delay_ms(Time);
+    LATD = 0x00;
+    __delay_ms(Time);
+    LATE = 0xF;
+    __delay_ms(Time);
+    LATE = 0x0;
+    __delay_ms(Time);    
     
 }

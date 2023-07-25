@@ -5788,6 +5788,9 @@ unsigned char __t3rd16on(void);
 void Settings();
 void Exercise();
 
+
+int Time = 500;
+
 void main(void) {
 
     Settings();
@@ -5800,6 +5803,7 @@ void main(void) {
 
 
 void Settings(void) {
+
 
     OSCCON = 0x72;
     ADCON1 = 0x0F;
@@ -5824,7 +5828,25 @@ void Settings(void) {
 
 void Exercise(void) {
 
-    LATA ^= 1;
-    _delay((unsigned long)((500)*(8000000/4000.0)));
+    LATA = 0xFF;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATA = 0x00;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATB = 0xFF;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATB = 0x00;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATC = 0xFF;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATC = 0x00;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATD = 0xFF;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATD = 0x00;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATE = 0xF;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
+    LATE = 0x0;
+    _delay((unsigned long)((Time)*(8000000/4000.0)));
 
 }
