@@ -74,15 +74,15 @@
 "65
 [v _Bitwise Bitwise `(v  1 e 1 0 ]
 {
-"88
-[v Bitwise@E E `i  1 a 2 10 ]
-"83
-[v Bitwise@D D `i  1 a 2 8 ]
-"78
-[v Bitwise@C C `i  1 a 2 6 ]
-"73
-[v Bitwise@B B `i  1 a 2 4 ]
+"103
+[v Bitwise@E E `i  1 a 2 6 ]
+"97
+[v Bitwise@D D `i  1 a 2 4 ]
+"91
+[v Bitwise@C C `i  1 a 2 2 ]
+"80
+[v Bitwise@B B `i  1 a 2 10 ]
 "68
-[v Bitwise@A A `i  1 a 2 2 ]
-"93
+[v Bitwise@A A `i  1 a 2 8 ]
+"108
 } 0

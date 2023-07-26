@@ -633,10 +633,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "63
 [p x EBTRB  =  OFF       ]
 "25 main.c
-[; ;main.c: 25: int Time = 800;
+[; ;main.c: 25: int Time = 400;
 [v _Time `i ~T0 @X0 1 e ]
 [i _Time
--> 800 `i
+-> 400 `i
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "27
@@ -718,116 +718,138 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _Bitwise ]
 [f ]
 "68
-[; ;main.c: 68:     for (int A = 0; A < 6; A++) {
+[; ;main.c: 68:     for (int A = 0; A < 7; A++) {
 {
 [v _A `i ~T0 @X0 1 a ]
 [e = _A -> 0 `i ]
-[e $ < _A -> 6 `i 373  ]
+[e $ < _A -> 7 `i 373  ]
 [e $U 374  ]
 [e :U 373 ]
 {
-"69
-[; ;main.c: 69:         LATA = (0x03 << A);
-[e = _LATA -> << -> 3 `i _A `uc ]
 "70
-[; ;main.c: 70:         _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 70:         if (A == 6) {
+[e $ ! == _A -> 6 `i 376  ]
+{
 "71
-[; ;main.c: 71:     }
+[; ;main.c: 71:             LATB = 0x01;
+[e = _LATB -> -> 1 `i `uc ]
+"72
+[; ;main.c: 72:         }
 }
-[e ++ _A -> 1 `i ]
-[e $ < _A -> 6 `i 373  ]
-[e :U 374 ]
-}
-"73
-[; ;main.c: 73:     for (int B = 0; B < 7; B++) {
-{
-[v _B `i ~T0 @X0 1 a ]
-[e = _B -> 0 `i ]
-[e $ < _B -> 7 `i 376  ]
-[e $U 377  ]
 [e :U 376 ]
-{
 "74
-[; ;main.c: 74:         LATB = (0x03 << B);
-[e = _LATB -> << -> 3 `i _B `uc ]
+[; ;main.c: 74:         LATA = (0x03 << A);
+[e = _LATA -> << -> 3 `i _A `uc ]
 "75
 [; ;main.c: 75:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"76
-[; ;main.c: 76:     }
+"77
+[; ;main.c: 77:     }
+}
+[e ++ _A -> 1 `i ]
+[e $ < _A -> 7 `i 373  ]
+[e :U 374 ]
+}
+"80
+[; ;main.c: 80:     for (int B = 0; B < 7; B++) {
+{
+[v _B `i ~T0 @X0 1 a ]
+[e = _B -> 0 `i ]
+[e $ < _B -> 7 `i 377  ]
+[e $U 378  ]
+[e :U 377 ]
+{
+"82
+[; ;main.c: 82:         if (B == 0){
+[e $ ! == _B -> 0 `i 380  ]
+{
+"83
+[; ;main.c: 83:             LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"84
+[; ;main.c: 84:         }
+}
+[e :U 380 ]
+"86
+[; ;main.c: 86:         LATB = (0x03 << B);
+[e = _LATB -> << -> 3 `i _B `uc ]
+"87
+[; ;main.c: 87:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"88
+[; ;main.c: 88:     }
 }
 [e ++ _B -> 1 `i ]
-[e $ < _B -> 7 `i 376  ]
-[e :U 377 ]
+[e $ < _B -> 7 `i 377  ]
+[e :U 378 ]
 }
-"78
-[; ;main.c: 78:     for (int C = 0; C < 6; C++) {
+"91
+[; ;main.c: 91:     for (int C = 0; C < 6; C++) {
 {
 [v _C `i ~T0 @X0 1 a ]
 [e = _C -> 0 `i ]
-[e $ < _C -> 6 `i 379  ]
-[e $U 380  ]
-[e :U 379 ]
+[e $ < _C -> 6 `i 381  ]
+[e $U 382  ]
+[e :U 381 ]
 {
-"79
-[; ;main.c: 79:         LATC = (0x03 << C);
+"92
+[; ;main.c: 92:         LATC = (0x03 << C);
 [e = _LATC -> << -> 3 `i _C `uc ]
-"80
-[; ;main.c: 80:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"93
+[; ;main.c: 93:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"81
-[; ;main.c: 81:     }
+"94
+[; ;main.c: 94:     }
 }
 [e ++ _C -> 1 `i ]
-[e $ < _C -> 6 `i 379  ]
-[e :U 380 ]
+[e $ < _C -> 6 `i 381  ]
+[e :U 382 ]
 }
-"83
-[; ;main.c: 83:     for (int D = 0; D < 7; D++) {
+"97
+[; ;main.c: 97:     for (int D = 0; D < 7; D++) {
 {
 [v _D `i ~T0 @X0 1 a ]
 [e = _D -> 0 `i ]
-[e $ < _D -> 7 `i 382  ]
-[e $U 383  ]
-[e :U 382 ]
+[e $ < _D -> 7 `i 384  ]
+[e $U 385  ]
+[e :U 384 ]
 {
-"84
-[; ;main.c: 84:         LATD = (0x03 << D);
+"98
+[; ;main.c: 98:         LATD = (0x03 << D);
 [e = _LATD -> << -> 3 `i _D `uc ]
-"85
-[; ;main.c: 85:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"99
+[; ;main.c: 99:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"86
-[; ;main.c: 86:     }
+"100
+[; ;main.c: 100:     }
 }
 [e ++ _D -> 1 `i ]
-[e $ < _D -> 7 `i 382  ]
-[e :U 383 ]
+[e $ < _D -> 7 `i 384  ]
+[e :U 385 ]
 }
-"88
-[; ;main.c: 88:     for (int E = 0; E < 3; E++) {
+"103
+[; ;main.c: 103:     for (int E = 0; E < 3; E++) {
 {
 [v _E `i ~T0 @X0 1 a ]
 [e = _E -> 0 `i ]
-[e $ < _E -> 3 `i 385  ]
-[e $U 386  ]
-[e :U 385 ]
+[e $ < _E -> 3 `i 387  ]
+[e $U 388  ]
+[e :U 387 ]
 {
-"89
-[; ;main.c: 89:         LATE = (0x01 << E);
+"104
+[; ;main.c: 104:         LATE = (0x01 << E);
 [e = _LATE -> << -> 1 `i _E `uc ]
-"90
-[; ;main.c: 90:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"105
+[; ;main.c: 105:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:     }
+"106
+[; ;main.c: 106:     }
 }
 [e ++ _E -> 1 `i ]
-[e $ < _E -> 3 `i 385  ]
-[e :U 386 ]
+[e $ < _E -> 3 `i 387  ]
+[e :U 388 ]
 }
-"93
-[; ;main.c: 93: }
+"108
+[; ;main.c: 108: }
 [e :UE 372 ]
 }
