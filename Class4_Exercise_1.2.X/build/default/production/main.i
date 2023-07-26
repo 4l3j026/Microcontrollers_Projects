@@ -7,7 +7,7 @@
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 23 "main.c"
+# 16 "main.c"
 # 1 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5714,10 +5714,10 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 23 "main.c" 2
+# 16 "main.c" 2
 
 
-# 1 "./Library.h" 1
+# 1 "./Fuses.h" 1
 
 
 
@@ -5732,7 +5732,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config PWRT = OFF
-#pragma config BOR = ON
+#pragma config BOR = OFF
 #pragma config BORV = 3
 #pragma config VREGEN = OFF
 
@@ -5781,72 +5781,80 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 25 "main.c" 2
+# 18 "main.c" 2
 
 
 
-void Settings();
-void Exercise();
+void Configuration(void);
+void Bitwise(void);
 
 
-int Time = 400;
+int Time = 800;
 
 void main(void) {
 
-    Settings();
+
+    Configuration();
 
     while (1) {
-        Exercise();
+
+        Bitwise();
+
     }
+
 }
 
 
 
-void Settings(void) {
-
+void Configuration() {
 
     OSCCON = 0x72;
     ADCON1 = 0x0F;
 
 
-    TRISA = 0;
-    TRISB = 0;
-    TRISC = 0;
-    TRISD = 0;
-    TRISE = 0;
+    TRISA = 0x00;
+    TRISB = 0x00;
+    TRISC = 0x00;
+    TRISD = 0x00;
+    TRISE = 0x00;
 
 
-    LATA = 0;
-    LATB = 0;
-    LATC = 0;
-    LATD = 0;
-    LATE = 0;
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
+    LATD = 0x00;
+    LATE = 0x00;
 
 }
 
 
 
-void Exercise(void) {
+void Bitwise() {
 
-    LATA = 0xFF;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATA = 0x00;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATB = 0xFF;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATB = 0x00;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATC = 0xFF;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATC = 0x00;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATD = 0xFF;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATD = 0x00;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATE = 0xF;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
-    LATE = 0x0;
-    _delay((unsigned long)((Time)*(8000000/4000.0)));
+
+    for (int A = 0; A < 6; A++) {
+        LATA = (0x03 << A);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+    }
+
+    for (int B = 0; B < 7; B++) {
+        LATB = (0x03 << B);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+    }
+
+    for (int C = 0; C < 6; C++) {
+        LATC = (0x03 << C);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+    }
+
+    for (int D = 0; D < 7; D++) {
+        LATD = (0x03 << D);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+    }
+
+    for (int E = 0; E < 3; E++) {
+        LATE = (0x01 << E);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+    }
 
 }

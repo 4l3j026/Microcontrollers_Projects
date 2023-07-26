@@ -12,7 +12,8 @@
  *      all ports with specific sequence:
  
  *      1. Turn on all pins of port A
- *      2. 
+ *      2. After 500 ms Turn off all pins of port A
+ *      3. Repeat this sequence with all ports. 
  * 
  * 
  */
@@ -20,15 +21,15 @@
 // Fuses 
 // This two statements use to specific registers from PIC. 
 #include <xc.h> // Compiler libraries. 
-#include <pic18f4550.h> 
-#include "Library.h"
+#include <pic18f4550.h> //This statement is a library specifically for PIC18F4550. 
+#include "Library.h" //Fuses library 
 
 //  Prototypes functions. 
 void Settings(); // Set registers. 
 void Exercise(); // Develop the exercise. 
 
 //Global variables.
-int Time = 500;
+int Time = 400;
 
 void main(void) {
 

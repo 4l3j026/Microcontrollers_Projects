@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"28 main.c
-[; ;main.c: 28: void Settings();
-[v _Settings `(v ~T0 @X0 0 e? ]
-"29
-[; ;main.c: 29: void Exercise();
-[v _Exercise `(v ~T0 @X0 0 e? ]
+"21 main.c
+[; ;main.c: 21: void Configuration(void);
+[v _Configuration `(v ~T0 @X0 0 ef ]
+"22
+[; ;main.c: 22: void Bitwise(void);
+[v _Bitwise `(v ~T0 @X0 0 ef ]
 "7987 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
 [; ;B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h: 7987: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
@@ -556,14 +556,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8894
 [; ;B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h: 8894: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"4 ./Library.h
+"4 ./Fuses.h
 [p x PLLDIV  =  1        ]
 "5
 [p x CPUDIV  =  OSC1_PLL2 ]
 "6
 [p x USBDIV  =  1        ]
 "9
-[p x FOSC  =  INTOSCIO_EC ]
+[p x FOSC  =    INTOSCIO_EC ]
 "10
 [p x FCMEN  =  OFF       ]
 "11
@@ -571,7 +571,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14
 [p x PWRT  =  OFF        ]
 "15
-[p x BOR  =  ON          ]
+[p x BOR  =  OFF         ]
 "16
 [p x BORV  =  3          ]
 "17
@@ -632,152 +632,202 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3  =  OFF       ]
 "63
 [p x EBTRB  =  OFF       ]
-"32 main.c
-[; ;main.c: 32: int Time = 400;
+"25 main.c
+[; ;main.c: 25: int Time = 800;
 [v _Time `i ~T0 @X0 1 e ]
 [i _Time
--> 400 `i
+-> 800 `i
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34
-[; ;main.c: 34: void main(void) {
+"27
+[; ;main.c: 27: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"36
-[; ;main.c: 36:     Settings();
-[e ( _Settings ..  ]
-"38
-[; ;main.c: 38:     while (1) {
+"30
+[; ;main.c: 30:     Configuration();
+[e ( _Configuration ..  ]
+"32
+[; ;main.c: 32:     while (1) {
 [e :U 369 ]
 {
-"39
-[; ;main.c: 39:         Exercise();
-[e ( _Exercise ..  ]
-"40
-[; ;main.c: 40:     }
+"34
+[; ;main.c: 34:         Bitwise();
+[e ( _Bitwise ..  ]
+"36
+[; ;main.c: 36:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"41
-[; ;main.c: 41: }
+"38
+[; ;main.c: 38: }
 [e :UE 367 ]
 }
-"45
-[; ;main.c: 45: void Settings(void) {
-[v _Settings `(v ~T0 @X0 1 ef ]
+"42
+[; ;main.c: 42: void Configuration() {
+[v _Configuration `(v ~T0 @X0 1 ef ]
 {
-[e :U _Settings ]
+[e :U _Configuration ]
 [f ]
-"48
-[; ;main.c: 48:     OSCCON = 0x72;
+"44
+[; ;main.c: 44:     OSCCON = 0x72;
 [e = _OSCCON -> -> 114 `i `uc ]
-"49
-[; ;main.c: 49:     ADCON1 = 0x0F;
+"45
+[; ;main.c: 45:     ADCON1 = 0x0F;
 [e = _ADCON1 -> -> 15 `i `uc ]
-"52
-[; ;main.c: 52:     TRISA = 0;
+"48
+[; ;main.c: 48:     TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
-"53
-[; ;main.c: 53:     TRISB = 0;
+"49
+[; ;main.c: 49:     TRISB = 0x00;
 [e = _TRISB -> -> 0 `i `uc ]
-"54
-[; ;main.c: 54:     TRISC = 0;
+"50
+[; ;main.c: 50:     TRISC = 0x00;
 [e = _TRISC -> -> 0 `i `uc ]
-"55
-[; ;main.c: 55:     TRISD = 0;
+"51
+[; ;main.c: 51:     TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"56
-[; ;main.c: 56:     TRISE = 0;
+"52
+[; ;main.c: 52:     TRISE = 0x00;
 [e = _TRISE -> -> 0 `i `uc ]
-"59
-[; ;main.c: 59:     LATA = 0;
+"55
+[; ;main.c: 55:     LATA = 0x00;
 [e = _LATA -> -> 0 `i `uc ]
-"60
-[; ;main.c: 60:     LATB = 0;
+"56
+[; ;main.c: 56:     LATB = 0x00;
 [e = _LATB -> -> 0 `i `uc ]
-"61
-[; ;main.c: 61:     LATC = 0;
+"57
+[; ;main.c: 57:     LATC = 0x00;
 [e = _LATC -> -> 0 `i `uc ]
-"62
-[; ;main.c: 62:     LATD = 0;
+"58
+[; ;main.c: 58:     LATD = 0x00;
 [e = _LATD -> -> 0 `i `uc ]
-"63
-[; ;main.c: 63:     LATE = 0;
+"59
+[; ;main.c: 59:     LATE = 0x00;
 [e = _LATE -> -> 0 `i `uc ]
-"65
-[; ;main.c: 65: }
+"61
+[; ;main.c: 61: }
 [e :UE 371 ]
 }
-"69
-[; ;main.c: 69: void Exercise(void) {
-[v _Exercise `(v ~T0 @X0 1 ef ]
+"65
+[; ;main.c: 65: void Bitwise() {
+[v _Bitwise `(v ~T0 @X0 1 ef ]
 {
-[e :U _Exercise ]
+[e :U _Bitwise ]
 [f ]
+"68
+[; ;main.c: 68:     for (int A = 0; A < 6; A++) {
+{
+[v _A `i ~T0 @X0 1 a ]
+[e = _A -> 0 `i ]
+[e $ < _A -> 6 `i 373  ]
+[e $U 374  ]
+[e :U 373 ]
+{
+"69
+[; ;main.c: 69:         LATA = (0x03 << A);
+[e = _LATA -> << -> 3 `i _A `uc ]
+"70
+[; ;main.c: 70:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "71
-[; ;main.c: 71:     LATA = 0xFF;
-[e = _LATA -> -> 255 `i `uc ]
-"72
-[; ;main.c: 72:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 71:     }
+}
+[e ++ _A -> 1 `i ]
+[e $ < _A -> 6 `i 373  ]
+[e :U 374 ]
+}
 "73
-[; ;main.c: 73:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
+[; ;main.c: 73:     for (int B = 0; B < 7; B++) {
+{
+[v _B `i ~T0 @X0 1 a ]
+[e = _B -> 0 `i ]
+[e $ < _B -> 7 `i 376  ]
+[e $U 377  ]
+[e :U 376 ]
+{
 "74
-[; ;main.c: 74:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 74:         LATB = (0x03 << B);
+[e = _LATB -> << -> 3 `i _B `uc ]
 "75
-[; ;main.c: 75:     LATB = 0xFF;
-[e = _LATB -> -> 255 `i `uc ]
+[; ;main.c: 75:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "76
-[; ;main.c: 76:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"77
-[; ;main.c: 77:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 76:     }
+}
+[e ++ _B -> 1 `i ]
+[e $ < _B -> 7 `i 376  ]
+[e :U 377 ]
+}
 "78
-[; ;main.c: 78:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 78:     for (int C = 0; C < 6; C++) {
+{
+[v _C `i ~T0 @X0 1 a ]
+[e = _C -> 0 `i ]
+[e $ < _C -> 6 `i 379  ]
+[e $U 380  ]
+[e :U 379 ]
+{
 "79
-[; ;main.c: 79:     LATC = 0xFF;
-[e = _LATC -> -> 255 `i `uc ]
+[; ;main.c: 79:         LATC = (0x03 << C);
+[e = _LATC -> << -> 3 `i _C `uc ]
 "80
-[; ;main.c: 80:     _delay((unsigned long)((Time)*(8000000/4000.0)));
+[; ;main.c: 80:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "81
-[; ;main.c: 81:     LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
-"82
-[; ;main.c: 82:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 81:     }
+}
+[e ++ _C -> 1 `i ]
+[e $ < _C -> 6 `i 379  ]
+[e :U 380 ]
+}
 "83
-[; ;main.c: 83:     LATD = 0xFF;
-[e = _LATD -> -> 255 `i `uc ]
+[; ;main.c: 83:     for (int D = 0; D < 7; D++) {
+{
+[v _D `i ~T0 @X0 1 a ]
+[e = _D -> 0 `i ]
+[e $ < _D -> 7 `i 382  ]
+[e $U 383  ]
+[e :U 382 ]
+{
 "84
-[; ;main.c: 84:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 84:         LATD = (0x03 << D);
+[e = _LATD -> << -> 3 `i _D `uc ]
 "85
-[; ;main.c: 85:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;main.c: 85:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "86
-[; ;main.c: 86:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"87
-[; ;main.c: 87:     LATE = 0xF;
-[e = _LATE -> -> 15 `i `uc ]
+[; ;main.c: 86:     }
+}
+[e ++ _D -> 1 `i ]
+[e $ < _D -> 7 `i 382  ]
+[e :U 383 ]
+}
 "88
-[; ;main.c: 88:     _delay((unsigned long)((Time)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 88:     for (int E = 0; E < 3; E++) {
+{
+[v _E `i ~T0 @X0 1 a ]
+[e = _E -> 0 `i ]
+[e $ < _E -> 3 `i 385  ]
+[e $U 386  ]
+[e :U 385 ]
+{
 "89
-[; ;main.c: 89:     LATE = 0x0;
-[e = _LATE -> -> 0 `i `uc ]
+[; ;main.c: 89:         LATE = (0x01 << E);
+[e = _LATE -> << -> 1 `i _E `uc ]
 "90
-[; ;main.c: 90:     _delay((unsigned long)((Time)*(8000000/4000.0)));
+[; ;main.c: 90:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"92
-[; ;main.c: 92: }
+"91
+[; ;main.c: 91:     }
+}
+[e ++ _E -> 1 `i ]
+[e $ < _E -> 3 `i 385  ]
+[e :U 386 ]
+}
+"93
+[; ;main.c: 93: }
 [e :UE 372 ]
 }
