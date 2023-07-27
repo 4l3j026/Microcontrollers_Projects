@@ -65,33 +65,44 @@ void Configuration() {
 void Bitwise() {
 
     //Shift operation in port A. 
-    for (int A = 0; A < 7; A++) {
-       
-        if (A == 6) {
-            LATB = 0x01;
-        }
-
-        LATA = (0x03 << A);
-        __delay_ms(Time);
-
-    }
+    //    for (int A = 0; A < 7; A++) {
+    //       
+    //        if (A == 6) {
+    //            LATB = 0x01;
+    //        }
+    //
+    //        LATA = (0x03 << A);
+    //        __delay_ms(Time);
+    //
+    //    }
 
     //Shift operation in Port B.
-    for (int B = 0; B < 7; B++) {
-
-        if (B == 0) {
-            LATA = 0x00;
-        }
-
-        LATB = (0x03 << B);
-        __delay_ms(Time);
-        
-    }
+//    for (int B = 0; B < 8; B++) {
+//
+//        LATA = 0x00;
+//        
+//        if (B == 7) {
+//            LATC = 0x01;
+//        }
+//
+//        LATB = (0x03 << B);
+//        __delay_ms(Time);
+//
+//    }
 
     //Shift operation in Port C.
-    for (int C = 0; C < 6; C++) {
+    for (int C = 0; C < 7; C++) {
+
+        if (C == 2){
+            LATC = 0x14;
+            __delay_ms(Time);
+        }
+        
+        LATB = 0x00;
+
         LATC = (0x03 << C);
         __delay_ms(Time);
+
     }
 
     //Shift operation in port D.

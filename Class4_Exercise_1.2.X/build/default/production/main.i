@@ -5830,34 +5830,19 @@ void Configuration() {
 
 
 void Bitwise() {
+# 94 "main.c"
+    for (int C = 0; C < 7; C++) {
 
-
-    for (int A = 0; A < 7; A++) {
-
-        if (A == 6) {
-            LATB = 0x01;
+        if (C == 2){
+            LATC = 0x14;
+            _delay((unsigned long)((Time)*(8000000/4000.0)));
         }
 
-        LATA = (0x03 << A);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
+        LATB = 0x00;
 
-    }
-
-
-    for (int B = 0; B < 7; B++) {
-
-        if (B == 0){
-            LATA = 0x00;
-        }
-
-        LATB = (0x03 << B);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-    }
-
-
-    for (int C = 0; C < 6; C++) {
         LATC = (0x03 << C);
         _delay((unsigned long)((Time)*(8000000/4000.0)));
+
     }
 
 
