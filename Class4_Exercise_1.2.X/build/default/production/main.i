@@ -5787,6 +5787,7 @@ unsigned char __t3rd16on(void);
 
 void Configuration(void);
 void Bitwise(void);
+void Hard_Bitwise(void);
 
 
 int Time = 400;
@@ -5798,7 +5799,8 @@ void main(void) {
 
     while (1) {
 
-        Bitwise();
+
+        Hard_Bitwise();
 
     }
 
@@ -5829,11 +5831,38 @@ void Configuration() {
 
 
 
-void Bitwise() {
-# 94 "main.c"
+void Hard_Bitwise() {
+
+
+        for (int A = 0; A < 7; A++) {
+
+            if (A == 6) {
+                LATB = 0x01;
+            }
+
+            LATA = (0x03 << A);
+            _delay((unsigned long)((Time)*(8000000/4000.0)));
+
+        }
+
+
+        for (int B = 0; B < 8; B++) {
+
+            LATA = 0x00;
+
+            if (B == 7) {
+                LATC = 0x01;
+            }
+
+            LATB = (0x03 << B);
+            _delay((unsigned long)((Time)*(8000000/4000.0)));
+
+        }
+
+
     for (int C = 0; C < 7; C++) {
 
-        if (C == 2){
+        if (C == 2) {
             LATC = 0x14;
             _delay((unsigned long)((Time)*(8000000/4000.0)));
         }
@@ -5855,6 +5884,24 @@ void Bitwise() {
     for (int E = 0; E < 3; E++) {
         LATE = (0x01 << E);
         _delay((unsigned long)((Time)*(8000000/4000.0)));
+    }
+
+}
+
+void Bitwise() {
+
+    long N1 = 0x00000003;
+
+    for (int i = 0; i < 36; i++) {
+
+        LATA = N1;
+        LATB = N1 >> 8;
+        LATC = N1 >> 16;
+        LATD = N1 >> 24;
+        LATE = N1 >> 32;
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+        N1 = N1 << 1;
+
     }
 
 }

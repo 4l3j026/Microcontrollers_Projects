@@ -20,6 +20,7 @@
 //Prototype functions. 
 void Configuration(void);
 void Bitwise(void);
+void Hard_Bitwise(void);
 
 //Global variables. 
 int Time = 400; //Constant time to make the dynamic variable. 
@@ -31,7 +32,8 @@ void main(void) {
 
     while (1) {
 
-        Bitwise();
+        //        Bitwise();
+        Hard_Bitwise();
 
     }
 
@@ -44,7 +46,7 @@ void Configuration() {
     OSCCON = 0x72; //Oscillator controller register. 
     ADCON1 = 0x0F; //Analog and Digital control register. 
 
-    //TRIS registers. 
+    //TRIS registers set as outputs. 
     TRISA = 0x00;
     TRISB = 0x00;
     TRISC = 0x00;
@@ -61,43 +63,46 @@ void Configuration() {
 }
 
 //Develop the exercise 
+void Hard_Bitwise() {
+    /*
+     This is another way to make the class exercise, however is long and need more
+     lines code.
+     */
 
-void Bitwise() {
+    //    Shift operation in port A. 
+    for (int A = 0; A < 7; A++) {
 
-    //Shift operation in port A. 
-    //    for (int A = 0; A < 7; A++) {
-    //       
-    //        if (A == 6) {
-    //            LATB = 0x01;
-    //        }
-    //
-    //        LATA = (0x03 << A);
-    //        __delay_ms(Time);
-    //
-    //    }
+        if (A == 6) {
+            LATB = 0x01;
+        }
 
-    //Shift operation in Port B.
-//    for (int B = 0; B < 8; B++) {
-//
-//        LATA = 0x00;
-//        
-//        if (B == 7) {
-//            LATC = 0x01;
-//        }
-//
-//        LATB = (0x03 << B);
-//        __delay_ms(Time);
-//
-//    }
+        LATA = (0x03 << A);
+        __delay_ms(Time);
+
+    }
+
+    //    Shift operation in Port B.
+    for (int B = 0; B < 8; B++) {
+
+        LATA = 0x00;
+
+        if (B == 7) {
+            LATC = 0x01;
+        }
+
+        LATB = (0x03 << B);
+        __delay_ms(Time);
+
+    }
 
     //Shift operation in Port C.
     for (int C = 0; C < 7; C++) {
 
-        if (C == 2){
+        if (C == 2) {
             LATC = 0x14;
             __delay_ms(Time);
         }
-        
+
         LATB = 0x00;
 
         LATC = (0x03 << C);
@@ -115,6 +120,28 @@ void Bitwise() {
     for (int E = 0; E < 3; E++) {
         LATE = (0x01 << E);
         __delay_ms(Time);
+    }
+
+}
+
+//Develop function. 
+void Bitwise() {
+
+    /*
+     Using bitwise operations we can compress the code to some lines. 
+    */
+    long N1 = 0x00000003;
+
+    for (int i = 0; i < 36; i++) {
+
+        LATA = N1;
+        LATB = N1 >> 8;
+        LATC = N1 >> 16;
+        LATD = N1 >> 24;
+        LATE = N1 >> 32;
+        __delay_ms(Time);
+        N1 = N1 << 1;
+
     }
 
 }
