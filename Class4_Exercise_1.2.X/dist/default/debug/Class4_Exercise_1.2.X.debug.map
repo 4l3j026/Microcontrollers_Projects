@@ -4,12 +4,12 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.41\pic\dat\20230208172133_en.msgs \
-  -cn -h+dist/default/production\Class4_Exercise_1.2.X.production.sym \
-  --cmf=dist/default/production\Class4_Exercise_1.2.X.production.cmf -z \
-  -Q18F4550 -oC:\Users\ALEJAN~1\AppData\Local\Temp\xcAsk28.\driver_tmp_3.o \
+  -cn -h+dist/default/debug\Class4_Exercise_1.2.X.debug.sym \
+  --cmf=dist/default/debug\Class4_Exercise_1.2.X.debug.cmf -z -Q18F4550 \
+  -oC:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/production/Class4_Exercise_1.2.X.production.map \
-  --md=C:\Users\ALEJAN~1\AppData\Local\Temp\xcAsk28.\driver_tmp_0.dat -E1 \
+  -Mdist/default/debug/Class4_Exercise_1.2.X.debug.map \
+  --md=C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0800h-08FFhx120 -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh \
   -AABS1=00h-07FFh -ABIGRAM=01h-07FFh -ARAM=060h-0FFh,0100h-01FFhx7 \
@@ -25,8 +25,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ALEJAN~1\AppData\Local\Temp\xcAsk28.\driver_tmp_9.o \
-  dist/default/production\Class4_Exercise_1.2.X.production.o 
+  C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_9.o \
+  dist/default/debug\Class4_Exercise_1.2.X.debug.o 
 
 Object code version is 3.11
 
@@ -35,11 +35,11 @@ Machine type is 18F4550
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ALEJAN~1\AppData\Local\Temp\xcAsk28.\driver_tmp_9.o
+C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_9.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0
-dist/default/production\Class4_Exercise_1.2.X.production.o
+dist/default/debug\Class4_Exercise_1.2.X.debug.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 text2                              7D70     7D70       32     3EB8       0
@@ -182,6 +182,7 @@ __Hbigdata               bigdata      000000
 __Hbigram                bigram       000000
 __Hbigsfr                bigsfr       000000
 __Hbss                   bss          000000
+__HbssCOMRAM             bssCOMRAM    000000
 __Hcinit                 cinit        000000
 __Hclrtext               clrtext      000000
 __Hcomram                comram       000000
@@ -249,6 +250,7 @@ __Lbigdata               bigdata      000000
 __Lbigram                bigram       000000
 __Lbigsfr                bigsfr       000000
 __Lbss                   bss          000000
+__LbssCOMRAM             bssCOMRAM    000000
 __Lcinit                 cinit        000000
 __Lclrtext               clrtext      000000
 __Lcomram                comram       000000
@@ -319,6 +321,7 @@ __end_of__initialization cinit        007D6A
 __end_of_main            text0        007D52
 __initialization         cinit        007D52
 __mediumconst            mediumconst  000000
+__pbssCOMRAM             bssCOMRAM    000000
 __pcinit                 cinit        007D52
 __pcstackCOMRAM          cstackCOMRAM 000001
 __pdataCOMRAM            dataCOMRAM   00000D
@@ -329,6 +332,7 @@ __ptext2                 text2        007D70
 __ramtop                 ramtop       000800
 __smallconst             smallconst   000000
 _main                    text0        007D42
+_var_1                   bssCOMRAM    000000
 end_of_initialization    cinit        007D6A
 intlevel0                text         000000
 intlevel1                text         000000

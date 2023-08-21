@@ -31,58 +31,58 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"28 B:\MPLAB_Projects\College\Class4_Exercise_1.2.X\main.c
+"32 C:\Apps\Git\Repositories\Microcontrollers_Projects\Class4_Exercise_1.2.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"44
+"48
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"67
-[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
-"2974 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
-[v _LATA LATA `VEuc  1 e 1 @3977 ]
-"3074
-[v _LATB LATB `VEuc  1 e 1 @3978 ]
-"3186
-[v _LATC LATC `VEuc  1 e 1 @3979 ]
-"3264
-[v _LATD LATD `VEuc  1 e 1 @3980 ]
-"3376
-[v _LATE LATE `VEuc  1 e 1 @3981 ]
-"3428
-[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-"3626
-[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-"3848
-[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-"4002
-[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-"4224
-[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-"6582
-[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"7987
-[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"28 B:\MPLAB_Projects\College\Class4_Exercise_1.2.X\main.c
-[v _main main `(v  1 e 1 0 ]
-{
-"40
-} 0
-"67
-[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
-{
-"117
-[v Hard_Bitwise@E E `i  1 a 2 4 ]
-"111
-[v Hard_Bitwise@D D `i  1 a 2 2 ]
-"96
-[v Hard_Bitwise@C C `i  1 a 2 10 ]
-"82
-[v Hard_Bitwise@B B `i  1 a 2 8 ]
 "70
-[v Hard_Bitwise@A A `i  1 a 2 6 ]
-"122
-} 0
+[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
+"2973 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"3073
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"3185
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"3263
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"3375
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"3427
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"3625
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"3847
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"4001
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"4223
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"6581
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"7986
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"32 C:\Apps\Git\Repositories\Microcontrollers_Projects\Class4_Exercise_1.2.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
 "44
+} 0
+"70
+[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
+{
+"124
+[v Hard_Bitwise@E E `i  1 a 2 4 ]
+"118
+[v Hard_Bitwise@D D `i  1 a 2 2 ]
+"103
+[v Hard_Bitwise@C C `i  1 a 2 10 ]
+"89
+[v Hard_Bitwise@B B `i  1 a 2 8 ]
+"77
+[v Hard_Bitwise@A A `i  1 a 2 6 ]
+"129
+} 0
+"48
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
-"63
+"67
 } 0
