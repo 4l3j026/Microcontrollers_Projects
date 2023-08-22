@@ -6,6 +6,7 @@
             <name>InputsClass5_E1.1</name>
             <creation-uuid>0ac025c3-10b8-4138-88c3-fccd0e2e8064</creation-uuid>
             <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList/>
             <confList>
@@ -14,7 +15,6 @@
                     <type>2</type>
                 </confElem>
             </confList>
-            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>

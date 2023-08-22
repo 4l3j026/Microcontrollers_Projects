@@ -25,10 +25,6 @@ void Hard_Bitwise(void);
 //Global variables. 
 int Time = 400; //Constant time to make the dynamic variable. 
 
-struct Laf{
-    
-}var_1;
-
 void main(void) {
 
     //Call functions.
