@@ -7,14 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 16 "main.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5721,7 +5714,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 16 "main.c" 2
 
 # 1 "./Fuses.h" 1
 # 10 "./Fuses.h"
@@ -5785,7 +5778,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 10 "main.c" 2
+# 17 "main.c" 2
 
 
 
@@ -5801,10 +5794,20 @@ void main(void) {
     Configurations();
 
 
+    while(1){
+
+    }
+
+
 }
 
 
 void Configurations (){
+
+
+    OSCCON = 0x72;
+
+    ADCON1 = 0x0F;
 
 
     TRISBbits.RB0 = 1;
@@ -5812,5 +5815,9 @@ void Configurations (){
 
     TRISBbits.RB2 = 0;
     TRISBbits.RB3 = 0;
+
+
+    LATBbits.LB2 = 0;
+    LATBbits.LB3 = 0;
 
 }

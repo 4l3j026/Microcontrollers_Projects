@@ -39,6 +39,11 @@ void main(void) {
 //Development function about configurations registers. 
 void Configurations (){
     
+    //OSCillator CONtroller.
+    OSCCON = 0x72; 
+    //Analog & Digital CONtroller.
+    ADCON1 = 0x0F;
+    
     //Set pin RB0 & RB1 as input.
     TRISBbits.RB0 = 1;
     TRISBbits.RB1 = 1; 
