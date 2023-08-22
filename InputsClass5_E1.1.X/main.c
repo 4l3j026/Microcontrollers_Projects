@@ -14,13 +14,18 @@
 
 //Adding Libraries 
 #include <xc.h> //Library to microchip microcontrollers. 
-#include "Fuses.h" //Personal Library to se fuses. 
+#include "Fuses.h" //Personal Library to set fuses. 
 #include <pic18f4550.h> //Library to PIC18F4550.
 
 //Prototype functions.
 void Configurations (void);
 
 
+struct Variables {
+        
+    
+    
+}Led_1, Led_2;
 
 //Main function. 
 void main(void) {
@@ -31,7 +36,7 @@ void main(void) {
     //Infinite loop
     while(1){
         
-    }
+    } 
     
     
 }
@@ -56,3 +61,4 @@ void Configurations (){
     LATBbits.LB3 = 0; 
     
 }
+
