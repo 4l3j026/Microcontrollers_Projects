@@ -22,6 +22,9 @@
 void Configurations(void);
 void Input_Test(void);
 
+//Global variables.
+unsigned int Time = 1000;
+unsigned int Bounce_Time = 100;
 
 //Main function. 
 
@@ -32,7 +35,9 @@ void main(void) {
 
     //Infinite loop
     while (1) {
-
+        
+        Input_Test(); //Calling function.  
+        
     }
 
 
@@ -65,6 +70,9 @@ void Configurations() {
 void Input_Test() {
 
     if (PORTBbits.RB0){
+        __delay_ms(Bounce_Time);
+        LATBbits.LB2 ^= 1;
+        __delay_ms(Time);
         
     }
     

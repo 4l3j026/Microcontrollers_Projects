@@ -5784,8 +5784,12 @@ unsigned char __t3rd16on(void);
 
 
 
-void Configurations (void);
-void Input_Test (void);
+void Configurations(void);
+void Input_Test(void);
+
+
+unsigned int Time = 1000;
+unsigned int Bounce_Time = 100;
 
 
 
@@ -5795,7 +5799,9 @@ void main(void) {
     Configurations();
 
 
-    while(1){
+    while (1) {
+
+        Input_Test();
 
     }
 
@@ -5803,7 +5809,8 @@ void main(void) {
 }
 
 
-void Configurations (){
+
+void Configurations() {
 
 
     OSCCON = 0x72;
@@ -5820,5 +5827,18 @@ void Configurations (){
 
     LATBbits.LB2 = 0;
     LATBbits.LB3 = 0;
+
+}
+
+
+
+void Input_Test() {
+
+    if (PORTBbits.RB0){
+        _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
+        LATBbits.LB2 ^= 1;
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+
+    }
 
 }

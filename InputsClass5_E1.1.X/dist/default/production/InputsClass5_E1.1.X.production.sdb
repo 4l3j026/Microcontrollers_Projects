@@ -7,6 +7,8 @@
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftdiv.c
@@ -27,11 +29,38 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"27 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"31 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"41
+"48
 [v _Configurations Configurations `(v  1 e 1 0 ]
-[s S70 . 1 `uc 1 LATB0 1 0 :1:0 
+"70
+[v _Input_Test Input_Test `(v  1 e 1 0 ]
+[s S43 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2483 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+[s S123 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S131 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S134 . 1 `S43 1 . 1 0 `S123 1 . 1 0 `S131 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES134  1 e 1 @3969 ]
+[s S74 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -40,8 +69,8 @@
 `uc 1 LATB6 1 0 :1:6 
 `uc 1 LATB7 1 0 :1:7 
 ]
-"3100 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
-[s S79 . 1 `uc 1 LB0 1 0 :1:0 
+"3100
+[s S83 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -50,9 +79,9 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S88 . 1 `S70 1 . 1 0 `S79 1 . 1 0 ]
-[v _LATBbits LATBbits `VES88  1 e 1 @3978 ]
-[s S30 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S92 . 1 `S74 1 . 1 0 `S83 1 . 1 0 ]
+[v _LATBbits LATBbits `VES92  1 e 1 @3978 ]
+[s S34 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -62,28 +91,24 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3657
-[s S39 . 1 `uc 1 RB0 1 0 :1:0 
-`uc 1 RB1 1 0 :1:1 
-`uc 1 RB2 1 0 :1:2 
-`uc 1 RB3 1 0 :1:3 
-`uc 1 RB4 1 0 :1:4 
-`uc 1 RB5 1 0 :1:5 
-`uc 1 RB6 1 0 :1:6 
-`uc 1 RB7 1 0 :1:7 
-]
-[u S48 . 1 `S30 1 . 1 0 `S39 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES48  1 e 1 @3987 ]
+[u S52 . 1 `S34 1 . 1 0 `S43 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES52  1 e 1 @3987 ]
 "6581
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"27 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
+"31 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"38
+"44
 } 0
-"41
+"70
+[v _Input_Test Input_Test `(v  1 e 1 0 ]
+{
+"79
+} 0
+"48
 [v _Configurations Configurations `(v  1 e 1 0 ]
 {
-"59
+"66
 } 0
