@@ -27,9 +27,9 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"26 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
+"27 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"40
+"41
 [v _Configurations Configurations `(v  1 e 1 0 ]
 [s S70 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
@@ -77,13 +77,13 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"26 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
+"27 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"37
+"38
 } 0
-"40
+"41
 [v _Configurations Configurations `(v  1 e 1 0 ]
 {
-"58
+"59
 } 0

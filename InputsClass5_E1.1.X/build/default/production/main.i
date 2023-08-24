@@ -5783,8 +5783,9 @@ unsigned char __t3rd16on(void);
 
 
 
-void Configurations (void);
 
+void Configurations (void);
+void Input_Test (void);
 
 
 
