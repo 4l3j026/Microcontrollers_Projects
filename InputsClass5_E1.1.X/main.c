@@ -35,9 +35,9 @@ void main(void) {
 
     //Infinite loop
     while (1) {
-        
+
         Input_Test(); //Calling function.  
-        
+
     }
 
 
@@ -69,12 +69,12 @@ void Configurations() {
 
 void Input_Test() {
 
-    if (PORTBbits.RB0){
-        __delay_ms(Bounce_Time);
-        LATBbits.LB2 ^= 1;
-        __delay_ms(Time);
-        
+    if (PORTBbits.RB0) { //This conditional reads RBO pin. 
+        __delay_ms(Bounce_Time); //Use delay function to switch bouncing. 
+        LATBbits.LB2 ^= 1; //Change port state. 
+        __delay_ms(Time);   //Delay of blink led. 
+
     }
-    
+
 }
 
