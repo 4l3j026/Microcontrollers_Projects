@@ -5784,6 +5784,7 @@ unsigned char __t3rd16on(void);
 
 
 
+
 void Configurations(void);
 void Input_Test(void);
 
@@ -5834,9 +5835,14 @@ void Configurations() {
 
 void Input_Test() {
 
-    if (PORTBbits.RB0){
+    if (PORTBbits.RB0) {
         _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
         LATBbits.LB2 ^= 1;
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+
+    } else if (!PORTBbits.RB1) {
+        _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
+        LATBbits.LATB3 ^= 1;
         _delay((unsigned long)((Time)*(8000000/4000.0)));
 
     }

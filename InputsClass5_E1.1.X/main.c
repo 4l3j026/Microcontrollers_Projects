@@ -15,7 +15,8 @@
 //Adding Libraries 
 #include <xc.h> //Library to microchip microcontrollers. 
 #include "Fuses.h" //Personal Library to set fuses. 
-#include <pic18f4550.h> //Library to PIC18F4550.
+#include <pic18f4550.h>
+#include <builtins.h> //Library to PIC18F4550.
 
 
 //Prototype functions.
@@ -72,7 +73,12 @@ void Input_Test() {
     if (PORTBbits.RB0) { //This conditional reads RBO pin. 
         __delay_ms(Bounce_Time); //Use delay function to switch bouncing. 
         LATBbits.LB2 ^= 1; //Change port state. 
-        __delay_ms(Time);   //Delay of blink led. 
+        __delay_ms(Time); //Delay of blink led. 
+
+    } else if (PORTBbits.RB1) { //Another conditional to reads RB1 pin. 
+        __delay_ms(Bounce_Time); //Use delay function to switch bouncing. 
+        LATBbits.LATB3 ^= 1; //Change port state. 
+        __delay_ms(Time); //Delay of blink led. 
 
     }
 
