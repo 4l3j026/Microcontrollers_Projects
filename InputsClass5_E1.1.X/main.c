@@ -24,7 +24,7 @@ void Configurations(void);
 void Input_Test(void);
 
 //Global variables.
-unsigned int Time = 1000;
+unsigned int Time = 500;
 unsigned int Bounce_Time = 100;
 
 //Main function. 
@@ -78,8 +78,20 @@ void Input_Test() {
     } else if (PORTBbits.RB1) { //Another conditional to reads RB1 pin. 
         __delay_ms(Bounce_Time); //Use delay function to switch bouncing. 
         LATBbits.LATB3 ^= 1; //Change port state. 
-        __delay_ms(Time); //Delay of blink led. 
+        __delay_ms(Time); //Delay of blink led.         
 
+    }
+    /*
+     Another conditional of the code, when the user press RB0 and RB1 blink led's each 80ms.
+     */
+    while (PORTBbits.RB0 == 1 && PORTBbits.RB1 == 1) {
+        __delay_ms(Bounce_Time); //Use delay function to switch bouncing. 
+        LATBbits.LB2 = 1; //Assign to the ports a high state. 
+        LATBbits.LB3 = 1;
+        __delay_ms(80); //Wait 80ms. 
+        LATBbits.LB2 = 0;
+        LATBbits.LATB3 = 0;
+        __delay_ms(80);
     }
 
 }

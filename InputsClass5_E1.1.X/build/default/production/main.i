@@ -5789,7 +5789,7 @@ void Configurations(void);
 void Input_Test(void);
 
 
-unsigned int Time = 1000;
+unsigned int Time = 500;
 unsigned int Bounce_Time = 100;
 
 
@@ -5840,11 +5840,21 @@ void Input_Test() {
         LATBbits.LB2 ^= 1;
         _delay((unsigned long)((Time)*(8000000/4000.0)));
 
-    } else if (!PORTBbits.RB1) {
+    } else if (PORTBbits.RB1) {
         _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
         LATBbits.LATB3 ^= 1;
         _delay((unsigned long)((Time)*(8000000/4000.0)));
 
+    }
+
+    while (PORTBbits.RB0 == 1 && PORTBbits.RB1 ==1){
+        _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
+        LATBbits.LB2 = 1;
+        LATBbits.LB3 = 1;
+        _delay((unsigned long)((80)*(8000000/4000.0)));
+        LATBbits.LB2 = 0;
+        LATBbits.LATB3 = 0;
+        _delay((unsigned long)((80)*(8000000/4000.0)));
     }
 
 }
