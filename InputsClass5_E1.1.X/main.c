@@ -15,9 +15,7 @@
 //Adding Libraries 
 #include <xc.h> //Library to microchip microcontrollers. 
 #include "Fuses.h" //Personal Library to set fuses. 
-#include <pic18f4550.h>
-#include <builtins.h> //Library to PIC18F4550.
-
+#include <pic18f4550.h> //Library to PIC18F4550. 
 
 //Prototype functions.
 void Configurations(void);

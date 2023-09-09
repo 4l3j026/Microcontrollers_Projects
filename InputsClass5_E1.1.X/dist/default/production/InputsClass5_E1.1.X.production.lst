@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Sat Sep 09 14:18:18 2023
+                                                                                               Sat Sep 09 14:27:06 2023
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	18F4550
@@ -134,7 +134,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    120 ;;
    121 ;; *************** function _main *****************
    122 ;; Defined at:
-   123 ;;		line 32 in file "main.c"
+   123 ;;		line 30 in file "main.c"
    124 ;; Parameters:    Size  Location     Type
    125 ;;		None
    126 ;; Auto vars:     Size  Location     Type
@@ -168,11 +168,11 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    154   007EEC                     _main:
    155                           	callstack 30
    156   007EEC                     
-   157                           ;main.c: 35:     Configurations();
+   157                           ;main.c: 33:     Configurations();
    158   007EEC  EC7E  F03F         	call	_Configurations	;wreg free
    159   007EF0                     l762:
    160                           
-   161                           ;main.c: 40:         Input_Test();
+   161                           ;main.c: 38:         Input_Test();
    162   007EF0  EC9C  F03F         	call	_Input_Test	;wreg free
    163   007EF4  EF78  F03F         	goto	l762
    164   007EF8  EF00  F000         	goto	start
@@ -181,7 +181,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    167                           
    168 ;; *************** function _Input_Test *****************
    169 ;; Defined at:
-   170 ;;		line 71 in file "main.c"
+   170 ;;		line 69 in file "main.c"
    171 ;; Parameters:    Size  Location     Type
    172 ;;		None
    173 ;; Auto vars:     Size  Location     Type
@@ -214,7 +214,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    200   007F38                     _Input_Test:
    201                           	callstack 30
    202   007F38                     
-   203                           ;main.c: 73:     if (PORTBbits.RB0) {
+   203                           ;main.c: 71:     if (PORTBbits.RB0) {
    204   007F38  A081               	btfss	129,0,c	;volatile
    205   007F3A  EFA1  F03F         	goto	u11
    206   007F3E  EFA3  F03F         	goto	u10
@@ -222,7 +222,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    208   007F42  EFBD  F03F         	goto	l34
    209   007F46                     u10:
    210   007F46                     
-   211                           ;main.c: 74:         _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
+   211                           ;main.c: 72:         _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
    212   007F46  0E02               	movlw	2
    213   007F48  6E06               	movwf	(??_Input_Test+1)^0,c
    214   007F4A  0E04               	movlw	4
@@ -237,11 +237,11 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    223   007F5A  D7FA               	bra	u417
    224   007F5C  D000               	nop2	
    225   007F5E                     
-   226                           ;main.c: 75:         LATBbits.LB2 ^= 1;
+   226                           ;main.c: 73:         LATBbits.LB2 ^= 1;
    227   007F5E  748A               	btg	138,2,c	;volatile
    228   007F60                     l738:
    229                           
-   230                           ;main.c: 76:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+   230                           ;main.c: 74:         _delay((unsigned long)((Time)*(8000000/4000.0)));
    231   007F60  0E06               	movlw	6
    232   007F62  6E06               	movwf	(??_Input_Test+1)^0,c
    233   007F64  0E13               	movlw	19
@@ -255,7 +255,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    241   007F72  2E06               	decfsz	(??_Input_Test+1)^0,f,c
    242   007F74  D7FA               	bra	u427
    243                           
-   244                           ;main.c: 78:     } else if (PORTBbits.RB1) {
+   244                           ;main.c: 76:     } else if (PORTBbits.RB1) {
    245   007F76  EFF1  F03F         	goto	l756
    246   007F7A                     l34:
    247   007F7A  A281               	btfss	129,1,c	;volatile
@@ -265,7 +265,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    251   007F84  EFF1  F03F         	goto	l756
    252   007F88                     u20:
    253   007F88                     
-   254                           ;main.c: 79:         _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
+   254                           ;main.c: 77:         _delay((unsigned long)((Bounce_Time)*(8000000/4000.0)));
    255   007F88  0E02               	movlw	2
    256   007F8A  6E06               	movwf	(??_Input_Test+1)^0,c
    257   007F8C  0E04               	movlw	4
@@ -280,7 +280,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    266   007F9C  D7FA               	bra	u437
    267   007F9E  D000               	nop2	
    268   007FA0                     
-   269                           ;main.c: 80:         LATBbits.LATB3 ^= 1;
+   269                           ;main.c: 78:         LATBbits.LATB3 ^= 1;
    270   007FA0  768A               	btg	138,3,c	;volatile
    271   007FA2  EFB0  F03F         	goto	l738
    272   007FA6                     l746:
@@ -333,7 +333,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    319   007FE0  D7FC               	bra	u467
    320   007FE2                     l756:
    321                           
-   322                           ;main.c: 85:     while (PORTBbits.RB0 == 1 && PORTBbits.RB1 ==1){
+   322                           ;main.c: 85:     while (PORTBbits.RB0 == 1 && PORTBbits.RB1 == 1) {
    323   007FE2  A081               	btfss	129,0,c	;volatile
    324   007FE4  EFF6  F03F         	goto	u31
    325   007FE8  EFF8  F03F         	goto	u30
@@ -353,7 +353,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    339                           
    340 ;; *************** function _Configurations *****************
    341 ;; Defined at:
-   342 ;;		line 49 in file "main.c"
+   342 ;;		line 47 in file "main.c"
    343 ;; Parameters:    Size  Location     Type
    344 ;;		None
    345 ;; Auto vars:     Size  Location     Type
@@ -386,30 +386,30 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    372   007EFC                     _Configurations:
    373                           	callstack 30
    374   007EFC                     
-   375                           ;main.c: 52:     OSCCON = 0x72;
+   375                           ;main.c: 50:     OSCCON = 0x72;
    376   007EFC  0E72               	movlw	114
    377   007EFE  6ED3               	movwf	211,c	;volatile
    378                           
-   379                           ;main.c: 54:     ADCON1 = 0x0F;
+   379                           ;main.c: 52:     ADCON1 = 0x0F;
    380   007F00  0E0F               	movlw	15
    381   007F02  6EC1               	movwf	193,c	;volatile
    382   007F04                     
-   383                           ;main.c: 57:     TRISBbits.RB0 = 1;
+   383                           ;main.c: 55:     TRISBbits.RB0 = 1;
    384   007F04  8093               	bsf	147,0,c	;volatile
    385   007F06                     
-   386                           ;main.c: 58:     TRISBbits.RB1 = 1;
+   386                           ;main.c: 56:     TRISBbits.RB1 = 1;
    387   007F06  8293               	bsf	147,1,c	;volatile
    388   007F08                     
-   389                           ;main.c: 60:     TRISBbits.RB2 = 0;
+   389                           ;main.c: 58:     TRISBbits.RB2 = 0;
    390   007F08  9493               	bcf	147,2,c	;volatile
    391   007F0A                     
-   392                           ;main.c: 61:     TRISBbits.RB3 = 0;
+   392                           ;main.c: 59:     TRISBbits.RB3 = 0;
    393   007F0A  9693               	bcf	147,3,c	;volatile
    394   007F0C                     
-   395                           ;main.c: 64:     LATBbits.LB2 = 0;
+   395                           ;main.c: 62:     LATBbits.LB2 = 0;
    396   007F0C  948A               	bcf	138,2,c	;volatile
    397   007F0E                     
-   398                           ;main.c: 65:     LATBbits.LB3 = 0;
+   398                           ;main.c: 63:     LATBbits.LB3 = 0;
    399   007F0E  968A               	bcf	138,3,c	;volatile
    400   007F10  0012               	return		;funcret
    401   007F12                     __end_of_Configurations:
@@ -719,7 +719,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Sat Sep 09 14:18:18 2023
+Symbol Table                                                                                   Sat Sep 09 14:27:06 2023
 
                      l31 7F10                       l42 7FFE                       l34 7F7A  
                      u10 7F46                       u11 7F42                       u20 7F88  
