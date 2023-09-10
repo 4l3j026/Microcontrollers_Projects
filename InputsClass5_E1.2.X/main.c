@@ -14,11 +14,16 @@
 #include <pic18f4550.h> //Library to 
 
 //Prototype Functions. 
-void Set_Registers();
+void Set_Registers(void);
+void Led_State(void);
 
 void main(void) { //Main function. 
 
+    Set_Registers(); //Call function. 
+
     while (1) { //Infinite Cycle. 
+
+        Led_State(); //Call function. 
 
     }
 
@@ -29,12 +34,28 @@ void main(void) { //Main function.
 void Set_Registers() {
 
     OSCCON = 0x72; //Internal Oscillator and frequency of 8MHz. 
-    ADCON = 0x0F; //Set all pins as digital.
-    
-    TRISAbits.RA0 = 1; //Set pin RA0 as input. 
-    TRISAbits.RA1 = 0; //Set pin RA1 as output. 
-    
+    ADCON1 = 0x0F; //Set all pins as digital.
+
+    TRISBbits.RB0 = 1; //Set pin RB0 as input. 
+    TRISBbits.RB2 = 0; //Set pin RB2 as output. 
+
     LATAbits.LA1 = 0; //Assign low state on pin. 
-    
+
 }
 
+//Develop function of the led state. 
+
+void Led_State() {
+
+    if (PORTBbits.RB0 == 1) {
+
+        while (PORTBbits.RB0 == 1) {
+
+            __delay_ms(20); //Delay to switch bounce. 
+            LATBbits.LB2 = !LATBbits.LB2; //Change the last state of port. 
+
+        }
+
+    }
+
+}
