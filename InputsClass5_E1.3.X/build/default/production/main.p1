@@ -3,6 +3,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 main.c
 [; ;main.c: 19: void Config_Reg(void);
 [v _Config_Reg `(v ~T0 @X0 0 ef ]
+"20
+[; ;main.c: 20: void Leds_On(void);
+[v _Leds_On `(v ~T0 @X0 0 ef ]
+"7986 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"6581
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 6581: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"3625
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3625: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"3427
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3427: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"3847
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3847: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"4001
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 4001: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"2569
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2569:     struct {
+[s S111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S111 . RC0 RC1 RC2 . RC4 RC5 RC6 RC7 ]
+"2579
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2579:     struct {
+[s S112 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S112 . T1OSO T1OSI CCP1 . TX RX ]
+"2587
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2587:     struct {
+[s S113 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S113 . T13CKI . P1A . CK DT ]
+"2595
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2595:     struct {
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . . CCP2 PA1 ]
+"2600
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2600:     struct {
+[s S115 :1 `uc 1 :1 `uc 1 ]
+[n S115 . . PA2 ]
+"2568
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2568: typedef union {
+[u S110 `S111 1 `S112 1 `S113 1 `S114 1 `S115 1 ]
+[n S110 . . . . . . ]
+"2605
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2605: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
+[v _PORTCbits `VS110 ~T0 @X0 0 e@3970 ]
+[t ~ __deprecated__ ]
+[t T1 __deprecated__ ]
+"10363
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 10363: extern volatile __bit __attribute__((__deprecated__)) RB0 __attribute__((address(0x7C08)));
+[v _RB0 `Vb ~T1 @X0 0 e@31752 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -590,36 +643,77 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [p x EBTRB  =  OFF       ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"24 main.c
-[; ;main.c: 24: void main(void) {
+"25 main.c
+[; ;main.c: 25: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"26
-[; ;main.c: 26:     Config_Reg();
+"27
+[; ;main.c: 27:     Config_Reg();
 [e ( _Config_Reg ..  ]
-"28
-[; ;main.c: 28:     while (1) {
+"29
+[; ;main.c: 29:     while (1) {
 [e :U 369 ]
 {
-"30
-[; ;main.c: 30:     }
+"31
+[; ;main.c: 31:         Leds_On();
+[e ( _Leds_On ..  ]
+"33
+[; ;main.c: 33:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"31
-[; ;main.c: 31: }
+"34
+[; ;main.c: 34: }
 [e :UE 367 ]
 }
-"35
-[; ;main.c: 35: void Config_Reg(void) {
+"38
+[; ;main.c: 38: void Config_Reg(void) {
 [v _Config_Reg `(v ~T0 @X0 1 ef ]
 {
 [e :U _Config_Reg ]
 [f ]
-"37
-[; ;main.c: 37: }
+"40
+[; ;main.c: 40:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
+"41
+[; ;main.c: 41:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
+"44
+[; ;main.c: 44:     TRISB = 0x00;
+[e = _TRISB -> -> 0 `i `uc ]
+"45
+[; ;main.c: 45:     TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+"47
+[; ;main.c: 47:     TRISC = 0xFF;
+[e = _TRISC -> -> 255 `i `uc ]
+"48
+[; ;main.c: 48:     TRISD = 0x07;
+[e = _TRISD -> -> 7 `i `uc ]
+"50
+[; ;main.c: 50: }
 [e :UE 371 ]
+}
+"54
+[; ;main.c: 54: void Leds_On() {
+[v _Leds_On `(v ~T0 @X0 1 ef ]
+{
+[e :U _Leds_On ]
+[f ]
+"56
+[; ;main.c: 56:     if (PORTCbits.RC0) RB0 = 1;
+[e $ ! != -> . . _PORTCbits 0 0 `i -> 0 `i 373  ]
+[e = _RB0 -> -> 1 `i `b ]
+[e $U 374  ]
+"57
+[; ;main.c: 57:     else RB0 = 0;
+[e :U 373 ]
+[e = _RB0 -> -> 0 `i `b ]
+[e :U 374 ]
+"59
+[; ;main.c: 59: }
+[e :UE 372 ]
 }

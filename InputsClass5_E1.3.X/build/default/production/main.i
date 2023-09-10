@@ -5783,6 +5783,7 @@ unsigned char __t3rd16on(void);
 
 
 void Config_Reg(void);
+void Leds_On(void);
 
 
 
@@ -5793,11 +5794,32 @@ void main(void) {
 
     while (1) {
 
+        Leds_On();
+
     }
 }
 
 
 
 void Config_Reg(void) {
+
+    OSCCON = 0x72;
+    ADCON1 = 0x0F;
+
+
+    TRISB = 0x00;
+    TRISA = 0x00;
+
+    TRISC = 0xFF;
+    TRISD = 0x07;
+
+}
+
+
+
+void Leds_On() {
+
+    if (PORTCbits.RC0) RB0 = 1;
+    else RB0 = 0;
 
 }
