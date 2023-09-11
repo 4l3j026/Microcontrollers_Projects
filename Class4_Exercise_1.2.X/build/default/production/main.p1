@@ -3,9 +3,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21 main.c
 [; ;main.c: 21: void Configuration(void);
 [v _Configuration `(v ~T0 @X0 0 ef ]
-"23
-[; ;main.c: 23: void Hard_Bitwise(void);
-[v _Hard_Bitwise `(v ~T0 @X0 0 ef ]
+"22
+[; ;main.c: 22: void Bitwise(void);
+[v _Bitwise `(v ~T0 @X0 0 ef ]
 "7987 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
 [; ;B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h: 7987: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
@@ -652,9 +652,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 33:     while (1) {
 [e :U 369 ]
 {
-"36
-[; ;main.c: 36:         Hard_Bitwise();
-[e ( _Hard_Bitwise ..  ]
+"35
+[; ;main.c: 35:         Bitwise();
+[e ( _Bitwise ..  ]
 "38
 [; ;main.c: 38:     }
 }
@@ -717,8 +717,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Hard_Bitwise ]
 [f ]
-"70
-[; ;main.c: 70:         for (int A = 0; A < 7; A++) {
+"74
+[; ;main.c: 74:     for (int A = 0; A < 7; A++) {
 {
 [v _A `i ~T0 @X0 1 a ]
 [e = _A -> 0 `i ]
@@ -726,32 +726,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 374  ]
 [e :U 373 ]
 {
-"72
-[; ;main.c: 72:             if (A == 6) {
+"76
+[; ;main.c: 76:         if (A == 6) {
 [e $ ! == _A -> 6 `i 376  ]
 {
-"73
-[; ;main.c: 73:                 LATB = 0x01;
+"77
+[; ;main.c: 77:             LATB = 0x01;
 [e = _LATB -> -> 1 `i `uc ]
-"74
-[; ;main.c: 74:             }
+"78
+[; ;main.c: 78:         }
 }
 [e :U 376 ]
-"76
-[; ;main.c: 76:             LATA = (0x03 << A);
+"80
+[; ;main.c: 80:         LATA = (0x03 << A);
 [e = _LATA -> << -> 3 `i _A `uc ]
-"77
-[; ;main.c: 77:             _delay((unsigned long)((Time)*(8000000/4000.0)));
+"81
+[; ;main.c: 81:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"79
-[; ;main.c: 79:         }
+"83
+[; ;main.c: 83:     }
 }
 [e ++ _A -> 1 `i ]
 [e $ < _A -> 7 `i 373  ]
 [e :U 374 ]
 }
-"82
-[; ;main.c: 82:         for (int B = 0; B < 8; B++) {
+"86
+[; ;main.c: 86:     for (int B = 0; B < 8; B++) {
 {
 [v _B `i ~T0 @X0 1 a ]
 [e = _B -> 0 `i ]
@@ -759,35 +759,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 378  ]
 [e :U 377 ]
 {
-"84
-[; ;main.c: 84:             LATA = 0x00;
+"88
+[; ;main.c: 88:         LATA = 0x00;
 [e = _LATA -> -> 0 `i `uc ]
-"86
-[; ;main.c: 86:             if (B == 7) {
+"90
+[; ;main.c: 90:         if (B == 7) {
 [e $ ! == _B -> 7 `i 380  ]
 {
-"87
-[; ;main.c: 87:                 LATC = 0x01;
+"91
+[; ;main.c: 91:             LATC = 0x01;
 [e = _LATC -> -> 1 `i `uc ]
-"88
-[; ;main.c: 88:             }
+"92
+[; ;main.c: 92:         }
 }
 [e :U 380 ]
-"90
-[; ;main.c: 90:             LATB = (0x03 << B);
+"94
+[; ;main.c: 94:         LATB = (0x03 << B);
 [e = _LATB -> << -> 3 `i _B `uc ]
-"91
-[; ;main.c: 91:             _delay((unsigned long)((Time)*(8000000/4000.0)));
+"95
+[; ;main.c: 95:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"93
-[; ;main.c: 93:         }
+"97
+[; ;main.c: 97:     }
 }
 [e ++ _B -> 1 `i ]
 [e $ < _B -> 8 `i 377  ]
 [e :U 378 ]
 }
-"96
-[; ;main.c: 96:     for (int C = 0; C < 7; C++) {
+"100
+[; ;main.c: 100:     for (int C = 0; C < 7; C++) {
 {
 [v _C `i ~T0 @X0 1 a ]
 [e = _C -> 0 `i ]
@@ -795,38 +795,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 382  ]
 [e :U 381 ]
 {
-"98
-[; ;main.c: 98:         if (C == 2) {
+"102
+[; ;main.c: 102:         if (C == 2) {
 [e $ ! == _C -> 2 `i 384  ]
 {
-"99
-[; ;main.c: 99:             LATC = 0x14;
+"103
+[; ;main.c: 103:             LATC = 0x14;
 [e = _LATC -> -> 20 `i `uc ]
-"100
-[; ;main.c: 100:             _delay((unsigned long)((Time)*(8000000/4000.0)));
+"104
+[; ;main.c: 104:             _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"101
-[; ;main.c: 101:         }
+"105
+[; ;main.c: 105:         }
 }
 [e :U 384 ]
-"103
-[; ;main.c: 103:         LATB = 0x00;
+"107
+[; ;main.c: 107:         LATB = 0x00;
 [e = _LATB -> -> 0 `i `uc ]
-"105
-[; ;main.c: 105:         LATC = (0x03 << C);
+"109
+[; ;main.c: 109:         LATC = (0x03 << C);
 [e = _LATC -> << -> 3 `i _C `uc ]
-"106
-[; ;main.c: 106:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"110
+[; ;main.c: 110:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"108
-[; ;main.c: 108:     }
+"112
+[; ;main.c: 112:     }
 }
 [e ++ _C -> 1 `i ]
 [e $ < _C -> 7 `i 381  ]
 [e :U 382 ]
 }
-"111
-[; ;main.c: 111:     for (int D = 0; D < 7; D++) {
+"115
+[; ;main.c: 115:     for (int D = 0; D < 7; D++) {
 {
 [v _D `i ~T0 @X0 1 a ]
 [e = _D -> 0 `i ]
@@ -834,21 +834,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 386  ]
 [e :U 385 ]
 {
-"112
-[; ;main.c: 112:         LATD = (0x03 << D);
+"116
+[; ;main.c: 116:         LATD = (0x03 << D);
 [e = _LATD -> << -> 3 `i _D `uc ]
-"113
-[; ;main.c: 113:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"117
+[; ;main.c: 117:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"114
-[; ;main.c: 114:     }
+"118
+[; ;main.c: 118:     }
 }
 [e ++ _D -> 1 `i ]
 [e $ < _D -> 7 `i 385  ]
 [e :U 386 ]
 }
-"117
-[; ;main.c: 117:     for (int E = 0; E < 3; E++) {
+"121
+[; ;main.c: 121:     for (int E = 0; E < 3; E++) {
 {
 [v _E `i ~T0 @X0 1 a ]
 [e = _E -> 0 `i ]
@@ -856,35 +856,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 389  ]
 [e :U 388 ]
 {
-"118
-[; ;main.c: 118:         LATE = (0x01 << E);
+"122
+[; ;main.c: 122:         LATE = (0x01 << E);
 [e = _LATE -> << -> 1 `i _E `uc ]
-"119
-[; ;main.c: 119:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"123
+[; ;main.c: 123:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"120
-[; ;main.c: 120:     }
+"124
+[; ;main.c: 124:     }
 }
 [e ++ _E -> 1 `i ]
 [e $ < _E -> 3 `i 388  ]
 [e :U 389 ]
 }
-"122
-[; ;main.c: 122: }
+"126
+[; ;main.c: 126: }
 [e :UE 372 ]
 }
-"124
-[; ;main.c: 124: void Bitwise() {
+"130
+[; ;main.c: 130: void Bitwise() {
 [v _Bitwise `(v ~T0 @X0 1 ef ]
 {
 [e :U _Bitwise ]
 [f ]
-"126
-[; ;main.c: 126:     long N1 = 0x00000003;
+"135
+[; ;main.c: 135:     long N1 = 0x00000003;
 [v _N1 `l ~T0 @X0 1 a ]
 [e = _N1 -> -> 3 `i `l ]
-"128
-[; ;main.c: 128:     for (int i = 0; i < 36; i++) {
+"136
+[; ;main.c: 136:     int8_t var = 0;
+[v _var `c ~T0 @X0 1 a ]
+[e = _var -> -> 0 `i `c ]
+"137
+[; ;main.c: 137:     char c = 'a';
+[v _c `uc ~T0 @X0 1 a ]
+[e = _c -> -> 97 `ui `uc ]
+"139
+[; ;main.c: 139:     for (int i = 0; i < 36; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -892,35 +900,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 393  ]
 [e :U 392 ]
 {
-"130
-[; ;main.c: 130:         LATA = N1;
+"141
+[; ;main.c: 141:         LATA = N1;
 [e = _LATA -> _N1 `uc ]
-"131
-[; ;main.c: 131:         LATB = N1 >> 8;
+"142
+[; ;main.c: 142:         LATB = N1 >> 8;
 [e = _LATB -> >> _N1 -> 8 `i `uc ]
-"132
-[; ;main.c: 132:         LATC = N1 >> 16;
+"143
+[; ;main.c: 143:         LATC = N1 >> 16;
 [e = _LATC -> >> _N1 -> 16 `i `uc ]
-"133
-[; ;main.c: 133:         LATD = N1 >> 24;
+"144
+[; ;main.c: 144:         LATD = N1 >> 24;
 [e = _LATD -> >> _N1 -> 24 `i `uc ]
-"134
-[; ;main.c: 134:         LATE = N1 >> 32;
+"145
+[; ;main.c: 145:         LATE = N1 >> 32;
 [e = _LATE -> >> _N1 -> 32 `i `uc ]
-"135
-[; ;main.c: 135:         _delay((unsigned long)((Time)*(8000000/4000.0)));
+"146
+[; ;main.c: 146:         _delay((unsigned long)((Time)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> _Time `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"136
-[; ;main.c: 136:         N1 = N1 << 1;
+"147
+[; ;main.c: 147:         N1 = N1 << 1;
 [e = _N1 << _N1 -> 1 `i ]
-"138
-[; ;main.c: 138:     }
+"149
+[; ;main.c: 149:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 36 `i 392  ]
 [e :U 393 ]
 }
-"140
-[; ;main.c: 140: }
+"151
+[; ;main.c: 151: }
 [e :UE 391 ]
 }

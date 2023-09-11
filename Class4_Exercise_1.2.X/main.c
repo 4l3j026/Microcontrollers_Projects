@@ -32,8 +32,8 @@ void main(void) {
 
     while (1) {
 
-        //        Bitwise();
-        Hard_Bitwise();
+        Bitwise();
+        //        Hard_Bitwise();
 
     }
 
@@ -63,6 +63,7 @@ void Configuration() {
 }
 
 //Develop the exercise 
+
 void Hard_Bitwise() {
     /*
      This is another way to make the class exercise, however is long and need more
@@ -125,12 +126,15 @@ void Hard_Bitwise() {
 }
 
 //Develop function. 
+
 void Bitwise() {
 
     /*
      Using bitwise operations we can compress the code to some lines. 
-    */
+     */
     long N1 = 0x00000003;
+    int8_t var = 0;
+    char c = 'a';
 
     for (int i = 0; i < 36; i++) {
 

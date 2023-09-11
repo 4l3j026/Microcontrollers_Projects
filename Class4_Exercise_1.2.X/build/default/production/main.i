@@ -5799,8 +5799,8 @@ void main(void) {
 
     while (1) {
 
+        Bitwise();
 
-        Hard_Bitwise();
 
     }
 
@@ -5834,30 +5834,34 @@ void Configuration() {
 void Hard_Bitwise() {
 
 
-        for (int A = 0; A < 7; A++) {
 
-            if (A == 6) {
-                LATB = 0x01;
-            }
 
-            LATA = (0x03 << A);
-            _delay((unsigned long)((Time)*(8000000/4000.0)));
 
+
+    for (int A = 0; A < 7; A++) {
+
+        if (A == 6) {
+            LATB = 0x01;
         }
 
+        LATA = (0x03 << A);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
 
-        for (int B = 0; B < 8; B++) {
+    }
 
-            LATA = 0x00;
 
-            if (B == 7) {
-                LATC = 0x01;
-            }
+    for (int B = 0; B < 8; B++) {
 
-            LATB = (0x03 << B);
-            _delay((unsigned long)((Time)*(8000000/4000.0)));
+        LATA = 0x00;
 
+        if (B == 7) {
+            LATC = 0x01;
         }
+
+        LATB = (0x03 << B);
+        _delay((unsigned long)((Time)*(8000000/4000.0)));
+
+    }
 
 
     for (int C = 0; C < 7; C++) {
@@ -5888,9 +5892,16 @@ void Hard_Bitwise() {
 
 }
 
+
+
 void Bitwise() {
 
+
+
+
     long N1 = 0x00000003;
+    int8_t var = 0;
+    char c = 'a';
 
     for (int i = 0; i < 36; i++) {
 

@@ -35,8 +35,8 @@
 [v _main main `(v  1 e 1 0 ]
 "44
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"67
-[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
+"130
+[v _Bitwise Bitwise `(v  1 e 1 0 ]
 "2974 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3074
@@ -66,23 +66,19 @@
 {
 "40
 } 0
-"67
-[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
-{
-"117
-[v Hard_Bitwise@E E `i  1 a 2 4 ]
-"111
-[v Hard_Bitwise@D D `i  1 a 2 2 ]
-"96
-[v Hard_Bitwise@C C `i  1 a 2 10 ]
-"82
-[v Hard_Bitwise@B B `i  1 a 2 8 ]
-"70
-[v Hard_Bitwise@A A `i  1 a 2 6 ]
-"122
-} 0
 "44
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
 "63
+} 0
+"130
+[v _Bitwise Bitwise `(v  1 e 1 0 ]
+{
+"139
+[v Bitwise@i i `i  1 a 2 3 ]
+"135
+[v Bitwise@N1 N1 `l  1 a 4 5 ]
+"137
+[v Bitwise@c c `uc  1 a 1 2 ]
+"151
 } 0
