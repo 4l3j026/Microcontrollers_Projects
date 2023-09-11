@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/B:/MPLAB_Projects/College/Class4_Exercise_1.2.X/main.c</file>
+=======
+            <file>file:/C:/Apps/Git/Repositories/Microcontrollers_Projects/Class4_Exercise_1.2.X/main.c</file>
+            <file>file:/C:/Apps/Git/Repositories/Microcontrollers_Projects/Class4_Exercise_1.2.X/Fuses.h</file>
+>>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee
         </group>
     </open-files>
 </project-private>

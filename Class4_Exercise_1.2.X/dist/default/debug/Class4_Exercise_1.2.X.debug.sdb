@@ -1,0 +1,133 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"32 C:\Apps\Git\Repositories\Microcontrollers_Projects\Class4_Exercise_1.2.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"48
+[v _Configuration Configuration `(v  1 e 1 0 ]
+<<<<<<< HEAD:Class4_Exercise_1.2.X/dist/default/production/Class4_Exercise_1.2.X.production.sdb
+"130
+[v _Bitwise Bitwise `(v  1 e 1 0 ]
+"2974 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"3074
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"3186
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"3264
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"3376
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"3428
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"3626
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"3848
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"4002
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"4224
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"6582
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"7987
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"28 B:\MPLAB_Projects\College\Class4_Exercise_1.2.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"40
+} 0
+=======
+"70
+[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
+"2973 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"3073
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"3185
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"3263
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"3375
+[v _LATE LATE `VEuc  1 e 1 @3981 ]
+"3427
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"3625
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"3847
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"4001
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"4223
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"6581
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"7986
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"32 C:\Apps\Git\Repositories\Microcontrollers_Projects\Class4_Exercise_1.2.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+>>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee:Class4_Exercise_1.2.X/dist/default/debug/Class4_Exercise_1.2.X.debug.sdb
+"44
+} 0
+"70
+[v _Hard_Bitwise Hard_Bitwise `(v  1 e 1 0 ]
+{
+"124
+[v Hard_Bitwise@E E `i  1 a 2 4 ]
+"118
+[v Hard_Bitwise@D D `i  1 a 2 2 ]
+"103
+[v Hard_Bitwise@C C `i  1 a 2 10 ]
+"89
+[v Hard_Bitwise@B B `i  1 a 2 8 ]
+"77
+[v Hard_Bitwise@A A `i  1 a 2 6 ]
+"129
+} 0
+"48
+[v _Configuration Configuration `(v  1 e 1 0 ]
+{
+"67
+} 0
+"130
+[v _Bitwise Bitwise `(v  1 e 1 0 ]
+{
+"139
+[v Bitwise@i i `i  1 a 2 3 ]
+"135
+[v Bitwise@N1 N1 `l  1 a 4 5 ]
+"137
+[v Bitwise@c c `uc  1 a 1 2 ]
+"151
+} 0

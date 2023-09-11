@@ -1,0 +1,65 @@
+### HEXMate logfile and output summary ###
+
+### Command-line arguments ###
+<<<<<<< HEAD:Class4_Exercise_1.2.X/dist/default/production/Class4_Exercise_1.2.X.production.hxl
+ C:\Users\ALEJAN~1\AppData\Local\Temp\xcAskbk.\driver_tmp_3.o
+ -Odist/default/production\Class4_Exercise_1.2.X.production.hex
+ -logfile=dist/default/production\Class4_Exercise_1.2.X.production.hxl
+=======
+ C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o
+ -Odist/default/debug\Class4_Exercise_1.2.X.debug.hex
+ -logfile=dist/default/debug\Class4_Exercise_1.2.X.debug.hxl
+>>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee:Class4_Exercise_1.2.X/dist/default/debug/Class4_Exercise_1.2.X.debug.hxl
+ -addressing=1
+ -break=300000
+
+### Memory Usage ###
+ Input file ranges:
+<<<<<<< HEAD:Class4_Exercise_1.2.X/dist/default/production/Class4_Exercise_1.2.X.production.hxl
+  0h - 3h		(C:\Users\ALEJAN~1\AppData\Local\Temp\xcAskbk.\driver_tmp_3.o)
+  7F22h - 7FFFh		(C:\Users\ALEJAN~1\AppData\Local\Temp\xcAskbk.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\ALEJAN~1\AppData\Local\Temp\xcAskbk.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\ALEJAN~1\AppData\Local\Temp\xcAskbk.\driver_tmp_3.o)
+=======
+  0h - 3h		(C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o)
+  7D40h - 7FFFh		(C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o)
+>>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee:Class4_Exercise_1.2.X/dist/default/debug/Class4_Exercise_1.2.X.debug.hxl
+ Unused ranges:
+  4h - 7F21h
+  8000h - 1FFFFFh
+  200008h - 2FFFFFh
+
+### Hex Memory Map ###
+ Legend:
+  -- = Unused memory
+<<<<<<< HEAD:Class4_Exercise_1.2.X/dist/default/production/Class4_Exercise_1.2.X.production.hxl
+  H1 = Input file             (C:\Users\ALEJAN~1\AppData\Local\Temp\xcAskbk.\driver_tmp_3.o)
+=======
+  H1 = Input file             (C:\Users\aleja\AppData\Local\Temp\xcAsapc.\driver_tmp_3.o)
+>>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee:Class4_Exercise_1.2.X/dist/default/debug/Class4_Exercise_1.2.X.debug.hxl
+----------------------------------------------------------
+         | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+----------------------------------------------------------
+00000000 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00007F20 | -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007F90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007FA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007FB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007FC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007FD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+----------------------------------------------------------
+00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00300000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00300010 | --

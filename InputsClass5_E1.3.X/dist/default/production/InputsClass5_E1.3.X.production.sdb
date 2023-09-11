@@ -7,8 +7,6 @@
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\ftdiv.c
@@ -29,56 +27,71 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
-[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
-"28 B:\MPLAB_Projects\College\Class4_Exercise_1.2.X\main.c
+"25 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.3.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"44
-[v _Configuration Configuration `(v  1 e 1 0 ]
-"130
-[v _Bitwise Bitwise `(v  1 e 1 0 ]
-"2974 B:/Applications/MPLAB/Data/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4550.h
-[v _LATA LATA `VEuc  1 e 1 @3977 ]
-"3074
-[v _LATB LATB `VEuc  1 e 1 @3978 ]
-"3186
-[v _LATC LATC `VEuc  1 e 1 @3979 ]
-"3264
-[v _LATD LATD `VEuc  1 e 1 @3980 ]
-"3376
-[v _LATE LATE `VEuc  1 e 1 @3981 ]
-"3428
+"38
+[v _Config_Reg Config_Reg `(v  1 e 1 0 ]
+"54
+[v _Leds_On Leds_On `(v  1 e 1 0 ]
+[s S38 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"2605 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+[s S47 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S54 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S61 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S65 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S68 . 1 `S38 1 . 1 0 `S47 1 . 1 0 `S54 1 . 1 0 `S61 1 . 1 0 `S65 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES68  1 e 1 @3970 ]
+"3427
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-"3626
+"3625
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-"3848
+"3847
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-"4002
+"4001
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-"4224
-[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-"6582
+"6581
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"7987
+"7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"28 B:\MPLAB_Projects\College\Class4_Exercise_1.2.X\main.c
+"10363
+[v _RB0 RB0 `VEb  1 e 0 @31752 ]
+"25 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.3.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"40
+"34
 } 0
-"44
-[v _Configuration Configuration `(v  1 e 1 0 ]
+"54
+[v _Leds_On Leds_On `(v  1 e 1 0 ]
 {
-"63
+"59
 } 0
-"130
-[v _Bitwise Bitwise `(v  1 e 1 0 ]
+"38
+[v _Config_Reg Config_Reg `(v  1 e 1 0 ]
 {
-"139
-[v Bitwise@i i `i  1 a 2 3 ]
-"135
-[v Bitwise@N1 N1 `l  1 a 4 5 ]
-"137
-[v Bitwise@c c `uc  1 a 1 2 ]
-"151
+"50
 } 0
