@@ -5794,12 +5794,7 @@ void main(void) {
 
     while (1) {
 
-<<<<<<< HEAD:Class4_Exercise_1.2.X/build/default/production/main.i
-        Bitwise();
-
-=======
         Leds_On();
->>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee:InputsClass5_E1.3.X/build/default/production/main.i
 
     }
 }
@@ -5824,91 +5819,8 @@ void Config_Reg(void) {
 
 void Leds_On() {
 
-<<<<<<< HEAD:Class4_Exercise_1.2.X/build/default/production/main.i
 
 
-
-
-
-    for (int A = 0; A < 7; A++) {
-
-        if (A == 6) {
-            LATB = 0x01;
-        }
-
-        LATA = (0x03 << A);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-
-    }
-
-
-    for (int B = 0; B < 8; B++) {
-
-        LATA = 0x00;
-
-        if (B == 7) {
-            LATC = 0x01;
-        }
-
-        LATB = (0x03 << B);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-
-    }
-
-
-    for (int C = 0; C < 7; C++) {
-
-        if (C == 2) {
-            LATC = 0x14;
-            _delay((unsigned long)((Time)*(8000000/4000.0)));
-        }
-
-        LATB = 0x00;
-
-        LATC = (0x03 << C);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-
-    }
-
-
-    for (int D = 0; D < 7; D++) {
-        LATD = (0x03 << D);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-    }
-
-
-    for (int E = 0; E < 3; E++) {
-        LATE = (0x01 << E);
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-    }
-
-}
-
-
-
-void Bitwise() {
-
-
-
-
-    long N1 = 0x00000003;
-    int8_t var = 0;
-    char c = 'a';
-
-    for (int i = 0; i < 36; i++) {
-
-        LATA = N1;
-        LATB = N1 >> 8;
-        LATC = N1 >> 16;
-        LATD = N1 >> 24;
-        LATE = N1 >> 32;
-        _delay((unsigned long)((Time)*(8000000/4000.0)));
-        N1 = N1 << 1;
-
-    }
-=======
-    if (PORTCbits.RC0) RB0 = 1;
-    else RB0 = 0;
->>>>>>> 9631c7e9f4e55ca7af95bd9d6cdd005da2d531ee:InputsClass5_E1.3.X/build/default/production/main.i
+    LATB = PORTC;
 
 }

@@ -53,7 +53,8 @@ void Config_Reg(void) {
 
 void Leds_On() {
 
-    if (PORTCbits.RC0) RB0 = 1; 
-    else RB0 = 0; 
+//    if (PORTCbits.RC0) RB0 = 1; 
+//    else RB0 = 0; 
+    LATB = PORTC;
     
 }
