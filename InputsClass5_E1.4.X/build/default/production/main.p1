@@ -631,7 +631,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35
 [; ;main.c: 35:     TRISA = 0x03;
 [e = _TRISA -> -> 3 `i `uc ]
-"38
-[; ;main.c: 38: }
+"39
+[; ;main.c: 39: }
 [e :UE 371 ]
 }

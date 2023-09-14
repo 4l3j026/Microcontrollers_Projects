@@ -22,7 +22,7 @@ void main(void) {
 
 }
 
-//Developing function. 
+//Developing function.
 
 void Conf_Reg(void) {
 
@@ -33,6 +33,7 @@ void Conf_Reg(void) {
 //    TRISAbits.RA0 = 1;
 //    TRISAbits.RA1 = 1;
     TRISA = 0x03; 
+    
     
 
 }
