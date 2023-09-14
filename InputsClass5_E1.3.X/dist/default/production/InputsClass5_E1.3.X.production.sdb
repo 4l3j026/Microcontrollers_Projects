@@ -35,6 +35,10 @@
 [v _Leds_On Leds_On `(v  1 e 1 0 ]
 "2563 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"2705
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"2973
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3073
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "3427
@@ -57,7 +61,7 @@
 "54
 [v _Leds_On Leds_On `(v  1 e 1 0 ]
 {
-"60
+"59
 } 0
 "38
 [v _Config_Reg Config_Reg `(v  1 e 1 0 ]
