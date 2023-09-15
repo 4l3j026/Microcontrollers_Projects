@@ -5823,7 +5823,6 @@ void Conf_Reg(void) {
 
 
 
-    INTCON = 0xD0;
-    INTCONbits.GIE = 1;
+    INTCON = 0x90;
 # 62 "main.c"
 }
