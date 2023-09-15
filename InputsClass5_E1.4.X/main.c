@@ -38,38 +38,6 @@ void Conf_Reg(void) {
 
     TRISB = 0x03; //Set ports RB0 and RB1 as digital inputs. 
 
-    //Interrupts Configuration.
-    
-    /*
-       Here, we can see how to set specific bit of RCON (Reset CONtrol register). 
-       and means Interrupt Priority ENable bit (Disabled). 
-     */
-    RCONbits.IPEN = 0; 
-    
-    /*
-        Here, on the INTCON (INTerrupt CONtrol Register) I set all bits of the register
-        but really is not necessary set all. You can use the previous way (INTCONbits."Specific_Bit").
-     */
-    INTCON = 0x90; //0b10010000
-    //INTCONbits.GIE = 1; 
-    /*
-     Now, I´m going to set each bit separately of INTCON2.
-     */
-    INTCON2bits.RBPU = 0; //Pull up internal resistors disable.
-    INTCON2bits.INTEDG0 = 0; //Set the interrupt rising (1) or falling (0) edge. 
-    INTCON2bits.INTEDG1 = 1; //Set the interrupt rising edge.
-
-/*
-    Another way of set specific bits of the register is this, 
-    only write the name of the bit, however I'm really prefer 
-    the previous form. 
-
-    GIE = 1; //Global Interrupt Enable. 
-    INT0E = 0; //Interrupt of port RB0 Enable. 
-    INT0F = 0; //Interrupt flag; 
- */
-
-
 }
 
 //Develop function. 
