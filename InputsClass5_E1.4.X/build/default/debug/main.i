@@ -5793,7 +5793,11 @@ void Conf_Reg(void);
 
 
 
+
 void main(void) {
+
+
+    Conf_Reg();
 
     while (1) {
 
@@ -5808,11 +5812,18 @@ void Conf_Reg(void) {
     OSCCON = 0x72;
     ADCON1 = 0x0F;
 
+    TRISD = 0x00;
+    TRISE = 0x00;
+
+    TRISB = 0x03;
+
+
+    RCONbits.IPEN = 0;
 
 
 
-    TRISA = 0x03;
 
-
-
+    INTCON = 0xD0;
+    INTCONbits.GIE = 1;
+# 62 "main.c"
 }
