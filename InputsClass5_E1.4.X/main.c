@@ -52,7 +52,12 @@ void Conf_Reg(void) {
      */
     INTCON = 0x90; //0b10010000
     //INTCONbits.GIE = 1; 
-    //INTCON2 =;
+    /*
+     Now, I´m going to set each bit separately of INTCON2.
+     */
+    INTCON2bits.RBPU = 0; //Pull up internal resistors disable.
+    INTCON2bits.INTEDG0 = 0; //Set the interrupt rising (1) or falling (0) edge. 
+    INTCON2bits.INTEDG1 = 1; //Set the interrupt rising edge.
 
 /*
     Another way of set specific bits of the register is this, 
