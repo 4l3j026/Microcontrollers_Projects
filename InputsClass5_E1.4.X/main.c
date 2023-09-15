@@ -11,7 +11,11 @@
 
 //Prototype functions. 
 void Conf_Reg(void);
+void Counter(void);
 
+//Global variables. 
+int Counter_Pull_Down = 0;
+int Counter_Pull_Up = 0;
 
 //Main function
 
@@ -21,6 +25,8 @@ void main(void) {
     Conf_Reg();
     //Infinite Cycle. 
     while (1) {
+
+        Counter();
 
     }
 
@@ -42,4 +48,15 @@ void Conf_Reg(void) {
 
 //Develop function. 
 
+void Counter(void) {
+
+    if (!PORTBbits.RB0) {
+
+        __delay_ms(200);
+        Counter_Pull_Down++;
+        LATD = Counter_Pull_Down;
+
+    }
+
+}
 

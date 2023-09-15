@@ -5790,7 +5790,11 @@ unsigned char __t3rd16on(void);
 
 
 void Conf_Reg(void);
+void Counter(void);
 
+
+int Counter_Pull_Down = 0;
+int Counter_Pull_Up = 0;
 
 
 
@@ -5800,6 +5804,8 @@ void main(void) {
     Conf_Reg();
 
     while (1) {
+
+        Counter();
 
     }
 
@@ -5817,12 +5823,18 @@ void Conf_Reg(void) {
 
     TRISB = 0x03;
 
-
-    RCONbits.IPEN = 0;
-
+}
 
 
 
-    INTCON = 0x90;
-# 62 "main.c"
+void Counter(void) {
+
+    if (!PORTBbits.RB0) {
+
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        Counter_Pull_Down++;
+        LATD = Counter_Pull_Down;
+
+    }
+
 }
