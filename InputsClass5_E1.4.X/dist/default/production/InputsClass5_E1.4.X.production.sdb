@@ -27,11 +27,11 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"25 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.4.X\main.c
+"26 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.4.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"40
+"41
 [v _Conf_Reg Conf_Reg `(v  1 e 1 0 ]
-"54
+"55
 [v _Counter Counter `(v  1 e 1 0 ]
 [s S37 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
@@ -91,18 +91,22 @@
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "20 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.4.X\main.c
 [v _Counter_Pull_Down Counter_Pull_Down `i  1 e 2 0 ]
-"25
+"21
+[v _Counter_Pull_Up Counter_Pull_Up `i  1 e 2 0 ]
+"22
+[v _State State `i  1 e 2 0 ]
+"26
 [v _main main `(v  1 e 1 0 ]
 {
-"36
+"37
 } 0
-"54
+"55
 [v _Counter Counter `(v  1 e 1 0 ]
 {
-"66
+"77
 } 0
-"40
+"41
 [v _Conf_Reg Conf_Reg `(v  1 e 1 0 ]
 {
-"50
+"51
 } 0

@@ -19,6 +19,7 @@ void Counter(void);
 //Global variables. 
 int Counter_Pull_Down = 0;
 int Counter_Pull_Up = 0;
+int State = 0; 
 
 //Main function
 
@@ -57,9 +58,19 @@ void Counter(void) {
 
         __delay_ms(100);
         Counter_Pull_Down++;
-        LATD = Counter_Pull_Down;
-        while(!PORTBbits.RB0);
+        State = Counter_Pull_Down; 
+        LATD = State;
+        while (!PORTBbits.RB0);
         LATBbits.LATB0 = !LATBbits.LATB0;
+
+    } else if (PORTBbits.RB1) {
+
+        __delay_ms(100);
+        Counter_Pull_Up++;
+        LATD = (Counter_Pull_Down - Counter_Pull_Up);
+        while (PORTBbits.RB1) {
+            LATBbits.LB1 = !LATBbits.LB1;
+        }
 
     }
 

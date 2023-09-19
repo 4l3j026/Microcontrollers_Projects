@@ -5788,6 +5788,7 @@ void Counter(void);
 
 int Counter_Pull_Down = 0;
 int Counter_Pull_Up = 0;
+int State = 0;
 
 
 
@@ -5826,9 +5827,19 @@ void Counter(void) {
 
         _delay((unsigned long)((100)*(8000000/4000.0)));
         Counter_Pull_Down++;
-        LATD = Counter_Pull_Down;
-        while(!PORTBbits.RB0);
+        State = Counter_Pull_Down;
+        LATD = State;
+        while (!PORTBbits.RB0);
         LATBbits.LATB0 = !LATBbits.LATB0;
+
+    } else if (PORTBbits.RB1) {
+
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        Counter_Pull_Up++;
+        LATD = (Counter_Pull_Down - Counter_Pull_Up);
+        while (PORTBbits.RB1) {
+            LATBbits.LB1 = !LATBbits.LB1;
+        }
 
     }
 
