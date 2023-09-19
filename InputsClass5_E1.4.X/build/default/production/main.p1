@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"13 main.c
-[; ;main.c: 13: void Conf_Reg(void);
+"16 main.c
+[; ;main.c: 16: void Conf_Reg(void);
 [v _Conf_Reg `(v ~T0 @X0 0 ef ]
-"14
-[; ;main.c: 14: void Counter(void);
+"17
+[; ;main.c: 17: void Counter(void);
 [v _Counter `(v ~T0 @X0 0 ef ]
 "7986 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
@@ -47,6 +47,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3263 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3263: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"3079
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3079:     struct {
+[s S130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S130 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"3089
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3089:     struct {
+[s S131 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S131 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"3078
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3078: typedef union {
+[u S129 `S130 1 `S131 1 ]
+[n S129 . . . ]
+"3100
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3100: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
+[v _LATBbits `VS129 ~T0 @X0 0 e@3978 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -633,94 +648,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3  =  OFF       ]
 "70
 [p x EBTRB  =  OFF       ]
-"17 main.c
-[; ;main.c: 17: int Counter_Pull_Down = 0;
+"20 main.c
+[; ;main.c: 20: int Counter_Pull_Down = 0;
 [v _Counter_Pull_Down `i ~T0 @X0 1 e ]
 [i _Counter_Pull_Down
 -> 0 `i
 ]
-"18
-[; ;main.c: 18: int Counter_Pull_Up = 0;
+"21
+[; ;main.c: 21: int Counter_Pull_Up = 0;
 [v _Counter_Pull_Up `i ~T0 @X0 1 e ]
 [i _Counter_Pull_Up
 -> 0 `i
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"22
-[; ;main.c: 22: void main(void) {
+"25
+[; ;main.c: 25: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"25
-[; ;main.c: 25:     Conf_Reg();
+"28
+[; ;main.c: 28:     Conf_Reg();
 [e ( _Conf_Reg ..  ]
-"27
-[; ;main.c: 27:     while (1) {
+"30
+[; ;main.c: 30:     while (1) {
 [e :U 369 ]
 {
-"29
-[; ;main.c: 29:         Counter();
+"32
+[; ;main.c: 32:         Counter();
 [e ( _Counter ..  ]
-"31
-[; ;main.c: 31:     }
+"34
+[; ;main.c: 34:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"33
-[; ;main.c: 33: }
+"36
+[; ;main.c: 36: }
 [e :UE 367 ]
 }
-"37
-[; ;main.c: 37: void Conf_Reg(void) {
+"40
+[; ;main.c: 40: void Conf_Reg(void) {
 [v _Conf_Reg `(v ~T0 @X0 1 ef ]
 {
 [e :U _Conf_Reg ]
 [f ]
-"39
-[; ;main.c: 39:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"40
-[; ;main.c: 40:     ADCON1 = 0x0F;
-[e = _ADCON1 -> -> 15 `i `uc ]
 "42
-[; ;main.c: 42:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 42:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
 "43
-[; ;main.c: 43:     TRISE = 0x00;
-[e = _TRISE -> -> 0 `i `uc ]
+[; ;main.c: 43:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
 "45
-[; ;main.c: 45:     TRISB = 0x03;
+[; ;main.c: 45:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
+"46
+[; ;main.c: 46:     TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
+"48
+[; ;main.c: 48:     TRISB = 0x03;
 [e = _TRISB -> -> 3 `i `uc ]
-"47
-[; ;main.c: 47: }
+"50
+[; ;main.c: 50: }
 [e :UE 371 ]
 }
-"51
-[; ;main.c: 51: void Counter(void) {
+"54
+[; ;main.c: 54: void Counter(void) {
 [v _Counter `(v ~T0 @X0 1 ef ]
 {
 [e :U _Counter ]
 [f ]
-"53
-[; ;main.c: 53:     if (!PORTBbits.RB0) {
+"56
+[; ;main.c: 56:     if (!PORTBbits.RB0) {
 [e $ ! ! != -> . . _PORTBbits 0 0 `i -> 0 `i 373  ]
 {
-"55
-[; ;main.c: 55:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"56
-[; ;main.c: 56:         Counter_Pull_Down++;
-[e ++ _Counter_Pull_Down -> 1 `i ]
-"57
-[; ;main.c: 57:         LATD = Counter_Pull_Down;
-[e = _LATD -> _Counter_Pull_Down `uc ]
+"58
+[; ;main.c: 58:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "59
-[; ;main.c: 59:     }
+[; ;main.c: 59:         Counter_Pull_Down++;
+[e ++ _Counter_Pull_Down -> 1 `i ]
+"60
+[; ;main.c: 60:         LATD = Counter_Pull_Down;
+[e = _LATD -> _Counter_Pull_Down `uc ]
+"61
+[; ;main.c: 61:         while(!PORTBbits.RB0);
+[e $U 374  ]
+[e :U 375 ]
+[e :U 374 ]
+[e $ ! != -> . . _PORTBbits 0 0 `i -> 0 `i 375  ]
+[e :U 376 ]
+"62
+[; ;main.c: 62:         LATBbits.LATB0 = !LATBbits.LATB0;
+[e = . . _LATBbits 0 0 -> -> ! != -> . . _LATBbits 0 0 `i -> 0 `i `i `uc ]
+"64
+[; ;main.c: 64:     }
 }
 [e :U 373 ]
-"61
-[; ;main.c: 61: }
+"66
+[; ;main.c: 66: }
 [e :UE 372 ]
 }

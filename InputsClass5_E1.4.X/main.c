@@ -4,7 +4,10 @@
  *
  * Created on September 12, 2023, 6:40 PM
  */
-
+/*
+ Project Description: 
+ * 
+ */
 
 #include <xc.h> //Library to Microchip microcontrollers. 
 #include "Fuses.h" //Library to set fuses of PIC. 
@@ -52,9 +55,11 @@ void Counter(void) {
 
     if (!PORTBbits.RB0) {
 
-        __delay_ms(200);
+        __delay_ms(100);
         Counter_Pull_Down++;
         LATD = Counter_Pull_Down;
+        while(!PORTBbits.RB0);
+        LATBbits.LATB0 = !LATBbits.LATB0;
 
     }
 

@@ -7,14 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 12 "main.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5721,7 +5714,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 12 "main.c" 2
 
 # 1 "./Fuses.h" 1
 # 11 "./Fuses.h"
@@ -5785,7 +5778,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 10 "main.c" 2
+# 13 "main.c" 2
 
 
 
@@ -5831,9 +5824,11 @@ void Counter(void) {
 
     if (!PORTBbits.RB0) {
 
-        _delay((unsigned long)((200)*(8000000/4000.0)));
+        _delay((unsigned long)((100)*(8000000/4000.0)));
         Counter_Pull_Down++;
         LATD = Counter_Pull_Down;
+        while(!PORTBbits.RB0);
+        LATBbits.LATB0 = !LATBbits.LATB0;
 
     }
 
