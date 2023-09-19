@@ -12,6 +12,7 @@
 
 //Prototype functions. 
 void Conf_Reg(void);
+void __interrupt() INT(void);
 
 
 //Main function
@@ -59,10 +60,10 @@ void Conf_Reg(void) {
     INTCON2bits.RBPU = 0; //Pull up internal resistors disable.
     INTCON2bits.INTEDG0 = 0; //Set the interrupt rising (1) or falling (0) edge. 
     INTCON2bits.INTEDG1 = 1; //Set the interrupt rising edge.
-    
-    INTCON3bits.INT1E = 1; 
-    INTCON3bits.INT1F = 0; 
-    INTCON3bits.INT1IP = 0; 
+
+    INTCON3bits.INT1E = 1;
+    INTCON3bits.INT1F = 0;
+    INTCON3bits.INT1IP = 0;
 
     /*
         Another way of set specific bits of the register is this, 
@@ -79,4 +80,7 @@ void Conf_Reg(void) {
 
 //Develop function. 
 
+void __interrupt() INT(void) {
+
+}
 
