@@ -53,7 +53,14 @@ void Config_Reg(void) {
 
 void Leds_On() {
 
+<<<<<<< HEAD
     LATB = PORTD; 
     LATA = PORTC;
 
+=======
+    //Assign to Leds the value of the port. 
+    LATB = PORTD; 
+    LATA = PORTC; 
+    
+>>>>>>> 62c08f8a2aa8c1b2e8588733bf5b0cee6e1c0924
 }
