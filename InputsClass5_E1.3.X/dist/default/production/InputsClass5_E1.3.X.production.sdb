@@ -33,11 +33,7 @@
 [v _Config_Reg Config_Reg `(v  1 e 1 0 ]
 "54
 [v _Leds_On Leds_On `(v  1 e 1 0 ]
-<<<<<<< HEAD
 "2563 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h
-=======
-"2563 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
->>>>>>> 62c08f8a2aa8c1b2e8588733bf5b0cee6e1c0924
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "2705
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
@@ -57,11 +53,7 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-<<<<<<< HEAD
 "25 B:\MPLAB_Projects\College\InputsClass5_E1.3.X\main.c
-=======
-"25 C:\Apps\Git\Repositories\Microcontrollers_Projects\InputsClass5_E1.3.X\main.c
->>>>>>> 62c08f8a2aa8c1b2e8588733bf5b0cee6e1c0924
 [v _main main `(v  1 e 1 0 ]
 {
 "34
@@ -69,7 +61,7 @@
 "54
 [v _Leds_On Leds_On `(v  1 e 1 0 ]
 {
-"59
+"60
 } 0
 "38
 [v _Config_Reg Config_Reg `(v  1 e 1 0 ]

@@ -1,11 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-<<<<<<< HEAD
-                                                                                               Sun Sep 10 23:18:41 2023
-=======
-                                                                                               Tue Sep 12 23:38:29 2023
->>>>>>> 62c08f8a2aa8c1b2e8588733bf5b0cee6e1c0924
+                                                                                               Tue Sep 19 00:03:48 2023
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	18F4550
@@ -180,10 +176,10 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    162   007FCE                     _Leds_On:
    163                           	callstack 30
    164   007FCE                     
-   165                           ;main.c: 56:     LATB = PORTD;
+   165                           ;main.c: 57:     LATB = PORTD;
    166   007FCE  CF83 FF8A          	movff	3971,3978	;volatile
    167                           
-   168                           ;main.c: 57:     LATA = PORTC;
+   168                           ;main.c: 58:     LATA = PORTC;
    169   007FD2  CF82 FF89          	movff	3970,3977	;volatile
    170   007FD6  0012               	return		;funcret
    171   007FD8                     __end_of_Leds_On:
@@ -553,11 +549,7 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-<<<<<<< HEAD
-Symbol Table                                                                                   Sun Sep 10 23:18:41 2023
-=======
-Symbol Table                                                                                   Tue Sep 12 23:38:29 2023
->>>>>>> 62c08f8a2aa8c1b2e8588733bf5b0cee6e1c0924
+Symbol Table                                                                                   Tue Sep 19 00:03:48 2023
 
                      l35 7FFE                       l38 7FD6                      l720 7FD8  
                     l714 7FE8                      l722 7FDC                      l716 7FF8  

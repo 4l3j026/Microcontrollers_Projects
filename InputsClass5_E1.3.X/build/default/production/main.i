@@ -5816,6 +5816,7 @@ void Config_Reg(void) {
 
 void Leds_On() {
 
+
     LATB = PORTD;
     LATA = PORTC;
 

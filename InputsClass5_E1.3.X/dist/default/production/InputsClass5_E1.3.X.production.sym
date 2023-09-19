@@ -186,11 +186,7 @@ text1 7FCE 7FD7 CODE 7FCE 0
 cinit 7FC8 7FCD CODE 7FC8 0
 %locals
 dist/default/production\InputsClass5_E1.3.X.production.o
-<<<<<<< HEAD
-C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs6ko.\driver_tmp_1.s
-=======
-C:\Users\aleja\AppData\Local\Temp\xcAse7k.\driver_tmp_1.s
->>>>>>> 62c08f8a2aa8c1b2e8588733bf5b0cee6e1c0924
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs14s.\driver_tmp_1.s
 520 7FC8 0 CODE 0
 522 7FC8 0 CODE 0
 525 7FC8 0 CODE 0
@@ -203,9 +199,9 @@ main.c
 31 7FDC 0 CODE 0
 main.c
 54 7FCE 0 CODE 0
-56 7FCE 0 CODE 0
-57 7FD2 0 CODE 0
-59 7FD6 0 CODE 0
+57 7FCE 0 CODE 0
+58 7FD2 0 CODE 0
+60 7FD6 0 CODE 0
 main.c
 38 7FE8 0 CODE 0
 40 7FE8 0 CODE 0
