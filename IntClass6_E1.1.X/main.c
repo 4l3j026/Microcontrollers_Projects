@@ -20,7 +20,7 @@ void Conf_Reg(void);
 void __interrupt() INT(void);
 
 //Variables
-int8_t Counter = 0; 
+unsigned char Counter = 0; 
 
 //Main function
 
