@@ -7,13 +7,20 @@
 
 
 
-#include <xc.h> //Library to Microchip microcontrollers. 
+#include <xc.h>
+#include <pic18f4550.h> //Library to Microchip microcontrollers. 
 #include "Fuses.h" //Library to set fuses of PIC. 
+
+//Constants 
+#define Bounce_Time 100
+
 
 //Prototype functions. 
 void Conf_Reg(void);
 void __interrupt() INT(void);
 
+//Variables
+int8_t Counter = 0; 
 
 //Main function
 
@@ -81,6 +88,13 @@ void Conf_Reg(void) {
 //Develop function. 
 
 void __interrupt() INT(void) {
+
+    if (INT0IF) {
+        __delay_ms(Bounce_Time);
+
+
+
+    }
 
 }
 
