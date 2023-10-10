@@ -3,6 +3,11 @@
  * Author: Alejo
  *
  * Created on September 15, 2023, 12:45 AM
+ * 
+ *      Project Description: 
+ *          Here we are using the interruptions of the microcontroller through 
+ *          the some registers, RCON, INTCON for understand the idea. 
+ *          While blink one led counter increases and show the led bar. 
  */
 
 
@@ -17,10 +22,11 @@
 
 //Prototype functions. 
 void Conf_Reg(void);
-void __interrupt() INT(void);
+void Led(void);
+void __interrupt() INT(void); //Interrupt Function Statement. (Without priority)
 
 //Variables
-unsigned char Counter = 0; 
+unsigned char Counter = 0;
 
 //Main function
 
@@ -30,6 +36,8 @@ void main(void) {
     Conf_Reg();
     //Infinite Cycle. 
     while (1) {
+
+        Led();
 
     }
 
@@ -68,9 +76,13 @@ void Conf_Reg(void) {
     INTCON2bits.INTEDG0 = 0; //Set the interrupt rising (1) or falling (0) edge. 
     INTCON2bits.INTEDG1 = 1; //Set the interrupt rising edge.
 
+    //External interrupt 0 set. 
+    INTCONbits.INT0E = 1;
+    INTCONbits.INT0F = 0;
+
+    //External interrupt 1 set. 
     INTCON3bits.INT1E = 1;
     INTCON3bits.INT1F = 0;
-    INTCON3bits.INT1IP = 0;
 
     /*
         Another way of set specific bits of the register is this, 
@@ -79,9 +91,9 @@ void Conf_Reg(void) {
 
         GIE = 1; //Global Interrupt Enable. 
         INT0E = 0; //Interrupt of port RB0 Enable. 
-        INT0F = 0; //Interrupt flag; 
+        INT0F = 0; //Interrupt flag. 
+        INTEDG0 = 0; //Falling edge.
      */
-
 
 }
 
@@ -90,11 +102,19 @@ void Conf_Reg(void) {
 void __interrupt() INT(void) {
 
     if (INT0IF) {
-        __delay_ms(Bounce_Time);
-
-
+        __delay_ms(Bounce_Time); //Anti-Bounce time to stabilize the state. 
+        INT0IF = 0; //Clean the flag. 
+        LATD = Counter++; //Increment the counter. 
 
     }
 
 }
 
+//Develop function. 
+
+void Led(void) {
+
+    LATEbits.LATE0 ^= 1;
+    __delay_ms(500);
+
+}

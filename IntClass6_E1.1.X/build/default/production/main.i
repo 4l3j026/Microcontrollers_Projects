@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 10 "main.c"
+# 15 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5711,7 +5711,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 2 3
-# 10 "main.c" 2
+# 15 "main.c" 2
 
 
 # 1 "./Fuses.h" 1
@@ -5776,7 +5776,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 12 "main.c" 2
+# 17 "main.c" 2
 
 
 
@@ -5785,10 +5785,11 @@ unsigned char __t3rd16on(void);
 
 
 void Conf_Reg(void);
+void Led(void);
 void __attribute__((picinterrupt(("")))) INT(void);
 
 
-int8_t Counter = 0;
+unsigned char Counter = 0;
 
 
 
@@ -5798,6 +5799,8 @@ void main(void) {
     Conf_Reg();
 
     while (1) {
+
+        Led();
 
     }
 
@@ -5836,10 +5839,14 @@ void Conf_Reg(void) {
     INTCON2bits.INTEDG0 = 0;
     INTCON2bits.INTEDG1 = 1;
 
+
+    INTCONbits.INT0E = 1;
+    INTCONbits.INT0F = 0;
+
+
     INTCON3bits.INT1E = 1;
     INTCON3bits.INT1F = 0;
-    INTCON3bits.INT1IP = 0;
-# 86 "main.c"
+# 98 "main.c"
 }
 
 
@@ -5848,9 +5855,18 @@ void __attribute__((picinterrupt(("")))) INT(void) {
 
     if (INT0IF) {
         _delay((unsigned long)((100)*(8000000/4000.0)));
-
-
+        INT0IF = 0;
+        LATD = Counter++;
 
     }
+
+}
+
+
+
+void Led(void) {
+
+    LATEbits.LATE0 ^= 1;
+    _delay((unsigned long)((500)*(8000000/4000.0)));
 
 }
