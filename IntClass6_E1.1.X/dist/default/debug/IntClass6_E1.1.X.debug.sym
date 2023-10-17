@@ -201,8 +201,8 @@ reset_vec 0 3 CODE 0 0
 intcode 8 A5 CODE 8 0
 cstackCOMRAM 1 6 COMRAM 1 1
 %locals
-dist/default/production\IntClass6_E1.1.X.production.o
-C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs4tg.\driver_tmp_1.s
+dist/default/debug\IntClass6_E1.1.X.debug.o
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs1s8.\driver_tmp_1.s
 530 9A 0 CODE 0
 532 9A 0 CODE 0
 535 9A 0 CODE 0
@@ -238,7 +238,7 @@ main.c
 84 6A 0 CODE 0
 85 6C 0 CODE 0
 98 6E 0 CODE 0
-C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs4tg.\driver_tmp_1.s
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs1s8.\driver_tmp_1.s
 1036 8 0 CODE 0
 main.c
 102 8 0 CODE 0
