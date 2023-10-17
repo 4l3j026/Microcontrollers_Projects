@@ -4,6 +4,8 @@ __S4 0 0 ABS 0
 __S5 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
+_LATB F8A 0 ABS 0
+_LATD F8C 0 ABS 0
 _main 7FF8 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
@@ -171,13 +173,13 @@ text0 7FF8 7FFF CODE 7FF8 0
 cinit 7FF2 7FF7 CODE 7FF2 0
 %locals
 dist/default/debug\Disp7_Class7E1.1.X.debug.o
-C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs8i0.\driver_tmp_1.s
-512 7FF2 0 CODE 0
-514 7FF2 0 CODE 0
-517 7FF2 0 CODE 0
-523 7FF2 0 CODE 0
-525 7FF2 0 CODE 0
-526 7FF4 0 CODE 0
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAsab4.\driver_tmp_1.s
+516 7FF2 0 CODE 0
+518 7FF2 0 CODE 0
+521 7FF2 0 CODE 0
+527 7FF2 0 CODE 0
+529 7FF2 0 CODE 0
+530 7FF4 0 CODE 0
 main.c
 22 7FF8 0 CODE 0
 24 7FF8 0 CODE 0

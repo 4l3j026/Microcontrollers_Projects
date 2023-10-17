@@ -12,6 +12,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4001
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h: 4001: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"3073
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h: 3073: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"3263
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h: 3263: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 "7545
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h: 7545:     struct {
 [s S322 :1 `uc 1 ]
@@ -714,22 +720,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;main.c: 36:     TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
+"38
+[; ;main.c: 38:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
 "39
-[; ;main.c: 39:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-"40
-[; ;main.c: 40:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"41
-[; ;main.c: 41:     INTCONbits.INT0IE = 0;
-[e = . . _INTCONbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 39:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
 "42
-[; ;main.c: 42:     INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 42:     RCONbits.IPEN = 0;
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "43
-[; ;main.c: 43:     INTCON2bits.INTEDG0 = 0;
-[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+[; ;main.c: 43:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"44
+[; ;main.c: 44:     INTCONbits.INT0IE = 1;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
 "45
-[; ;main.c: 45: }
+[; ;main.c: 45:     INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"46
+[; ;main.c: 46:     INTCON2bits.INTEDG0 = 0;
+[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+"48
+[; ;main.c: 48: }
 [e :UE 371 ]
 }

@@ -5799,10 +5799,13 @@ void Configuration(void) {
     TRISB = 0x03;
     TRISD = 0x00;
 
+    LATB = 0x00;
+    LATD = 0x00;
+
 
     RCONbits.IPEN = 0;
     INTCONbits.GIE = 1;
-    INTCONbits.INT0IE = 0;
+    INTCONbits.INT0IE = 1;
     INTCONbits.INT0IF = 0;
     INTCON2bits.INTEDG0 = 0;
 

@@ -34,12 +34,15 @@ void Configuration(void) {
 
     TRISB = 0x03; //Set pin 0 and 1 as input. 
     TRISD = 0x00; //Set D port as output. 
+    
+    LATB = 0x00; //Clear the ports. 
+    LATD = 0x00; //Clear ports. 
 
     //Interrupts settings. 
-    RCONbits.IPEN = 0;
-    INTCONbits.GIE = 1; //Global interrupt enable. 
-    INTCONbits.INT0IE = 0;
-    INTCONbits.INT0IF = 0;
-    INTCON2bits.INTEDG0 = 0;
+    RCONbits.IPEN = 0; //Interrupt priority disabled. 
+    INTCONbits.GIE = 1; //Global interrupt enabled. 
+    INTCONbits.INT0IE = 1; //Interrupt 0 enabled. 
+    INTCONbits.INT0IF = 0; //Interrupt flag cleared. 
+    INTCON2bits.INTEDG0 = 0; //Interrupt falling edge. 
 
 }
