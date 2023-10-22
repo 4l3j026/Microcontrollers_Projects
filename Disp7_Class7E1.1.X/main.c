@@ -16,10 +16,14 @@
 
 //Prototype functions.
 void Configuration(void);
+void Data_Display(void);
 
 //Main function. 
 
 void main(void) {
+
+    //Calling functions. 
+    Configuration();
 
     while (1) {
 
@@ -34,7 +38,7 @@ void Configuration(void) {
 
     TRISB = 0x03; //Set pin 0 and 1 as input. 
     TRISD = 0x00; //Set D port as output. 
-    
+
     LATB = 0x00; //Clear the ports. 
     LATD = 0x00; //Clear ports. 
 
@@ -46,3 +50,9 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0; //Interrupt falling edge. 
 
 }
+
+void Data_Display(void) {
+   
+    
+    
+} 
