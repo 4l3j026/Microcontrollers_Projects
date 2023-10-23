@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 14 "main.c"
+# 13 "main.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5714,7 +5714,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
-# 14 "main.c" 2
+# 13 "main.c" 2
 
 # 1 "./Fuses.h" 1
 # 10 "./Fuses.h"
@@ -5778,11 +5778,15 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 15 "main.c" 2
-
+# 14 "main.c" 2
 
 
 void Configuration(void);
+void Data_Display(void);
+void Data_Display2(unsigned char i);
+void __attribute__((picinterrupt(("")))) INT(void);
+
+
 
 
 
@@ -5793,6 +5797,9 @@ void main(void) {
 
     while (1) {
 
+        Data_Display();
+        Data_Display2(9);
+
     }
 
 }
@@ -5802,9 +5809,11 @@ void Configuration(void) {
     OSCCON = 0x72;
     ADCON1 = 0x0F;
 
+    TRISA = 0x00;
     TRISB = 0x03;
     TRISD = 0x00;
 
+    LATA = 0x00;
     LATB = 0x00;
     LATD = 0x00;
 
@@ -5814,5 +5823,33 @@ void Configuration(void) {
     INTCONbits.INT0IE = 1;
     INTCONbits.INT0IF = 0;
     INTCON2bits.INTEDG0 = 0;
+
+}
+
+
+
+void Data_Display(void) {
+
+    unsigned char Numbers [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
+
+
+}
+
+
+void Data_Display2(unsigned char i){
+
+    unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
+
+    LATD = Numbers_2 [i];
+    LATAbits.LA1 = 1;
+
+}
+
+
+
+
+void __attribute__((picinterrupt(("")))) INT() {
+
+
 
 }
