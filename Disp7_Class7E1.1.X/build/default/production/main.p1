@@ -1,14 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"16 main.c
-[; ;main.c: 16: void Configuration(void);
+"17 main.c
+[; ;main.c: 17: void Configuration(void);
 [v _Configuration `(v ~T0 @X0 0 ef ]
-"17
-[; ;main.c: 17: void Data_Display(void);
-[v _Data_Display `(v ~T0 @X0 0 ef ]
 "18
-[; ;main.c: 18: void Data_Display2(unsigned char i);
-[v _Data_Display2 `(v ~T0 @X0 0 ef1`uc ]
+[; ;main.c: 18: void Data_Display(unsigned char N, unsigned char D);
+[v _Data_Display `(v ~T0 @X0 0 ef2`uc`uc ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
 "7986 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
@@ -110,21 +111,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8532
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 8532: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
 [v _INTCON2bits `VS355 ~T0 @X0 0 e@4081 ]
-"2979
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2979:     struct {
-[s S127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S127 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 ]
-"2988
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2988:     struct {
-[s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S128 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 ]
-"2978
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2978: typedef union {
-[u S126 `S127 1 `S128 1 ]
-[n S126 . . . ]
-"2998
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 2998: extern volatile LATAbits_t LATAbits __attribute__((address(0xF89)));
-[v _LATAbits `VS126 ~T0 @X0 0 e@3977 ]
 [t ~ __interrupt . k ]
 [t T37 __interrupt ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
@@ -714,125 +700,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [p x EBTRB  =  OFF       ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"25 main.c
-[; ;main.c: 25: void main(void) {
+"26 main.c
+[; ;main.c: 26: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"28
-[; ;main.c: 28:     Configuration();
+"29
+[; ;main.c: 29:     Configuration();
 [e ( _Configuration ..  ]
-"30
-[; ;main.c: 30:     while (1) {
+"31
+[; ;main.c: 31:     while (1) {
 [e :U 369 ]
 {
-"32
-[; ;main.c: 32:         Data_Display();
-[e ( _Data_Display ..  ]
-"33
-[; ;main.c: 33:         Data_Display2(9);
-[e ( _Data_Display2 (1 -> -> 9 `i `uc ]
-"35
-[; ;main.c: 35:     }
+"39
+[; ;main.c: 39:         Data_Display(6, 1);
+[e ( _Data_Display (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
+"40
+[; ;main.c: 40:         _delay((unsigned long)((800)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 800 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"41
+[; ;main.c: 41:         Data_Display(4, 0);
+[e ( _Data_Display (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
+"42
+[; ;main.c: 42:         _delay((unsigned long)((400)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"43
+[; ;main.c: 43:         Data_Display(8, 2);
+[e ( _Data_Display (2 , -> -> 8 `i `uc -> -> 2 `i `uc ]
+"44
+[; ;main.c: 44:         _delay((unsigned long)((400)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"45
+[; ;main.c: 45:         Data_Display(2,3);
+[e ( _Data_Display (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"46
+[; ;main.c: 46:         _delay((unsigned long)((400)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"48
+[; ;main.c: 48:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"37
-[; ;main.c: 37: }
+"50
+[; ;main.c: 50: }
 [e :UE 367 ]
 }
-"39
-[; ;main.c: 39: void Configuration(void) {
+"52
+[; ;main.c: 52: void Configuration(void) {
 [v _Configuration `(v ~T0 @X0 1 ef ]
 {
 [e :U _Configuration ]
 [f ]
-"41
-[; ;main.c: 41:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"42
-[; ;main.c: 42:     ADCON1 = 0x0F;
-[e = _ADCON1 -> -> 15 `i `uc ]
-"44
-[; ;main.c: 44:     TRISA = 0x00;
-[e = _TRISA -> -> 0 `i `uc ]
-"45
-[; ;main.c: 45:     TRISB = 0x03;
-[e = _TRISB -> -> 3 `i `uc ]
-"46
-[; ;main.c: 46:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
-"48
-[; ;main.c: 48:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
-"49
-[; ;main.c: 49:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
-"50
-[; ;main.c: 50:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
-"53
-[; ;main.c: 53:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "54
-[; ;main.c: 54:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 54:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
 "55
-[; ;main.c: 55:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"56
-[; ;main.c: 56:     INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 55:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
 "57
-[; ;main.c: 57:     INTCON2bits.INTEDG0 = 0;
-[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+[; ;main.c: 57:     TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+"58
+[; ;main.c: 58:     TRISB = 0x03;
+[e = _TRISB -> -> 3 `i `uc ]
 "59
-[; ;main.c: 59: }
+[; ;main.c: 59:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
+"61
+[; ;main.c: 61:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"62
+[; ;main.c: 62:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
+"63
+[; ;main.c: 63:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
+"66
+[; ;main.c: 66:     RCONbits.IPEN = 0;
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
+"67
+[; ;main.c: 67:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"68
+[; ;main.c: 68:     INTCONbits.INT0IE = 1;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+"69
+[; ;main.c: 69:     INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:     INTCON2bits.INTEDG0 = 0;
+[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+"72
+[; ;main.c: 72: }
 [e :UE 371 ]
 }
-"63
-[; ;main.c: 63: void Data_Display(void) {
-[v _Data_Display `(v ~T0 @X0 1 ef ]
+"76
+[; ;main.c: 76: void Data_Display(unsigned char N, unsigned char D) {
+[v _Data_Display `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _Data_Display ]
+[v _N `uc ~T0 @X0 1 r1 ]
+[v _D `uc ~T0 @X0 1 r2 ]
 [f ]
-[v F3209 `uc ~T0 @X0 -> 10 `i s ]
-[i F3209
+[v F3211 `uc ~T0 @X0 -> 10 `i s ]
+[i F3211
 :U ..
-"65
-[; ;main.c: 65:     unsigned char Numbers [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
--> -> 191 `i `uc
--> -> 134 `i `uc
--> -> 219 `i `uc
--> -> 207 `i `uc
--> -> 230 `i `uc
--> -> 237 `i `uc
--> -> 253 `i `uc
--> -> 135 `i `uc
--> -> 255 `i `uc
--> -> 231 `i `uc
-..
-]
-[v _Numbers `uc ~T0 @X0 -> 10 `i a ]
-[e = _Numbers F3209 ]
-"68
-[; ;main.c: 68: }
-[e :UE 372 ]
-}
-"71
-[; ;main.c: 71: void Data_Display2(unsigned char i){
-[v _Data_Display2 `(v ~T0 @X0 1 ef1`uc ]
-{
-[e :U _Data_Display2 ]
-[v _i `uc ~T0 @X0 1 r1 ]
-[f ]
-[v F3213 `uc ~T0 @X0 -> 10 `i s ]
-[i F3213
-:U ..
-"73
-[; ;main.c: 73:     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
+"79
+[; ;main.c: 79:     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
 -> -> 191 `i `uc
 -> -> 134 `i `uc
 -> -> 219 `i `uc
@@ -846,25 +822,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _Numbers_2 `uc ~T0 @X0 -> 10 `i a ]
-[e = _Numbers_2 F3213 ]
-"75
-[; ;main.c: 75:     LATD = Numbers_2 [i];
-[e = _LATD *U + &U _Numbers_2 * -> _i `ux -> -> # *U &U _Numbers_2 `ui `ux ]
-"76
-[; ;main.c: 76:     LATAbits.LA1 = 1;
-[e = . . _LATAbits 1 1 -> -> 1 `i `uc ]
-"78
-[; ;main.c: 78: }
-[e :UE 373 ]
+[e = _Numbers_2 F3211 ]
+[v F3213 `uc ~T0 @X0 -> 4 `i s ]
+[i F3213
+:U ..
+"81
+[; ;main.c: 81:     unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 4 `i `uc
+-> -> 8 `i `uc
+..
+]
+[v _Display `uc ~T0 @X0 -> 4 `i a ]
+[e = _Display F3213 ]
+"84
+[; ;main.c: 84:     LATD = Numbers_2 [N];
+[e = _LATD *U + &U _Numbers_2 * -> _N `ux -> -> # *U &U _Numbers_2 `ui `ux ]
+"85
+[; ;main.c: 85:     LATA = Display [D];
+[e = _LATA *U + &U _Display * -> _D `ux -> -> # *U &U _Display `ui `ux ]
+"87
+[; ;main.c: 87: }
+[e :UE 372 ]
 }
 [v $root$_INT `(v ~T0 @X0 0 e ]
-"83
-[; ;main.c: 83: void __attribute__((picinterrupt(("")))) INT() {
+"92
+[; ;main.c: 92: void __attribute__((picinterrupt(("")))) INT() {
 [v _INT `(v ~T37 @X0 1 ef ]
 {
 [e :U _INT ]
 [f ]
-"87
-[; ;main.c: 87: }
-[e :UE 374 ]
+"94
+[; ;main.c: 94: }
+[e :UE 373 ]
 }

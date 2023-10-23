@@ -5781,10 +5781,11 @@ unsigned char __t3rd16on(void);
 # 14 "main.c" 2
 
 
+
 void Configuration(void);
-void Data_Display(void);
-void Data_Display2(unsigned char i);
+void Data_Display(unsigned char N, unsigned char D);
 void __attribute__((picinterrupt(("")))) INT(void);
+
 
 
 
@@ -5797,8 +5798,20 @@ void main(void) {
 
     while (1) {
 
-        Data_Display();
-        Data_Display2(9);
+
+
+
+
+
+
+        Data_Display(6, 1);
+        _delay((unsigned long)((800)*(8000000/4000.0)));
+        Data_Display(4, 0);
+        _delay((unsigned long)((400)*(8000000/4000.0)));
+        Data_Display(8, 2);
+        _delay((unsigned long)((400)*(8000000/4000.0)));
+        Data_Display(2,3);
+        _delay((unsigned long)((400)*(8000000/4000.0)));
 
     }
 
@@ -5828,20 +5841,16 @@ void Configuration(void) {
 
 
 
-void Data_Display(void) {
+void Data_Display(unsigned char N, unsigned char D) {
 
-    unsigned char Numbers [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
-
-
-}
-
-
-void Data_Display2(unsigned char i){
 
     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
 
-    LATD = Numbers_2 [i];
-    LATAbits.LA1 = 1;
+    unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
+
+
+    LATD = Numbers_2 [N];
+    LATA = Display [D];
 
 }
 
@@ -5849,7 +5858,5 @@ void Data_Display2(unsigned char i){
 
 
 void __attribute__((picinterrupt(("")))) INT() {
-
-
 
 }

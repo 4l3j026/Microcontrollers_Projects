@@ -12,13 +12,14 @@
 
 #include <xc.h> //Library to Microchip Microcontrollers. 
 #include "Fuses.h"//Library to set fuses of PIC. 
+
 //Prototype functions.
 void Configuration(void);
-void Data_Display(void);
-void Data_Display2(unsigned char i);
+void Data_Display(unsigned char N, unsigned char D);
 void __interrupt() INT(void);
+
 //Variables and constants.
-#define t 10
+#define Time 10 //Create time constant 
 
 //Main function. 
 
@@ -29,8 +30,20 @@ void main(void) {
 
     while (1) {
 
-        Data_Display();
-        Data_Display2(0);
+        /*
+         Here, we're calling the function, where first parameter is: 
+                - One number from 0 to 9 due to display limit. 
+         And the second parameter is: 
+                - One number from 0 to 3 because of the number of displays. 
+         */
+        Data_Display(6, 1);
+        __delay_ms(800);
+        Data_Display(4, 0);
+        __delay_ms(400);
+        Data_Display(8, 2);
+        __delay_ms(400);
+        Data_Display(2,3);
+        __delay_ms(400);
 
     }
 
@@ -58,30 +71,24 @@ void Configuration(void) {
 
 }
 
-//Develop function display data. 
-
-void Data_Display(void) {
-
-    unsigned char Numbers [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
-
-    
-}
-
 //Develop another function of display. 
-void Data_Display2(unsigned char i){
-    
+
+void Data_Display(unsigned char N, unsigned char D) {
+
+    //Save the numbers data inside a vector. 
     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
-    
-    LATD = Numbers_2 [i];
-    LATAbits.LA1 = 1; 
-    
+    //Save the display address inside a vector. 
+    unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
+
+    //Assign to ports the parameters value to show on display. 
+    LATD = Numbers_2 [N];
+    LATA = Display [D];
+
 }
 
 
 //Develop interrupt function. 
 
 void __interrupt() INT() {
-
-
 
 }
