@@ -44,7 +44,7 @@ void main(void) {
         __delay_ms(400);
         Data_Display(2,3);
         __delay_ms(400);
-
+        //Data_Display(5, 1);
     }
 
 }
