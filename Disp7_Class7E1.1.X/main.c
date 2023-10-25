@@ -20,6 +20,8 @@ void __interrupt() INT(void);
 
 //Variables and constants.
 #define Time 10 //Create time constant 
+char Number_Counter = 0; //Create global variable of counter. 
+char Display_Counter = 0; //Create global variable of display. 
 
 //Main function. 
 
@@ -35,16 +37,14 @@ void main(void) {
                 - One number from 0 to 9 due to display limit. 
          And the second parameter is: 
                 - One number from 0 to 3 because of the number of displays. 
+                  Data_Display(6, 1);
          */
-        Data_Display(6, 1);
-        __delay_ms(800);
-        Data_Display(4, 0);
-        __delay_ms(400);
-        Data_Display(8, 2);
-        __delay_ms(400);
-        Data_Display(2,3);
-        __delay_ms(400);
-        //Data_Display(5, 1);
+
+        Data_Display(Number_Counter, Display_Counter);
+        
+
+
+        //        
     }
 
 }
@@ -83,6 +83,7 @@ void Data_Display(unsigned char N, unsigned char D) {
     //Assign to ports the parameters value to show on display. 
     LATD = Numbers_2 [N];
     LATA = Display [D];
+    __delay_ms(200);
 
 }
 
@@ -90,5 +91,17 @@ void Data_Display(unsigned char N, unsigned char D) {
 //Develop interrupt function. 
 
 void __interrupt() INT() {
+
+    if (INT0IF) {
+
+        INT0IF = 0;
+        Number_Counter++;
+        if (Number_Counter == 10) {
+
+            Number_Counter = 0;
+
+        }
+
+    }
 
 }

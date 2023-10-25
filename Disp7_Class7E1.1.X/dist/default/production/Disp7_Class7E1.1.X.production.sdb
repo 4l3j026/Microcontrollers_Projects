@@ -27,15 +27,15 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"26 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
+"28 B:\MPLAB_Projects\College\Disp7_Class7E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"52
+"51
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"76
+"75
 [v _Data_Display Data_Display `(v  1 e 1 0 ]
 "92
 [v _INT INT `IIH(v  1 e 1 0 ]
-"2973 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+"2973 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3073
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
@@ -49,22 +49,22 @@
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "6581
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-[s S48 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S42 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "7588
-[s S50 . 1 `uc 1 . 1 0 :1:0 
+[s S44 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S53 . 1 `uc 1 . 1 0 :2:0 
+[s S47 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S56 . 1 `uc 1 . 1 0 :3:0 
+[s S50 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S59 . 1 `uc 1 . 1 0 :4:0 
+[s S53 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S62 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S56 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -73,10 +73,10 @@
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S71 . 1 `uc 1 . 1 0 :7:0 
+[s S65 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_IPEN 1 0 :1:7 
 ]
-[s S74 . 1 `uc 1 BOR 1 0 :1:0 
+[s S68 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -84,15 +84,15 @@
 `uc 1 . 1 0 :2:5 
 `uc 1 nIPEN 1 0 :1:7 
 ]
-[u S82 . 1 `S48 1 . 1 0 `S50 1 . 1 0 `S53 1 . 1 0 `S56 1 . 1 0 `S59 1 . 1 0 `S62 1 . 1 0 `S71 1 . 1 0 `S74 1 . 1 0 ]
-[v _RCONbits RCONbits `VES82  1 e 1 @4048 ]
+[u S76 . 1 `S42 1 . 1 0 `S44 1 . 1 0 `S47 1 . 1 0 `S50 1 . 1 0 `S53 1 . 1 0 `S56 1 . 1 0 `S65 1 . 1 0 `S68 1 . 1 0 ]
+[v _RCONbits RCONbits `VES76  1 e 1 @4048 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S175 . 1 `uc 1 . 1 0 :7:0 
+[s S169 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "8532
-[s S178 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S172 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -101,14 +101,14 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S187 . 1 `uc 1 . 1 0 :2:0 
+[s S181 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S192 . 1 `S175 1 . 1 0 `S178 1 . 1 0 `S187 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES192  1 e 1 @4081 ]
-[s S126 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S186 . 1 `S169 1 . 1 0 `S172 1 . 1 0 `S181 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES186  1 e 1 @4081 ]
+[s S120 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -118,7 +118,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8614
-[s S135 . 1 `uc 1 . 1 0 :1:0 
+[s S129 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -127,41 +127,47 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S144 . 1 `uc 1 . 1 0 :6:0 
+[s S138 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S148 . 1 `S126 1 . 1 0 `S135 1 . 1 0 `S144 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES148  1 e 1 @4082 ]
-"26 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
+[u S142 . 1 `S120 1 . 1 0 `S129 1 . 1 0 `S138 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES142  1 e 1 @4082 ]
+"9832
+[v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
+"23 B:\MPLAB_Projects\College\Disp7_Class7E1.1.X\main.c
+[v _Number_Counter Number_Counter `uc  1 e 1 0 ]
+"24
+[v _Display_Counter Display_Counter `uc  1 e 1 0 ]
+"28
 [v _main main `(v  1 e 1 0 ]
 {
-"50
+"49
 } 0
-"76
+"75
 [v _Data_Display Data_Display `(v  1 e 1 0 ]
 {
 [v Data_Display@N N `uc  1 a 1 wreg ]
-"79
-[v Data_Display@Numbers_2 Numbers_2 `[10]uc  1 a 10 1 ]
-"81
-[v Data_Display@Display Display `[4]uc  1 a 4 11 ]
-"76
+"78
+[v Data_Display@Numbers_2 Numbers_2 `[10]uc  1 a 10 3 ]
+"80
+[v Data_Display@Display Display `[4]uc  1 a 4 13 ]
+"75
 [v Data_Display@N N `uc  1 a 1 wreg ]
 [v Data_Display@D D `uc  1 p 1 0 ]
-[v Data_Display@F3211 F3211 `[10]uc  1 s 10 F3211 ]
-"79
-[v Data_Display@F3213 F3213 `[4]uc  1 s 4 F3213 ]
-[v Data_Display@N N `uc  1 a 1 15 ]
+[v Data_Display@F3213 F3213 `[10]uc  1 s 10 F3213 ]
+"78
+[v Data_Display@F3215 F3215 `[4]uc  1 s 4 F3215 ]
+[v Data_Display@N N `uc  1 a 1 17 ]
 "87
 } 0
-"52
+"51
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
-"72
+"71
 } 0
 "92
 [v _INT INT `IIH(v  1 e 1 0 ]
 {
-"94
+"107
 } 0
