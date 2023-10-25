@@ -73,6 +73,4 @@
 
 #include <xc.h>
 
-#define _XTAl_FREQ 8000000
-
-
+#define _XTAL_FREQ 8000000
