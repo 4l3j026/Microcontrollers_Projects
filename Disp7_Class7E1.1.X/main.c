@@ -22,6 +22,9 @@ void __interrupt() INT(void);
 #define Time 10 //Create time constant 
 char Number_Counter = 0; //Create global variable of counter. 
 char Display_Counter = 0; //Create global variable of display. 
+char Units = 0; 
+char Tens = 0; 
+char Hundreds = 0;
 
 //Main function. 
 
