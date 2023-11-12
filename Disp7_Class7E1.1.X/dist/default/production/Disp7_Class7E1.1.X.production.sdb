@@ -27,15 +27,15 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"28 B:\MPLAB_Projects\College\Disp7_Class7E1.1.X\main.c
+"31 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"51
+"55
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"75
+"79
 [v _Data_Display Data_Display `(v  1 e 1 0 ]
-"92
+"96
 [v _INT INT `IIH(v  1 e 1 0 ]
-"2973 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h
+"2973 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3073
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
@@ -135,39 +135,37 @@
 [v _INTCONbits INTCONbits `VES142  1 e 1 @4082 ]
 "9832
 [v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
-"23 B:\MPLAB_Projects\College\Disp7_Class7E1.1.X\main.c
+"23 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
 [v _Number_Counter Number_Counter `uc  1 e 1 0 ]
-"24
-[v _Display_Counter Display_Counter `uc  1 e 1 0 ]
-"28
+"31
 [v _main main `(v  1 e 1 0 ]
 {
-"49
+"53
 } 0
-"75
+"79
 [v _Data_Display Data_Display `(v  1 e 1 0 ]
 {
 [v Data_Display@N N `uc  1 a 1 wreg ]
-"78
+"82
 [v Data_Display@Numbers_2 Numbers_2 `[10]uc  1 a 10 3 ]
-"80
+"84
 [v Data_Display@Display Display `[4]uc  1 a 4 13 ]
-"75
+"79
 [v Data_Display@N N `uc  1 a 1 wreg ]
 [v Data_Display@D D `uc  1 p 1 0 ]
-[v Data_Display@F3213 F3213 `[10]uc  1 s 10 F3213 ]
-"78
-[v Data_Display@F3215 F3215 `[4]uc  1 s 4 F3215 ]
+[v Data_Display@F3216 F3216 `[10]uc  1 s 10 F3216 ]
+"82
+[v Data_Display@F3218 F3218 `[4]uc  1 s 4 F3218 ]
 [v Data_Display@N N `uc  1 a 1 17 ]
-"87
+"91
 } 0
-"51
+"55
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
-"71
+"75
 } 0
-"92
+"96
 [v _INT INT `IIH(v  1 e 1 0 ]
 {
-"107
+"110
 } 0
