@@ -5788,8 +5788,9 @@ void __attribute__((picinterrupt(("")))) INT(void);
 
 
 
+
 char Number_Counter = 0;
-char Display_Counter = 0;
+char Display = 0;
 char Units = 0;
 char Tens = 0;
 char Hundreds = 0;
@@ -5802,8 +5803,14 @@ void main(void) {
     Configuration();
 
     while (1) {
-# 46 "main.c"
-        Data_Display(Number_Counter, Display_Counter);
+# 50 "main.c"
+        for (int i = 0; i < 4; i++) {
+
+            Data_Display(0, i);
+            _delay((unsigned long)((80)*(8000000/4000.0)));
+
+        }
+
 
 
 
