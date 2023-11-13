@@ -16,6 +16,7 @@
 //Prototype functions.
 void Configuration(void);
 void Data_Display(unsigned char N, unsigned char D);
+void Data_Show(void);
 void __interrupt() INT(void);
 
 //Variables and constants.
@@ -34,30 +35,11 @@ void main(void) {
     //Calling functions. 
     Configuration();
 
+    //Infinite Loop. 
     while (1) {
 
-        /*
-         Here, we're calling the function, where first parameter is: 
-                - One number from 0 to 9 due to display limit. 
-         And the second parameter is: 
-                - One number from 0 to 3 because of the number of displays. 
-                  Data_Display(6, 1);
-         */
+        Data_Show();
 
-        //Data_Display(Number_Counter, Display);
-        //        Data_Display(0, 0);
-        //        __delay_ms(Time_2);
-        for (int i = 0; i < 4; i++) {
-
-            Data_Display(0, i);
-            __delay_ms(Time_2);
-
-        }
-
-
-
-
-        //        
     }
 
 }
@@ -88,6 +70,14 @@ void Configuration(void) {
 
 void Data_Display(unsigned char N, unsigned char D) {
 
+    /*
+ Here, we're calling the function, where first parameter is: 
+        - One number from 0 to 9 due to display limit. 
+ And the second parameter is: 
+        - One number from 0 to 3 because of the number of displays. 
+          Data_Display(6, 1);
+     */
+
     //Save the numbers data inside a vector. 
     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
     //Save the display address inside a vector. 
@@ -96,7 +86,20 @@ void Data_Display(unsigned char N, unsigned char D) {
     //Assign to ports the parameters value to show on display. 
     LATD = Numbers_2 [N];
     LATA = Display [D];
-    __delay_ms(200);
+    __delay_ms(40);
+
+}
+
+//Develop function to Dynamic Display. 
+
+void Data_Show() {
+
+    for (int i = 0; i < 4; i++) {
+
+        Data_Display(0, i);
+        __delay_ms(Time_2);
+
+    }
 
 }
 

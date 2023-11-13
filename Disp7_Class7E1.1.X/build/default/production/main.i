@@ -5784,6 +5784,7 @@ unsigned char __t3rd16on(void);
 
 void Configuration(void);
 void Data_Display(unsigned char N, unsigned char D);
+void Data_Show(void);
 void __attribute__((picinterrupt(("")))) INT(void);
 
 
@@ -5802,18 +5803,10 @@ void main(void) {
 
     Configuration();
 
+
     while (1) {
-# 50 "main.c"
-        for (int i = 0; i < 4; i++) {
 
-            Data_Display(0, i);
-            _delay((unsigned long)((80)*(8000000/4000.0)));
-
-        }
-
-
-
-
+        Data_Show();
 
     }
 
@@ -5844,8 +5837,7 @@ void Configuration(void) {
 
 
 void Data_Display(unsigned char N, unsigned char D) {
-
-
+# 82 "main.c"
     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
 
     unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
@@ -5853,7 +5845,20 @@ void Data_Display(unsigned char N, unsigned char D) {
 
     LATD = Numbers_2 [N];
     LATA = Display [D];
-    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((40)*(8000000/4000.0)));
+
+}
+
+
+
+void Data_Show() {
+
+    for (int i = 0; i < 4; i++) {
+
+        Data_Display(0, i);
+        _delay((unsigned long)((80)*(8000000/4000.0)));
+
+    }
 
 }
 
