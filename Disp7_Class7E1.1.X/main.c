@@ -112,7 +112,12 @@ void __interrupt() INT() {
         if (Number_Counter == 10) {
 
             Number_Counter = 0;
+            Tens++;
+        } else if (Tens == 10) {
 
+            Tens = 0;
+            Hundreds++; 
+            
         }
 
     }
