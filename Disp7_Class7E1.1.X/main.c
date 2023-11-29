@@ -20,8 +20,12 @@ void __interrupt() INT(void);
 
 //Variables and constants.
 #define Time 10 //Create time constant 
+#define Time_2 80 //Create secondary time constant to Dynamic Display. 
 char Number_Counter = 0; //Create global variable of counter. 
-char Display_Counter = 0; //Create global variable of display. 
+char Display = 0; //Create global variable of display. 
+char Units = 0;
+char Tens = 0;
+char Hundreds = 0;
 
 //Main function. 
 
@@ -40,8 +44,17 @@ void main(void) {
                   Data_Display(6, 1);
          */
 
-        Data_Display(Number_Counter, Display_Counter);
-        
+        //Data_Display(Number_Counter, Display);
+        //        Data_Display(0, 0);
+        //        __delay_ms(Time_2);
+        for (int i = 0; i < 4; i++) {
+
+            Data_Display(0, i);
+            __delay_ms(Time_2);
+
+        }
+
+
 
 
         //        
