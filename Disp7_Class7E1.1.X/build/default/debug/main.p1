@@ -921,15 +921,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 119:             Hundreds++;
 [e ++ _Hundreds -> -> 1 `i `uc ]
 "121
-[; ;main.c: 121:         }
+[; ;main.c: 121:         } else if (Hundreds == 10) {
 }
+[e $U 381  ]
 [e :U 380 ]
-[e :U 379 ]
+[e $ ! == -> _Hundreds `i -> 10 `i 382  ]
+{
 "123
-[; ;main.c: 123:     }
+[; ;main.c: 123:             Hundreds = 0;
+[e = _Hundreds -> -> 0 `i `uc ]
+"125
+[; ;main.c: 125:         }
+}
+[e :U 382 ]
+[e :U 381 ]
+[e :U 379 ]
+"127
+[; ;main.c: 127:     }
 }
 [e :U 377 ]
-"125
-[; ;main.c: 125: }
+"129
+[; ;main.c: 129: }
 [e :UE 376 ]
 }

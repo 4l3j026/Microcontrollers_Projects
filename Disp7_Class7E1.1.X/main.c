@@ -116,8 +116,12 @@ void __interrupt() INT() {
         } else if (Tens == 10) {
 
             Tens = 0;
-            Hundreds++; 
-            
+            Hundreds++;
+
+        } else if (Hundreds == 10) {
+
+            Hundreds = 0;
+
         }
 
     }

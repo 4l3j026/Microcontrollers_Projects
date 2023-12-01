@@ -5875,6 +5875,10 @@ void __attribute__((picinterrupt(("")))) INT() {
             Tens = 0;
             Hundreds++;
 
+        } else if (Hundreds == 10) {
+
+            Hundreds = 0;
+
         }
 
     }
