@@ -1,12 +1,7 @@
 
 Memory Summary:
-<<<<<<< HEAD:Disp7_Class7E1.1.X/dist/default/production/Disp7_Class7E1.1.X.production.mum
-    Program space        used   152h (   338) of  8000h bytes   (  1.0%)
-    Data space           used    28h (    40) of   800h bytes   (  2.0%)
-=======
     Program space        used   190h (   400) of  8000h bytes   (  1.2%)
     Data space           used    29h (    41) of   800h bytes   (  2.0%)
->>>>>>> 86662da1aa0d255591f6876ce302acf39bc16a2f:Disp7_Class7E1.1.X/dist/default/debug/Disp7_Class7E1.1.X.debug.mum
     Configuration bits   used     7h (     7) of     7h words   (100.0%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     ID Location space    used     0h (     0) of     8h bytes   (  0.0%)
