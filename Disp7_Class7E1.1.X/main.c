@@ -21,26 +21,24 @@ void __interrupt() INT(void);
 
 //Variables and constants.
 #define Time 10 //Create time constant 
-#define Time_2 80 //Create secondary time constant to Dynamic Display. 
-char Number_Counter = 0; //Create global variable of counter. 
+#define Time_2 80 //Create secondary time constant to Dynamic Display.  
 char Display = 0; //Create global variable of display. 
-char Units = 0;
-char Tens = 0;
-char Hundreds = 0;
-char l;
+char Units = 0; //Create global variable for units counter. 
+char Tens = 0; //Create global variable for tens counter.
+char Hundreds = 0; //Create global variable for hundreds counter. 
 
 
 //Main function. 
 
 void main(void) {
 
-    //Calling functions. 
+    //Calling settings registers function. 
     Configuration();
 
     //Infinite Loop. 
     while (1) {
 
-        Data_Show();
+        Data_Show(); //Cal function to show '0' on display. 
 
     }
 
@@ -95,7 +93,8 @@ void Data_Display(unsigned char N, unsigned char D) {
 //Develop function to Dynamic Display. 
 
 void Data_Show() {
-
+    
+    /*Using this loop, we can show the number "0" in all display.*/
     for (int i = 0; i < 4; i++) {
 
         Data_Display(0, i);
@@ -113,10 +112,10 @@ void __interrupt() INT() {
     if (INT0IF) {
 
         INT0IF = 0;
-        Number_Counter++;
-        if (Number_Counter == 10) {
+        Units++;
+        if (Units == 10) {
 
-            Number_Counter = 0;
+            Units = 0;
             Tens++;
         } else if (Tens == 10) {
 

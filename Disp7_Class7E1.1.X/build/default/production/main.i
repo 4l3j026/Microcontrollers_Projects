@@ -5790,12 +5790,10 @@ void __attribute__((picinterrupt(("")))) INT(void);
 
 
 
-char Number_Counter = 0;
 char Display = 0;
 char Units = 0;
 char Tens = 0;
 char Hundreds = 0;
-char l;
 
 
 
@@ -5839,7 +5837,7 @@ void Configuration(void) {
 
 
 void Data_Display(unsigned char N, unsigned char D) {
-# 84 "main.c"
+# 82 "main.c"
     unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
 
     unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
@@ -5854,6 +5852,7 @@ void Data_Display(unsigned char N, unsigned char D) {
 
 
 void Data_Show() {
+
 
     for (int i = 0; i < 4; i++) {
 
@@ -5872,10 +5871,10 @@ void __attribute__((picinterrupt(("")))) INT() {
     if (INT0IF) {
 
         INT0IF = 0;
-        Number_Counter++;
-        if (Number_Counter == 10) {
+        Units++;
+        if (Units == 10) {
 
-            Number_Counter = 0;
+            Units = 0;
             Tens++;
         } else if (Tens == 10) {
 
