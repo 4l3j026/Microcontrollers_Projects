@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Disp7_Class7E1.1.X.production.hex">
+  <executable name="dist/default/debug\Disp7_Class7E1.1.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>32768</length>
+<<<<<<< HEAD:Disp7_Class7E1.1.X/dist/default/production/memoryfile.xml
       <used>338</used>
       <free>32430</free>
+=======
+      <used>400</used>
+      <free>32368</free>
+>>>>>>> 86662da1aa0d255591f6876ce302acf39bc16a2f:Disp7_Class7E1.1.X/dist/default/debug/memoryfile.xml
     </memory>
     <memory name="data">
       <units>bytes</units>
