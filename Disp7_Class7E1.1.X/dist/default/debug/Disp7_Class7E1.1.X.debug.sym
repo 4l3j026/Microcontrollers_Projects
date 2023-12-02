@@ -221,8 +221,8 @@ reset_vec 0 3 CODE 0 0
 intcode 8 18F CODE 8 0
 cstackCOMRAM 1 27 COMRAM 1 1
 %locals
-dist/default/production\Disp7_Class7E1.1.X.production.o
-C:\Users\aleja\AppData\Local\Temp\xcAsc2o.\driver_tmp_1.s
+dist/default/debug\Disp7_Class7E1.1.X.debug.o
+C:\Users\aleja\AppData\Local\Temp\xcAs46s.\driver_tmp_1.s
 557 114 0 CODE 0
 559 114 0 CODE 0
 562 114 0 CODE 0
@@ -284,7 +284,7 @@ main.c
 64 16C 0 CODE 0
 65 16E 0 CODE 0
 67 170 0 CODE 0
-C:\Users\aleja\AppData\Local\Temp\xcAsc2o.\driver_tmp_1.s
+C:\Users\aleja\AppData\Local\Temp\xcAs46s.\driver_tmp_1.s
 1266 8 0 CODE 0
 main.c
 110 8 0 CODE 0
@@ -296,10 +296,10 @@ main.c
 116 26 0 CODE 0
 118 38 0 CODE 0
 119 3C 0 CODE 0
-120 3E 0 CODE 0
-122 54 0 CODE 0
-123 58 0 CODE 0
-125 5A 0 CODE 0
-127 70 0 CODE 0
-129 78 0 CODE 0
-133 78 0 CODE 0
+121 3E 0 CODE 0
+123 54 0 CODE 0
+124 58 0 CODE 0
+126 5A 0 CODE 0
+128 70 0 CODE 0
+130 78 0 CODE 0
+134 78 0 CODE 0

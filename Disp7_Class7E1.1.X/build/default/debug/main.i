@@ -5876,6 +5876,7 @@ void __attribute__((picinterrupt(("")))) INT() {
 
             Units = 0;
             Tens++;
+
         } else if (Tens == 10) {
 
             Tens = 0;
