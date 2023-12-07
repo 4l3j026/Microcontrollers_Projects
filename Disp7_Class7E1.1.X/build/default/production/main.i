@@ -5871,7 +5871,9 @@ void __attribute__((picinterrupt(("")))) INT() {
     if (INT0IF) {
 
         INT0IF = 0;
-        Units++;
+
+        Data_Display(Units++, 0);
+
         if (Units == 10) {
 
             Units = 0;

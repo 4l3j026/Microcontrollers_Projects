@@ -38,7 +38,7 @@ void main(void) {
     //Infinite Loop. 
     while (1) {
 
-        Data_Show(); //Cal function to show '0' on display. 
+        //Data_Show(); //Cal function to show '0' on display. 
 
     }
 
@@ -113,6 +113,7 @@ void __interrupt() INT() {
 
         INT0IF = 0;
         Units++;
+        
         if (Units == 10) {
 
             Units = 0;
@@ -127,7 +128,7 @@ void __interrupt() INT() {
 
             Hundreds = 0;
 
-        }
+        } 
 
     }
 

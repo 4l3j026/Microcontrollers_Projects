@@ -901,53 +901,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 "114
 [; ;main.c: 114:         INT0IF = 0;
 [e = _INT0IF -> -> 0 `i `b ]
-"115
-[; ;main.c: 115:         Units++;
-[e ++ _Units -> -> 1 `i `uc ]
 "116
-[; ;main.c: 116:         if (Units == 10) {
+[; ;main.c: 116:         Data_Display(Units++, 0);
+[e ( _Data_Display (2 , -> ++ _Units -> -> 1 `i `uc `uc -> -> 0 `i `uc ]
+"118
+[; ;main.c: 118:         if (Units == 10) {
 [e $ ! == -> _Units `i -> 10 `i 379  ]
 {
-"118
-[; ;main.c: 118:             Units = 0;
+"120
+[; ;main.c: 120:             Units = 0;
 [e = _Units -> -> 0 `i `uc ]
-"119
-[; ;main.c: 119:             Tens++;
-[e ++ _Tens -> -> 1 `i `uc ]
 "121
-[; ;main.c: 121:         } else if (Tens == 10) {
+[; ;main.c: 121:             Tens++;
+[e ++ _Tens -> -> 1 `i `uc ]
+"123
+[; ;main.c: 123:         } else if (Tens == 10) {
 }
 [e $U 380  ]
 [e :U 379 ]
 [e $ ! == -> _Tens `i -> 10 `i 381  ]
 {
-"123
-[; ;main.c: 123:             Tens = 0;
+"125
+[; ;main.c: 125:             Tens = 0;
 [e = _Tens -> -> 0 `i `uc ]
-"124
-[; ;main.c: 124:             Hundreds++;
-[e ++ _Hundreds -> -> 1 `i `uc ]
 "126
-[; ;main.c: 126:         } else if (Hundreds == 10) {
+[; ;main.c: 126:             Hundreds++;
+[e ++ _Hundreds -> -> 1 `i `uc ]
+"128
+[; ;main.c: 128:         } else if (Hundreds == 10) {
 }
 [e $U 382  ]
 [e :U 381 ]
 [e $ ! == -> _Hundreds `i -> 10 `i 383  ]
 {
-"128
-[; ;main.c: 128:             Hundreds = 0;
-[e = _Hundreds -> -> 0 `i `uc ]
 "130
-[; ;main.c: 130:         }
+[; ;main.c: 130:             Hundreds = 0;
+[e = _Hundreds -> -> 0 `i `uc ]
+"132
+[; ;main.c: 132:         }
 }
 [e :U 383 ]
 [e :U 382 ]
 [e :U 380 ]
-"132
-[; ;main.c: 132:     }
+"134
+[; ;main.c: 134:     }
 }
 [e :U 378 ]
-"134
-[; ;main.c: 134: }
+"136
+[; ;main.c: 136: }
 [e :UE 377 ]
 }

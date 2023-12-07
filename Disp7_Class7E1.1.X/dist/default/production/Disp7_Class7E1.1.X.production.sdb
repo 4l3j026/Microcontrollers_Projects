@@ -33,6 +33,7 @@
 [v _Configuration Configuration `(v  1 e 1 0 ]
 "71
 [v _Data_Display Data_Display `(v  1 e 1 0 ]
+[v i2_Data_Display Data_Display `(v  1 e 1 0 ]
 "95
 [v _Data_Show Data_Show `(v  1 e 1 0 ]
 "110
@@ -152,7 +153,7 @@
 [v _Data_Show Data_Show `(v  1 e 1 0 ]
 {
 "98
-[v Data_Show@i i `i  1 a 2 18 ]
+[v Data_Show@i i `i  1 a 2 39 ]
 "105
 } 0
 "71
@@ -160,16 +161,16 @@
 {
 [v Data_Display@N N `uc  1 a 1 wreg ]
 "82
-[v Data_Display@Numbers_2 Numbers_2 `[10]uc  1 a 10 2 ]
+[v Data_Display@Numbers_2 Numbers_2 `[10]uc  1 a 10 23 ]
 "84
-[v Data_Display@Display Display `[4]uc  1 a 4 12 ]
+[v Data_Display@Display Display `[4]uc  1 a 4 33 ]
 "71
 [v Data_Display@N N `uc  1 a 1 wreg ]
-[v Data_Display@D D `uc  1 p 1 0 ]
+[v Data_Display@D D `uc  1 p 1 21 ]
 [v Data_Display@F3216 F3216 `[10]uc  1 s 10 F3216 ]
 "82
 [v Data_Display@F3218 F3218 `[4]uc  1 s 4 F3218 ]
-[v Data_Display@N N `uc  1 a 1 16 ]
+[v Data_Display@N N `uc  1 a 1 37 ]
 "91
 } 0
 "47
@@ -180,5 +181,20 @@
 "110
 [v _INT INT `IIH(v  1 e 1 0 ]
 {
-"134
+"136
+} 0
+"71
+[v i2_Data_Display Data_Display `(v  1 e 1 0 ]
+{
+[v i2Data_Display@N N `uc  1 a 1 wreg ]
+"82
+[v i2Data_Display@Numbers_2 Numbers_2 `[10]uc  1 a 10 2 ]
+"84
+[v i2Data_Display@Display Display `[4]uc  1 a 4 12 ]
+"71
+[v i2Data_Display@N N `uc  1 a 1 wreg ]
+[v i2Data_Display@D D `uc  1 p 1 0 ]
+"82
+[v i2Data_Display@N N `uc  1 a 1 16 ]
+"91
 } 0
