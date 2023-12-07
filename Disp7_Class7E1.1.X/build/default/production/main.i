@@ -5788,7 +5788,6 @@ void __attribute__((picinterrupt(("")))) INT(void);
 
 
 
-
 char Units = 0;
 char Tens = 0;
 char Hundreds = 0;
@@ -5809,7 +5808,7 @@ void main(void) {
     while (1) {
 
 
-        Display_Function(3, 7, 4, 1);
+        Display_Function(0, Hundreds, Tens, Units);
 
     }
 
@@ -5834,6 +5833,23 @@ void Configuration(void) {
     INTCONbits.INT0IE = 1;
     INTCONbits.INT0IF = 0;
     INTCON2bits.INTEDG0 = 0;
+
+}
+
+void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4) {
+
+    LATA = 0x01;
+    LATD = Numbers_2 [D1];
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    LATA = 0x02;
+    LATD = Numbers_2 [D2];
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    LATA = 0x04;
+    LATD = Numbers_2 [D3];
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    LATA = 0x08;
+    LATD = Numbers_2 [D4];
+    _delay((unsigned long)((100)*(8000000/4000.0)));
 
 }
 
@@ -5863,22 +5879,5 @@ void __attribute__((picinterrupt(("")))) INT() {
         }
 
     }
-
-}
-
-void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4) {
-
-    LATA = 0x01;
-    LATD = Numbers_2 [D1];
-    _delay((unsigned long)((500)*(8000000/4000.0)));
-    LATA = 0x02;
-    LATD = Numbers_2 [D2];
-    _delay((unsigned long)((500)*(8000000/4000.0)));
-    LATA = 0x04;
-    LATD = Numbers_2 [D3];
-    _delay((unsigned long)((500)*(8000000/4000.0)));
-    LATA = 0x08;
-    LATD = Numbers_2 [D4];
-    _delay((unsigned long)((500)*(8000000/4000.0)));
 
 }

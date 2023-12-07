@@ -19,8 +19,7 @@ void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsi
 void __interrupt() INT(void);
 
 //Variables and constants.
-#define Time 1000 //Create time constant  
-#define Time_2 500
+#define Time 100
 char Units = 0; //Create global variable for units counter. 
 char Tens = 0; //Create global variable for tens counter.
 char Hundreds = 0; //Create global variable for hundreds counter. 
@@ -40,8 +39,8 @@ void main(void) {
     //Infinite Loop. 
     while (1) {
 
-        //Data_Show(); //Cal function to show '0' on display. 
-        Display_Function(3, 7, 4, 1);
+        //Call function of display. 
+        Display_Function(0, Hundreds, Tens, Units);
 
     }
 
@@ -73,16 +72,16 @@ void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsi
 
     LATA = 0x01; 
     LATD = Numbers_2 [D1];
-    __delay_ms(Time_2);
+    __delay_ms(Time);
     LATA = 0x02; 
     LATD = Numbers_2 [D2];
-    __delay_ms(Time_2);
+    __delay_ms(Time);
     LATA = 0x04; 
     LATD = Numbers_2 [D3];
-    __delay_ms(Time_2);
+    __delay_ms(Time);
     LATA = 0x08; 
     LATD = Numbers_2 [D4];
-    __delay_ms(Time_2);
+    __delay_ms(Time);
 
 }
 

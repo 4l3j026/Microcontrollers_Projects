@@ -27,14 +27,14 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"35 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
+"34 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"50
+"49
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"74
-[v _INT INT `IIH(v  1 e 1 0 ]
-"101
+"71
 [v _Display_Function Display_Function `(v  1 e 1 0 ]
+"90
+[v _INT INT `IIH(v  1 e 1 0 ]
 "2973 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3073
@@ -135,20 +135,20 @@
 [v _INTCONbits INTCONbits `VES144  1 e 1 @4082 ]
 "9832
 [v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
-"24 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
+"23 C:\Apps\Git\Repositories\Microcontrollers_Projects\Disp7_Class7E1.1.X\main.c
 [v _Units Units `uc  1 e 1 0 ]
-"25
+"24
 [v _Tens Tens `uc  1 e 1 0 ]
-"26
+"25
 [v _Hundreds Hundreds `uc  1 e 1 0 ]
-"28
+"27
 [v _Numbers_2 Numbers_2 `[10]uc  1 e 10 0 ]
-"35
+"34
 [v _main main `(v  1 e 1 0 ]
 {
-"48
+"47
 } 0
-"101
+"71
 [v _Display_Function Display_Function `(v  1 e 1 0 ]
 {
 [v Display_Function@D1 D1 `uc  1 a 1 wreg ]
@@ -156,17 +156,17 @@
 [v Display_Function@D2 D2 `uc  1 p 1 0 ]
 [v Display_Function@D3 D3 `uc  1 p 1 1 ]
 [v Display_Function@D4 D4 `uc  1 p 1 2 ]
-"103
+"73
 [v Display_Function@D1 D1 `uc  1 a 1 5 ]
-"116
+"86
 } 0
-"50
+"49
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
-"70
+"69
 } 0
-"74
+"90
 [v _INT INT `IIH(v  1 e 1 0 ]
 {
-"99
+"115
 } 0
