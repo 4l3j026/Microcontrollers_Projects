@@ -5783,17 +5783,19 @@ unsigned char __t3rd16on(void);
 
 
 void Configuration(void);
-void Data_Display(unsigned char N, unsigned char D);
-void Data_Show(void);
+void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4);
 void __attribute__((picinterrupt(("")))) INT(void);
 
 
 
 
-char Display = 0;
 char Units = 0;
 char Tens = 0;
 char Hundreds = 0;
+
+unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
+
+unsigned char Display [5] = {0x00, 0x01, 0x02, 0x04, 0x08};
 
 
 
@@ -5806,7 +5808,8 @@ void main(void) {
 
     while (1) {
 
-        Data_Show();
+
+        Display_Function(3, 7, 4, 1);
 
     }
 
@@ -5836,43 +5839,12 @@ void Configuration(void) {
 
 
 
-void Data_Display(unsigned char N, unsigned char D) {
-# 82 "main.c"
-    unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
-
-    unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
-
-
-    LATD = Numbers_2 [N];
-    LATA = Display [D];
-    _delay((unsigned long)((40)*(8000000/4000.0)));
-
-}
-
-
-
-void Data_Show() {
-
-
-    for (int i = 0; i < 4; i++) {
-
-        Data_Display(0, i);
-        _delay((unsigned long)((80)*(8000000/4000.0)));
-
-    }
-
-}
-
-
-
-
 void __attribute__((picinterrupt(("")))) INT() {
 
     if (INT0IF) {
 
         INT0IF = 0;
-
-        Data_Display(Units++, 0);
+        Units++;
 
         if (Units == 10) {
 
@@ -5891,5 +5863,22 @@ void __attribute__((picinterrupt(("")))) INT() {
         }
 
     }
+
+}
+
+void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4) {
+
+    LATA = 0x01;
+    LATD = Numbers_2 [D1];
+    _delay((unsigned long)((500)*(8000000/4000.0)));
+    LATA = 0x02;
+    LATD = Numbers_2 [D2];
+    _delay((unsigned long)((500)*(8000000/4000.0)));
+    LATA = 0x04;
+    LATD = Numbers_2 [D3];
+    _delay((unsigned long)((500)*(8000000/4000.0)));
+    LATA = 0x08;
+    LATD = Numbers_2 [D4];
+    _delay((unsigned long)((500)*(8000000/4000.0)));
 
 }

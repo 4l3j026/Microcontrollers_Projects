@@ -15,17 +15,19 @@
 
 //Prototype functions.
 void Configuration(void);
-void Data_Display(unsigned char N, unsigned char D);
-void Data_Show(void);
+void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4);
 void __interrupt() INT(void);
 
 //Variables and constants.
-#define Time 10 //Create time constant 
-#define Time_2 80 //Create secondary time constant to Dynamic Display.  
-char Display = 0; //Create global variable of display. 
+#define Time 1000 //Create time constant  
+#define Time_2 500
 char Units = 0; //Create global variable for units counter. 
 char Tens = 0; //Create global variable for tens counter.
 char Hundreds = 0; //Create global variable for hundreds counter. 
+//Save the numbers data inside a vector. 
+unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
+//Save the display address inside a vector. 
+unsigned char Display [5] = {0x00, 0x01, 0x02, 0x04, 0x08};
 
 
 //Main function. 
@@ -39,6 +41,7 @@ void main(void) {
     while (1) {
 
         //Data_Show(); //Cal function to show '0' on display. 
+        Display_Function(3, 7, 4, 1);
 
     }
 
@@ -66,44 +69,22 @@ void Configuration(void) {
 
 }
 
-//Develop another function of display. 
+void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4) {
 
-void Data_Display(unsigned char N, unsigned char D) {
-
-    /*
- Here, we're calling the function, where first parameter is: 
-        - One number from 0 to 9 due to display limit. 
- And the second parameter is: 
-        - One number from 0 to 3 because of the number of displays. 
-          Data_Display(6, 1);
-     */
-
-    //Save the numbers data inside a vector. 
-    unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
-    //Save the display address inside a vector. 
-    unsigned char Display [4] = {0x01, 0x02, 0x04, 0x08};
-
-    //Assign to ports the parameters value to show on display. 
-    LATD = Numbers_2 [N];
-    LATA = Display [D];
-    __delay_ms(40);
+    LATA = 0x01; 
+    LATD = Numbers_2 [D1];
+    __delay_ms(Time_2);
+    LATA = 0x02; 
+    LATD = Numbers_2 [D2];
+    __delay_ms(Time_2);
+    LATA = 0x04; 
+    LATD = Numbers_2 [D3];
+    __delay_ms(Time_2);
+    LATA = 0x08; 
+    LATD = Numbers_2 [D4];
+    __delay_ms(Time_2);
 
 }
-
-//Develop function to Dynamic Display. 
-
-void Data_Show() {
-    
-    /*Using this loop, we can show the number "0" in all display.*/
-    for (int i = 0; i < 4; i++) {
-
-        Data_Display(0, i);
-        __delay_ms(Time_2);
-
-    }
-
-}
-
 
 //Develop interrupt function. 
 
@@ -113,12 +94,12 @@ void __interrupt() INT() {
 
         INT0IF = 0;
         Units++;
-        
+
         if (Units == 10) {
 
             Units = 0;
             Tens++;
-            
+
         } else if (Tens == 10) {
 
             Tens = 0;
@@ -128,8 +109,9 @@ void __interrupt() INT() {
 
             Hundreds = 0;
 
-        } 
+        }
 
     }
 
 }
+
