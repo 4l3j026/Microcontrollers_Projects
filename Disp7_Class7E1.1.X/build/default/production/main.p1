@@ -737,96 +737,84 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 231 `i `uc
 ..
 ]
-"29
-[; ;main.c: 29: unsigned char Display [5] = {0x00, 0x01, 0x02, 0x04, 0x08};
-[v _Display `uc ~T0 @X0 -> 5 `i e ]
-[i _Display
-:U ..
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 2 `i `uc
--> -> 4 `i `uc
--> -> 8 `i `uc
-..
-]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34
-[; ;main.c: 34: void main(void) {
+"31
+[; ;main.c: 31: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"37
-[; ;main.c: 37:     Configuration();
+"34
+[; ;main.c: 34:     Configuration();
 [e ( _Configuration ..  ]
-"40
-[; ;main.c: 40:     while (1) {
+"37
+[; ;main.c: 37:     while (1) {
 [e :U 369 ]
 {
-"43
-[; ;main.c: 43:         Display_Function(0, Hundreds, Tens, Units);
+"40
+[; ;main.c: 40:         Display_Function(0, Hundreds, Tens, Units);
 [e ( _Display_Function (4 , , , -> -> 0 `i `uc -> _Hundreds `uc -> _Tens `uc -> _Units `uc ]
-"45
-[; ;main.c: 45:     }
+"42
+[; ;main.c: 42:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"47
-[; ;main.c: 47: }
+"44
+[; ;main.c: 44: }
 [e :UE 367 ]
 }
-"49
-[; ;main.c: 49: void Configuration(void) {
+"46
+[; ;main.c: 46: void Configuration(void) {
 [v _Configuration `(v ~T0 @X0 1 ef ]
 {
 [e :U _Configuration ]
 [f ]
-"51
-[; ;main.c: 51:     OSCCON = 0x72;
+"48
+[; ;main.c: 48:     OSCCON = 0x72;
 [e = _OSCCON -> -> 114 `i `uc ]
-"52
-[; ;main.c: 52:     ADCON1 = 0x0F;
+"49
+[; ;main.c: 49:     ADCON1 = 0x0F;
 [e = _ADCON1 -> -> 15 `i `uc ]
-"54
-[; ;main.c: 54:     TRISA = 0x00;
+"51
+[; ;main.c: 51:     TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
-"55
-[; ;main.c: 55:     TRISB = 0x03;
+"52
+[; ;main.c: 52:     TRISB = 0x03;
 [e = _TRISB -> -> 3 `i `uc ]
-"56
-[; ;main.c: 56:     TRISD = 0x00;
+"53
+[; ;main.c: 53:     TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"58
-[; ;main.c: 58:     LATA = 0x00;
+"55
+[; ;main.c: 55:     LATA = 0x00;
 [e = _LATA -> -> 0 `i `uc ]
-"59
-[; ;main.c: 59:     LATB = 0x00;
+"56
+[; ;main.c: 56:     LATB = 0x00;
 [e = _LATB -> -> 0 `i `uc ]
-"60
-[; ;main.c: 60:     LATD = 0x00;
+"57
+[; ;main.c: 57:     LATD = 0x00;
 [e = _LATD -> -> 0 `i `uc ]
-"63
-[; ;main.c: 63:     RCONbits.IPEN = 0;
+"60
+[; ;main.c: 60:     RCONbits.IPEN = 0;
 [e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     INTCONbits.GIE = 1;
+"61
+[; ;main.c: 61:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"65
-[; ;main.c: 65:     INTCONbits.INT0IE = 1;
+"62
+[; ;main.c: 62:     INTCONbits.INT0IE = 1;
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"66
-[; ;main.c: 66:     INTCONbits.INT0IF = 0;
+"63
+[; ;main.c: 63:     INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"67
-[; ;main.c: 67:     INTCON2bits.INTEDG0 = 0;
+"64
+[; ;main.c: 64:     INTCON2bits.INTEDG0 = 0;
 [e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
-"69
-[; ;main.c: 69: }
+"66
+[; ;main.c: 66: }
 [e :UE 371 ]
 }
-"71
-[; ;main.c: 71: void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4) {
+"68
+[; ;main.c: 68: void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsigned char D4) {
 [v _Display_Function `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 {
 [e :U _Display_Function ]
@@ -835,32 +823,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _D3 `uc ~T0 @X0 1 r3 ]
 [v _D4 `uc ~T0 @X0 1 r4 ]
 [f ]
-"73
-[; ;main.c: 73:     LATA = 0x01;
+"70
+[; ;main.c: 70:     LATA = 0x01;
 [e = _LATA -> -> 1 `i `uc ]
-"74
-[; ;main.c: 74:     LATD = Numbers_2 [D1];
+"71
+[; ;main.c: 71:     LATD = Numbers_2 [D1];
 [e = _LATD *U + &U _Numbers_2 * -> _D1 `ux -> -> # *U &U _Numbers_2 `ui `ux ]
-"75
-[; ;main.c: 75:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"72
+[; ;main.c: 72:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"76
-[; ;main.c: 76:     LATA = 0x02;
+"74
+[; ;main.c: 74:     LATA = 0x02;
 [e = _LATA -> -> 2 `i `uc ]
-"77
-[; ;main.c: 77:     LATD = Numbers_2 [D2];
+"75
+[; ;main.c: 75:     LATD = Numbers_2 [D2];
 [e = _LATD *U + &U _Numbers_2 * -> _D2 `ux -> -> # *U &U _Numbers_2 `ui `ux ]
-"78
-[; ;main.c: 78:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"76
+[; ;main.c: 76:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"79
-[; ;main.c: 79:     LATA = 0x04;
+"78
+[; ;main.c: 78:     LATA = 0x04;
 [e = _LATA -> -> 4 `i `uc ]
-"80
-[; ;main.c: 80:     LATD = Numbers_2 [D3];
+"79
+[; ;main.c: 79:     LATD = Numbers_2 [D3];
 [e = _LATD *U + &U _Numbers_2 * -> _D3 `ux -> -> # *U &U _Numbers_2 `ui `ux ]
-"81
-[; ;main.c: 81:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"80
+[; ;main.c: 80:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "82
 [; ;main.c: 82:     LATA = 0x08;

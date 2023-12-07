@@ -5794,9 +5794,6 @@ char Hundreds = 0;
 
 unsigned char Numbers_2 [10] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD, 0x87, 0xFF, 0xE7};
 
-unsigned char Display [5] = {0x00, 0x01, 0x02, 0x04, 0x08};
-
-
 
 
 void main(void) {
@@ -5841,12 +5838,15 @@ void Display_Function(unsigned char D1, unsigned char D2, unsigned char D3, unsi
     LATA = 0x01;
     LATD = Numbers_2 [D1];
     _delay((unsigned long)((100)*(8000000/4000.0)));
+
     LATA = 0x02;
     LATD = Numbers_2 [D2];
     _delay((unsigned long)((100)*(8000000/4000.0)));
+
     LATA = 0x04;
     LATD = Numbers_2 [D3];
     _delay((unsigned long)((100)*(8000000/4000.0)));
+
     LATA = 0x08;
     LATD = Numbers_2 [D4];
     _delay((unsigned long)((100)*(8000000/4000.0)));
