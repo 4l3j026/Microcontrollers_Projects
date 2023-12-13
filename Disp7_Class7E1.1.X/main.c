@@ -47,7 +47,7 @@ void Configuration(void) {
 
     OSCCON = 0x72; //Set internal oscillator. 
     ADCON1 = 0x0F; //Set ports as digital. 
-
+ 
     TRISA = 0x00; //Set A port as output. 
     TRISB = 0x03; //Set pin 0 and 1 as input. 
     TRISD = 0x00; //Set D port as output. 
@@ -113,4 +113,3 @@ void __interrupt() INT() {
     }
 
 }
-
