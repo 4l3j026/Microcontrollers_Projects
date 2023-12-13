@@ -5788,7 +5788,15 @@ unsigned char __t3rd16on(void);
 # 10 "main.c" 2
 
 
+
+void Configuration(void);
+
+
+
 void main(void) {
+
+
+    Configuration();
 
     while (1) {
 
@@ -5797,4 +5805,14 @@ void main(void) {
     }
 
     return;
+}
+
+
+void Configuration (void){
+
+    OSCCON = 0x72;
+    ADCON1 = 0x0F;
+
+
+
 }

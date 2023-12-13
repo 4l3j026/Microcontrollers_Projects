@@ -27,9 +27,21 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"12 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD_Class7E1.1.X\main.c
+"17 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD_Class7E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"32
+[v _Configuration Configuration `(v  1 e 1 0 ]
+"6581 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"7986
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"17 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD_Class7E1.1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"21
+"29
+} 0
+"32
+[v _Configuration Configuration `(v  1 e 1 0 ]
+{
+"39
 } 0

@@ -9,13 +9,31 @@
 #include <xc.h> //Microchip Microcontrollers library to use registers and some functions. 
 #include "Fuses.h" //Library created to set fuses from microcontroller. 
 
-void main(void) {
+//Prototype functions. 
+void Configuration(void);
 
-    while (1) {
+//Main function. 
+
+void main(void) {
+    
+    //Call Configuration function. 
+    Configuration(); 
+
+    while (1) { //Infinite loop. 
 
 
 
     }
 
     return;
+}
+
+//Develop function of configuration. 
+void Configuration (void){
+    
+    OSCCON = 0x72; //
+    ADCON1 = 0x0F; 
+    
+    
+    
 }
