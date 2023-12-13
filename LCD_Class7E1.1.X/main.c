@@ -6,15 +6,16 @@
  */
 
 
-#include <xc.h>
+#include <xc.h> //Microchip Microcontrollers library to use registers and some functions. 
+#include "Fuses.h" //Library created to set fuses from microcontroller. 
 
-void main(void) { 
-    
-    while (1){
-        
-        
-        
+void main(void) {
+
+    while (1) {
+
+
+
     }
-    
+
     return;
 }

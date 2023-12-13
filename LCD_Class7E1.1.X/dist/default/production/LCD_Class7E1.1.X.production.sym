@@ -11,8 +11,8 @@ __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
-__Hconfig 0 0 ABS 0
-__Lconfig 0 0 ABS 0
+__Hconfig 30000E 0 CONFIG 4
+__Lconfig 0 0 CONFIG 4
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
 __Hrparam 0 0 COMRAM 1
@@ -141,7 +141,7 @@ __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
-__Hspace_4 0 0 ABS 0
+__Hspace_4 60000E 0 ABS 0
 __Lspace_4 0 0 ABS 0
 ___inthi_sp 0 0 STACK 2
 ___intlo_sp 0 0 STACK 2
@@ -164,14 +164,14 @@ text0 7FF8 7FFF CODE 7FF8 0
 cinit 7FF2 7FF7 CODE 7FF2 0
 %locals
 dist/default/production\LCD_Class7E1.1.X.production.o
-C:\Users\aleja\AppData\Local\Temp\xcAs90c.\driver_tmp_1.s
-460 7FF2 0 CODE 0
-462 7FF2 0 CODE 0
-465 7FF2 0 CODE 0
-471 7FF2 0 CODE 0
-473 7FF2 0 CODE 0
-474 7FF4 0 CODE 0
+C:\Users\aleja\AppData\Local\Temp\xcAshcs.\driver_tmp_1.s
+498 7FF2 0 CODE 0
+500 7FF2 0 CODE 0
+503 7FF2 0 CODE 0
+509 7FF2 0 CODE 0
+511 7FF2 0 CODE 0
+512 7FF4 0 CODE 0
 main.c
-11 7FF8 0 CODE 0
-13 7FF8 0 CODE 0
-17 7FF8 0 CODE 0
+12 7FF8 0 CODE 0
+14 7FF8 0 CODE 0
+18 7FF8 0 CODE 0

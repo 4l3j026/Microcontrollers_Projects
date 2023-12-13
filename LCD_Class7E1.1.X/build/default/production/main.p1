@@ -510,27 +510,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"11 ./Fuses.h
+[p x PLLDIV  =  1        ]
+"12
+[p x CPUDIV  =  OSC1_PLL2 ]
+"13
+[p x USBDIV  =  1        ]
+"16
+[p x FOSC  =  INTOSC_HS  ]
+"17
+[p x FCMEN  =  OFF       ]
+"18
+[p x IESO  =  OFF        ]
+"21
+[p x PWRT  =  OFF        ]
+"22
+[p x BOR  =  OFF         ]
+"23
+[p x BORV  =  3          ]
+"24
+[p x VREGEN  =  OFF      ]
+"27
+[p x WDT  =  OFF         ]
+"28
+[p x WDTPS  =  32768     ]
+"31
+[p x CCP2MX  =  ON       ]
+"32
+[p x PBADEN  =  ON       ]
+"33
+[p x LPT1OSC  =  OFF     ]
+"34
+[p x MCLRE  =  ON        ]
+"37
+[p x STVREN  =  ON       ]
+"38
+[p x LVP  =  OFF         ]
+"39
+[p x ICPRT  =  OFF       ]
+"40
+[p x XINST  =  OFF       ]
+"43
+[p x CP0  =  OFF         ]
+"44
+[p x CP1  =  OFF         ]
+"45
+[p x CP2  =  OFF         ]
+"46
+[p x CP3  =  OFF         ]
+"49
+[p x CPB  =  OFF         ]
+"50
+[p x CPD  =  OFF         ]
+"53
+[p x WRT0  =  OFF        ]
+"54
+[p x WRT1  =  OFF        ]
+"55
+[p x WRT2  =  OFF        ]
+"56
+[p x WRT3  =  OFF        ]
+"59
+[p x WRTC  =  OFF        ]
+"60
+[p x WRTB  =  OFF        ]
+"61
+[p x WRTD  =  OFF        ]
+"64
+[p x EBTR0  =  OFF       ]
+"65
+[p x EBTR1  =  OFF       ]
+"66
+[p x EBTR2  =  OFF       ]
+"67
+[p x EBTR3  =  OFF       ]
+"70
+[p x EBTRB  =  OFF       ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"11 main.c
-[; ;main.c: 11: void main(void) {
+"12 main.c
+[; ;main.c: 12: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"13
-[; ;main.c: 13:     while (1){
+"14
+[; ;main.c: 14:     while (1) {
 [e :U 369 ]
 {
-"17
-[; ;main.c: 17:     }
+"18
+[; ;main.c: 18:     }
 }
 [e :U 368 ]
 [e $U 369  ]
 [e :U 370 ]
-"19
-[; ;main.c: 19:     return;
-[e $UE 367  ]
 "20
-[; ;main.c: 20: }
+[; ;main.c: 20:     return;
+[e $UE 367  ]
+"21
+[; ;main.c: 21: }
 [e :UE 367 ]
 }
