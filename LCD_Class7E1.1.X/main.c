@@ -23,9 +23,11 @@
 #define E LATE1 //Constant to send data to Enable. 
 
 //Prototype functions. 
-void Configuration(void);
-void Configuration_LCD (unsigned char Set);
-void __interrupt() INT(void);
+void Configuration(void); //Function to set some registers, outputs, internal oscillator. 
+void Configuration_LCD(unsigned char Set); //Function to set the LCD. 
+void LCD(unsigned char Data);
+void Write(unsigned char Data_W);
+void __interrupt() INT(void); //Declare the interrupt function. 
 
 //Main function. 
 
@@ -36,7 +38,7 @@ void main(void) {
 
     while (1) { //Infinite loop. 
 
-        
+
 
     }
 
@@ -62,21 +64,44 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0; //Interrupt falling edge. 
 
     //Set LCD. 
-    
+    Configuration_LCD(EMS);
+    Configuration_LCD(DC);
+    Configuration_LCD(FS);
+
 }
 
 //Develop function of LCD. 
-void Configuration_LCD(unsigned char Set){
-    
-    
-    
+
+void Configuration_LCD(unsigned char Set) {
+
+    RS = 0; //Value to set LCD on this Register Select. 
+    LCD(Set);
+
 }
 
-void __interrupt() INT(void){
-    
-    if (INT0IF){
-        INTCONbits.INT0IF = 0; 
-        
+void Write(unsigned char Data_W) {
+
+    RS = 1; 
+    LCD(Data_W);
+
+}
+
+void LCD(unsigned char Data) {
+
+    E = 1;
+    __delay_ms(15);
+    LATD = Data;
+    __delay_ms(10);
+    E = 0;
+    __delay_ms(10);
+
+}
+
+void __interrupt() INT(void) {
+
+    if (INT0IF) {
+        INTCONbits.INT0IF = 0;
+
     }
-    
-} 
+
+}

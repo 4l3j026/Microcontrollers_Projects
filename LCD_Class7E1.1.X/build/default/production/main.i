@@ -5789,7 +5789,9 @@ unsigned char __t3rd16on(void);
 # 11 "main.c" 2
 # 26 "main.c"
 void Configuration(void);
-void Configuration_LCD (unsigned char Set);
+void Configuration_LCD(unsigned char Set);
+void LCD(unsigned char Data);
+void Write(unsigned char Data_W);
 void __attribute__((picinterrupt(("")))) INT(void);
 
 
@@ -5827,19 +5829,42 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0;
 
 
+    Configuration_LCD(0x06);
+    Configuration_LCD(0x0F);
+    Configuration_LCD(0x38);
 
 }
 
 
-void Configuration_LCD(unsigned char Set){
 
+void Configuration_LCD(unsigned char Set) {
 
+    LATE0 = 0;
+    LCD(Set);
 
 }
 
-void __attribute__((picinterrupt(("")))) INT(void){
+void Write(unsigned char Data_W) {
 
-    if (INT0IF){
+    LATE0 = 1;
+    LCD(Data_W);
+
+}
+
+void LCD(unsigned char Data) {
+
+    LATE1 = 1;
+    _delay((unsigned long)((15)*(8000000/4000.0)));
+    LATD = Data;
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    LATE1 = 0;
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+
+}
+
+void __attribute__((picinterrupt(("")))) INT(void) {
+
+    if (INT0IF) {
         INTCONbits.INT0IF = 0;
 
     }
