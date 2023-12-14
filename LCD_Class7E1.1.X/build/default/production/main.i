@@ -7,14 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 14 "main.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5721,8 +5714,67 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 14 "main.c" 2
 
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 16 "main.c" 2
 
 # 1 "./Fuses.h" 1
 # 11 "./Fuses.h"
@@ -5786,13 +5838,17 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 11 "main.c" 2
-# 26 "main.c"
+# 17 "main.c" 2
+# 32 "main.c"
 void Configuration(void);
 void Configuration_LCD(unsigned char Set);
 void LCD(unsigned char Data);
 void Write(unsigned char Data_W);
 void __attribute__((picinterrupt(("")))) INT(void);
+
+
+char Texto1[8] = {"Hello!"};
+char Texto2[16] = {"I love you!"};
 
 
 
@@ -5832,6 +5888,7 @@ void Configuration(void) {
     Configuration_LCD(0x06);
     Configuration_LCD(0x0F);
     Configuration_LCD(0x38);
+    Configuration_LCD(0x01);
 
 }
 
@@ -5865,7 +5922,21 @@ void LCD(unsigned char Data) {
 void __attribute__((picinterrupt(("")))) INT(void) {
 
     if (INT0IF) {
+
         INTCONbits.INT0IF = 0;
+
+        Configuration_LCD(0x80 + 4);
+
+        for (unsigned char i = 0; i < strlen(Texto1); i++) {
+            Write(Texto1[i]);
+        }
+
+        Configuration_LCD(0xC0 + 1);
+
+        for (unsigned char i = 0; i < strlen(Texto2); i++) {
+            Write(Texto2[i]);
+        }
+
 
     }
 

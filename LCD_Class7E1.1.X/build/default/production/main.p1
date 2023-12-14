@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"26 main.c
-[; ;main.c: 26: void Configuration(void);
+"32 main.c
+[; ;main.c: 32: void Configuration(void);
 [v _Configuration `(v ~T0 @X0 0 ef ]
 "7986 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
@@ -107,14 +107,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8532
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 8532: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
 [v _INTCON2bits `VS355 ~T0 @X0 0 e@4081 ]
-"27 main.c
-[; ;main.c: 27: void Configuration_LCD(unsigned char Set);
+"33 main.c
+[; ;main.c: 33: void Configuration_LCD(unsigned char Set);
 [v _Configuration_LCD `(v ~T0 @X0 0 ef1`uc ]
 "10015 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 10015: extern volatile __bit LATE0 __attribute__((address(0x7C68)));
 [v _LATE0 `Vb ~T0 @X0 0 e@31848 ]
-"28 main.c
-[; ;main.c: 28: void LCD(unsigned char Data);
+"34 main.c
+[; ;main.c: 34: void LCD(unsigned char Data);
 [v _LCD `(v ~T0 @X0 0 ef1`uc ]
 "10018 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 10018: extern volatile __bit LATE1 __attribute__((address(0x7C69)));
@@ -131,6 +131,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9832
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 9832: extern volatile __bit INT0IF __attribute__((address(0x7F91)));
 [v _INT0IF `Vb ~T0 @X0 0 e@32657 ]
+"54 C:\Program Files\Microchip\xc8\v2.41\pic\include\c99\string.h
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\c99\string.h: 54: size_t strlen (const char *);
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -717,164 +720,244 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3  =  OFF       ]
 "70
 [p x EBTRB  =  OFF       ]
+"39 main.c
+[; ;main.c: 39: char Texto1[8] = {"Hello!"};
+[v _Texto1 `uc ~T0 @X0 -> 8 `i e ]
+[i _Texto1
+:U ..
+-> 72 `c
+-> 101 `c
+-> 108 `c
+-> 108 `c
+-> 111 `c
+-> 33 `c
+-> 0 `c
+..
+]
+"40
+[; ;main.c: 40: char Texto2[16] = {"I love you!"};
+[v _Texto2 `uc ~T0 @X0 -> 16 `i e ]
+[i _Texto2
+:U ..
+-> 73 `c
+-> 32 `c
+-> 108 `c
+-> 111 `c
+-> 118 `c
+-> 101 `c
+-> 32 `c
+-> 121 `c
+-> 111 `c
+-> 117 `c
+-> 33 `c
+-> 0 `c
+..
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"34 main.c
-[; ;main.c: 34: void main(void) {
+"44
+[; ;main.c: 44: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"37
-[; ;main.c: 37:     Configuration();
+"47
+[; ;main.c: 47:     Configuration();
 [e ( _Configuration ..  ]
-"39
-[; ;main.c: 39:     while (1) {
-[e :U 369 ]
-{
-"43
-[; ;main.c: 43:     }
-}
-[e :U 368 ]
-[e $U 369  ]
+"49
+[; ;main.c: 49:     while (1) {
 [e :U 370 ]
-"45
-[; ;main.c: 45:     return;
-[e $UE 367  ]
-"46
-[; ;main.c: 46: }
-[e :UE 367 ]
+{
+"53
+[; ;main.c: 53:     }
 }
-"50
-[; ;main.c: 50: void Configuration(void) {
+[e :U 369 ]
+[e $U 370  ]
+[e :U 371 ]
+"55
+[; ;main.c: 55:     return;
+[e $UE 368  ]
+"56
+[; ;main.c: 56: }
+[e :UE 368 ]
+}
+"60
+[; ;main.c: 60: void Configuration(void) {
 [v _Configuration `(v ~T0 @X0 1 ef ]
 {
 [e :U _Configuration ]
 [f ]
-"52
-[; ;main.c: 52:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"53
-[; ;main.c: 53:     ADCON1 = 0x0F;
-[e = _ADCON1 -> -> 15 `i `uc ]
-"55
-[; ;main.c: 55:     TRISBbits.RB0 = 1;
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-"56
-[; ;main.c: 56:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
-"57
-[; ;main.c: 57:     TRISE = 0x00;
-[e = _TRISE -> -> 0 `i `uc ]
-"60
-[; ;main.c: 60:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-"61
-[; ;main.c: 61:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "62
-[; ;main.c: 62:     INTCONbits.INT0E = 1;
-[e = . . _INTCONbits 1 4 -> -> 1 `i `uc ]
+[; ;main.c: 62:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
 "63
-[; ;main.c: 63:     INTCONbits.INT0F = 0;
-[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     INTCON2bits.INTEDG0 = 0;
-[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+[; ;main.c: 63:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
+"65
+[; ;main.c: 65:     TRISBbits.RB0 = 1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+"66
+[; ;main.c: 66:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "67
-[; ;main.c: 67:     Configuration_LCD(0x06);
-[e ( _Configuration_LCD (1 -> -> 6 `i `uc ]
-"68
-[; ;main.c: 68:     Configuration_LCD(0x0F);
-[e ( _Configuration_LCD (1 -> -> 15 `i `uc ]
-"69
-[; ;main.c: 69:     Configuration_LCD(0x38);
-[e ( _Configuration_LCD (1 -> -> 56 `i `uc ]
+[; ;main.c: 67:     TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:     RCONbits.IPEN = 0;
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
 "71
-[; ;main.c: 71: }
-[e :UE 371 ]
+[; ;main.c: 71:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"72
+[; ;main.c: 72:     INTCONbits.INT0E = 1;
+[e = . . _INTCONbits 1 4 -> -> 1 `i `uc ]
+"73
+[; ;main.c: 73:     INTCONbits.INT0F = 0;
+[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
+"74
+[; ;main.c: 74:     INTCON2bits.INTEDG0 = 0;
+[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+"77
+[; ;main.c: 77:     Configuration_LCD(0x06);
+[e ( _Configuration_LCD (1 -> -> 6 `i `uc ]
+"78
+[; ;main.c: 78:     Configuration_LCD(0x0F);
+[e ( _Configuration_LCD (1 -> -> 15 `i `uc ]
+"79
+[; ;main.c: 79:     Configuration_LCD(0x38);
+[e ( _Configuration_LCD (1 -> -> 56 `i `uc ]
+"80
+[; ;main.c: 80:     Configuration_LCD(0x01);
+[e ( _Configuration_LCD (1 -> -> 1 `i `uc ]
+"82
+[; ;main.c: 82: }
+[e :UE 372 ]
 }
-"75
-[; ;main.c: 75: void Configuration_LCD(unsigned char Set) {
+"86
+[; ;main.c: 86: void Configuration_LCD(unsigned char Set) {
 [v _Configuration_LCD `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Configuration_LCD ]
 [v _Set `uc ~T0 @X0 1 r1 ]
 [f ]
-"77
-[; ;main.c: 77:     LATE0 = 0;
+"88
+[; ;main.c: 88:     LATE0 = 0;
 [e = _LATE0 -> -> 0 `i `b ]
-"78
-[; ;main.c: 78:     LCD(Set);
+"89
+[; ;main.c: 89:     LCD(Set);
 [e ( _LCD (1 _Set ]
-"80
-[; ;main.c: 80: }
-[e :UE 372 ]
+"91
+[; ;main.c: 91: }
+[e :UE 373 ]
 }
-"82
-[; ;main.c: 82: void Write(unsigned char Data_W) {
+"93
+[; ;main.c: 93: void Write(unsigned char Data_W) {
 [v _Write `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Write ]
 [v _Data_W `uc ~T0 @X0 1 r1 ]
 [f ]
-"84
-[; ;main.c: 84:     LATE0 = 1;
+"95
+[; ;main.c: 95:     LATE0 = 1;
 [e = _LATE0 -> -> 1 `i `b ]
-"85
-[; ;main.c: 85:     LCD(Data_W);
+"96
+[; ;main.c: 96:     LCD(Data_W);
 [e ( _LCD (1 _Data_W ]
-"87
-[; ;main.c: 87: }
-[e :UE 373 ]
+"98
+[; ;main.c: 98: }
+[e :UE 374 ]
 }
-"89
-[; ;main.c: 89: void LCD(unsigned char Data) {
+"100
+[; ;main.c: 100: void LCD(unsigned char Data) {
 [v _LCD `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD ]
 [v _Data `uc ~T0 @X0 1 r1 ]
 [f ]
-"91
-[; ;main.c: 91:     LATE1 = 1;
+"102
+[; ;main.c: 102:     LATE1 = 1;
 [e = _LATE1 -> -> 1 `i `b ]
-"92
-[; ;main.c: 92:     _delay((unsigned long)((15)*(8000000/4000.0)));
+"103
+[; ;main.c: 103:     _delay((unsigned long)((15)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"93
-[; ;main.c: 93:     LATD = Data;
+"104
+[; ;main.c: 104:     LATD = Data;
 [e = _LATD _Data ]
-"94
-[; ;main.c: 94:     _delay((unsigned long)((10)*(8000000/4000.0)));
+"105
+[; ;main.c: 105:     _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"95
-[; ;main.c: 95:     LATE1 = 0;
+"106
+[; ;main.c: 106:     LATE1 = 0;
 [e = _LATE1 -> -> 0 `i `b ]
-"96
-[; ;main.c: 96:     _delay((unsigned long)((10)*(8000000/4000.0)));
+"107
+[; ;main.c: 107:     _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"98
-[; ;main.c: 98: }
-[e :UE 374 ]
+"109
+[; ;main.c: 109: }
+[e :UE 375 ]
 }
 [v $root$_INT `(v ~T0 @X0 0 e ]
-"100
-[; ;main.c: 100: void __attribute__((picinterrupt(("")))) INT(void) {
+"111
+[; ;main.c: 111: void __attribute__((picinterrupt(("")))) INT(void) {
 [v _INT `(v ~T37 @X0 1 ef ]
 {
 [e :U _INT ]
 [f ]
-"102
-[; ;main.c: 102:     if (INT0IF) {
-[e $ ! _INT0IF 376  ]
+"113
+[; ;main.c: 113:     if (INT0IF) {
+[e $ ! _INT0IF 377  ]
 {
-"103
-[; ;main.c: 103:         INTCONbits.INT0IF = 0;
+"115
+[; ;main.c: 115:         INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"105
-[; ;main.c: 105:     }
+"117
+[; ;main.c: 117:         Configuration_LCD(0x80 + 4);
+[e ( _Configuration_LCD (1 -> + -> 128 `i -> 4 `i `uc ]
+"119
+[; ;main.c: 119:         for (unsigned char i = 0; i < strlen(Texto1); i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 381  ]
+[e :U 378 ]
+{
+"120
+[; ;main.c: 120:             Write(Texto1[i]);
+[e ( _Write (1 -> *U + &U _Texto1 * -> _i `ux -> -> # *U &U _Texto1 `ui `ux `uc ]
+"121
+[; ;main.c: 121:         }
 }
-[e :U 376 ]
-"107
-[; ;main.c: 107: }
-[e :UE 375 ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 381 ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Texto1 `*Cuc 378  ]
+[e :U 379 ]
+}
+"123
+[; ;main.c: 123:         Configuration_LCD(0xC0 + 1);
+[e ( _Configuration_LCD (1 -> + -> 192 `i -> 1 `i `uc ]
+"125
+[; ;main.c: 125:         for (unsigned char i = 0; i < strlen(Texto2); i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 385  ]
+[e :U 382 ]
+{
+"126
+[; ;main.c: 126:             Write(Texto2[i]);
+[e ( _Write (1 -> *U + &U _Texto2 * -> _i `ux -> -> # *U &U _Texto2 `ui `ux `uc ]
+"127
+[; ;main.c: 127:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 385 ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Texto2 `*Cuc 382  ]
+[e :U 383 ]
+}
+"130
+[; ;main.c: 130:     }
+}
+[e :U 377 ]
+"132
+[; ;main.c: 132: }
+[e :UE 376 ]
 }
