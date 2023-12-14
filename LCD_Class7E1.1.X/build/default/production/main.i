@@ -5723,6 +5723,7 @@ unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
 # 9 "main.c" 2
 
+
 # 1 "./Fuses.h" 1
 # 11 "./Fuses.h"
 #pragma config PLLDIV = 1
@@ -5785,11 +5786,11 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 10 "main.c" 2
-
-
-
+# 11 "main.c" 2
+# 26 "main.c"
 void Configuration(void);
+void Configuration_LCD (unsigned char Set);
+void __attribute__((picinterrupt(("")))) INT(void);
 
 
 
@@ -5808,11 +5809,39 @@ void main(void) {
 }
 
 
-void Configuration (void){
+
+void Configuration(void) {
 
     OSCCON = 0x72;
     ADCON1 = 0x0F;
 
+    TRISBbits.RB0 = 1;
+    TRISD = 0x00;
+    TRISE = 0x00;
 
+
+    RCONbits.IPEN = 0;
+    INTCONbits.GIE = 1;
+    INTCONbits.INT0E = 1;
+    INTCONbits.INT0F = 0;
+    INTCON2bits.INTEDG0 = 0;
+
+
+
+}
+
+
+void Configuration_LCD(unsigned char Set){
+
+
+
+}
+
+void __attribute__((picinterrupt(("")))) INT(void){
+
+    if (INT0IF){
+        INTCONbits.INT0IF = 0;
+
+    }
 
 }
