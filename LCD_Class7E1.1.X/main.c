@@ -11,7 +11,7 @@
  */
 
 
-#include <xc.h>
+#include <xc.h> //Microchip Microcontrollers library to use registers and some functions.
 #include <pic18f4550.h> //Microchip Microcontrollers library to use registers and some functions. 
 #include <string.h> //Library to use strlen function. 
 #include "Fuses.h" //Library created to set fuses from microcontroller.
@@ -30,8 +30,8 @@
 
 //Prototype functions. 
 void Configuration(void); //Function to set some registers, outputs, internal oscillator. 
-void Configuration_LCD(unsigned char Set); //Function to set the LCD. 
-void LCD(unsigned char Data);
+void Set_LCD_Enable(unsigned char Set); //Function to set LCD.  
+void LCD(unsigned char Data); //Function to 
 void Write(unsigned char Data_W);
 void __interrupt() INT(void); //Declare the interrupt function. 
 
@@ -74,19 +74,18 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0; //Interrupt falling edge. 
 
     //Set LCD. 
-    Configuration_LCD(EMS);
-    Configuration_LCD(DC);
-    Configuration_LCD(FS);
-    Configuration_LCD(CD);
+    Set_LCD_Enable(EMS); //Set the shift display. 
+    Set_LCD_Enable(DC); //Set entire display, turn on the cursor. 
+    Set_LCD_Enable(FS); //Set the display to use two raws and 8 bits configuration. 
 
 }
 
 //Develop function of LCD. 
 
-void Configuration_LCD(unsigned char Set) {
+void Set_LCD_Enable(unsigned char Set) {
 
     RS = 0; //Value to set LCD on this Register Select. 
-    LCD(Set);
+    LCD(Set); //Call function
 
 }
 
@@ -99,14 +98,17 @@ void Write(unsigned char Data_W) {
 
 void LCD(unsigned char Data) {
 
-    E = 1;
-    __delay_ms(15);
-    LATD = Data;
+    __delay_ms(15); //Delay to stabilize the voltages. 
+    E = 1; //Enable activated to use the LCD. 
+    __delay_ms(15); //Delay to stabilize the data.  
+    LATD = Data; //Assign to port the data inside of variable Data. 
     __delay_ms(10);
     E = 0;
     __delay_ms(10);
 
 }
+
+//Develop interrupt function. 
 
 void __interrupt() INT(void) {
 
@@ -114,18 +116,18 @@ void __interrupt() INT(void) {
 
         INTCONbits.INT0IF = 0; //Clean the flag.
 
-        Configuration_LCD(RAW1 + 4); //Select the raw for write. 
+        Set_LCD_Enable(RAW1 + 4); //Select the raw for write. 
 
         for (unsigned char i = 0; i < strlen(Texto1); i++) {
             Write(Texto1[i]);
         }
 
-        Configuration_LCD(RAW2 + 1);
+        Set_LCD_Enable(RAW2 + 1);
 
         for (unsigned char i = 0; i < strlen(Texto2); i++) {
             Write(Texto2[i]);
         }
-        
+
 
     }
 
