@@ -15,7 +15,7 @@
 #include <pic18f4550.h> //Microchip Microcontrollers library to use registers and some functions. 
 #include <string.h> //Library to use strlen function. 
 #include "Fuses.h" //Library created to set fuses from microcontroller.
-//LCD Constants. 
+//LCD Constants Address to set some features. 
 #define CD 0x01 //Constant to use the Clear Display.
 #define RH 0x02 //Constant to use the Return Home. 
 #define EMS 0x06 //Constant to use the Entry Mode. 
@@ -30,12 +30,12 @@
 
 //Prototype functions. 
 void Configuration(void); //Function to set some registers, outputs, internal oscillator. 
-void Set_LCD_Enable(unsigned char Set); //Function to set LCD.  
-void LCD(unsigned char Data); //Function to 
-void Write(unsigned char Data_W);
+void Set_LCD_Enable(unsigned char Instruction); //Function to set LCD.  
+void Instruction_LCD(unsigned char Data); //Function to delays and 
+void Write_LCD_Enable(unsigned char Data_Write);
 void __interrupt() INT(void); //Declare the interrupt function. 
 
-//Variables
+//Variables to show on the display. 
 char Texto1[8] = {"Hello!"};
 char Texto2[16] = {"I love you!"};
 
@@ -73,38 +73,40 @@ void Configuration(void) {
     INTCONbits.INT0F = 0; //Interrupt 0 flag cleared. 
     INTCON2bits.INTEDG0 = 0; //Interrupt falling edge. 
 
-    //Set LCD. 
+    //LCD registers configuration to initialize the display. 
     Set_LCD_Enable(EMS); //Set the shift display. 
     Set_LCD_Enable(DC); //Set entire display, turn on the cursor. 
     Set_LCD_Enable(FS); //Set the display to use two raws and 8 bits configuration. 
 
 }
 
-//Develop function of LCD. 
+//Develop set function of LCD to send Address Configuration
 
-void Set_LCD_Enable(unsigned char Set) {
+void Set_LCD_Enable(unsigned char Instruction) {
 
-    RS = 0; //Value to set LCD on this Register Select. 
-    LCD(Set); //Call function
+    RS = 0; //Register Select value in High to set LCD on this . 
+    Instruction_LCD(Instruction); //Call function
 
 }
 
-void Write(unsigned char Data_W) {
+//Develop write function to show data on LCD display. 
+
+void Write_LCD_Enable(unsigned char Data_Write) {
 
     RS = 1; //Value to write on the LCD. 
-    LCD(Data_W);
+    Instruction_LCD(Data_Write); //Call function. 
 
 }
 
-void LCD(unsigned char Data) {
+void Instruction_LCD(unsigned char Data) {
 
     __delay_ms(15); //Delay to stabilize the voltages. 
     E = 1; //Enable activated to use the LCD. 
     __delay_ms(15); //Delay to stabilize the data.  
-    LATD = Data; //Assign to port the data inside of variable Data. 
-    __delay_ms(10);
-    E = 0;
-    __delay_ms(10);
+    LATD = Data; //Assign to port the data to write data, or to set data. 
+    __delay_ms(10); //Delay to stabilize the data. 
+    E = 0; //Enable disabled to of the LCD. 
+    __delay_ms(10); //Delay to stabilize the instruction. 
 
 }
 
@@ -116,18 +118,21 @@ void __interrupt() INT(void) {
 
         INTCONbits.INT0IF = 0; //Clean the flag.
 
-        Set_LCD_Enable(RAW1 + 4); //Select the raw for write. 
+        Set_LCD_Enable(RAW1 + 4); //Select the raw 1 for write and plus 4 positions. 
 
-        for (unsigned char i = 0; i < strlen(Texto1); i++) {
-            Write(Texto1[i]);
+        for (unsigned char i = 0; i < strlen(Texto1); i++) { //For loop from 0 to vector size to show each character. 
+
+            Write_LCD_Enable(Texto1[i]); //Instruction to write on the display.  
+
         }
 
-        Set_LCD_Enable(RAW2 + 1);
+        Set_LCD_Enable(RAW2 + 1); //Select the raw 2 for write and plus one position.
 
-        for (unsigned char i = 0; i < strlen(Texto2); i++) {
-            Write(Texto2[i]);
+        for (unsigned char i = 0; i < strlen(Texto2); i++) { //For loop from 0 to vector size to show each character.
+
+            Write_LCD_Enable(Texto2[i]); //Instruction to write on the display. 
+
         }
-
 
     }
 
