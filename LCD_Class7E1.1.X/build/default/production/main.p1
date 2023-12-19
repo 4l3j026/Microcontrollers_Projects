@@ -108,22 +108,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 8532: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
 [v _INTCON2bits `VS355 ~T0 @X0 0 e@4081 ]
 "33 main.c
-[; ;main.c: 33: void Configuration_LCD(unsigned char Set);
-[v _Configuration_LCD `(v ~T0 @X0 0 ef1`uc ]
+[; ;main.c: 33: void Set_LCD_Enable(unsigned char Instruction);
+[v _Set_LCD_Enable `(v ~T0 @X0 0 ef1`uc ]
 "10015 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 10015: extern volatile __bit LATE0 __attribute__((address(0x7C68)));
 [v _LATE0 `Vb ~T0 @X0 0 e@31848 ]
 "34 main.c
-[; ;main.c: 34: void LCD(unsigned char Data);
-[v _LCD `(v ~T0 @X0 0 ef1`uc ]
-"10018 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 10018: extern volatile __bit LATE1 __attribute__((address(0x7C69)));
-[v _LATE1 `Vb ~T0 @X0 0 e@31849 ]
+[; ;main.c: 34: void Instruction_LCD(unsigned char Data);
+[v _Instruction_LCD `(v ~T0 @X0 0 ef1`uc ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"3263 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+"10018 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 10018: extern volatile __bit LATE1 __attribute__((address(0x7C69)));
+[v _LATE1 `Vb ~T0 @X0 0 e@31849 ]
+"3263
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3263: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 [t ~ __interrupt . k ]
@@ -721,30 +721,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 "70
 [p x EBTRB  =  OFF       ]
 "39 main.c
-[; ;main.c: 39: char Texto1[8] = {"Hello!"};
-[v _Texto1 `uc ~T0 @X0 -> 8 `i e ]
-[i _Texto1
+[; ;main.c: 39: char Text1[16] = {"My Pandita!"};
+[v _Text1 `uc ~T0 @X0 -> 16 `i e ]
+[i _Text1
 :U ..
--> 72 `c
--> 101 `c
--> 108 `c
--> 108 `c
--> 111 `c
+-> 77 `c
+-> 121 `c
+-> 32 `c
+-> 80 `c
+-> 97 `c
+-> 110 `c
+-> 100 `c
+-> 105 `c
+-> 116 `c
+-> 97 `c
 -> 33 `c
 -> 0 `c
 ..
 ]
 "40
-[; ;main.c: 40: char Texto2[16] = {"I love you!"};
-[v _Texto2 `uc ~T0 @X0 -> 16 `i e ]
-[i _Texto2
+[; ;main.c: 40: char Text2[16] = {"I fall in you!"};
+[v _Text2 `uc ~T0 @X0 -> 16 `i e ]
+[i _Text2
 :U ..
 -> 73 `c
 -> 32 `c
+-> 102 `c
+-> 97 `c
 -> 108 `c
--> 111 `c
--> 118 `c
--> 101 `c
+-> 108 `c
+-> 32 `c
+-> 105 `c
+-> 110 `c
 -> 32 `c
 -> 121 `c
 -> 111 `c
@@ -817,147 +825,147 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 74:     INTCON2bits.INTEDG0 = 0;
 [e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
 "77
-[; ;main.c: 77:     Configuration_LCD(0x06);
-[e ( _Configuration_LCD (1 -> -> 6 `i `uc ]
+[; ;main.c: 77:     Set_LCD_Enable(0x06);
+[e ( _Set_LCD_Enable (1 -> -> 6 `i `uc ]
 "78
-[; ;main.c: 78:     Configuration_LCD(0x0F);
-[e ( _Configuration_LCD (1 -> -> 15 `i `uc ]
+[; ;main.c: 78:     Set_LCD_Enable(0x0F);
+[e ( _Set_LCD_Enable (1 -> -> 15 `i `uc ]
 "79
-[; ;main.c: 79:     Configuration_LCD(0x38);
-[e ( _Configuration_LCD (1 -> -> 56 `i `uc ]
-"80
-[; ;main.c: 80:     Configuration_LCD(0x01);
-[e ( _Configuration_LCD (1 -> -> 1 `i `uc ]
-"82
-[; ;main.c: 82: }
+[; ;main.c: 79:     Set_LCD_Enable(0x38);
+[e ( _Set_LCD_Enable (1 -> -> 56 `i `uc ]
+"81
+[; ;main.c: 81: }
 [e :UE 372 ]
 }
-"86
-[; ;main.c: 86: void Configuration_LCD(unsigned char Set) {
-[v _Configuration_LCD `(v ~T0 @X0 1 ef1`uc ]
+"85
+[; ;main.c: 85: void Set_LCD_Enable(unsigned char Instruction) {
+[v _Set_LCD_Enable `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _Configuration_LCD ]
-[v _Set `uc ~T0 @X0 1 r1 ]
+[e :U _Set_LCD_Enable ]
+[v _Instruction `uc ~T0 @X0 1 r1 ]
 [f ]
-"88
-[; ;main.c: 88:     LATE0 = 0;
+"87
+[; ;main.c: 87:     LATE0 = 0;
 [e = _LATE0 -> -> 0 `i `b ]
-"89
-[; ;main.c: 89:     LCD(Set);
-[e ( _LCD (1 _Set ]
-"91
-[; ;main.c: 91: }
+"88
+[; ;main.c: 88:     Instruction_LCD(Instruction);
+[e ( _Instruction_LCD (1 _Instruction ]
+"90
+[; ;main.c: 90: }
 [e :UE 373 ]
 }
-"93
-[; ;main.c: 93: void Write(unsigned char Data_W) {
-[v _Write `(v ~T0 @X0 1 ef1`uc ]
+"94
+[; ;main.c: 94: void Write_LCD_Enable(unsigned char Data_Write) {
+[v _Write_LCD_Enable `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _Write ]
-[v _Data_W `uc ~T0 @X0 1 r1 ]
+[e :U _Write_LCD_Enable ]
+[v _Data_Write `uc ~T0 @X0 1 r1 ]
 [f ]
-"95
-[; ;main.c: 95:     LATE0 = 1;
-[e = _LATE0 -> -> 1 `i `b ]
 "96
-[; ;main.c: 96:     LCD(Data_W);
-[e ( _LCD (1 _Data_W ]
-"98
-[; ;main.c: 98: }
+[; ;main.c: 96:     LATE0 = 1;
+[e = _LATE0 -> -> 1 `i `b ]
+"97
+[; ;main.c: 97:     Instruction_LCD(Data_Write);
+[e ( _Instruction_LCD (1 _Data_Write ]
+"99
+[; ;main.c: 99: }
 [e :UE 374 ]
 }
-"100
-[; ;main.c: 100: void LCD(unsigned char Data) {
-[v _LCD `(v ~T0 @X0 1 ef1`uc ]
+"101
+[; ;main.c: 101: void Instruction_LCD(unsigned char Data) {
+[v _Instruction_LCD `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _LCD ]
+[e :U _Instruction_LCD ]
 [v _Data `uc ~T0 @X0 1 r1 ]
 [f ]
-"102
-[; ;main.c: 102:     LATE1 = 1;
-[e = _LATE1 -> -> 1 `i `b ]
 "103
 [; ;main.c: 103:     _delay((unsigned long)((15)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "104
-[; ;main.c: 104:     LATD = Data;
-[e = _LATD _Data ]
+[; ;main.c: 104:     LATE1 = 1;
+[e = _LATE1 -> -> 1 `i `b ]
 "105
-[; ;main.c: 105:     _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 105:     _delay((unsigned long)((15)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "106
-[; ;main.c: 106:     LATE1 = 0;
-[e = _LATE1 -> -> 0 `i `b ]
+[; ;main.c: 106:     LATD = Data;
+[e = _LATD _Data ]
 "107
 [; ;main.c: 107:     _delay((unsigned long)((10)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"108
+[; ;main.c: 108:     LATE1 = 0;
+[e = _LATE1 -> -> 0 `i `b ]
 "109
-[; ;main.c: 109: }
+[; ;main.c: 109:     _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"111
+[; ;main.c: 111: }
 [e :UE 375 ]
 }
 [v $root$_INT `(v ~T0 @X0 0 e ]
-"111
-[; ;main.c: 111: void __attribute__((picinterrupt(("")))) INT(void) {
+"115
+[; ;main.c: 115: void __attribute__((picinterrupt(("")))) INT(void) {
 [v _INT `(v ~T37 @X0 1 ef ]
 {
 [e :U _INT ]
 [f ]
-"113
-[; ;main.c: 113:     if (INT0IF) {
+"117
+[; ;main.c: 117:     if (INT0IF) {
 [e $ ! _INT0IF 377  ]
 {
-"115
-[; ;main.c: 115:         INTCONbits.INT0IF = 0;
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"117
-[; ;main.c: 117:         Configuration_LCD(0x80 + 4);
-[e ( _Configuration_LCD (1 -> + -> 128 `i -> 4 `i `uc ]
 "119
-[; ;main.c: 119:         for (unsigned char i = 0; i < strlen(Texto1); i++) {
+[; ;main.c: 119:         INTCONbits.INT0IF = 0;
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+"121
+[; ;main.c: 121:         Set_LCD_Enable(0x80 + 4);
+[e ( _Set_LCD_Enable (1 -> + -> 128 `i -> 4 `i `uc ]
+"123
+[; ;main.c: 123:         for (unsigned char i = 0; i < strlen(Text1); i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 381  ]
 [e :U 378 ]
 {
-"120
-[; ;main.c: 120:             Write(Texto1[i]);
-[e ( _Write (1 -> *U + &U _Texto1 * -> _i `ux -> -> # *U &U _Texto1 `ui `ux `uc ]
-"121
-[; ;main.c: 121:         }
+"125
+[; ;main.c: 125:             Write_LCD_Enable(Text1[i]);
+[e ( _Write_LCD_Enable (1 -> *U + &U _Text1 * -> _i `ux -> -> # *U &U _Text1 `ui `ux `uc ]
+"127
+[; ;main.c: 127:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 381 ]
-[e $ < -> _i `ui ( _strlen (1 -> &U _Texto1 `*Cuc 378  ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Text1 `*Cuc 378  ]
 [e :U 379 ]
 }
-"123
-[; ;main.c: 123:         Configuration_LCD(0xC0 + 1);
-[e ( _Configuration_LCD (1 -> + -> 192 `i -> 1 `i `uc ]
-"125
-[; ;main.c: 125:         for (unsigned char i = 0; i < strlen(Texto2); i++) {
+"129
+[; ;main.c: 129:         Set_LCD_Enable(0xC0 + 1);
+[e ( _Set_LCD_Enable (1 -> + -> 192 `i -> 1 `i `uc ]
+"131
+[; ;main.c: 131:         for (unsigned char i = 0; i < strlen(Text2); i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 385  ]
 [e :U 382 ]
 {
-"126
-[; ;main.c: 126:             Write(Texto2[i]);
-[e ( _Write (1 -> *U + &U _Texto2 * -> _i `ux -> -> # *U &U _Texto2 `ui `ux `uc ]
-"127
-[; ;main.c: 127:         }
+"133
+[; ;main.c: 133:             Write_LCD_Enable(Text2[i]);
+[e ( _Write_LCD_Enable (1 -> *U + &U _Text2 * -> _i `ux -> -> # *U &U _Text2 `ui `ux `uc ]
+"135
+[; ;main.c: 135:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 385 ]
-[e $ < -> _i `ui ( _strlen (1 -> &U _Texto2 `*Cuc 382  ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Text2 `*Cuc 382  ]
 [e :U 383 ]
 }
-"130
-[; ;main.c: 130:     }
+"137
+[; ;main.c: 137:     }
 }
 [e :U 377 ]
-"132
-[; ;main.c: 132: }
+"139
+[; ;main.c: 139: }
 [e :UE 376 ]
 }

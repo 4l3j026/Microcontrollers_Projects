@@ -36,8 +36,8 @@ void Write_LCD_Enable(unsigned char Data_Write);
 void __interrupt() INT(void); //Declare the interrupt function. 
 
 //Variables to show on the display. 
-char Texto1[8] = {"Hello!"};
-char Texto2[16] = {"I love you!"};
+char Text1[16] = {"My Pandita!"};
+char Text2[16] = {"I fall in you!"};
 
 //Main function. 
 
@@ -120,17 +120,17 @@ void __interrupt() INT(void) {
 
         Set_LCD_Enable(RAW1 + 4); //Select the raw 1 for write and plus 4 positions. 
 
-        for (unsigned char i = 0; i < strlen(Texto1); i++) { //For loop from 0 to vector size to show each character. 
+        for (unsigned char i = 0; i < strlen(Text1); i++) { //For loop from 0 to vector size to show each character. 
 
-            Write_LCD_Enable(Texto1[i]); //Instruction to write on the display.  
+            Write_LCD_Enable(Text1[i]); //Instruction to write on the display.  
 
         }
 
         Set_LCD_Enable(RAW2 + 1); //Select the raw 2 for write and plus one position.
 
-        for (unsigned char i = 0; i < strlen(Texto2); i++) { //For loop from 0 to vector size to show each character.
+        for (unsigned char i = 0; i < strlen(Text2); i++) { //For loop from 0 to vector size to show each character.
 
-            Write_LCD_Enable(Texto2[i]); //Instruction to write on the display. 
+            Write_LCD_Enable(Text2[i]); //Instruction to write on the display. 
 
         }
 

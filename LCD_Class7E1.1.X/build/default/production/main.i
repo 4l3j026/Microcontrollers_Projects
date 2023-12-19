@@ -5841,14 +5841,14 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 17 "main.c" 2
 # 32 "main.c"
 void Configuration(void);
-void Configuration_LCD(unsigned char Set);
-void LCD(unsigned char Data);
-void Write(unsigned char Data_W);
+void Set_LCD_Enable(unsigned char Instruction);
+void Instruction_LCD(unsigned char Data);
+void Write_LCD_Enable(unsigned char Data_Write);
 void __attribute__((picinterrupt(("")))) INT(void);
 
 
-char Texto1[8] = {"Hello!"};
-char Texto2[16] = {"I love you!"};
+char Text1[16] = {"My Pandita!"};
+char Text2[16] = {"I fall in you!"};
 
 
 
@@ -5885,31 +5885,33 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0;
 
 
-    Configuration_LCD(0x06);
-    Configuration_LCD(0x0F);
-    Configuration_LCD(0x38);
-    Configuration_LCD(0x01);
+    Set_LCD_Enable(0x06);
+    Set_LCD_Enable(0x0F);
+    Set_LCD_Enable(0x38);
 
 }
 
 
 
-void Configuration_LCD(unsigned char Set) {
+void Set_LCD_Enable(unsigned char Instruction) {
 
     LATE0 = 0;
-    LCD(Set);
+    Instruction_LCD(Instruction);
 
 }
 
-void Write(unsigned char Data_W) {
+
+
+void Write_LCD_Enable(unsigned char Data_Write) {
 
     LATE0 = 1;
-    LCD(Data_W);
+    Instruction_LCD(Data_Write);
 
 }
 
-void LCD(unsigned char Data) {
+void Instruction_LCD(unsigned char Data) {
 
+    _delay((unsigned long)((15)*(8000000/4000.0)));
     LATE1 = 1;
     _delay((unsigned long)((15)*(8000000/4000.0)));
     LATD = Data;
@@ -5919,24 +5921,29 @@ void LCD(unsigned char Data) {
 
 }
 
+
+
 void __attribute__((picinterrupt(("")))) INT(void) {
 
     if (INT0IF) {
 
         INTCONbits.INT0IF = 0;
 
-        Configuration_LCD(0x80 + 4);
+        Set_LCD_Enable(0x80 + 4);
 
-        for (unsigned char i = 0; i < strlen(Texto1); i++) {
-            Write(Texto1[i]);
+        for (unsigned char i = 0; i < strlen(Text1); i++) {
+
+            Write_LCD_Enable(Text1[i]);
+
         }
 
-        Configuration_LCD(0xC0 + 1);
+        Set_LCD_Enable(0xC0 + 1);
 
-        for (unsigned char i = 0; i < strlen(Texto2); i++) {
-            Write(Texto2[i]);
+        for (unsigned char i = 0; i < strlen(Text2); i++) {
+
+            Write_LCD_Enable(Text2[i]);
+
         }
-
 
     }
 

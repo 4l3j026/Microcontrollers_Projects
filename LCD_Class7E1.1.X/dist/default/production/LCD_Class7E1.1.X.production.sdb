@@ -33,15 +33,15 @@
 [v _main main `(v  1 e 1 0 ]
 "60
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"86
-[v _Configuration_LCD Configuration_LCD `(v  1 e 1 0 ]
-[v i2_Configuration_LCD Configuration_LCD `(v  1 e 1 0 ]
-"93
-[v _Write Write `(v  1 e 1 0 ]
-"100
-[v _LCD LCD `(v  1 e 1 0 ]
-[v i2_LCD LCD `(v  1 e 1 0 ]
-"111
+"85
+[v _Set_LCD_Enable Set_LCD_Enable `(v  1 e 1 0 ]
+[v i2_Set_LCD_Enable Set_LCD_Enable `(v  1 e 1 0 ]
+"94
+[v _Write_LCD_Enable Write_LCD_Enable `(v  1 e 1 0 ]
+"101
+[v _Instruction_LCD Instruction_LCD `(v  1 e 1 0 ]
+[v i2_Instruction_LCD Instruction_LCD `(v  1 e 1 0 ]
+"115
 [v _INT INT `IIH(v  1 e 1 0 ]
 "3263 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
@@ -163,9 +163,9 @@
 "10018
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "39 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD_Class7E1.1.X\main.c
-[v _Texto1 Texto1 `[8]uc  1 e 8 0 ]
+[v _Text1 Text1 `[16]uc  1 e 16 0 ]
 "40
-[v _Texto2 Texto2 `[16]uc  1 e 16 0 ]
+[v _Text2 Text2 `[16]uc  1 e 16 0 ]
 "44
 [v _main main `(v  1 e 1 0 ]
 {
@@ -174,43 +174,43 @@
 "60
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
-"82
+"81
 } 0
-"86
-[v _Configuration_LCD Configuration_LCD `(v  1 e 1 0 ]
+"85
+[v _Set_LCD_Enable Set_LCD_Enable `(v  1 e 1 0 ]
 {
-[v Configuration_LCD@Set Set `uc  1 a 1 wreg ]
-[v Configuration_LCD@Set Set `uc  1 a 1 wreg ]
-"88
-[v Configuration_LCD@Set Set `uc  1 a 1 12 ]
-"91
+[v Set_LCD_Enable@Instruction Instruction `uc  1 a 1 wreg ]
+[v Set_LCD_Enable@Instruction Instruction `uc  1 a 1 wreg ]
+"87
+[v Set_LCD_Enable@Instruction Instruction `uc  1 a 1 12 ]
+"90
 } 0
-"100
-[v _LCD LCD `(v  1 e 1 0 ]
+"101
+[v _Instruction_LCD Instruction_LCD `(v  1 e 1 0 ]
 {
-[v LCD@Data Data `uc  1 a 1 wreg ]
-[v LCD@Data Data `uc  1 a 1 wreg ]
-"102
-[v LCD@Data Data `uc  1 a 1 11 ]
-"109
-} 0
+[v Instruction_LCD@Data Data `uc  1 a 1 wreg ]
+[v Instruction_LCD@Data Data `uc  1 a 1 wreg ]
+"103
+[v Instruction_LCD@Data Data `uc  1 a 1 11 ]
 "111
+} 0
+"115
 [v _INT INT `IIH(v  1 e 1 0 ]
 {
-"125
+"131
 [v INT@i_324 i `uc  1 a 1 9 ]
-"119
+"123
 [v INT@i i `uc  1 a 1 8 ]
-"132
+"139
 } 0
-"86
-[v i2_Configuration_LCD Configuration_LCD `(v  1 e 1 0 ]
+"85
+[v i2_Set_LCD_Enable Set_LCD_Enable `(v  1 e 1 0 ]
 {
-[v i2Configuration_LCD@Set Set `uc  1 a 1 wreg ]
-[v i2Configuration_LCD@Set Set `uc  1 a 1 wreg ]
-"88
-[v i2Configuration_LCD@Set Set `uc  1 a 1 2 ]
-"91
+[v i2Set_LCD_Enable@Instruction Instruction `uc  1 a 1 wreg ]
+[v i2Set_LCD_Enable@Instruction Instruction `uc  1 a 1 wreg ]
+"87
+[v i2Set_LCD_Enable@Instruction Instruction `uc  1 a 1 2 ]
+"90
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -221,21 +221,21 @@
 [v strlen@s s `*.39Cuc  1 p 2 0 ]
 "12
 } 0
-"93 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD_Class7E1.1.X\main.c
-[v _Write Write `(v  1 e 1 0 ]
+"94 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD_Class7E1.1.X\main.c
+[v _Write_LCD_Enable Write_LCD_Enable `(v  1 e 1 0 ]
 {
-[v Write@Data_W Data_W `uc  1 a 1 wreg ]
-[v Write@Data_W Data_W `uc  1 a 1 wreg ]
-"95
-[v Write@Data_W Data_W `uc  1 a 1 2 ]
-"98
+[v Write_LCD_Enable@Data_Write Data_Write `uc  1 a 1 wreg ]
+[v Write_LCD_Enable@Data_Write Data_Write `uc  1 a 1 wreg ]
+"96
+[v Write_LCD_Enable@Data_Write Data_Write `uc  1 a 1 2 ]
+"99
 } 0
-"100
-[v i2_LCD LCD `(v  1 e 1 0 ]
+"101
+[v i2_Instruction_LCD Instruction_LCD `(v  1 e 1 0 ]
 {
-[v i2LCD@Data Data `uc  1 a 1 wreg ]
-[v i2LCD@Data Data `uc  1 a 1 wreg ]
-"102
-[v i2LCD@Data Data `uc  1 a 1 1 ]
-"109
+[v i2Instruction_LCD@Data Data `uc  1 a 1 wreg ]
+[v i2Instruction_LCD@Data Data `uc  1 a 1 wreg ]
+"103
+[v i2Instruction_LCD@Data Data `uc  1 a 1 1 ]
+"111
 } 0
