@@ -23,8 +23,8 @@
 #define DSR 0x1C //Constant to control the cursor shift to Right (Display Shift Right).
 #define DSL 0x18 //Constant to control the cursosr shift to Left (Display Shift Left). 
 #define FS 0x38 //Constant to Function Set.
-#define RAW1 0x80 //Constant to print inside first raw trough address of the LCD. 
-#define RAW2 0xC0 //Constant to print inside second raw trough address of the LCD. 
+#define RAW1 0x80 //Constant to print inside first row trough address of the LCD. 
+#define RAW2 0xC0 //Constant to print inside second row trough address of the LCD. 
 #define RS LATE0 //Constanto to activate the Register Select.
 #define E LATE1 //Constant to activate the Enable. 
 
