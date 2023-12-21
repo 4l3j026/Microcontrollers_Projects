@@ -11,24 +11,34 @@
 #include <string.h> //Library to use strlen function. 
 #include "Fuses.h" //Library created to set fuses from microcontroller.
 //Prototype functions. 
-void Configuration(void);
+void Configuration(void); //Function to set some registers of the microcontroller. 
 void Set_Instruction(unsigned char S_Instruction);
 void Write_Instruction(unsigned char W_Instruction);
 void LCD_Instructions(unsigned char Instruction);
-void __interrupt INT(void);
+void Test(void);
+void __interrupt() INT(void);
 //Constants to use the display. 
-#define RS 0x00 
-#define RH 0x02
-#define CD 
-#define RS 
+#define CD 0x01 //Command to clear display of the LCD.
+#define RH 0x02 //Command to return to the first position of the LCD (inside first raw and column).
+#define SDR 0x00 
+#define SDI 0x00
+#define FS 0x28
+#define DC 0x0F
+#define EMS 0x06
+#define ROW1 0x80 
+#define ROW2 0xC0
+#define RS LATE0
+#define E LATE1
 
+//Variables 
+char Text1 [10] = {"Te Amo"};
 //Main function. 
 
 void main(void) {
 
     //Call functions. 
     Configuration();
-
+    Test();
     //Infinite Loop. 
     while (1) {
 
@@ -36,9 +46,10 @@ void main(void) {
 
     }
 
+    return;
 }
 
-//Develop configuration functions. 
+//Develop configuration function. 
 
 void Configuration(void) {
 
@@ -57,6 +68,11 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0;
 
     //LCD configurations. 
+    Set_Instruction(RH);
+    Set_Instruction(CD);
+    Set_Instruction(FS);
+    Set_Instruction(DC);
+    Set_Instruction(EMS);
 
 
 }
@@ -65,7 +81,9 @@ void Configuration(void) {
 
 void Set_Instruction(unsigned char S_Instruction) {
 
-
+    RS = 0;
+    LCD_Instructions(S_Instruction);
+    LCD_Instructions(S_Instruction << 4);
 
 }
 
@@ -73,14 +91,35 @@ void Set_Instruction(unsigned char S_Instruction) {
 
 void Write_Instruction(unsigned char W_Instruction) {
 
-
+    RS = 1;
+    LCD_Instructions(W_Instruction);
+    LCD_Instructions(W_Instruction << 4);
 
 }
 
 //Develop 
 
-void LCD_Intructiions(unsigned char Instruction) {
+void LCD_Instructions(unsigned char Instruction) {
 
-    
-    
+    E = 1;
+    __delay_ms(15);
+    LATD = Instruction;
+    __delay_ms(15);
+    E = 0;
+    __delay_ms(15);
+
+}
+
+void Test(void) {
+
+    Write_Instruction(ROW1);
+
+    for (int i = 0; i < strlen(Text1); i++) {
+
+
+        Write_Instruction(Text1[i]);
+
+
+    }
+
 }

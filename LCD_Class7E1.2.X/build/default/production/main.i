@@ -5724,6 +5724,226 @@ unsigned char __t3rd16on(void);
 # 9 "main.c" 2
 
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 11 "main.c" 2
+
+# 1 "./Fuses.h" 1
+# 10 "./Fuses.h"
+#pragma config PLLDIV = 1
+#pragma config CPUDIV = OSC1_PLL2
+#pragma config USBDIV = 1
+
+
+#pragma config FOSC = INTOSC_HS
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+
+#pragma config PWRT = OFF
+#pragma config BOR = ON
+#pragma config BORV = 3
+#pragma config VREGEN = OFF
+
+
+#pragma config WDT = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config CCP2MX = ON
+#pragma config PBADEN = ON
+#pragma config LPT1OSC = OFF
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config ICPRT = OFF
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
+# 12 "main.c" 2
+
+
+void Configuration(void);
+void Set_Instruction(unsigned char S_Instruction);
+void Write_Instruction(unsigned char W_Instruction);
+void LCD_Instructions(unsigned char Instruction);
+void Test(void);
+void __attribute__((picinterrupt(("")))) INT(void);
+# 34 "main.c"
+char Text1 [10] = {"Te Amo"};
+
+
 void main(void) {
+
+
+    Configuration();
+    Test();
+
+    while (1) {
+
+
+
+    }
+
     return;
+}
+
+
+
+void Configuration(void) {
+
+    OSCCON = 0x72;
+    ADCON1 = 0x0F;
+
+    TRISBbits.RB0 = 1;
+    TRISD = 0x00;
+    TRISE = 0x00;
+
+
+    RCONbits.IPEN = 0;
+    INTCONbits.GIE = 0;
+    INTCONbits.INT0E = 1;
+    INTCONbits.INT0IF = 0;
+    INTCON2bits.INTEDG0 = 0;
+
+
+    Set_Instruction(0x02);
+    Set_Instruction(0x01);
+    Set_Instruction(0x28);
+    Set_Instruction(0x0F);
+    Set_Instruction(0x06);
+
+
+}
+
+
+
+void Set_Instruction(unsigned char S_Instruction) {
+
+    LATE0 = 0;
+    LCD_Instructions(S_Instruction);
+    LCD_Instructions(S_Instruction << 4);
+
+}
+
+
+
+void Write_Instruction(unsigned char W_Instruction) {
+
+    LATE0 = 1;
+    LCD_Instructions(W_Instruction);
+    LCD_Instructions(W_Instruction << 4);
+
+}
+
+
+
+void LCD_Instructions(unsigned char Instruction) {
+
+    LATE1 = 1;
+    _delay((unsigned long)((15)*(8000000/4000.0)));
+    LATD = Instruction;
+    _delay((unsigned long)((15)*(8000000/4000.0)));
+    LATE1 = 0;
+    _delay((unsigned long)((15)*(8000000/4000.0)));
+
+}
+
+void Test(void) {
+
+    Write_Instruction(0x80);
+
+    for (int i = 0; i < strlen(Text1); i++) {
+
+
+        Write_Instruction(Text1[i]);
+
+
+    }
+
 }
