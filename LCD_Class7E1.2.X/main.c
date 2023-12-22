@@ -16,24 +16,24 @@ void Set_Instruction(unsigned char S_Instruction);
 void Write_Instruction(unsigned char W_Instruction);
 void LCD_Instructions(unsigned char Instruction);
 void Test(void);
-void __interrupt() INT(void);
+void __interrupt() INT(void); //Interrupt function without priority. 
 //Constants to use the display. 
-#define CD 0x01 //Command to clear display of the LCD.
-#define RH 0x02 //Command to return to the first position of the LCD (inside first raw and column).
-#define SDR 0x00 
-#define SDI 0x00
-#define FS 0x28
-#define DC 0x0F
-#define EMS 0x06
-#define ROW1 0x80 
-#define ROW2 0xC0
-#define RS LATE0
-#define E LATE1
+#define CD 0x01 //Command to Clear Display.
+#define RH 0x02 //Command to Return to Home that is the first position of the LCD (inside first raw and column).
+#define EMS 0x06 //Command Entry Mode Set to use moving direction cursor. 
+#define DC 0x0F //Command Display Control to set display, cursor and blink. 
+#define DSR 0x1C //Command to control the cursor shift to Right (Display Shift Right).
+#define DSL 0x18 //Command to control the cursor shift to Left (Display Shift Left). 
+#define FS 0x28 //Command to control the 4/8 bits mode, 5x8/5x11 character, 1/2 lines display. 
+#define ROW1 0x80 //Command to use the first line of the LCD, ROW 1.
+#define ROW2 0xC0 //Command to use the second line of the LCD, ROW2. 
+#define RS LATE0 //Register select on pin LE0.
+#define E LATE1 //Enable on pin LE1. 
 
 //Variables 
 char Text1 [10] = {"Te Amo"};
-//Main function. 
 
+//Main function. 
 void main(void) {
 
     //Call functions. 
