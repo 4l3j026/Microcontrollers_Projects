@@ -31,9 +31,11 @@ void __interrupt() INT(void); //Interrupt function without priority.
 #define E LATE1 //Enable on pin LE1. 
 
 //Variables 
-char Text1 [10] = {"Te Amo"};
+char Text1 [10] = {"It's Live!"};
+char Text2 [16] = {"Amazing!"};
 
 //Main function. 
+
 void main(void) {
 
     //Call functions. 
@@ -68,12 +70,11 @@ void Configuration(void) {
     INTCON2bits.INTEDG0 = 0;
 
     //LCD configurations. 
-    Set_Instruction(RH);
-    Set_Instruction(CD);
-    Set_Instruction(FS);
-    Set_Instruction(DC);
+    Set_Instruction(0x02);
     Set_Instruction(EMS);
-
+    Set_Instruction(DC);
+    Set_Instruction(FS);
+    Set_Instruction(CD);
 
 }
 
@@ -82,8 +83,8 @@ void Configuration(void) {
 void Set_Instruction(unsigned char S_Instruction) {
 
     RS = 0;
-    LCD_Instructions(S_Instruction);
-    LCD_Instructions(S_Instruction << 4);
+    LCD_Instructions(S_Instruction >> 4);
+    LCD_Instructions(S_Instruction & 0x0F);
 
 }
 
@@ -92,8 +93,8 @@ void Set_Instruction(unsigned char S_Instruction) {
 void Write_Instruction(unsigned char W_Instruction) {
 
     RS = 1;
-    LCD_Instructions(W_Instruction);
-    LCD_Instructions(W_Instruction << 4);
+    LCD_Instructions(W_Instruction >> 4);
+    LCD_Instructions(W_Instruction & 0x0F);
 
 }
 
@@ -112,14 +113,23 @@ void LCD_Instructions(unsigned char Instruction) {
 
 void Test(void) {
 
-    Write_Instruction(ROW1);
+    Set_Instruction(ROW1);
 
     for (int i = 0; i < strlen(Text1); i++) {
 
-
         Write_Instruction(Text1[i]);
 
+    }
+
+
+    Set_Instruction(ROW2);
+
+    for (int j = 0; j < strlen(Text2); j++) {
+
+        Write_Instruction(Text2[j]);
 
     }
 
 }
+
+
