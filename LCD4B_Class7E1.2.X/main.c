@@ -31,8 +31,8 @@ void __interrupt() INT(void); //Interrupt function without priority.
 #define E LATE1 //Enable on pin LE1. 
 
 //Variables 
-char Text1 [10] = {"Hello!"}; //Variable to show on first row of the LCD.
-char Text2 [20] = {"Everyone!"}; //Variable to show on the second row of the LCD. 
+char Text1 [20] = {"Hello!"}; //Variable to show on first row of the LCD.
+char Text2 [26] = {"Everyone!"}; //Variable to show on the second row of the LCD. 
 
 //Main function. 
 void main(void) {

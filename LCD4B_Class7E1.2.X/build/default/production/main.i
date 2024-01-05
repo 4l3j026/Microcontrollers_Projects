@@ -5855,8 +5855,8 @@ void LCD_Instructions(unsigned char Instruction);
 void Test(void);
 void __attribute__((picinterrupt(("")))) INT(void);
 # 34 "main.c"
-char Text1 [10] = {"Hello!"};
-char Text2 [20] = {"Everyone!"};
+char Text1 [20] = {"Hello!"};
+char Text2 [26] = {"Everyone!"};
 
 
 void main(void) {
@@ -5871,7 +5871,6 @@ void main(void) {
 
     }
 
-    return;
 }
 
 
@@ -5887,7 +5886,7 @@ void Configuration(void) {
 
 
     RCONbits.IPEN = 0;
-    INTCONbits.GIE = 0;
+    INTCONbits.GIE = 1;
     INTCONbits.INT0E = 1;
     INTCONbits.INT0IF = 0;
     INTCON2bits.INTEDG0 = 0;
@@ -5900,7 +5899,6 @@ void Configuration(void) {
     Set_Instruction(0x01);
 
 }
-
 
 
 void Set_Instruction(unsigned char S_Instruction) {
@@ -5933,6 +5931,7 @@ void LCD_Instructions(unsigned char Instruction) {
     _delay((unsigned long)((15)*(8000000/4000.0)));
 
 }
+
 
 void Test(void) {
 
