@@ -97,7 +97,7 @@ void Write_Instruction(unsigned char W_Instruction) {
     LCD_Instructions(W_Instruction);
 
 }
-
+    
 //Develop 
 
 void LCD_Instructions(unsigned char Instruction) {
