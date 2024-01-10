@@ -6,14 +6,14 @@ __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _LATD F8C 0 ABS 0
 __end_of_Test 8000 0 CODE 0
-_main 7E14 0 CODE 0
+_main 7E18 0 CODE 0
 ___sp 0 0 STACK 2
 _Test 7F52 0 CODE 0
 start 0 0 CODE 0
 _LATE0 7C68 0 ABS 0
 _LCD_Instructions 7EDA 0 CODE 0
 _LATE1 7C69 0 ABS 0
-_Set_Instruction 7E24 0 CODE 0
+_Set_Instruction 7E28 0 CODE 0
 LCD_Instructions@Instruction 30 0 COMRAM 1
 _TRISD F95 0 ABS 0
 __Hirdata 0 0 CODE 0
@@ -94,7 +94,7 @@ __Linit 0 0 CODE 0
 __Hintcodelo 0 0 CODE 0
 __Lintcodelo 0 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 7E24 0 CODE 0
+__end_of_main 7E28 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
@@ -102,7 +102,7 @@ ___heap_lo 0 0 ABS 0
 end_of_initialization 7E70 0 CODE 0
 Write_Instruction@W_Instruction 31 0 COMRAM 1
 _TRISBbits F93 0 ABS 0
-__end_of_Set_Instruction 7E3A 0 CODE 0
+__end_of_Set_Instruction 7E3C 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -129,7 +129,7 @@ __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 7E14 0 CODE 0
+__ptext0 7E18 0 CODE 0
 _INTCON2bits FF1 0 ABS 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
@@ -139,13 +139,13 @@ __Ltext3 0 0 ABS 0
 __ptext2 7EA4 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 7E3A 0 CODE 0
+__ptext3 7E3C 0 CODE 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
 __ptext4 7F16 0 CODE 0
 __Htext6 0 0 ABS 0
 __Ltext6 0 0 ABS 0
-__ptext5 7E24 0 CODE 0
+__ptext5 7E28 0 CODE 0
 __ptext6 7EDA 0 CODE 0
 Set_Instruction@S_Instruction 31 0 COMRAM 1
 __Hclrtext 0 0 ABS 0
@@ -212,7 +212,7 @@ __HdataCOMRAM 0 0 ABS 0
 __LdataCOMRAM 0 0 ABS 0
 __pdataCOMRAM 1 0 COMRAM 1
 start_initialization 7E50 0 CODE 0
-_Write_Instruction 7E3A 0 CODE 0
+_Write_Instruction 7E3C 0 CODE 0
 __initialization 7E50 0 CODE 0
 __activetblptr 0 0 ABS 0
 %segments
@@ -224,12 +224,12 @@ text6 7EDA 7F15 CODE 7EDA 0
 text2 7EA4 7ED9 CODE 7EA4 0
 idataCOMRAM 7E76 7EA3 CODE 7E76 0
 cinit 7E50 7E75 CODE 7E50 0
-text3 7E3A 7E4F CODE 7E3A 0
-text5 7E24 7E39 CODE 7E24 0
-text0 7E14 7E23 CODE 7E14 0
+text3 7E3C 7E4F CODE 7E3C 0
+text5 7E28 7E3B CODE 7E28 0
+text0 7E18 7E27 CODE 7E18 0
 %locals
 dist/default/production\LCD4B_Class7E1.2.X.production.o
-C:\Users\aleja\AppData\Local\Temp\xcAs62o.\driver_tmp_1.s
+C:\Users\aleja\AppData\Local\Temp\xcAsimc.\driver_tmp_1.s
 586 7E50 0 CODE 0
 588 7E50 0 CODE 0
 591 7E50 0 CODE 0
@@ -251,23 +251,23 @@ C:\Users\aleja\AppData\Local\Temp\xcAs62o.\driver_tmp_1.s
 633 7E70 0 CODE 0
 634 7E72 0 CODE 0
 main.c
-38 7E14 0 CODE 0
-41 7E14 0 CODE 0
-42 7E18 0 CODE 0
-44 7E1C 0 CODE 0
-48 7E1C 0 CODE 0
+38 7E18 0 CODE 0
+41 7E18 0 CODE 0
+42 7E1C 0 CODE 0
+44 7E20 0 CODE 0
+48 7E20 0 CODE 0
 main.c
-112 7F52 0 CODE 0
-114 7F52 0 CODE 0
-116 7F58 0 CODE 0
-118 7F64 0 CODE 0
-120 7F76 0 CODE 0
-122 7F9C 0 CODE 0
-124 7FB4 0 CODE 0
-126 7FBA 0 CODE 0
-128 7FC6 0 CODE 0
-130 7FD8 0 CODE 0
-132 7FFE 0 CODE 0
+115 7F52 0 CODE 0
+117 7F52 0 CODE 0
+119 7F58 0 CODE 0
+121 7F64 0 CODE 0
+123 7F76 0 CODE 0
+125 7F9C 0 CODE 0
+127 7FB4 0 CODE 0
+129 7FBA 0 CODE 0
+131 7FC6 0 CODE 0
+133 7FD8 0 CODE 0
+135 7FFE 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\strlen.c
 5 7EA4 0 CODE 0
 7 7EA4 0 CODE 0
@@ -277,11 +277,11 @@ C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\strlen.c
 11 7ECC 0 CODE 0
 12 7ED8 0 CODE 0
 main.c
-90 7E3A 0 CODE 0
 92 7E3C 0 CODE 0
-93 7E3E 0 CODE 0
-94 7E46 0 CODE 0
-96 7E4E 0 CODE 0
+94 7E3E 0 CODE 0
+95 7E40 0 CODE 0
+97 7E48 0 CODE 0
+99 7E4E 0 CODE 0
 main.c
 54 7F16 0 CODE 0
 56 7F16 0 CODE 0
@@ -301,17 +301,17 @@ main.c
 75 7F4A 0 CODE 0
 77 7F50 0 CODE 0
 main.c
-80 7E24 0 CODE 0
-82 7E26 0 CODE 0
-83 7E28 0 CODE 0
-84 7E30 0 CODE 0
-86 7E38 0 CODE 0
+80 7E28 0 CODE 0
+82 7E2A 0 CODE 0
+83 7E2C 0 CODE 0
+85 7E34 0 CODE 0
+88 7E3A 0 CODE 0
 main.c
-100 7EDA 0 CODE 0
-102 7EDC 0 CODE 0
-103 7EDE 0 CODE 0
-104 7EEE 0 CODE 0
-105 7EF2 0 CODE 0
-106 7F02 0 CODE 0
-107 7F04 0 CODE 0
-109 7F14 0 CODE 0
+103 7EDA 0 CODE 0
+105 7EDC 0 CODE 0
+106 7EDE 0 CODE 0
+107 7EEE 0 CODE 0
+108 7EF2 0 CODE 0
+109 7F02 0 CODE 0
+110 7F04 0 CODE 0
+112 7F14 0 CODE 0

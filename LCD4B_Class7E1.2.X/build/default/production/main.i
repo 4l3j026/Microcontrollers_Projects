@@ -5905,7 +5905,9 @@ void Set_Instruction(unsigned char S_Instruction) {
 
     LATE0 = 0;
     LCD_Instructions(S_Instruction >> 4);
-    LCD_Instructions(S_Instruction & 0x0F);
+
+    LCD_Instructions(S_Instruction);
+
 
 }
 
@@ -5915,7 +5917,8 @@ void Write_Instruction(unsigned char W_Instruction) {
 
     LATE0 = 1;
     LCD_Instructions(W_Instruction >> 4);
-    LCD_Instructions(W_Instruction & 0x0F);
+
+    LCD_Instructions(W_Instruction);
 
 }
 

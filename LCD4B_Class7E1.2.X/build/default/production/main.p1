@@ -844,116 +844,116 @@ Version 4.0 HI-TECH Software Intermediate Code
 "83
 [; ;main.c: 83:     LCD_Instructions(S_Instruction >> 4);
 [e ( _LCD_Instructions (1 -> >> -> _S_Instruction `i -> 4 `i `uc ]
-"84
-[; ;main.c: 84:     LCD_Instructions(S_Instruction & 0x0F);
-[e ( _LCD_Instructions (1 -> & -> _S_Instruction `i -> 15 `i `uc ]
-"86
-[; ;main.c: 86: }
+"85
+[; ;main.c: 85:     LCD_Instructions(S_Instruction);
+[e ( _LCD_Instructions (1 _S_Instruction ]
+"88
+[; ;main.c: 88: }
 [e :UE 373 ]
 }
-"90
-[; ;main.c: 90: void Write_Instruction(unsigned char W_Instruction) {
+"92
+[; ;main.c: 92: void Write_Instruction(unsigned char W_Instruction) {
 [v _Write_Instruction `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Write_Instruction ]
 [v _W_Instruction `uc ~T0 @X0 1 r1 ]
 [f ]
-"92
-[; ;main.c: 92:     LATE0 = 1;
-[e = _LATE0 -> -> 1 `i `b ]
-"93
-[; ;main.c: 93:     LCD_Instructions(W_Instruction >> 4);
-[e ( _LCD_Instructions (1 -> >> -> _W_Instruction `i -> 4 `i `uc ]
 "94
-[; ;main.c: 94:     LCD_Instructions(W_Instruction & 0x0F);
-[e ( _LCD_Instructions (1 -> & -> _W_Instruction `i -> 15 `i `uc ]
-"96
-[; ;main.c: 96: }
+[; ;main.c: 94:     LATE0 = 1;
+[e = _LATE0 -> -> 1 `i `b ]
+"95
+[; ;main.c: 95:     LCD_Instructions(W_Instruction >> 4);
+[e ( _LCD_Instructions (1 -> >> -> _W_Instruction `i -> 4 `i `uc ]
+"97
+[; ;main.c: 97:     LCD_Instructions(W_Instruction);
+[e ( _LCD_Instructions (1 _W_Instruction ]
+"99
+[; ;main.c: 99: }
 [e :UE 374 ]
 }
-"100
-[; ;main.c: 100: void LCD_Instructions(unsigned char Instruction) {
+"103
+[; ;main.c: 103: void LCD_Instructions(unsigned char Instruction) {
 [v _LCD_Instructions `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_Instructions ]
 [v _Instruction `uc ~T0 @X0 1 r1 ]
 [f ]
-"102
-[; ;main.c: 102:     LATE1 = 1;
-[e = _LATE1 -> -> 1 `i `b ]
-"103
-[; ;main.c: 103:     _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"104
-[; ;main.c: 104:     LATD = Instruction;
-[e = _LATD _Instruction ]
 "105
-[; ;main.c: 105:     _delay((unsigned long)((15)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 105:     LATE1 = 1;
+[e = _LATE1 -> -> 1 `i `b ]
 "106
-[; ;main.c: 106:     LATE1 = 0;
-[e = _LATE1 -> -> 0 `i `b ]
+[; ;main.c: 106:     _delay((unsigned long)((15)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "107
-[; ;main.c: 107:     _delay((unsigned long)((15)*(8000000/4000.0)));
+[; ;main.c: 107:     LATD = Instruction;
+[e = _LATD _Instruction ]
+"108
+[; ;main.c: 108:     _delay((unsigned long)((15)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "109
-[; ;main.c: 109: }
+[; ;main.c: 109:     LATE1 = 0;
+[e = _LATE1 -> -> 0 `i `b ]
+"110
+[; ;main.c: 110:     _delay((unsigned long)((15)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"112
+[; ;main.c: 112: }
 [e :UE 375 ]
 }
-"112
-[; ;main.c: 112: void Test(void) {
+"115
+[; ;main.c: 115: void Test(void) {
 [v _Test `(v ~T0 @X0 1 ef ]
 {
 [e :U _Test ]
 [f ]
-"114
-[; ;main.c: 114:     Set_Instruction(0x80);
+"117
+[; ;main.c: 117:     Set_Instruction(0x80);
 [e ( _Set_Instruction (1 -> -> 128 `i `uc ]
-"116
-[; ;main.c: 116:     for (int i = 0; i < strlen(Text1); i++) {
+"119
+[; ;main.c: 119:     for (int i = 0; i < strlen(Text1); i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 380  ]
 [e :U 377 ]
 {
-"118
-[; ;main.c: 118:         Write_Instruction(Text1[i]);
+"121
+[; ;main.c: 121:         Write_Instruction(Text1[i]);
 [e ( _Write_Instruction (1 -> *U + &U _Text1 * -> -> _i `ui `ux -> -> # *U &U _Text1 `ui `ux `uc ]
-"120
-[; ;main.c: 120:     }
+"123
+[; ;main.c: 123:     }
 }
 [e ++ _i -> 1 `i ]
 [e :U 380 ]
 [e $ < -> _i `ui ( _strlen (1 -> &U _Text1 `*Cuc 377  ]
 [e :U 378 ]
 }
-"122
-[; ;main.c: 122:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"125
+[; ;main.c: 125:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"124
-[; ;main.c: 124:     Set_Instruction(0xC0);
+"127
+[; ;main.c: 127:     Set_Instruction(0xC0);
 [e ( _Set_Instruction (1 -> -> 192 `i `uc ]
-"126
-[; ;main.c: 126:     for (int j = 0; j < strlen(Text2); j++) {
+"129
+[; ;main.c: 129:     for (int j = 0; j < strlen(Text2); j++) {
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
 [e $U 384  ]
 [e :U 381 ]
 {
-"128
-[; ;main.c: 128:         Write_Instruction(Text2[j]);
+"131
+[; ;main.c: 131:         Write_Instruction(Text2[j]);
 [e ( _Write_Instruction (1 -> *U + &U _Text2 * -> -> _j `ui `ux -> -> # *U &U _Text2 `ui `ux `uc ]
-"130
-[; ;main.c: 130:     }
+"133
+[; ;main.c: 133:     }
 }
 [e ++ _j -> 1 `i ]
 [e :U 384 ]
 [e $ < -> _j `ui ( _strlen (1 -> &U _Text2 `*Cuc 381  ]
 [e :U 382 ]
 }
-"132
-[; ;main.c: 132: }
+"135
+[; ;main.c: 135: }
 [e :UE 376 ]
 }
