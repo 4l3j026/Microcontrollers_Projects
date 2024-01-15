@@ -1,7 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "21 main.c
-[s S362 :4 `uc 1 ]
-[n S362 test Var ]
+[u S362 `uc -> -> 1 `i `ux `uc -> -> 1 `i `ux ]
+[n S362 Value Int_Value Char_Value ]
+"29
+[s S363 :4 `uc 1 ]
+[n S363 test Var ]
 [p mainexit ]
 "15
 [v _Configurations `(v ~T0 @X0 0 ef ]
@@ -3717,127 +3720,139 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;main.c: 18: uint8_t Counter_Button1 = 0;
-"24
-[v _value `S362 ~T0 @X0 1 e ]
-[; ;main.c: 21: struct test {
-[; ;main.c: 22: unsigned int Var : 4;
-[; ;main.c: 24: } value;
+"25
+[v _Data `S362 ~T0 @X0 1 e ]
+[; ;main.c: 21: union Value {
+[; ;main.c: 22: uint8_t Int_Value [1];
+[; ;main.c: 23: unsigned char Char_Value [1];
+[; ;main.c: 25: } Data;
+"32
+[v _value `S363 ~T0 @X0 1 e ]
+[; ;main.c: 29: struct test {
+[; ;main.c: 30: unsigned int Var : 4;
+[; ;main.c: 32: } value;
 [v $root$_main `(v ~T0 @X0 0 e ]
-"28
+"36
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 28: void main(void) {
+[; ;main.c: 36: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 31: Configurations();
-"31
+[; ;main.c: 39: Configurations();
+"39
 [e ( _Configurations ..  ]
-[; ;main.c: 34: while (1) {
-"34
-[e :U 365 ]
-{
-"36
-}
-[e :U 364 ]
-"34
-[e $U 365  ]
-[e :U 366 ]
-[; ;main.c: 36: }
-[; ;main.c: 38: }
-"38
-[e :UE 363 ]
-}
+[; ;main.c: 42: while (1) {
 "42
+[e :U 366 ]
+{
+"44
+}
+[e :U 365 ]
+"42
+[e $U 366  ]
+[e :U 367 ]
+[; ;main.c: 44: }
+[; ;main.c: 46: }
+"46
+[e :UE 364 ]
+}
+"50
 [v _Configurations `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 42: void Configurations(void) {
+[; ;main.c: 50: void Configurations(void) {
 [e :U _Configurations ]
 [f ]
-[; ;main.c: 44: OSCCON = 0x72;
-"44
-[e = _OSCCON -> -> 114 `i `uc ]
-[; ;main.c: 45: ADCON1 = 0x0F;
-"45
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;main.c: 47: TRISCbits.RC6 = 0;
-"47
-[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
-[; ;main.c: 48: TRISCbits.RC7 = 1;
-"48
-[e = . . _TRISCbits 1 5 -> -> 1 `i `uc ]
-[; ;main.c: 51: SPBRG = 0X0C;
-"51
-[e = _SPBRG -> -> 12 `i `uc ]
-[; ;main.c: 52: RCSTA = 0x90;
+[; ;main.c: 52: OSCCON = 0x72;
 "52
-[e = _RCSTA -> -> 144 `i `uc ]
-[; ;main.c: 53: TXSTA = 0x20;
+[e = _OSCCON -> -> 114 `i `uc ]
+[; ;main.c: 53: ADCON1 = 0x0F;
 "53
-[e = _TXSTA -> -> 32 `i `uc ]
-[; ;main.c: 56: INTCONbits.GIE = 1;
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;main.c: 55: TRISCbits.RC6 = 0;
+"55
+[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
+[; ;main.c: 56: TRISCbits.RC7 = 1;
 "56
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 57: RCONbits.IPEN = 0;
-"57
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-[; ;main.c: 59: INTCONbits.INT0E = 1;
+[e = . . _TRISCbits 1 5 -> -> 1 `i `uc ]
+[; ;main.c: 59: SPBRG = 0X0C;
 "59
-[e = . . _INTCONbits 1 4 -> -> 1 `i `uc ]
-[; ;main.c: 60: INTCONbits.INT0F = 0;
+[e = _SPBRG -> -> 12 `i `uc ]
+[; ;main.c: 60: RCSTA = 0x90;
 "60
-[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 61: INTCON2bits.INTEDG0 = 0;
+[e = _RCSTA -> -> 144 `i `uc ]
+[; ;main.c: 61: TXSTA = 0x20;
 "61
-[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
-[; ;main.c: 63: INTCON3bits.INT2E = 1;
-"63
-[e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
-[; ;main.c: 64: INTCON3bits.INT2F = 0;
+[e = _TXSTA -> -> 32 `i `uc ]
+[; ;main.c: 64: INTCONbits.GIE = 1;
 "64
-[e = . . _INTCON3bits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 65: INTCON2bits.INTEDG2 = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 65: RCONbits.IPEN = 0;
 "65
-[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
-[; ;main.c: 67: }
+[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
+[; ;main.c: 67: INTCONbits.INT0E = 1;
 "67
-[e :UE 367 ]
+[e = . . _INTCONbits 1 4 -> -> 1 `i `uc ]
+[; ;main.c: 68: INTCONbits.INT0F = 0;
+"68
+[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
+[; ;main.c: 69: INTCON2bits.INTEDG0 = 0;
+"69
+[e = . . _INTCON2bits 1 6 -> -> 0 `i `uc ]
+[; ;main.c: 71: INTCON3bits.INT2E = 1;
+"71
+[e = . . _INTCON3bits 1 4 -> -> 1 `i `uc ]
+[; ;main.c: 72: INTCON3bits.INT2F = 0;
+"72
+[e = . . _INTCON3bits 1 1 -> -> 0 `i `uc ]
+[; ;main.c: 73: INTCON2bits.INTEDG2 = 1;
+"73
+[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
+[; ;main.c: 75: }
+"75
+[e :UE 368 ]
 }
 [v $root$_INT_UART_TX `(v ~T0 @X0 0 e ]
-"69
+"77
 [v _INT_UART_TX `(v ~T41 @X0 1 ef ]
 {
-[; ;main.c: 69: void __interrupt() INT_UART_TX(void) {
+[; ;main.c: 77: void __interrupt() INT_UART_TX(void) {
 [e :U _INT_UART_TX ]
 [f ]
-[; ;main.c: 71: if (INTCONbits.INT0IF) {
-"71
-[e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 369  ]
+[; ;main.c: 79: if (INTCONbits.INT0IF) {
+"79
+[e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 370  ]
 {
-[; ;main.c: 73: INTCONbits.INT0IF = 0;
-"73
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 74: value.Var++;
-"74
-[e ++ . _value 0 -> -> 1 `i `uc ]
-"77
-}
-[e :U 369 ]
-[; ;main.c: 77: }
-[; ;main.c: 78: if (INTCON3bits.INT2F) {
-"78
-[e $ ! != -> . . _INTCON3bits 1 1 `i -> -> -> 0 `i `Vuc `i 370  ]
-{
-[; ;main.c: 80: INTCON3bits.INT2F = 0;
-"80
-[e = . . _INTCON3bits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 81: Counter_Button1++;
+[; ;main.c: 81: INTCONbits.INT0IF = 0;
 "81
-[e ++ _Counter_Button1 -> -> 1 `i `uc ]
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 82: value.Var++;
+"82
+[e ++ . _value 0 -> -> 1 `i `uc ]
+[; ;main.c: 84: Data.Int_Value[0] = 5;
 "84
+[e = *U + &U . _Data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 0 `ui `ux -> -> 5 `i `uc ]
+[; ;main.c: 85: Data.Char_Value [0] = Data.Int_Value [0];
+"85
+[e = *U + &U . _Data 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 1 `ui `ux *U + &U . _Data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 0 `ui `ux ]
+"87
 }
 [e :U 370 ]
-[; ;main.c: 84: }
-[; ;main.c: 86: }
-"86
-[e :UE 368 ]
+[; ;main.c: 87: }
+[; ;main.c: 88: if (INTCON3bits.INT2F) {
+"88
+[e $ ! != -> . . _INTCON3bits 1 1 `i -> -> -> 0 `i `Vuc `i 371  ]
+{
+[; ;main.c: 90: INTCON3bits.INT2F = 0;
+"90
+[e = . . _INTCON3bits 1 1 -> -> 0 `i `uc ]
+[; ;main.c: 91: Counter_Button1++;
+"91
+[e ++ _Counter_Button1 -> -> 1 `i `uc ]
+"94
+}
+[e :U 371 ]
+[; ;main.c: 94: }
+[; ;main.c: 96: }
+"96
+[e :UE 369 ]
 }

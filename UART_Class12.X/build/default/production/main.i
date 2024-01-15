@@ -5729,6 +5729,14 @@ void Configurations(void);
 uint8_t Counter_Button1 = 0;
 
 
+union Value {
+uint8_t Int_Value [1];
+unsigned char Char_Value [1];
+
+} Data;
+
+
+
 struct test {
 unsigned int Var : 4;
 
@@ -5784,6 +5792,8 @@ if (INTCONbits.INT0IF) {
 INTCONbits.INT0IF = 0;
 value.Var++;
 
+Data.Int_Value[0] = 5;
+Data.Char_Value [0] = Data.Int_Value [0];
 
 }
 if (INTCON3bits.INT2F) {
@@ -5795,3 +5805,4 @@ Counter_Button1++;
 }
 
 }
+

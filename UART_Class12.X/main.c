@@ -16,8 +16,16 @@ void Configurations(void);
 
 //Global variables. 
 uint8_t Counter_Button1 = 0; //Unsigned integer of 8 bits. 
+//union Value Data; 
+
+union Value {
+    uint8_t Int_Value [1];
+    unsigned char Char_Value [1];
+
+} Data;
 
 //Create unsigned integer of 4 bits. 
+
 struct test {
     unsigned int Var : 4;
 
@@ -72,7 +80,9 @@ void __interrupt() INT_UART_TX(void) {
 
         INTCONbits.INT0IF = 0; //Clean the flag interrupt.
         value.Var++; //Increment the counter every single state change. 
-
+        //        union Value Data; //Create union variable.  
+        Data.Int_Value[0] = 5;
+        Data.Char_Value  [0] = Data.Int_Value [0];
 
     }
     if (INTCON3bits.INT2F) { //Test if there is a change in the port. 
@@ -84,3 +94,4 @@ void __interrupt() INT_UART_TX(void) {
     }
 
 }
+
