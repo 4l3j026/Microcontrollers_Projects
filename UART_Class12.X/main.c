@@ -7,15 +7,21 @@
 
 
 #include <xc.h> //Library to Microchip Microcontrollers. 
-#include "Fuses.h" //Library where fuses are configurated. 
 #include <stdint.h> //Library to use uint8_t (unsigned integer of 1 byte).
+#include "Fuses.h" //Library where fuses are configurated. 
+
 
 //Prototype functions. 
 void Configurations(void);
 
 //Global variables. 
-uint8_t Counter_Button1 = 0;
-uint8_t Counter_Button2 = 0;
+uint8_t Counter_Button1 = 0; //Unsigned integer of 8 bits. 
+
+//Create unsigned integer of 4 bits. 
+struct test {
+    unsigned int Var : 4;
+
+} value;
 
 //Main function. 
 
@@ -62,17 +68,18 @@ void Configurations(void) {
 
 void __interrupt() INT_UART_TX(void) {
 
-    if (INTCONbits.INT0IF) {
+    if (INTCONbits.INT0IF) { //Test if there is a change in the port. 
 
         INTCONbits.INT0IF = 0; //Clean the flag interrupt.
-        Counter_Button1++;
+        value.Var++; //Increment the counter every single state change. 
 
 
     }
-    if (INTCON3bits.INT2F) {
+    if (INTCON3bits.INT2F) { //Test if there is a change in the port. 
 
         INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
-        Counter_Button2++;
+        Counter_Button1++; //Increment the counter every single state change.
+
 
     }
 

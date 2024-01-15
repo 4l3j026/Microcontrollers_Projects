@@ -5722,12 +5722,17 @@ unsigned char __t3rd16on(void);
 
 #pragma config EBTRB = OFF
 
-# 14 "main.c"
+# 15 "main.c"
 void Configurations(void);
 
 
 uint8_t Counter_Button1 = 0;
-uint8_t Counter_Button2 = 0;
+
+
+struct test {
+unsigned int Var : 4;
+
+} value;
 
 
 
@@ -5777,14 +5782,15 @@ void __interrupt() INT_UART_TX(void) {
 if (INTCONbits.INT0IF) {
 
 INTCONbits.INT0IF = 0;
-Counter_Button1++;
+value.Var++;
 
 
 }
 if (INTCON3bits.INT2F) {
 
 INTCON3bits.INT2F = 0;
-Counter_Button2++;
+Counter_Button1++;
+
 
 }
 
