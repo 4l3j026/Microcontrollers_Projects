@@ -3822,18 +3822,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "79
 [e $ ! != -> . . _INTCONbits 0 1 `i -> -> -> 0 `i `Vuc `i 370  ]
 {
-[; ;main.c: 81: INTCONbits.INT0IF = 0;
+[; ;main.c: 81: value.Var++;
 "81
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 82: value.Var++;
-"82
 [e ++ . _value 0 -> -> 1 `i `uc ]
-[; ;main.c: 84: Data.Int_Value[0] = 5;
-"84
-[e = *U + &U . _Data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 0 `ui `ux -> -> 5 `i `uc ]
-[; ;main.c: 85: Data.Char_Value [0] = Data.Int_Value [0];
-"85
-[e = *U + &U . _Data 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 1 `ui `ux *U + &U . _Data 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _Data 0 `ui `ux ]
+[; ;main.c: 82: INTCONbits.INT0IF = 0;
+"82
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
 "87
 }
 [e :U 370 ]
@@ -3842,17 +3836,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "88
 [e $ ! != -> . . _INTCON3bits 1 1 `i -> -> -> 0 `i `Vuc `i 371  ]
 {
-[; ;main.c: 90: INTCON3bits.INT2F = 0;
+[; ;main.c: 90: Counter_Button1++;
 "90
-[e = . . _INTCON3bits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 91: Counter_Button1++;
-"91
 [e ++ _Counter_Button1 -> -> 1 `i `uc ]
-"94
+[; ;main.c: 91: INTCON3bits.INT2F = 0;
+"91
+[e = . . _INTCON3bits 1 1 -> -> 0 `i `uc ]
+"93
 }
 [e :U 371 ]
-[; ;main.c: 94: }
-[; ;main.c: 96: }
-"96
+[; ;main.c: 93: }
+[; ;main.c: 95: }
+"95
 [e :UE 369 ]
 }

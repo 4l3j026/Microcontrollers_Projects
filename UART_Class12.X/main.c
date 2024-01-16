@@ -78,18 +78,17 @@ void __interrupt() INT_UART_TX(void) {
 
     if (INTCONbits.INT0IF) { //Test if there is a change in the port. 
 
-        INTCONbits.INT0IF = 0; //Clean the flag interrupt.
         value.Var++; //Increment the counter every single state change. 
-        //        union Value Data; //Create union variable.  
-        Data.Int_Value[0] = 5;
-        Data.Char_Value  [0] = Data.Int_Value [0];
+        INTCONbits.INT0IF = 0; //Clean the flag interrupt.
+
+
+
 
     }
     if (INTCON3bits.INT2F) { //Test if there is a change in the port. 
 
-        INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
         Counter_Button1++; //Increment the counter every single state change.
-
+        INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
 
     }
 

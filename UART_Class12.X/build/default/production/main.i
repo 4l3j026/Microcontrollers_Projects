@@ -5789,18 +5789,17 @@ void __interrupt() INT_UART_TX(void) {
 
 if (INTCONbits.INT0IF) {
 
-INTCONbits.INT0IF = 0;
 value.Var++;
+INTCONbits.INT0IF = 0;
 
-Data.Int_Value[0] = 5;
-Data.Char_Value [0] = Data.Int_Value [0];
+
+
 
 }
 if (INTCON3bits.INT2F) {
 
-INTCON3bits.INT2F = 0;
 Counter_Button1++;
-
+INTCON3bits.INT2F = 0;
 
 }
 
