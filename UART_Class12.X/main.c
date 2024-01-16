@@ -6,8 +6,10 @@
  */
 
 
-#include <xc.h> //Library to Microchip Microcontrollers. 
+#include <xc.h> //Library to Microchip Microcontrollers.
+#include <stdio.h> //Library to use sprintf. 
 #include <stdint.h> //Library to use uint8_t (unsigned integer of 1 byte).
+#include <string.h> //Library to use strlen function. 
 #include "Fuses.h" //Library where fuses are configurated. 
 
 
@@ -16,6 +18,7 @@ void Configurations(void);
 
 //Global variables. 
 uint8_t Counter_Button1 = 0; //Unsigned integer of 8 bits. 
+unsigned char Text1 [26];
 //union Value Data; 
 
 union Value {
@@ -53,10 +56,10 @@ void Configurations(void) {
     ADCON1 = 0x0F; //Analog & Digital Control register. 
 
     TRISCbits.RC6 = 0; //Set RX pin as output. 
-    TRISCbits.RC7 = 1; //Set Tx pin as input. 
+    TRISCbits.RC7 = 1; //Set Tx pin as input.
 
     //UART Registers. 
-    SPBRG = 0X0C; //Baud rate generator
+    SPBRG = 0X0C; //Baud rate generator and starts on 9600 Bauds.
     RCSTA = 0x90; //Receive status and control register. 
     TXSTA = 0x20; //Transmit status and control register. 
 
@@ -78,17 +81,28 @@ void __interrupt() INT_UART_TX(void) {
 
     if (INTCONbits.INT0IF) { //Test if there is a change in the port. 
 
-        value.Var++; //Increment the counter every single state change. 
+        Data.Int_Value [0]++; //Increment the counter every single state change. 
         INTCONbits.INT0IF = 0; //Clean the flag interrupt.
-
-
-
+        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+        TXREG = Data.Char_Value[0]; //TXREG is a register to USART data transmit buffer.  
+        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+        TXREG = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
 
     }
     if (INTCON3bits.INT2F) { //Test if there is a change in the port. 
 
         Counter_Button1++; //Increment the counter every single state change.
         INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
+        sprintf(Text1, "The value of counter is: %d", Counter_Button1);
+
+        for (int i = 0; i < strlen(Text1); i++) {
+
+            while (!PIR1bits.TX1IF);
+            TXREG = Text1[i];
+        }
+        
+        while (!PIR1bits.TX1IF);
+        TXREG = 0x0D; 
 
     }
 
