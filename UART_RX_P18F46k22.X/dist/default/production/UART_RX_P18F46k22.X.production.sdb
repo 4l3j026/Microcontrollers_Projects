@@ -27,9 +27,78 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"11 C:\Apps\Git\Repositories\Microcontrollers_Projects\UART_RX_P18F46k22.X\main.c
+"16 C:\Apps\Git\Repositories\Microcontrollers_Projects\UART_RX_P18F46k22.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"28
+[v _Configurations Configurations `(v  1 e 1 0 ]
+[s S29 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 ANSC2 1 0 :1:2 
+`uc 1 ANSC3 1 0 :1:3 
+`uc 1 ANSC4 1 0 :1:4 
+`uc 1 ANSC5 1 0 :1:5 
+`uc 1 ANSC6 1 0 :1:6 
+`uc 1 ANSC7 1 0 :1:7 
+]
+"163 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\pic\include\proc\pic18f46k22.h
+[u S37 . 1 `S29 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES37  1 e 1 @3898 ]
+"198
+[v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
+[s S90 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"7811
+[s S99 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S108 . 1 `S90 1 . 1 0 `S99 1 . 1 0 ]
+[v _LATCbits LATCbits `VES108  1 e 1 @3979 ]
+"7896
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+[s S49 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"8536
+[s S58 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S67 . 1 `S49 1 . 1 0 `S58 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES67  1 e 1 @3988 ]
+"8726
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"16046
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"16 C:\Apps\Git\Repositories\Microcontrollers_Projects\UART_RX_P18F46k22.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"13
+"25
+} 0
+"28
+[v _Configurations Configurations `(v  1 e 1 0 ]
+{
+"50
 } 0

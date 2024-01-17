@@ -9647,7 +9647,105 @@ unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.h" 2 3
 # 9 "main.c" 2
 
+# 1 "./Fuses_Set.h" 1
+# 10 "./Fuses_Set.h"
+#pragma config FOSC = INTIO67
+#pragma config PLLCFG = OFF
+#pragma config PRICLKEN = ON
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 190
+
+
+#pragma config WDTEN = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config CCP2MX = PORTC1
+#pragma config PBADEN = ON
+#pragma config CCP3MX = PORTB5
+#pragma config HFOFST = ON
+#pragma config T3CMX = PORTC0
+#pragma config P2BMX = PORTD2
+#pragma config MCLRE = EXTMCLR
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
+# 10 "main.c" 2
+
+
+
+void Configurations (void);
+
 
 void main(void) {
-    return;
+
+
+    Configurations();
+
+    while(1){
+
+    }
+
+}
+
+
+void Configurations (void){
+
+    OSCCON = 0x72;
+
+
+    ANSELCbits.ANSC4 = 0;
+    ANSELCbits.ANSC5 = 0;
+
+    ANSELD = 0x00;
+
+
+    TRISCbits.RC4 = 0;
+    TRISCbits.RC5 = 0;
+
+    TRISD = 0x00;
+
+
+    LATCbits.LC4 = 0;
+    LATCbits.LC5 = 0;
+
+    LATD = 0;
+
 }
