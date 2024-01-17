@@ -9708,25 +9708,27 @@ unsigned char __t3rd16on(void);
 
 #pragma config EBTRB = OFF
 # 10 "main.c" 2
-
-
-
-void Configurations (void);
-
+# 30 "main.c"
+void Configurations(void);
+void LCD_Init(void);
+void LCD_Set_Write(unsigned char WR_SE, unsigned char Command);
+void LCD_Data_Instruction(unsigned char Data);
 
 void main(void) {
 
 
     Configurations();
+    LCD_Init();
 
-    while(1){
+    while (1) {
 
     }
 
 }
 
 
-void Configurations (void){
+
+void Configurations(void) {
 
     OSCCON = 0x72;
 
@@ -9747,5 +9749,47 @@ void Configurations (void){
     LATCbits.LC5 = 0;
 
     LATD = 0;
+
+}
+
+
+
+void LCD_Init(void) {
+
+    _delay((unsigned long)((20)*(16000000/4000.0)));
+    LCD_Set_Write(0, 0x30);
+    _delay((unsigned long)((5)*(16000000/4000.0)));
+    LCD_Set_Write(0, 0x30);
+    _delay((unsigned long)((5)*(16000000/4000.0)));
+    LCD_Set_Write(0, 0x30);
+    LCD_Set_Write(0, 0x02);
+    LCD_Set_Write(0, 0x06);
+    LCD_Set_Write(0, 0x0F);
+    LCD_Set_Write(0, 0x28);
+    LCD_Set_Write(0, 0x01);
+    _delay((unsigned long)((5)*(16000000/4000.0)));
+
+}
+
+
+
+void LCD_Set_Write(unsigned char WR_SE, unsigned char Command) {
+
+    LATCbits.LATC4 = WR_SE;
+    LCD_Data_Instruction(Command >> 4);
+    LCD_Data_Instruction(Command);
+
+}
+
+
+
+void LCD_Data_Instruction(unsigned char Data) {
+
+    LATCbits.LATC5 = 1;
+    _delay((unsigned long)((15)*(16000000/4000.0)));
+    LATD = Data;
+    _delay((unsigned long)((15)*(16000000/4000.0)));
+    LATCbits.LATC5 = 0;
+    _delay((unsigned long)((15)*(16000000/4000.0)));
 
 }

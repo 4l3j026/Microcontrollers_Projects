@@ -27,48 +27,87 @@
 #define EN LATCbits.LATC5 //Define pin (RC5) Enable as bit flag.  
 
 //Prototype functions. 
-void Configurations (void);
-void LCD_Init (void);
-
+void Configurations(void);
+void LCD_Init(void);
+void LCD_Set_Write(unsigned char WR_SE, unsigned char Command);
+void LCD_Data_Instruction(unsigned char Data);
 
 void main(void) {
-    
+
     //Call functions. 
-    Configurations(); 
-    
-    while(1){
-        
+    Configurations();
+    LCD_Init();
+
+    while (1) {
+
     }
-    
+
 }
 
 //Develop function.
-void Configurations (void){
-    
+
+void Configurations(void) {
+
     OSCCON = 0x72; //Internal oscillator and frequency. 
-    
+
     //Set ports C & D as digital ports. 
-    ANSELCbits.ANSC4 = 0; 
-    ANSELCbits.ANSC5 = 0; 
-    
-    ANSELD = 0x00; 
-    
+    ANSELCbits.ANSC4 = 0;
+    ANSELCbits.ANSC5 = 0;
+
+    ANSELD = 0x00;
+
     //Set ports C & D as outputs. 
-    TRISCbits.RC4 = 0; 
-    TRISCbits.RC5 = 0; 
-    
-    TRISD = 0x00; 
-    
+    TRISCbits.RC4 = 0;
+    TRISCbits.RC5 = 0;
+
+    TRISD = 0x00;
+
     //Clean the ports. 
-    LATCbits.LC4 = 0; 
-    LATCbits.LC5 = 0; 
-    
-    LATD = 0; 
-    
+    LATCbits.LC4 = 0;
+    LATCbits.LC5 = 0;
+
+    LATD = 0;
+
 }
 
-void LCD_Init (void){
-    
-    __delay_ms(30);
-    
+//Develop function. 
+
+void LCD_Init(void) {
+
+    __delay_ms(20); //Delay set by the manufacturer. 
+    LCD_Set_Write(Set, 0x30); //Data set by the manufacturer. 
+    __delay_ms(5); //Delay set by the manufacturer. 
+    LCD_Set_Write(Set, 0x30); //Data set by the manufacturer. 
+    __delay_ms(5); //Delay set by the manufacturer. 
+    LCD_Set_Write(Set, 0x30); //Data set by the manufacturer. 
+    LCD_Set_Write(Set, 0x02); //Data set by the manufacturer. 
+    LCD_Set_Write(Set, EMS);
+    LCD_Set_Write(Set, DC);
+    LCD_Set_Write(Set, FS);
+    LCD_Set_Write(Set, CLR);
+    __delay_ms(5); //Delay set by the manufacturer.
+
+}
+
+//Develop function. 
+
+void LCD_Set_Write(unsigned char WR_SE, unsigned char Command) {
+
+    RS = WR_SE; //Register Select to write or set. 
+    LCD_Data_Instruction(Command >> 4); //Send the most significant bits. 
+    LCD_Data_Instruction(Command); //Send the least significant bits. 
+
+}
+
+//Develop function. 
+
+void LCD_Data_Instruction(unsigned char Data) {
+
+    EN = 1;
+    __delay_ms(15); //Wait for instruction. 
+    LATD = Data;
+    __delay_ms(15); //Wait for instruction.
+    EN = 0;
+    __delay_ms(15); //Wait for instruction.
+
 }
