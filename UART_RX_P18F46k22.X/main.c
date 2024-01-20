@@ -70,7 +70,7 @@ void Configurations(void) {
 
 }
 
-//Develop function. 
+//Develop function to initialize LCD. 
 
 void LCD_Init(void) {
 
@@ -80,7 +80,7 @@ void LCD_Init(void) {
     LCD_Set_Write(Set, 0x30); //Data set by the manufacturer. 
     __delay_ms(5); //Delay set by the manufacturer. 
     LCD_Set_Write(Set, 0x30); //Data set by the manufacturer. 
-    LCD_Set_Write(Set, 0x02); //Data set by the manufacturer. 
+    LCD_Set_Write(Set, 0x02); //Data set by the manufacturer. (Works using Nibbles send first most significant bits, after the least significant bits.) 
     LCD_Set_Write(Set, EMS);
     LCD_Set_Write(Set, DC);
     LCD_Set_Write(Set, FS);
