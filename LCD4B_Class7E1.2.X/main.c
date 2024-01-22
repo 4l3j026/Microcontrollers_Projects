@@ -31,8 +31,8 @@ void __interrupt() INT(void); //Interrupt function without priority.
 #define E LATE1 //Enable on pin LE1. 
 
 //Variables 
-char Text1 [10] = {"Hello!"}; //Variable to show on first row of the LCD.
-char Text2 [20] = {"Everyone!"}; //Variable to show on the second row of the LCD. 
+char Text1 [20] = {"Hello!"}; //Variable to show on first row of the LCD.
+char Text2 [26] = {"Everyone!"}; //Variable to show on the second row of the LCD. 
 
 //Main function. 
 void main(void) {
@@ -81,7 +81,9 @@ void Set_Instruction(unsigned char S_Instruction) {
 
     RS = 0;
     LCD_Instructions(S_Instruction >> 4);
-    LCD_Instructions(S_Instruction & 0x0F);
+//    LCD_Instructions(S_Instruction & 0x0F);
+    LCD_Instructions(S_Instruction);
+    
 
 }
 
@@ -91,10 +93,11 @@ void Write_Instruction(unsigned char W_Instruction) {
 
     RS = 1;
     LCD_Instructions(W_Instruction >> 4);
-    LCD_Instructions(W_Instruction & 0x0F);
+//    LCD_Instructions(W_Instruction & 0x0F);
+    LCD_Instructions(W_Instruction);
 
 }
-
+    
 //Develop 
 
 void LCD_Instructions(unsigned char Instruction) {

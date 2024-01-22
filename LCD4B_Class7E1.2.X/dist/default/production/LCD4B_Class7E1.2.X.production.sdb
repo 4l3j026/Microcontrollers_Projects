@@ -31,15 +31,15 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "38 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD4B_Class7E1.2.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"55
+"54
 [v _Configuration Configuration `(v  1 e 1 0 ]
-"82
+"80
 [v _Set_Instruction Set_Instruction `(v  1 e 1 0 ]
 "92
 [v _Write_Instruction Write_Instruction `(v  1 e 1 0 ]
-"102
+"103
 [v _LCD_Instructions LCD_Instructions `(v  1 e 1 0 ]
-"113
+"115
 [v _Test Test `(v  1 e 1 0 ]
 "3263 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
@@ -159,22 +159,22 @@
 "10018
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "34 C:\Apps\Git\Repositories\Microcontrollers_Projects\LCD4B_Class7E1.2.X\main.c
-[v _Text1 Text1 `[10]uc  1 e 10 0 ]
+[v _Text1 Text1 `[20]uc  1 e 20 0 ]
 "35
-[v _Text2 Text2 `[20]uc  1 e 20 0 ]
+[v _Text2 Text2 `[26]uc  1 e 26 0 ]
 "38
 [v _main main `(v  1 e 1 0 ]
 {
-"51
+"50
 } 0
-"113
+"115
 [v _Test Test `(v  1 e 1 0 ]
 {
-"127
+"129
 [v Test@j j `i  1 a 2 8 ]
-"117
+"119
 [v Test@i i `i  1 a 2 6 ]
-"133
+"135
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -192,28 +192,28 @@
 [v Write_Instruction@W_Instruction W_Instruction `uc  1 a 1 wreg ]
 "94
 [v Write_Instruction@W_Instruction W_Instruction `uc  1 a 1 2 ]
-"98
+"99
 } 0
-"55
+"54
 [v _Configuration Configuration `(v  1 e 1 0 ]
 {
-"78
+"77
 } 0
-"82
+"80
 [v _Set_Instruction Set_Instruction `(v  1 e 1 0 ]
 {
 [v Set_Instruction@S_Instruction S_Instruction `uc  1 a 1 wreg ]
 [v Set_Instruction@S_Instruction S_Instruction `uc  1 a 1 wreg ]
-"84
+"82
 [v Set_Instruction@S_Instruction S_Instruction `uc  1 a 1 2 ]
 "88
 } 0
-"102
+"103
 [v _LCD_Instructions LCD_Instructions `(v  1 e 1 0 ]
 {
 [v LCD_Instructions@Instruction Instruction `uc  1 a 1 wreg ]
 [v LCD_Instructions@Instruction Instruction `uc  1 a 1 wreg ]
-"104
+"105
 [v LCD_Instructions@Instruction Instruction `uc  1 a 1 1 ]
-"111
+"112
 } 0
