@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/B:/MPLAB_Projects/College/InputsClass5_E1.4.X/main.c</file>
+=======
             <file>file:/C:/Apps/Git/Repositories/Microcontrollers_Projects/InputsClass5_E1.4.X/main.c</file>
             <file>file:/C:/Apps/Git/Repositories/Microcontrollers_Projects/InputsClass5_E1.4.X/Fuses.h</file>
+>>>>>>> 40a0def1a7444d986360c3bf50266d25efb7a3b5
         </group>
     </open-files>
 </project-private>
