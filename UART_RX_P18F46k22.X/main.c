@@ -50,9 +50,11 @@ void Configurations(void) {
 
     OSCCON = 0x72; //Internal oscillator and frequency. 
 
-    //Set ports C & D as digital ports. 
+    //Set ports C & D as digital ports (0). 
     ANSELCbits.ANSC4 = 0;
     ANSELCbits.ANSC5 = 0;
+    ANSELCbits.ANSC6 = 0;
+    ANSELCbits.ANSC7 = 0;
 
     ANSELD = 0x00;
 
@@ -67,6 +69,14 @@ void Configurations(void) {
     LATCbits.LC5 = 0;
 
     LATD = 0;
+
+    //---- EUSART configuration ----
+
+    //RCSTAx is a status and control receive register. 
+    TXSTA1bits.SYNC = 0; //Asynchronous mode. 
+    RCSTA1bits.SPEN = 1; //Serial port enable bit. (Is not necessary set RC6TX, TC7RX)
+    RCSTA1bits.CREN = 1; //Asynchronous receive mode enabled. 
+    
 
 }
 
@@ -109,5 +119,11 @@ void LCD_Data_Instruction(unsigned char Data) {
     __delay_ms(15); //Wait for instruction.
     EN = 0;
     __delay_ms(15); //Wait for instruction.
+
+}
+
+void __interrupt() EUSART_Int_Rx(void) {
+
+
 
 }

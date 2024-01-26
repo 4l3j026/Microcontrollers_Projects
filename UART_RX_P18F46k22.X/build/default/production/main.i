@@ -9735,6 +9735,8 @@ void Configurations(void) {
 
     ANSELCbits.ANSC4 = 0;
     ANSELCbits.ANSC5 = 0;
+    ANSELCbits.ANSC6 = 0;
+    ANSELCbits.ANSC7 = 0;
 
     ANSELD = 0x00;
 
@@ -9749,6 +9751,14 @@ void Configurations(void) {
     LATCbits.LC5 = 0;
 
     LATD = 0;
+
+
+
+
+    TXSTA1bits.SYNC = 0;
+    RCSTA1bits.SPEN = 1;
+    RCSTA1bits.CREN = 1;
+
 
 }
 
@@ -9791,5 +9801,11 @@ void LCD_Data_Instruction(unsigned char Data) {
     _delay((unsigned long)((15)*(16000000/4000.0)));
     LATCbits.LATC5 = 0;
     _delay((unsigned long)((15)*(16000000/4000.0)));
+
+}
+
+void __attribute__((picinterrupt(("")))) EUSART_Int_Rx(void) {
+
+
 
 }
