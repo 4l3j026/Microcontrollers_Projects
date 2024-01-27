@@ -1,5 +1,5 @@
 _LCD_Data_Instruction A4 0 CODE 0
-__S0 140 0 ABS 0
+__S0 148 0 ABS 0
 __S1 7 0 ABS 0
 __S4 0 0 ABS 0
 __S5 0 0 ABS 0
@@ -7,10 +7,11 @@ __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _LATD F8C 0 ABS 0
 __end_of_LCD_Init A4 0 CODE 0
-_main 126 0 CODE 0
+_main 12E 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 6 0 COMRAM 1
 start E 0 CODE 0
+_BRGH1 7D62 0 ABS 0
 _TRISD F95 0 ABS 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
@@ -31,6 +32,7 @@ __Lram 0 0 ABS 0
 __Hcomram 0 0 ABS 0
 __Lcomram 0 0 ABS 0
 LCD_Data_Instruction@Data 2 0 COMRAM 1
+_BRG161 7DC3 0 ABS 0
 __Hsfr 0 0 ABS 0
 __Lsfr 0 0 ABS 0
 __Hbss 0 0 RAM 1
@@ -40,6 +42,7 @@ __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 int$flags 6 0 COMRAM 1
 _LCD_Init 12 0 CODE 0
+_SPBRG1 FAF 0 ABS 0
 __end_of_LCD_Data_Instruction E0 0 CODE 0
 __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
@@ -93,16 +96,16 @@ __Linit E 0 CODE 0
 __Hintcodelo E 0 CODE 0
 __Lintcodelo E 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 136 0 CODE 0
+__end_of_main 13E 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
 _EUSART_Int_Rx 8 0 CODE 0
-_LCD_Set_Write 10A 0 CODE 0
-end_of_initialization 136 0 CODE 0
+_LCD_Set_Write 112 0 CODE 0
+end_of_initialization 13E 0 CODE 0
 _TRISCbits F94 0 ABS 0
-__end_of_LCD_Set_Write 126 0 CODE 0
+__end_of_LCD_Set_Write 12E 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -133,20 +136,20 @@ __Hbank9 0 0 ABS 0
 __Lbank9 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 126 0 CODE 0
+__ptext0 12E 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
 __ptext1 12 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 10A 0 CODE 0
+__ptext2 112 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
 __ptext3 A4 0 CODE 0
 __ptext4 E0 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization 136 0 CODE 0
+__end_of__initialization 13E 0 CODE 0
 ___rparam_used 1 0 ABS 0
 LCD_Set_Write@WR_SE 4 0 COMRAM 1
 __H__absolute__ 0 0 ABS 0
@@ -176,7 +179,7 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 136 0 CODE 0
+__pcinit 13E 0 CODE 0
 __ramtop 1000 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __Hconst 0 0 CONST 0
@@ -211,61 +214,61 @@ intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
-start_initialization 136 0 CODE 0
-__initialization 136 0 CODE 0
-__end_of_Configurations 10A 0 CODE 0
+start_initialization 13E 0 CODE 0
+__initialization 13E 0 CODE 0
+__end_of_Configurations 112 0 CODE 0
 __activetblptr 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
-intcode 8 13F CODE 8 0
+intcode 8 147 CODE 8 0
 cstackCOMRAM 1 6 COMRAM 1 1
 %locals
 dist/default/production\UART_RX_P18F46k22.X.production.o
-C:\Users\aleja\AppData\Local\Temp\xcAsm0s.\driver_tmp_1.s
-689 136 0 CODE 0
-691 136 0 CODE 0
-694 136 0 CODE 0
-700 136 0 CODE 0
-702 136 0 CODE 0
-703 138 0 CODE 0
-704 13A 0 CODE 0
-705 13C 0 CODE 0
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs24o.\driver_tmp_1.s
+695 13E 0 CODE 0
+697 13E 0 CODE 0
+700 13E 0 CODE 0
+706 13E 0 CODE 0
+708 13E 0 CODE 0
+709 140 0 CODE 0
+710 142 0 CODE 0
+711 144 0 CODE 0
 main.c
-35 126 0 CODE 0
-38 126 0 CODE 0
-39 12A 0 CODE 0
-41 12E 0 CODE 0
-43 12E 0 CODE 0
+35 12E 0 CODE 0
+38 12E 0 CODE 0
+39 132 0 CODE 0
+41 136 0 CODE 0
+43 136 0 CODE 0
 main.c
-85 12 0 CODE 0
 87 12 0 CODE 0
-88 22 0 CODE 0
-89 2C 0 CODE 0
-90 3C 0 CODE 0
-91 46 0 CODE 0
-92 56 0 CODE 0
-93 60 0 CODE 0
-94 6A 0 CODE 0
-95 74 0 CODE 0
-96 7E 0 CODE 0
-97 88 0 CODE 0
-98 92 0 CODE 0
-100 A2 0 CODE 0
+89 12 0 CODE 0
+90 22 0 CODE 0
+91 2C 0 CODE 0
+92 3C 0 CODE 0
+93 46 0 CODE 0
+94 56 0 CODE 0
+95 60 0 CODE 0
+96 6A 0 CODE 0
+97 74 0 CODE 0
+98 7E 0 CODE 0
+99 88 0 CODE 0
+100 92 0 CODE 0
+102 A2 0 CODE 0
 main.c
-104 10A 0 CODE 0
-106 10C 0 CODE 0
-107 116 0 CODE 0
-108 11E 0 CODE 0
-110 124 0 CODE 0
+106 112 0 CODE 0
+108 114 0 CODE 0
+109 11E 0 CODE 0
+110 126 0 CODE 0
+112 12C 0 CODE 0
 main.c
-114 A4 0 CODE 0
-116 A6 0 CODE 0
-117 A8 0 CODE 0
-118 B8 0 CODE 0
-119 BC 0 CODE 0
-120 CC 0 CODE 0
-121 CE 0 CODE 0
-123 DE 0 CODE 0
+116 A4 0 CODE 0
+118 A6 0 CODE 0
+119 A8 0 CODE 0
+120 B8 0 CODE 0
+121 BC 0 CODE 0
+122 CC 0 CODE 0
+123 CE 0 CODE 0
+125 DE 0 CODE 0
 main.c
 49 E0 0 CODE 0
 51 E0 0 CODE 0
@@ -283,9 +286,12 @@ main.c
 76 102 0 CODE 0
 77 104 0 CODE 0
 78 106 0 CODE 0
-81 108 0 CODE 0
-C:\Users\aleja\AppData\Local\Temp\xcAsm0s.\driver_tmp_1.s
-1633 8 0 CODE 0
+79 10A 0 CODE 0
+80 10C 0 CODE 0
+81 10E 0 CODE 0
+83 110 0 CODE 0
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs24o.\driver_tmp_1.s
+1657 8 0 CODE 0
 main.c
-125 8 0 CODE 0
-129 A 0 CODE 0
+127 8 0 CODE 0
+131 A 0 CODE 0

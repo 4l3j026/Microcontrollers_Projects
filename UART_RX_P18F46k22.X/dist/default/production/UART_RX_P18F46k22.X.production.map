@@ -3,13 +3,13 @@ Microchip MPLAB XC8 Compiler V2.41
 Linker command line:
 
 -W-3 \
-  --edf=C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\pic\dat\20230209213641_en.msgs \
+  --edf=C:\Program Files\Microchip\xc8\v2.41\pic\dat\20230208172133_en.msgs \
   -cn -h+dist/default/production\UART_RX_P18F46k22.X.production.sym \
   --cmf=dist/default/production\UART_RX_P18F46k22.X.production.cmf -z \
-  -Q18F46K22 -oC:\Users\aleja\AppData\Local\Temp\xcAsm0s.\driver_tmp_3.o \
+  -Q18F46K22 -oC:\Users\ALEJAN~1\AppData\Local\Temp\xcAs24o.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/UART_RX_P18F46k22.X.production.map \
-  --md=C:\Users\aleja\AppData\Local\Temp\xcAsm0s.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs24o.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
   -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
@@ -29,7 +29,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\aleja\AppData\Local\Temp\xcAsm0s.\driver_tmp_9.o \
+  C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs24o.\driver_tmp_9.o \
   dist/default/production\UART_RX_P18F46k22.X.production.o 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\aleja\AppData\Local\Temp\xcAsm0s.\driver_tmp_9.o
+C:\Users\ALEJAN~1\AppData\Local\Temp\xcAs24o.\driver_tmp_9.o
                 config                           300000   300000        E        0       4
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
@@ -47,25 +47,25 @@ dist/default/production\UART_RX_P18F46k22.X.production.o
                 intcode                               8        8        6        4       0
                 config                           300000   300000        E        0       4
                 temp                                  6        6        1        1       1
-                text4                                E0       E0       2A        4       0
+                text4                                E0       E0       32        4       0
                 text3                                A4       A4       3C        4       0
-                text2                               10A      10A       1C        4       0
+                text2                               112      112       1C        4       0
                 text1                                12       12       92        4       0
-                text0                               126      126       10        4       0
+                text0                               12E      12E       10        4       0
                 cstackCOMRAM                          1        1        5        1       1
-                cinit                               136      136        A        4       0
+                cinit                               13E      13E        A        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
                 reset_vec                             0        0        4         0
-                text4                                E0       E0       2A         0
+                text4                                E0       E0       32         0
                 text3                                A4       A4       3C         0
-                text2                               10A      10A       1C         0
+                text2                               112      112       1C         0
                 text1                                12       12       92         0
-                text0                               126      126       10         0
-                cinit                               136      136        A         0
+                text0                               12E      12E       10         0
+                cinit                               13E      13E        A         0
 
         CLASS   CONST          
 
@@ -138,7 +138,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000006  000007         1       1  COMRAM  
-                intcode                        000008  000138  000140         4       0  CODE    
+                intcode                        000008  000140  000148         4       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -163,10 +163,10 @@ UNUSED ADDRESS RANGES
         BIGRAM           000007-000F37              F31
         BIGSFR           000F38-000FFF               C8
         CODE             000004-000007                4
-                         000140-00FFFF             FEC0
+                         000148-00FFFF             FEB8
         COMRAM           000007-00005F               59
         CONST            000004-000007                4
-                         000140-00FFFF             FEC0
+                         000148-00FFFF             FEB8
         EEDATA           F00000-F003FF              400
         IDLOC            200000-200007                8
         MEDIUMCONST      001000-00FFFF             F000
@@ -181,15 +181,18 @@ LCD_Set_Write@Command         cstackCOMRAM 000003
 LCD_Set_Write@WR_SE           cstackCOMRAM 000004
 _ANSELCbits                   (abs)        000F3A
 _ANSELD                       (abs)        000F3B
+_BRG161                       (abs)        007DC3
+_BRGH1                        (abs)        007D62
 _Configurations               text4        0000E0
 _EUSART_Int_Rx                intcode      000008
 _LATCbits                     (abs)        000F8B
 _LATD                         (abs)        000F8C
 _LCD_Data_Instruction         text3        0000A4
 _LCD_Init                     text1        000012
-_LCD_Set_Write                text2        00010A
+_LCD_Set_Write                text2        000112
 _OSCCON                       (abs)        000FD3
 _RCSTA1bits                   (abs)        000FAB
+_SPBRG1                       (abs)        000FAF
 _TRISCbits                    (abs)        000F94
 _TRISD                        (abs)        000F95
 _TXSTA1bits                   (abs)        000FAC
@@ -343,7 +346,7 @@ __Ltext1                      text1        000000
 __Ltext2                      text2        000000
 __Ltext3                      text3        000000
 __Ltext4                      text4        000000
-__S0                          (abs)        000140
+__S0                          (abs)        000148
 __S1                          (abs)        000007
 __S4                          (abs)        000000
 __S5                          (abs)        000000
@@ -356,28 +359,28 @@ ___rparam_used                (abs)        000001
 ___sp                         stack        000000
 __accesstop                   (abs)        000060
 __activetblptr                (abs)        000000
-__end_of_Configurations       text4        00010A
+__end_of_Configurations       text4        000112
 __end_of_EUSART_Int_Rx        intcode      00000E
 __end_of_LCD_Data_Instruction text3        0000E0
 __end_of_LCD_Init             text1        0000A4
-__end_of_LCD_Set_Write        text2        000126
-__end_of__initialization      cinit        000136
-__end_of_main                 text0        000136
-__initialization              cinit        000136
+__end_of_LCD_Set_Write        text2        00012E
+__end_of__initialization      cinit        00013E
+__end_of_main                 text0        00013E
+__initialization              cinit        00013E
 __mediumconst                 mediumconst  000000
-__pcinit                      cinit        000136
+__pcinit                      cinit        00013E
 __pcstackCOMRAM               cstackCOMRAM 000001
 __pintcode                    intcode      000008
-__ptext0                      text0        000126
+__ptext0                      text0        00012E
 __ptext1                      text1        000012
-__ptext2                      text2        00010A
+__ptext2                      text2        000112
 __ptext3                      text3        0000A4
 __ptext4                      text4        0000E0
 __ramtop                      ramtop       001000
 __smallconst                  smallconst   000000
-_main                         text0        000126
+_main                         text0        00012E
 btemp                         temp         000006
-end_of_initialization         cinit        000136
+end_of_initialization         cinit        00013E
 int$flags                     temp         000006
 intlevel0                     text         000000
 intlevel1                     text         000000
@@ -388,7 +391,7 @@ isa$xinst                     (abs)        000000
 stackhi                       (abs)        000000
 stacklo                       (abs)        000000
 start                         init         00000E
-start_initialization          cinit        000136
+start_initialization          cinit        00013E
 ttemp5                        temp         000007
 ttemp6                        temp         00000A
 ttemp7                        temp         00000E
@@ -399,7 +402,7 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initialization		CODE           	0136	0000	1
+		__initialization		CODE           	013E	0000	1
 
 shared estimated size: 1
 
@@ -407,9 +410,9 @@ main.c
 		_LCD_Init      		CODE           	0012	0000	146
 		_LCD_Data_Instruction		CODE           	00A4	0000	60
 		_EUSART_Int_Rx 		CODE           	0008	0000	6
-		_main          		CODE           	0126	0000	16
-		_LCD_Set_Write 		CODE           	010A	0000	28
-		_Configurations		CODE           	00E0	0000	42
+		_main          		CODE           	012E	0000	16
+		_LCD_Set_Write 		CODE           	0112	0000	28
+		_Configurations		CODE           	00E0	0000	50
 
-main.c estimated size: 298
+main.c estimated size: 306
 

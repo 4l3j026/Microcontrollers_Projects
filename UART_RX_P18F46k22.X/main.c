@@ -73,10 +73,12 @@ void Configurations(void) {
     //---- EUSART configuration ----
 
     //RCSTAx is a status and control receive register. 
-    TXSTA1bits.SYNC = 0; //Asynchronous mode. 
+    BRGH1 = 1;
+    BRG161 = 0;
+    SPBRG1 = 0x00;
     RCSTA1bits.SPEN = 1; //Serial port enable bit. (Is not necessary set RC6TX, TC7RX)
+    TXSTA1bits.SYNC = 0; //Asynchronous mode. 
     RCSTA1bits.CREN = 1; //Asynchronous receive mode enabled. 
-    
 
 }
 
