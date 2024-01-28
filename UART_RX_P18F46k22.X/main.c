@@ -97,7 +97,7 @@ void LCD_Init(void) {
     LCD_Set_Write(Set, DC);
     LCD_Set_Write(Set, FS);
     LCD_Set_Write(Set, CLR);
-    __delay_ms(5); //Delay set by the manufacturer.
+    __delay_ms(1000); //Delay set by the manufacturer.
 
 }
 
