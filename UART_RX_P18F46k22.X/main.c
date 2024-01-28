@@ -72,8 +72,12 @@ void Configurations(void) {
 
     //---- Interrupt configuration ----
     
-    INTCONbits.GIE = 1; //Global Interrupt Enabled. 
-    RCONbits.IPEN = 1; //Interrupt Priority Disabled. 
+    INTCONbits.GIE = 1; //Global Interrupt enabled.     
+    INTCONbits.PEIE = 1; //Peripheral Interrupt Enabled. 
+    RCONbits.IPEN = 0; //Interrupt priority disabled. 
+    
+    PIE1bits.RC1IE = 1; //Receive Interrupt Enabled. 
+    PIR1bits.RC1IF = 0; //Receive Interrupt Flag cleaned. 
     
 
     //---- EUSART configuration ----
