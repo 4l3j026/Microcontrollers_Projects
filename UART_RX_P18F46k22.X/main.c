@@ -70,15 +70,22 @@ void Configurations(void) {
 
     LATD = 0;
 
+    //---- Interrupt configuration ----
+    
+    INTCONbits.GIE = 1; //Global Interrupt Enabled. 
+    RCONbits.IPEN = 1; //Interrupt Priority Disabled. 
+    
+
     //---- EUSART configuration ----
 
+    SPBRG1 = 0x67; //Value of the Baud Rate Generator calculation (103 decimal value). 
+    BRGH1 = 1; //Baud Rate Generator High it's better, reduce the baud rate error.  
+    BRG161 = 0; //Baud Rate Generator of 16 bits disabled. 
+
     //RCSTAx is a status and control receive register. 
-    BRGH1 = 1;
-    BRG161 = 0;
-    SPBRG1 = 0x00;
-    RCSTA1bits.SPEN = 1; //Serial port enable bit. (Is not necessary set RC6TX, TC7RX)
+    RCSTA1bits.CREN = 1; //Asynchronous Receive mode ENabled. 
     TXSTA1bits.SYNC = 0; //Asynchronous mode. 
-    RCSTA1bits.CREN = 1; //Asynchronous receive mode enabled. 
+    RCSTA1bits.SPEN = 1; //Serial Port ENable bit. (Is not necessary set RC6TX, TC7RX)    
 
 }
 
