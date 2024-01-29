@@ -7,6 +7,8 @@
 
 
 #include <xc.h> //Libaray to use Microchip Microcontrollers. 
+#include <string.h> //Library to use strlen function. 
+#include <stdint.h> //Library to use usined integer size 8 bits. 
 #include "Fuses_Set.h" //Library to set fuses. 
 //Instructions or commands of the LCD 
 #define CLR 0x01 //Command to clear the LCD. 
@@ -32,6 +34,11 @@ void LCD_Init(void);
 void LCD_Set_Write(unsigned char WR_SE, unsigned char Command);
 void LCD_Data_Instruction(unsigned char Data);
 void Show_Data_LCD(void);
+
+//Global variables. 
+char Text1 [20] = {"Hello and Welcome!"};
+char Text2 [16] = {"Counter Int 0: "};
+char Text3 [16] = {"Counter Int 2: "};
 
 void main(void) {
 
@@ -138,21 +145,18 @@ void LCD_Data_Instruction(unsigned char Data) {
 
 }
 
+//Develop interrupt function. 
+
 void __interrupt() EUSART_Int_Rx(void) {
 
     char Var;
 
     if (PIR1bits.RC1IF) {
 
-        Var = RC1REG;
+        //Var = RC1REG;
+        if (RC1REG == '4') {
 
-        if (Var == '2') {
-
-            LCD_Set_Write(Set, ROW2);
-            LCD_Set_Write(Write, 'L');
-            LCD_Set_Write(Write, 'C');
-            LCD_Set_Write(Write, 'D');
-            
+            Show_Data_LCD();
 
         }
 
@@ -163,8 +167,28 @@ void __interrupt() EUSART_Int_Rx(void) {
 void Show_Data_LCD(void) {
 
     LCD_Set_Write(Set, ROW1);
-    LCD_Set_Write(Write, 'L');
-    LCD_Set_Write(Write, 'C');
-    LCD_Set_Write(Write, 'D');
+
+    for (uint8_t i = 0; i < strlen(Text1); i++) {
+
+        LCD_Set_Write(Write, Text1[i]);
+
+    }
+
+    LCD_Set_Write(Set, ROW2);
+
+    for (uint8_t i = 0; i < strlen(Text2); i++) {
+
+        LCD_Set_Write(Write, Text2[i]);
+
+    }
+
+    LCD_Set_Write(Set, ROW3);
+
+    for (uint8_t i = 0; i < strlen(Text3); i++) {
+
+        LCD_Set_Write(Write, Text3[i]);
+
+    }
+
 
 }

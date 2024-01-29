@@ -9647,6 +9647,66 @@ unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\\pic\\include\\xc.h" 2 3
 # 9 "main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 10 "main.c" 2
+
+
 # 1 "./Fuses_Set.h" 1
 # 10 "./Fuses_Set.h"
 #pragma config FOSC = INTIO67
@@ -9707,13 +9767,18 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 10 "main.c" 2
-# 30 "main.c"
+# 12 "main.c" 2
+# 32 "main.c"
 void Configurations(void);
 void LCD_Init(void);
 void LCD_Set_Write(unsigned char WR_SE, unsigned char Command);
 void LCD_Data_Instruction(unsigned char Data);
 void Show_Data_LCD(void);
+
+
+char Text1 [20] = {"Hello and Welcome!"};
+char Text2 [16] = {"Counter Int 0: "};
+char Text3 [16] = {"Counter Int 2: "};
 
 void main(void) {
 
@@ -9820,21 +9885,18 @@ void LCD_Data_Instruction(unsigned char Data) {
 
 }
 
+
+
 void __attribute__((picinterrupt(("")))) EUSART_Int_Rx(void) {
 
     char Var;
 
     if (PIR1bits.RC1IF) {
 
-        Var = RC1REG;
 
-        if (Var == '2') {
+        if (RC1REG == '4') {
 
-            LCD_Set_Write(0, 0xC0);
-            LCD_Set_Write(1, 'L');
-            LCD_Set_Write(1, 'C');
-            LCD_Set_Write(1, 'D');
-
+            Show_Data_LCD();
 
         }
 
@@ -9845,8 +9907,28 @@ void __attribute__((picinterrupt(("")))) EUSART_Int_Rx(void) {
 void Show_Data_LCD(void) {
 
     LCD_Set_Write(0, 0X80);
-    LCD_Set_Write(1, 'L');
-    LCD_Set_Write(1, 'C');
-    LCD_Set_Write(1, 'D');
+
+    for (uint8_t i = 0; i < strlen(Text1); i++) {
+
+        LCD_Set_Write(1, Text1[i]);
+
+    }
+
+    LCD_Set_Write(0, 0xC0);
+
+    for (uint8_t i = 0; i < strlen(Text2); i++) {
+
+        LCD_Set_Write(1, Text2[i]);
+
+    }
+
+    LCD_Set_Write(0, 0X94);
+
+    for (uint8_t i = 0; i < strlen(Text3); i++) {
+
+        LCD_Set_Write(1, Text3[i]);
+
+    }
+
 
 }
