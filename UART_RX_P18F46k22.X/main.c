@@ -31,14 +31,18 @@ void Configurations(void);
 void LCD_Init(void);
 void LCD_Set_Write(unsigned char WR_SE, unsigned char Command);
 void LCD_Data_Instruction(unsigned char Data);
+void Show_Data_LCD(void);
 
 void main(void) {
 
     //Call functions. 
     Configurations();
     LCD_Init();
+    Show_Data_LCD();
 
     while (1) {
+
+
 
     }
 
@@ -71,14 +75,13 @@ void Configurations(void) {
     LATD = 0;
 
     //---- Interrupt configuration ----
-    
+
     INTCONbits.GIE = 1; //Global Interrupt enabled.     
     INTCONbits.PEIE = 1; //Peripheral Interrupt Enabled. 
     RCONbits.IPEN = 0; //Interrupt priority disabled. 
-    
+
     PIE1bits.RC1IE = 1; //Receive Interrupt Enabled. 
     PIR1bits.RC1IF = 0; //Receive Interrupt Flag cleaned. 
-    
 
     //---- EUSART configuration ----
 
@@ -137,6 +140,31 @@ void LCD_Data_Instruction(unsigned char Data) {
 
 void __interrupt() EUSART_Int_Rx(void) {
 
+    char Var;
 
+    if (PIR1bits.RC1IF) {
+
+        Var = RC1REG;
+
+        if (Var == '2') {
+
+            LCD_Set_Write(Set, ROW2);
+            LCD_Set_Write(Write, 'L');
+            LCD_Set_Write(Write, 'C');
+            LCD_Set_Write(Write, 'D');
+            
+
+        }
+
+    }
+
+}
+
+void Show_Data_LCD(void) {
+
+    LCD_Set_Write(Set, ROW1);
+    LCD_Set_Write(Write, 'L');
+    LCD_Set_Write(Write, 'C');
+    LCD_Set_Write(Write, 'D');
 
 }

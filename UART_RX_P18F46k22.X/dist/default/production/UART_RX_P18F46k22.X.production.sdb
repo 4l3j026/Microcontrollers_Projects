@@ -27,19 +27,23 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"35 B:\MPLAB_Projects\College\UART_RX_P18F46k22.X\main.c
+"36 C:\Apps\Git\Repositories\Microcontrollers_Projects\UART_RX_P18F46k22.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"49
+"53
 [v _Configurations Configurations `(v  1 e 1 0 ]
-"87
+"101
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
-"106
+"120
 [v _LCD_Set_Write LCD_Set_Write `(v  1 e 1 0 ]
-"116
+[v i2_LCD_Set_Write LCD_Set_Write `(v  1 e 1 0 ]
+"130
 [v _LCD_Data_Instruction LCD_Data_Instruction `(v  1 e 1 0 ]
-"127
+[v i2_LCD_Data_Instruction LCD_Data_Instruction `(v  1 e 1 0 ]
+"141
 [v _EUSART_Int_Rx EUSART_Int_Rx `IIH(v  1 e 1 0 ]
-[s S33 . 1 `uc 1 . 1 0 :2:0 
+"163
+[v _Show_Data_LCD Show_Data_LCD `(v  1 e 1 0 ]
+[s S37 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ANSC2 1 0 :1:2 
 `uc 1 ANSC3 1 0 :1:3 
 `uc 1 ANSC4 1 0 :1:4 
@@ -47,12 +51,12 @@
 `uc 1 ANSC6 1 0 :1:6 
 `uc 1 ANSC7 1 0 :1:7 
 ]
-"163 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f46k22.h
-[u S41 . 1 `S33 1 . 1 0 ]
-[v _ANSELCbits ANSELCbits `VES41  1 e 1 @3898 ]
+"163 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18F-K_DFP/1.8.249/xc8\pic\include\proc\pic18f46k22.h
+[u S45 . 1 `S37 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES45  1 e 1 @3898 ]
 "198
 [v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
-[s S94 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S98 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -62,7 +66,7 @@
 `uc 1 LATC7 1 0 :1:7 
 ]
 "7811
-[s S103 . 1 `uc 1 LC0 1 0 :1:0 
+[s S107 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -71,11 +75,11 @@
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S112 . 1 `S94 1 . 1 0 `S103 1 . 1 0 ]
-[v _LATCbits LATCbits `VES112  1 e 1 @3979 ]
+[u S116 . 1 `S98 1 . 1 0 `S107 1 . 1 0 ]
+[v _LATCbits LATCbits `VES116  1 e 1 @3979 ]
 "7896
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S53 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S57 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -85,7 +89,7 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "8536
-[s S62 . 1 `uc 1 RC0 1 0 :1:0 
+[s S66 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -94,11 +98,43 @@
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S71 . 1 `S53 1 . 1 0 `S62 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES71  1 e 1 @3988 ]
+[u S75 . 1 `S57 1 . 1 0 `S66 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES75  1 e 1 @3988 ]
 "8726
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S138 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S255 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"9436
+[s S263 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[u S268 . 1 `S255 1 . 1 0 `S263 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES268  1 e 1 @3997 ]
+[s S285 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"9513
+[s S293 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[u S298 . 1 `S285 1 . 1 0 `S293 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES298  1 e 1 @3998 ]
+[s S318 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -108,10 +144,10 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "10432
-[s S147 . 1 `uc 1 . 1 0 :3:0 
+[s S327 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S150 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S330 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -120,19 +156,19 @@
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S159 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S339 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S163 . 1 `uc 1 . 1 0 :6:0 
+[s S343 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S166 . 1 `uc 1 . 1 0 :5:0 
+[s S346 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S169 . 1 `S138 1 . 1 0 `S147 1 . 1 0 `S150 1 . 1 0 `S159 1 . 1 0 `S163 1 . 1 0 `S166 1 . 1 0 ]
-[v _RCSTA1bits RCSTA1bits `VES169  1 e 1 @4011 ]
-[s S208 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S349 . 1 `S318 1 . 1 0 `S327 1 . 1 0 `S330 1 . 1 0 `S339 1 . 1 0 `S343 1 . 1 0 `S346 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES349  1 e 1 @4011 ]
+[s S388 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -142,7 +178,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "10876
-[s S217 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S397 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -151,56 +187,141 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S226 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S406 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S230 . 1 `S208 1 . 1 0 `S217 1 . 1 0 `S226 1 . 1 0 ]
-[v _TXSTA1bits TXSTA1bits `VES230  1 e 1 @4012 ]
+[u S410 . 1 `S388 1 . 1 0 `S397 1 . 1 0 `S406 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES410  1 e 1 @4012 ]
+"11297
+[v _RC1REG RC1REG `VEuc  1 e 1 @4014 ]
 "11366
 [v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
+[s S188 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"15871
+[s S190 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S193 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S196 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S199 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S202 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S211 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+]
+[u S217 . 1 `S188 1 . 1 0 `S190 1 . 1 0 `S193 1 . 1 0 `S196 1 . 1 0 `S199 1 . 1 0 `S202 1 . 1 0 `S211 1 . 1 0 ]
+[v _RCONbits RCONbits `VES217  1 e 1 @4048 ]
 "16046
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+[s S139 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"16958
+[s S148 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S157 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S161 . 1 `S139 1 . 1 0 `S148 1 . 1 0 `S157 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES161  1 e 1 @4082 ]
 "17751
 [v _BRG161 BRG161 `VEb  1 e 0 @32195 ]
 "17757
 [v _BRGH1 BRGH1 `VEb  1 e 0 @32098 ]
-"35 B:\MPLAB_Projects\College\UART_RX_P18F46k22.X\main.c
+"36 C:\Apps\Git\Repositories\Microcontrollers_Projects\UART_RX_P18F46k22.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"45
+"49
 } 0
-"87
+"163
+[v _Show_Data_LCD Show_Data_LCD `(v  1 e 1 0 ]
+{
+"170
+} 0
+"101
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
 {
-"102
+"116
 } 0
-"106
+"120
 [v _LCD_Set_Write LCD_Set_Write `(v  1 e 1 0 ]
 {
 [v LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 wreg ]
 [v LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 wreg ]
-[v LCD_Set_Write@Command Command `uc  1 p 1 2 ]
-"108
-[v LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 3 ]
-"112
+[v LCD_Set_Write@Command Command `uc  1 p 1 7 ]
+"122
+[v LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 8 ]
+"126
 } 0
-"116
+"130
 [v _LCD_Data_Instruction LCD_Data_Instruction `(v  1 e 1 0 ]
 {
 [v LCD_Data_Instruction@Data Data `uc  1 a 1 wreg ]
 [v LCD_Data_Instruction@Data Data `uc  1 a 1 wreg ]
-"118
-[v LCD_Data_Instruction@Data Data `uc  1 a 1 1 ]
-"125
+"132
+[v LCD_Data_Instruction@Data Data `uc  1 a 1 6 ]
+"139
 } 0
-"49
+"53
 [v _Configurations Configurations `(v  1 e 1 0 ]
 {
-"83
+"97
 } 0
-"127
+"141
 [v _EUSART_Int_Rx EUSART_Int_Rx `IIH(v  1 e 1 0 ]
 {
-"131
+"143
+[v EUSART_Int_Rx@Var Var `uc  1 a 1 4 ]
+"161
+} 0
+"120
+[v i2_LCD_Set_Write LCD_Set_Write `(v  1 e 1 0 ]
+{
+[v i2LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 wreg ]
+[v i2LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 wreg ]
+[v i2LCD_Set_Write@Command Command `uc  1 p 1 2 ]
+"122
+[v i2LCD_Set_Write@WR_SE WR_SE `uc  1 a 1 3 ]
+"126
+} 0
+"130
+[v i2_LCD_Data_Instruction LCD_Data_Instruction `(v  1 e 1 0 ]
+{
+[v i2LCD_Data_Instruction@Data Data `uc  1 a 1 wreg ]
+[v i2LCD_Data_Instruction@Data Data `uc  1 a 1 wreg ]
+"132
+[v i2LCD_Data_Instruction@Data Data `uc  1 a 1 1 ]
+"139
 } 0
