@@ -149,14 +149,11 @@ void LCD_Data_Instruction(unsigned char Data) {
 
 void __interrupt() EUSART_Int_Rx(void) {
 
-    char Var;
+    if (PIR1bits.RC1IF) { //Detect flag interrupt from EUSART. 
 
-    if (PIR1bits.RC1IF) {
+        if (RC1REG) {
 
-        //Var = RC1REG;
-        if (RC1REG == '4') {
-
-            Show_Data_LCD();
+            
 
         }
 

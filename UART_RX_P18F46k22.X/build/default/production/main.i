@@ -9889,14 +9889,11 @@ void LCD_Data_Instruction(unsigned char Data) {
 
 void __attribute__((picinterrupt(("")))) EUSART_Int_Rx(void) {
 
-    char Var;
-
     if (PIR1bits.RC1IF) {
 
+        if (RC1REG) {
 
-        if (RC1REG == '4') {
 
-            Show_Data_LCD();
 
         }
 

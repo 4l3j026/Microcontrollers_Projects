@@ -1343,104 +1343,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _EUSART_Int_Rx ]
 [f ]
 "152
-[; ;main.c: 152:     char Var;
-[v _Var `uc ~T0 @X0 1 a ]
-"154
-[; ;main.c: 154:     if (PIR1bits.RC1IF) {
+[; ;main.c: 152:     if (PIR1bits.RC1IF) {
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 864  ]
 {
-"157
-[; ;main.c: 157:         if (RC1REG == '4') {
-[e $ ! == -> _RC1REG `ui -> 52 `ui 865  ]
+"154
+[; ;main.c: 154:         if (RC1REG) {
+[e $ ! != -> _RC1REG `i -> 0 `i 865  ]
 {
-"159
-[; ;main.c: 159:             Show_Data_LCD();
-[e ( _Show_Data_LCD ..  ]
-"161
-[; ;main.c: 161:         }
+"158
+[; ;main.c: 158:         }
 }
 [e :U 865 ]
-"163
-[; ;main.c: 163:     }
+"160
+[; ;main.c: 160:     }
 }
 [e :U 864 ]
-"165
-[; ;main.c: 165: }
+"162
+[; ;main.c: 162: }
 [e :UE 863 ]
 }
-"167
-[; ;main.c: 167: void Show_Data_LCD(void) {
+"164
+[; ;main.c: 164: void Show_Data_LCD(void) {
 [v _Show_Data_LCD `(v ~T0 @X0 1 ef ]
 {
 [e :U _Show_Data_LCD ]
 [f ]
-"169
-[; ;main.c: 169:     LCD_Set_Write(0, 0X80);
+"166
+[; ;main.c: 166:     LCD_Set_Write(0, 0X80);
 [e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 128 `i `uc ]
-"171
-[; ;main.c: 171:     for (uint8_t i = 0; i < strlen(Text1); i++) {
+"168
+[; ;main.c: 168:     for (uint8_t i = 0; i < strlen(Text1); i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 870  ]
 [e :U 867 ]
 {
-"173
-[; ;main.c: 173:         LCD_Set_Write(1, Text1[i]);
+"170
+[; ;main.c: 170:         LCD_Set_Write(1, Text1[i]);
 [e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text1 * -> _i `ux -> -> # *U &U _Text1 `ui `ux `uc ]
-"175
-[; ;main.c: 175:     }
+"172
+[; ;main.c: 172:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 870 ]
 [e $ < -> _i `ui ( _strlen (1 -> &U _Text1 `*Cuc 867  ]
 [e :U 868 ]
 }
-"177
-[; ;main.c: 177:     LCD_Set_Write(0, 0xC0);
+"174
+[; ;main.c: 174:     LCD_Set_Write(0, 0xC0);
 [e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 192 `i `uc ]
-"179
-[; ;main.c: 179:     for (uint8_t i = 0; i < strlen(Text2); i++) {
+"176
+[; ;main.c: 176:     for (uint8_t i = 0; i < strlen(Text2); i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 874  ]
 [e :U 871 ]
 {
-"181
-[; ;main.c: 181:         LCD_Set_Write(1, Text2[i]);
+"178
+[; ;main.c: 178:         LCD_Set_Write(1, Text2[i]);
 [e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text2 * -> _i `ux -> -> # *U &U _Text2 `ui `ux `uc ]
-"183
-[; ;main.c: 183:     }
+"180
+[; ;main.c: 180:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 874 ]
 [e $ < -> _i `ui ( _strlen (1 -> &U _Text2 `*Cuc 871  ]
 [e :U 872 ]
 }
-"185
-[; ;main.c: 185:     LCD_Set_Write(0, 0X94);
+"182
+[; ;main.c: 182:     LCD_Set_Write(0, 0X94);
 [e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 148 `i `uc ]
-"187
-[; ;main.c: 187:     for (uint8_t i = 0; i < strlen(Text3); i++) {
+"184
+[; ;main.c: 184:     for (uint8_t i = 0; i < strlen(Text3); i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 878  ]
 [e :U 875 ]
 {
-"189
-[; ;main.c: 189:         LCD_Set_Write(1, Text3[i]);
+"186
+[; ;main.c: 186:         LCD_Set_Write(1, Text3[i]);
 [e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text3 * -> _i `ux -> -> # *U &U _Text3 `ui `ux `uc ]
-"191
-[; ;main.c: 191:     }
+"188
+[; ;main.c: 188:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 878 ]
 [e $ < -> _i `ui ( _strlen (1 -> &U _Text3 `*Cuc 875  ]
 [e :U 876 ]
 }
-"194
-[; ;main.c: 194: }
+"191
+[; ;main.c: 191: }
 [e :UE 866 ]
 }
