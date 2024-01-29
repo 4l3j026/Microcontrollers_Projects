@@ -85,8 +85,10 @@ void Configurations(void) {
     TXSTA = 0x20; //Transmit status and control register. 
 
     //Interrupt Registers. 
-    INTCONbits.GIE = 1; //Global Interrupt enabled. 
+    INTCONbits.GIE = 1; //Global Interrupt enabled.     
+    INTCONbits.PEIE = 1; //Peripheral Interrupt Enabled. 
     RCONbits.IPEN = 0; //Interrupt priority disabled.
+
     //INT0 configuration. 
     INTCONbits.INT0E = 1; //Interrupt on pin RB0 enabled. 
     INTCONbits.INT0F = 0; //Flag interrupt cleared.
