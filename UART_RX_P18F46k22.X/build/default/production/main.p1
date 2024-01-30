@@ -1085,10 +1085,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "40
-[; ;main.c: 40: char Text2 [16] = {"Counter Int 0: "};
+[; ;main.c: 40: char Text2 [16] = {"0 Int Counter: "};
 [v _Text2 `uc ~T0 @X0 -> 16 `i e ]
 [i _Text2
 :U ..
+-> 48 `c
+-> 32 `c
+-> 73 `c
+-> 110 `c
+-> 116 `c
+-> 32 `c
 -> 67 `c
 -> 111 `c
 -> 117 `c
@@ -1096,22 +1102,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 116 `c
 -> 101 `c
 -> 114 `c
--> 32 `c
--> 73 `c
--> 110 `c
--> 116 `c
--> 32 `c
--> 48 `c
 -> 58 `c
 -> 32 `c
 -> 0 `c
 ..
 ]
 "41
-[; ;main.c: 41: char Text3 [16] = {"Counter Int 2: "};
+[; ;main.c: 41: char Text3 [16] = {"2 Int Counter: "};
 [v _Text3 `uc ~T0 @X0 -> 16 `i e ]
 [i _Text3
 :U ..
+-> 50 `c
+-> 32 `c
+-> 73 `c
+-> 110 `c
+-> 116 `c
+-> 32 `c
 -> 67 `c
 -> 111 `c
 -> 117 `c
@@ -1119,12 +1125,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 116 `c
 -> 101 `c
 -> 114 `c
--> 32 `c
--> 73 `c
--> 110 `c
--> 116 `c
--> 32 `c
--> 50 `c
 -> 58 `c
 -> 32 `c
 -> 0 `c
@@ -1347,94 +1347,110 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 864  ]
 {
 "154
-[; ;main.c: 154:         if (RC1REG) {
-[e $ ! != -> _RC1REG `i -> 0 `i 865  ]
+[; ;main.c: 154:         if (RC1REG == '0') {
+[e $ ! == -> _RC1REG `ui -> 48 `ui 865  ]
 {
-"158
-[; ;main.c: 158:         }
+"156
+[; ;main.c: 156:             LCD_Set_Write(0, 0xC0 + 16);
+[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> + -> 192 `i -> 16 `i `uc ]
+"157
+[; ;main.c: 157:             LCD_Set_Write(1, '8');
+[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> -> 56 `ui `uc ]
+"159
+[; ;main.c: 159:         }
 }
-[e :U 865 ]
+[e $U 866  ]
 "160
-[; ;main.c: 160:     }
+[; ;main.c: 160:         else if (RC1REG == '2'){
+[e :U 865 ]
+[e $ ! == -> _RC1REG `ui -> 50 `ui 867  ]
+{
+"164
+[; ;main.c: 164:         }
+}
+[e :U 867 ]
+[e :U 866 ]
+"166
+[; ;main.c: 166:     }
 }
 [e :U 864 ]
-"162
-[; ;main.c: 162: }
+"168
+[; ;main.c: 168: }
 [e :UE 863 ]
 }
-"164
-[; ;main.c: 164: void Show_Data_LCD(void) {
+"170
+[; ;main.c: 170: void Show_Data_LCD(void) {
 [v _Show_Data_LCD `(v ~T0 @X0 1 ef ]
 {
 [e :U _Show_Data_LCD ]
 [f ]
-"166
-[; ;main.c: 166:     LCD_Set_Write(0, 0X80);
-[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 128 `i `uc ]
-"168
-[; ;main.c: 168:     for (uint8_t i = 0; i < strlen(Text1); i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 870  ]
-[e :U 867 ]
-{
-"170
-[; ;main.c: 170:         LCD_Set_Write(1, Text1[i]);
-[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text1 * -> _i `ux -> -> # *U &U _Text1 `ui `ux `uc ]
 "172
-[; ;main.c: 172:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 870 ]
-[e $ < -> _i `ui ( _strlen (1 -> &U _Text1 `*Cuc 867  ]
-[e :U 868 ]
-}
+[; ;main.c: 172:     LCD_Set_Write(0, 0X80);
+[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 128 `i `uc ]
 "174
-[; ;main.c: 174:     LCD_Set_Write(0, 0xC0);
-[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 192 `i `uc ]
+[; ;main.c: 174:     for (uint8_t i = 0; i < strlen(Text1); i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 872  ]
+[e :U 869 ]
+{
 "176
-[; ;main.c: 176:     for (uint8_t i = 0; i < strlen(Text2); i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 874  ]
-[e :U 871 ]
-{
+[; ;main.c: 176:         LCD_Set_Write(1, Text1[i]);
+[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text1 * -> _i `ux -> -> # *U &U _Text1 `ui `ux `uc ]
 "178
-[; ;main.c: 178:         LCD_Set_Write(1, Text2[i]);
-[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text2 * -> _i `ux -> -> # *U &U _Text2 `ui `ux `uc ]
-"180
-[; ;main.c: 180:     }
+[; ;main.c: 178:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 874 ]
-[e $ < -> _i `ui ( _strlen (1 -> &U _Text2 `*Cuc 871  ]
 [e :U 872 ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Text1 `*Cuc 869  ]
+[e :U 870 ]
 }
+"180
+[; ;main.c: 180:     LCD_Set_Write(0, 0xC0);
+[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 192 `i `uc ]
 "182
-[; ;main.c: 182:     LCD_Set_Write(0, 0X94);
-[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 148 `i `uc ]
-"184
-[; ;main.c: 184:     for (uint8_t i = 0; i < strlen(Text3); i++) {
+[; ;main.c: 182:     for (uint8_t i = 0; i < strlen(Text2); i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 878  ]
-[e :U 875 ]
+[e $U 876  ]
+[e :U 873 ]
 {
+"184
+[; ;main.c: 184:         LCD_Set_Write(1, Text2[i]);
+[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text2 * -> _i `ux -> -> # *U &U _Text2 `ui `ux `uc ]
 "186
-[; ;main.c: 186:         LCD_Set_Write(1, Text3[i]);
-[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text3 * -> _i `ux -> -> # *U &U _Text3 `ui `ux `uc ]
-"188
-[; ;main.c: 188:     }
+[; ;main.c: 186:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 878 ]
-[e $ < -> _i `ui ( _strlen (1 -> &U _Text3 `*Cuc 875  ]
 [e :U 876 ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Text2 `*Cuc 873  ]
+[e :U 874 ]
 }
-"191
-[; ;main.c: 191: }
-[e :UE 866 ]
+"188
+[; ;main.c: 188:     LCD_Set_Write(0, 0X94);
+[e ( _LCD_Set_Write (2 , -> -> 0 `i `uc -> -> 148 `i `uc ]
+"190
+[; ;main.c: 190:     for (uint8_t i = 0; i < strlen(Text3); i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 880  ]
+[e :U 877 ]
+{
+"192
+[; ;main.c: 192:         LCD_Set_Write(1, Text3[i]);
+[e ( _LCD_Set_Write (2 , -> -> 1 `i `uc -> *U + &U _Text3 * -> _i `ux -> -> # *U &U _Text3 `ui `ux `uc ]
+"194
+[; ;main.c: 194:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 880 ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _Text3 `*Cuc 877  ]
+[e :U 878 ]
+}
+"197
+[; ;main.c: 197: }
+[e :UE 868 ]
 }

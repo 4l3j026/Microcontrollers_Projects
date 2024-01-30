@@ -5821,11 +5821,10 @@ extern char * strrichr(const char *, int);
 void Configurations(void);
 
 
-char Counter_Button1 = 0;
-char Counter_Button2 = 0;
-unsigned char Text1 [26];
-unsigned char Text2 [24] ={"Laura Daniela"};
-unsigned char Counter_BChar = 0;
+unsigned char Counter_Button1 = 0;
+unsigned char Counter_Button2 = 0;
+unsigned char Text_Int2 [28];
+unsigned char Text_Int0[28] = {"INT0 Counter: "};
 
 
 union Value {
@@ -5839,14 +5838,6 @@ int Int_Var[1];
 char Char_Var[2];
 
 } Buffer;
-
-
-
-
-struct test {
-unsigned int Var : 4;
-
-} value;
 
 
 
@@ -5879,7 +5870,9 @@ TXSTA = 0x20;
 
 
 INTCONbits.GIE = 1;
+INTCONbits.PEIE = 1;
 RCONbits.IPEN = 0;
+
 
 INTCONbits.INT0E = 1;
 INTCONbits.INT0F = 0;
@@ -5895,30 +5888,33 @@ void __interrupt() INT_UART_TX(void) {
 
 if (INTCONbits.INT0IF) {
 
-Counter_Button2++;
-Buffer.Int_Var[0] = 0x30;
-Buffer.Int_Var[0] = 0x30 + Counter_Button2;
-
 INTCONbits.INT0IF = 0;
+Counter_Button1++;
 
+# 117
+sprintf(Text_Int0, "INT0 Counter: %d", Counter_Button1);
+
+for (int i = 0; i < strlen(Text_Int0); i++) {
 
 while (!PIR1bits.TX1IF);
-TXREG = Buffer.Char_Var[0];
+TXREG = Text_Int0[i];
+}
 
 while (!PIR1bits.TX1IF);
 TXREG = 0x0D;
 
-}
-if (INTCON3bits.INT2F) {
 
-Counter_Button1++;
+} else if (INTCON3bits.INT2F) {
+
 INTCON3bits.INT2F = 0;
-sprintf(Text1, "The value of counter is: %d", Counter_Button1);
+Counter_Button2++;
 
-for (int i = 0; i < strlen(Text1); i++) {
+sprintf(Text_Int2, "INT2 Counter: %d", Counter_Button2);
+
+for (int i = 0; i < strlen(Text_Int2); i++) {
 
 while (!PIR1bits.TX1IF);
-TXREG = Text1[i];
+TXREG = Text_Int2[i];
 }
 
 while (!PIR1bits.TX1IF);

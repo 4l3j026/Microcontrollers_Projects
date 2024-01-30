@@ -37,8 +37,8 @@ void Show_Data_LCD(void);
 
 //Global variables. 
 char Text1 [20] = {"Hello and Welcome!"};
-char Text2 [16] = {"Counter Int 0: "};
-char Text3 [16] = {"Counter Int 2: "};
+char Text2 [16] = {"0 Int Counter: "};
+char Text3 [16] = {"2 Int Counter: "};
 
 void main(void) {
 
@@ -90,7 +90,7 @@ void Configurations(void) {
     PIE1bits.RC1IE = 1; //Receive Interrupt Enabled. 
     PIR1bits.RC1IF = 0; //Receive Interrupt Flag cleaned. 
 
-    //---- EUSART configuration ----
+    //---- EUSART Receive (RX) configuration ----
 
     SPBRG1 = 0x67; //Value of the Baud Rate Generator calculation (103 decimal value). 
     BRGH1 = 1; //Baud Rate Generator High it's better, reduce the baud rate error.  
@@ -151,10 +151,16 @@ void __interrupt() EUSART_Int_Rx(void) {
 
     if (PIR1bits.RC1IF) { //Detect flag interrupt from EUSART. 
 
-        if (RC1REG) {
+        if (RC1REG == '0') {
 
+            LCD_Set_Write(Set, ROW2 + 16);
+            LCD_Set_Write(Write, '8');
+
+        }
+        else if (RC1REG == '2'){
             
-
+            
+            
         }
 
     }

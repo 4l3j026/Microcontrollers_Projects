@@ -28,11 +28,10 @@
 void Configurations(void);
 
 //Global variables. 
-char Counter_Button1 = 0; //Unsigned integer of 8 bits. 
-char Counter_Button2 = 0;
-unsigned char Text1 [26];
-unsigned char Text2 [24] ={"Laura Daniela"};
-unsigned char Counter_BChar = 0;
+unsigned char Counter_Button1 = 0;
+unsigned char Counter_Button2 = 0;
+unsigned char Text_Int2 [28];
+unsigned char Text_Int0[28] = {"INT0 Counter: "};
 //union Value Data; 
 
 union Value {
@@ -46,14 +45,6 @@ union Send {
     char Char_Var[2];
 
 } Buffer;
-
-
-//Create unsigned integer of 4 bits. 
-
-struct test {
-    unsigned int Var : 4;
-
-} value;
 
 //Main function. 
 
@@ -104,34 +95,52 @@ void __interrupt() INT_UART_TX(void) {
 
     if (INTCONbits.INT0IF) { //Test if there is a change in the port. 
 
-        Counter_Button2++;
-        Buffer.Int_Var[0] = 0x30;
-        Buffer.Int_Var[0] = 0x30 + Counter_Button2;
-
-        INTCONbits.INT0IF = 0;
-
-
-        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
-        TXREG = Buffer.Char_Var[0];
-
-        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
-        TXREG = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
-
-    }
-    if (INTCON3bits.INT2F) { //Test if there is a change in the port. 
-
+        INTCONbits.INT0IF = 0; //Clean the flag interrupt. 
         Counter_Button1++; //Increment the counter every single state change.
-        INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
-        sprintf(Text1, "The value of counter is: %d", Counter_Button1);
 
-        for (int i = 0; i < strlen(Text1); i++) {
+        /* ---------- Another way to program counter without sprintf function. ----------*/
+        //        Buffer.Char_Var[0] = 0x30 + Counter_Button1; //Send jASCII characters from 0 (0x30) and plus the counter. 
+        //
+        //        for (int j = 0; j < strlen(Text_Int0); j++) {
+        //
+        //            while (!PIR1bits.TX1IF); //Wait for empty buffer.
+        //            TXREG = Text_Int0[j]; //Assign to the TX buffer each character of the array. 
+        //
+        //        }
+        //
+        //        while (!PIR1bits.TX1IF);
+        //        TXREG = Buffer.Char_Var[0];
+        //
+        //        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+        //        TXREG = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
 
-            while (!PIR1bits.TX1IF);
-            TXREG = Text1[i];
+        sprintf(Text_Int0, "INT0 Counter: %d", Counter_Button1);
+
+        for (int i = 0; i < strlen(Text_Int0); i++) {
+
+            while (!PIR1bits.TX1IF); //Wait for empty buffer.
+            TXREG = Text_Int0[i];
         }
 
-        while (!PIR1bits.TX1IF);
-        TXREG = 0x0D;
+        while (!PIR1bits.TX1IF); //Wait for empty buffer.
+        TXREG = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
+
+
+    } else if (INTCON3bits.INT2F) { //Test if there is a change in the port. 
+
+        INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
+        Counter_Button2++; //Increment the counter every single state change.
+
+        sprintf(Text_Int2, "INT2 Counter: %d", Counter_Button2);
+
+        for (int i = 0; i < strlen(Text_Int2); i++) {
+
+            while (!PIR1bits.TX1IF); //Wait for empty buffer.
+            TXREG = Text_Int2[i];
+        }
+
+        while (!PIR1bits.TX1IF); //Wait for empty buffer.
+        TXREG = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
 
     }
 

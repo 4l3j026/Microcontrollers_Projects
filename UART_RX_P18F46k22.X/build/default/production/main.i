@@ -9777,8 +9777,8 @@ void Show_Data_LCD(void);
 
 
 char Text1 [20] = {"Hello and Welcome!"};
-char Text2 [16] = {"Counter Int 0: "};
-char Text3 [16] = {"Counter Int 2: "};
+char Text2 [16] = {"0 Int Counter: "};
+char Text3 [16] = {"2 Int Counter: "};
 
 void main(void) {
 
@@ -9891,7 +9891,13 @@ void __attribute__((picinterrupt(("")))) EUSART_Int_Rx(void) {
 
     if (PIR1bits.RC1IF) {
 
-        if (RC1REG) {
+        if (RC1REG == '0') {
+
+            LCD_Set_Write(0, 0xC0 + 16);
+            LCD_Set_Write(1, '8');
+
+        }
+        else if (RC1REG == '2'){
 
 
 
