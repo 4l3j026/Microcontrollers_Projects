@@ -8,6 +8,7 @@
 
 #include <xc.h> //Libaray to use Microchip Microcontrollers. 
 #include <string.h> //Library to use strlen function. 
+#include <stdio.h> //Library to use sprintf function. 
 #include <stdint.h> //Library to use usined integer size 8 bits. 
 #include "Fuses_Set.h" //Library to set fuses. 
 //Instructions or commands of the LCD 
@@ -39,13 +40,24 @@ void Show_Data_LCD(void);
 char Text1 [20] = {"Hello and Welcome!"};
 char Text2 [16] = {"0 Int Counter: "};
 char Text3 [16] = {"2 Int Counter: "};
+unsigned char In_Text0 [26];
+unsigned char In_Text2 [26];
+uint8_t Counter_Int0 = 0;
+uint8_t Counter_Int2 = 0;
+unsigned char Var;
+
+union Change_Data {
+    uint8_t Int_Counter;
+    unsigned char Char_Counter [1];
+
+} Send;
 
 void main(void) {
 
     //Call functions. 
     Configurations();
     LCD_Init();
-    Show_Data_LCD();
+    //Show_Data_LCD();
 
     while (1) {
 
@@ -95,6 +107,9 @@ void Configurations(void) {
     SPBRG1 = 0x67; //Value of the Baud Rate Generator calculation (103 decimal value). 
     BRGH1 = 1; //Baud Rate Generator High it's better, reduce the baud rate error.  
     BRG161 = 0; //Baud Rate Generator of 16 bits disabled. 
+
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.RC7 = 1;
 
     //RCSTAx is a status and control receive register. 
     RCSTA1bits.CREN = 1; //Asynchronous Receive mode ENabled. 
@@ -149,19 +164,47 @@ void LCD_Data_Instruction(unsigned char Data) {
 
 void __interrupt() EUSART_Int_Rx(void) {
 
-    if (PIR1bits.RC1IF) { //Detect flag interrupt from EUSART. 
+    if (PIR1bits.RC1IF) { //Detect flag interrupt from EUSART.
+        
+        Var = RCREG1; 
 
-        if (RC1REG == '0') {
+        LCD_Set_Write(Set, ROW2);
+        
+        LCD_Set_Write(Write, Var); 
 
-            LCD_Set_Write(Set, ROW2 + 16);
-            LCD_Set_Write(Write, '8');
-
-        }
-        else if (RC1REG == '2'){
-            
-            
-            
-        }
+        //        if (Var == '0') {
+        //
+        //            Counter_Int0++;
+        //
+        //            sprintf(In_Text0, "Int 0 counter: %d ", Counter_Int0);
+        //
+        //            LCD_Set_Write(Set, ROW2);
+        //
+        //            for (int i = 0; i <= strlen(In_Text0); i++) {
+        //
+        //                LCD_Set_Write(Write, In_Text0[i]);
+        //
+        //            }
+        //            
+        //
+        //        }
+        //        
+        //        
+        //        if (Var == '2') {
+        //
+        //            Counter_Int2++;
+        //
+        //            sprintf(In_Text2, "Int 2 counter: %d ", Counter_Int2);
+        //
+        //            LCD_Set_Write(Set, ROW3);
+        //
+        //            for (int i = 0; i <= strlen(In_Text2); i++) {
+        //
+        //                LCD_Set_Write(Write, In_Text2[i]);
+        //
+        //            }
+        //
+        //        }
 
     }
 
@@ -192,6 +235,5 @@ void Show_Data_LCD(void) {
         LCD_Set_Write(Write, Text3[i]);
 
     }
-
 
 }

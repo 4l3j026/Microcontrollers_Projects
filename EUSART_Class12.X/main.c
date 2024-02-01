@@ -114,9 +114,14 @@ void __interrupt() INT_UART_TX(void) {
         //        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
         //        TXREG = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
 
-        sprintf(Text_Int0, "INT0 Counter: %d", Counter_Button1);
+        while (!PIR1bits.TX1IF);
+        TXREG = '0';
+        
+        __delay_ms(100);
+        
+        sprintf(Text_Int0, " INT0 Counter: %d", Counter_Button1);
 
-        for (int i = 0; i < strlen(Text_Int0); i++) {
+        for (int i = 0; i <= strlen(Text_Int0); i++) {
 
             while (!PIR1bits.TX1IF); //Wait for empty buffer.
             TXREG = Text_Int0[i];
@@ -130,10 +135,15 @@ void __interrupt() INT_UART_TX(void) {
 
         INTCON3bits.INT2F = 0; //Clean the flag interrupt. 
         Counter_Button2++; //Increment the counter every single state change.
+        
+        while (!PIR1bits.TX1IF);
+        TXREG = '2';
+        
+        __delay_ms(100);
 
-        sprintf(Text_Int2, "INT2 Counter: %d", Counter_Button2);
+        sprintf(Text_Int2, " INT2 Counter: %d", Counter_Button2);
 
-        for (int i = 0; i < strlen(Text_Int2); i++) {
+        for (int i = 0; i <= strlen(Text_Int2); i++) {
 
             while (!PIR1bits.TX1IF); //Wait for empty buffer.
             TXREG = Text_Int2[i];

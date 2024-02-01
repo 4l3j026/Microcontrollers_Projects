@@ -5892,9 +5892,14 @@ INTCONbits.INT0IF = 0;
 Counter_Button1++;
 
 # 117
-sprintf(Text_Int0, "INT0 Counter: %d", Counter_Button1);
+while (!PIR1bits.TX1IF);
+TXREG = '0';
 
-for (int i = 0; i < strlen(Text_Int0); i++) {
+_delay((unsigned long)((500)*(8000000/4000.0)));
+
+sprintf(Text_Int0, " INT0 Counter: %d", Counter_Button1);
+
+for (int i = 0; i <= strlen(Text_Int0); i++) {
 
 while (!PIR1bits.TX1IF);
 TXREG = Text_Int0[i];
@@ -5909,9 +5914,12 @@ TXREG = 0x0D;
 INTCON3bits.INT2F = 0;
 Counter_Button2++;
 
-sprintf(Text_Int2, "INT2 Counter: %d", Counter_Button2);
+while (!PIR1bits.TX1IF);
+TXREG = '2';
 
-for (int i = 0; i < strlen(Text_Int2); i++) {
+sprintf(Text_Int2, " INT2 Counter: %d", Counter_Button2);
+
+for (int i = 0; i <= strlen(Text_Int2); i++) {
 
 while (!PIR1bits.TX1IF);
 TXREG = Text_Int2[i];
