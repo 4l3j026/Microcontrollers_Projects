@@ -9665,6 +9665,65 @@ unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
 # 9 "main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 10 "main.c" 2
+
 # 1 "./Fuses_Configuration.h" 1
 # 10 "./Fuses_Configuration.h"
 #pragma config FOSC = INTIO67
@@ -9725,12 +9784,18 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config EBTRB = OFF
-# 10 "main.c" 2
+# 11 "main.c" 2
 
 
 
-void Configuration (void);
+void Configuration(void);
+void TX_Numbers(unsigned char Units, unsigned Tens);
+void Counter_Message(void);
 
+
+unsigned char Count0_Units = 0x30;
+unsigned char Count0_Tens = 0x30;
+unsigned char TX_Text_1 [] = {"0 Interrupt Counter : "};
 
 
 
@@ -9746,9 +9811,16 @@ void main(void) {
 }
 
 
-void Configuration (void){
+
+void Configuration(void) {
 
     OSCCON = 0x72;
+
+    ANSELCbits.ANSC6 = 0;
+    ANSELCbits.ANSC7 = 0;
+    ANSELBbits.ANSB0 = 0;
+
+    TRISBbits.RB0 = 1;
 
 
     INTCONbits.GIE = 1;
@@ -9758,6 +9830,9 @@ void Configuration (void){
     PIE1bits.TX1IE = 1;
     PIR1bits.TX1IF = 0;
     PIR1bits.RC1IF = 0;
+    INTCONbits.INT0E = 1;
+    INTCONbits.INT0F = 0;
+    INTCON2bits.INTEDG0 = 0;
 
 
     SPBRG = 103;
@@ -9768,7 +9843,7 @@ void Configuration (void){
     TXSTA1bits.TX91 = 0;
     TXSTA1bits.TXEN1 = 1;
     TXSTA1bits.SYNC1 = 0;
-    TXSTA1bits.BRGH = 1;
+    TXSTA1bits.BRGH1 = 1;
 
 
     RCSTAbits.SPEN1 = 1;
@@ -9777,5 +9852,54 @@ void Configuration (void){
 
 
     BAUDCON1bits.BRG16 = 0;
+# 88 "main.c"
+}
+
+
+
+void __attribute__((picinterrupt(("")))) TX_EUSART(void) {
+
+    if (INTCONbits.INT0F) {
+
+        INTCONbits.INT0IF = 0;
+
+        Counter_Message();
+
+        Count0_Units++;
+
+        if (Count0_Units == ':') {
+
+            Count0_Units = 0x30;
+            Count0_Tens++;
+
+        }
+
+        TX_Numbers(Count0_Tens, Count0_Units);
+
+    }
+
+}
+
+void TX_Numbers(unsigned char Units, unsigned Tens) {
+
+    while (!PIR1bits.TX1IF);
+    TXREG1 = Units;
+
+    while (!PIR1bits.TX1IF);
+    TXREG1 = Tens;
+
+    while (!PIR1bits.TX1IF);
+    TXREG1 = 0x0D;
+
+}
+
+void Counter_Message (void){
+
+    for (int i = 0; i < strlen(TX_Text_1); i++){
+
+       while (!PIR1bits.TX1IF);
+       TXREG1 = TX_Text_1[i];
+
+    }
 
 }
