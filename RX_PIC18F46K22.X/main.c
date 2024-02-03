@@ -78,6 +78,10 @@ void Configurations (void){
 
 void __interrupt () RX_EUSART (void){
     
-    
+    if (PIR1bits.RC1IF){
+        
+        
+        
+    }
     
 }
