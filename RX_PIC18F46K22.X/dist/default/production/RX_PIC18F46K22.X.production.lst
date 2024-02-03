@@ -1,0 +1,570 @@
+
+
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Fri Feb 02 23:37:38 2024
+
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
+     1                           	processor	18F46K22
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+    10                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    11                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    12                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    13   000000                     
+    14                           ; Generated 12/10/2023 GMT
+    15                           ; 
+    16                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution. Publication is not required when
+    30                           ;        this file is used in an embedded application.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC18F46K22 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48   000000                     _ANSELC	set	3898
+    49   000000                     _OSCCON	set	4051
+    50   000000                     _ANSELD	set	3899
+    51                           
+    52                           ; #config settings
+    53                           
+    54                           	psect	cinit
+    55   00101E                     __pcinit:
+    56                           	callstack 0
+    57   00101E                     start_initialization:
+    58                           	callstack 0
+    59   00101E                     __initialization:
+    60                           	callstack 0
+    61   00101E                     end_of_initialization:
+    62                           	callstack 0
+    63   00101E                     __end_of__initialization:
+    64                           	callstack 0
+    65   00101E  0100               	movlb	0
+    66   001020  EF09  F008         	goto	_main	;jump to C main() function
+    67                           
+    68                           	psect	cstackCOMRAM
+    69   000000                     __pcstackCOMRAM:
+    70                           	callstack 0
+    71   000000                     
+    72                           ; 1 bytes @ 0x0
+    73 ;;
+    74 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    75 ;;
+    76 ;; *************** function _main *****************
+    77 ;; Defined at:
+    78 ;;		line 18 in file "main.c"
+    79 ;; Parameters:    Size  Location     Type
+    80 ;;		None
+    81 ;; Auto vars:     Size  Location     Type
+    82 ;;		None
+    83 ;; Return value:  Size  Location     Type
+    84 ;;                  1    wreg      void 
+    85 ;; Registers used:
+    86 ;;		wreg, status,2, cstack
+    87 ;; Tracked objects:
+    88 ;;		On entry : 0/0
+    89 ;;		On exit  : 0/0
+    90 ;;		Unchanged: 0/0
+    91 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+    92 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+    93 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+    94 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+    95 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+    96 ;;Total ram usage:        0 bytes
+    97 ;; Hardware stack levels required when called: 1
+    98 ;; This function calls:
+    99 ;;		_Configurations
+   100 ;; This function is called by:
+   101 ;;		Startup code after reset
+   102 ;; This function uses a non-reentrant model
+   103 ;;
+   104                           
+   105                           	psect	text0
+   106   001012                     __ptext0:
+   107                           	callstack 0
+   108   001012                     _main:
+   109                           	callstack 30
+   110   001012                     
+   111                           ;main.c: 21:     Configurations();
+   112   001012  EC01  F008         	call	_Configurations	;wreg free
+   113   001016                     l13:
+   114   001016  EF0B  F008         	goto	l13
+   115   00101A  EF00  F000         	goto	start
+   116   00101E                     __end_of_main:
+   117                           	callstack 0
+   118                           
+   119 ;; *************** function _Configurations *****************
+   120 ;; Defined at:
+   121 ;;		line 31 in file "main.c"
+   122 ;; Parameters:    Size  Location     Type
+   123 ;;		None
+   124 ;; Auto vars:     Size  Location     Type
+   125 ;;		None
+   126 ;; Return value:  Size  Location     Type
+   127 ;;                  1    wreg      void 
+   128 ;; Registers used:
+   129 ;;		wreg, status,2
+   130 ;; Tracked objects:
+   131 ;;		On entry : 0/0
+   132 ;;		On exit  : 0/0
+   133 ;;		Unchanged: 0/0
+   134 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   135 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   136 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   137 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   138 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   139 ;;Total ram usage:        0 bytes
+   140 ;; Hardware stack levels used: 1
+   141 ;; This function calls:
+   142 ;;		Nothing
+   143 ;; This function is called by:
+   144 ;;		_main
+   145 ;; This function uses a non-reentrant model
+   146 ;;
+   147                           
+   148                           	psect	text1
+   149   001002                     __ptext1:
+   150                           	callstack 0
+   151   001002                     _Configurations:
+   152                           	callstack 30
+   153   001002                     
+   154                           ;main.c: 33:     OSCCON = 0x72;
+   155   001002  0E72               	movlw	114
+   156   001004  6ED3               	movwf	211,c	;volatile
+   157                           
+   158                           ;main.c: 36:     ANSELC = 0x00;
+   159   001006  0E00               	movlw	0
+   160   001008  010F               	movlb	15	; () banked
+   161   00100A  6F3A               	movwf	58,b	;volatile
+   162                           
+   163                           ;main.c: 37:     ANSELD = 0x00;
+   164   00100C  0E00               	movlw	0
+   165   00100E  6F3B               	movwf	59,b	;volatile
+   166   001010                     
+   167                           ; BSR set to: 15
+   168   001010  0012               	return		;funcret
+   169   001012                     __end_of_Configurations:
+   170                           	callstack 0
+   171                           
+   172                           	psect	smallconst
+   173   001000                     __psmallconst:
+   174                           	callstack 0
+   175   001000  00                 	db	0
+   176   001001  00                 	db	0	; dummy byte at the end
+   177   000000                     
+   178                           	psect	rparam
+   179   000000                     
+   180                           	psect	config
+   181                           
+   182                           ; Padding undefined space
+   183   300000                     	org	3145728
+   184   300000  FF                 	db	255
+   185                           
+   186                           ;Config register CONFIG1H @ 0x300001
+   187                           ;	Oscillator Selection bits
+   188                           ;	FOSC = INTIO67, Internal oscillator block
+   189                           ;	4X PLL Enable
+   190                           ;	PLLCFG = OFF, Oscillator used directly
+   191                           ;	Primary clock enable bit
+   192                           ;	PRICLKEN = ON, Primary clock is always enabled
+   193                           ;	Fail-Safe Clock Monitor Enable bit
+   194                           ;	FCMEN = OFF, Fail-Safe Clock Monitor disabled
+   195                           ;	Internal/External Oscillator Switchover bit
+   196                           ;	IESO = OFF, Oscillator Switchover mode disabled
+   197   300001                     	org	3145729
+   198   300001  28                 	db	40
+   199                           
+   200                           ;Config register CONFIG2L @ 0x300002
+   201                           ;	Power-up Timer Enable bit
+   202                           ;	PWRTEN = OFF, Power up timer disabled
+   203                           ;	Brown-out Reset Enable bits
+   204                           ;	BOREN = SBORDIS, Brown-out Reset enabled in hardware only (SBOREN is disabled)
+   205                           ;	Brown Out Reset Voltage bits
+   206                           ;	BORV = 190, VBOR set to 1.90 V nominal
+   207   300002                     	org	3145730
+   208   300002  1F                 	db	31
+   209                           
+   210                           ;Config register CONFIG2H @ 0x300003
+   211                           ;	Watchdog Timer Enable bits
+   212                           ;	WDTEN = OFF, Watch dog timer is always disabled. SWDTEN has no effect.
+   213                           ;	Watchdog Timer Postscale Select bits
+   214                           ;	WDTPS = 32768, 1:32768
+   215   300003                     	org	3145731
+   216   300003  3C                 	db	60
+   217                           
+   218                           ; Padding undefined space
+   219   300004                     	org	3145732
+   220   300004  FF                 	db	255
+   221                           
+   222                           ;Config register CONFIG3H @ 0x300005
+   223                           ;	CCP2 MUX bit
+   224                           ;	CCP2MX = PORTC1, CCP2 input/output is multiplexed with RC1
+   225                           ;	PORTB A/D Enable bit
+   226                           ;	PBADEN = ON, PORTB<5:0> pins are configured as analog input channels on Reset
+   227                           ;	P3A/CCP3 Mux bit
+   228                           ;	CCP3MX = PORTB5, P3A/CCP3 input/output is multiplexed with RB5
+   229                           ;	HFINTOSC Fast Start-up
+   230                           ;	HFOFST = ON, HFINTOSC output and ready status are not delayed by the oscillator stable
+      +                           status
+   231                           ;	Timer3 Clock input mux bit
+   232                           ;	T3CMX = PORTC0, T3CKI is on RC0
+   233                           ;	ECCP2 B output mux bit
+   234                           ;	P2BMX = PORTD2, P2B is on RD2
+   235                           ;	MCLR Pin Enable bit
+   236                           ;	MCLRE = EXTMCLR, MCLR pin enabled, RE3 input pin disabled
+   237   300005                     	org	3145733
+   238   300005  BF                 	db	191
+   239                           
+   240                           ;Config register CONFIG4L @ 0x300006
+   241                           ;	Stack Full/Underflow Reset Enable bit
+   242                           ;	STVREN = ON, Stack full/underflow will cause Reset
+   243                           ;	Single-Supply ICSP Enable bit
+   244                           ;	LVP = OFF, Single-Supply ICSP disabled
+   245                           ;	Extended Instruction Set Enable bit
+   246                           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mo
+      +                          de)
+   247                           ;	Background Debug
+   248                           ;	DEBUG = 0x1, unprogrammed default
+   249   300006                     	org	3145734
+   250   300006  81                 	db	129
+   251                           
+   252                           ; Padding undefined space
+   253   300007                     	org	3145735
+   254   300007  FF                 	db	255
+   255                           
+   256                           ;Config register CONFIG5L @ 0x300008
+   257                           ;	Code Protection Block 0
+   258                           ;	CP0 = OFF, Block 0 (000800-003FFFh) not code-protected
+   259                           ;	Code Protection Block 1
+   260                           ;	CP1 = OFF, Block 1 (004000-007FFFh) not code-protected
+   261                           ;	Code Protection Block 2
+   262                           ;	CP2 = OFF, Block 2 (008000-00BFFFh) not code-protected
+   263                           ;	Code Protection Block 3
+   264                           ;	CP3 = OFF, Block 3 (00C000-00FFFFh) not code-protected
+   265   300008                     	org	3145736
+   266   300008  0F                 	db	15
+   267                           
+   268                           ;Config register CONFIG5H @ 0x300009
+   269                           ;	Boot Block Code Protection bit
+   270                           ;	CPB = OFF, Boot block (000000-0007FFh) not code-protected
+   271                           ;	Data EEPROM Code Protection bit
+   272                           ;	CPD = OFF, Data EEPROM not code-protected
+   273   300009                     	org	3145737
+   274   300009  C0                 	db	192
+   275                           
+   276                           ;Config register CONFIG6L @ 0x30000A
+   277                           ;	Write Protection Block 0
+   278                           ;	WRT0 = OFF, Block 0 (000800-003FFFh) not write-protected
+   279                           ;	Write Protection Block 1
+   280                           ;	WRT1 = OFF, Block 1 (004000-007FFFh) not write-protected
+   281                           ;	Write Protection Block 2
+   282                           ;	WRT2 = OFF, Block 2 (008000-00BFFFh) not write-protected
+   283                           ;	Write Protection Block 3
+   284                           ;	WRT3 = OFF, Block 3 (00C000-00FFFFh) not write-protected
+   285   30000A                     	org	3145738
+   286   30000A  0F                 	db	15
+   287                           
+   288                           ;Config register CONFIG6H @ 0x30000B
+   289                           ;	Configuration Register Write Protection bit
+   290                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
+   291                           ;	Boot Block Write Protection bit
+   292                           ;	WRTB = OFF, Boot Block (000000-0007FFh) not write-protected
+   293                           ;	Data EEPROM Write Protection bit
+   294                           ;	WRTD = OFF, Data EEPROM not write-protected
+   295   30000B                     	org	3145739
+   296   30000B  E0                 	db	224
+   297                           
+   298                           ;Config register CONFIG7L @ 0x30000C
+   299                           ;	Table Read Protection Block 0
+   300                           ;	EBTR0 = OFF, Block 0 (000800-003FFFh) not protected from table reads executed in other
+      +                           blocks
+   301                           ;	Table Read Protection Block 1
+   302                           ;	EBTR1 = OFF, Block 1 (004000-007FFFh) not protected from table reads executed in other
+      +                           blocks
+   303                           ;	Table Read Protection Block 2
+   304                           ;	EBTR2 = OFF, Block 2 (008000-00BFFFh) not protected from table reads executed in other
+      +                           blocks
+   305                           ;	Table Read Protection Block 3
+   306                           ;	EBTR3 = OFF, Block 3 (00C000-00FFFFh) not protected from table reads executed in other
+      +                           blocks
+   307   30000C                     	org	3145740
+   308   30000C  0F                 	db	15
+   309                           
+   310                           ;Config register CONFIG7H @ 0x30000D
+   311                           ;	Boot Block Table Read Protection bit
+   312                           ;	EBTRB = OFF, Boot Block (000000-0007FFh) not protected from table reads executed in ot
+      +                          her blocks
+   313   30000D                     	org	3145741
+   314   30000D  40                 	db	64
+   315                           tosu	equ	0xFFF
+   316                           tosh	equ	0xFFE
+   317                           tosl	equ	0xFFD
+   318                           stkptr	equ	0xFFC
+   319                           pclatu	equ	0xFFB
+   320                           pclath	equ	0xFFA
+   321                           pcl	equ	0xFF9
+   322                           tblptru	equ	0xFF8
+   323                           tblptrh	equ	0xFF7
+   324                           tblptrl	equ	0xFF6
+   325                           tablat	equ	0xFF5
+   326                           prodh	equ	0xFF4
+   327                           prodl	equ	0xFF3
+   328                           indf0	equ	0xFEF
+   329                           postinc0	equ	0xFEE
+   330                           postdec0	equ	0xFED
+   331                           preinc0	equ	0xFEC
+   332                           plusw0	equ	0xFEB
+   333                           fsr0h	equ	0xFEA
+   334                           fsr0l	equ	0xFE9
+   335                           wreg	equ	0xFE8
+   336                           indf1	equ	0xFE7
+   337                           postinc1	equ	0xFE6
+   338                           postdec1	equ	0xFE5
+   339                           preinc1	equ	0xFE4
+   340                           plusw1	equ	0xFE3
+   341                           fsr1h	equ	0xFE2
+   342                           fsr1l	equ	0xFE1
+   343                           bsr	equ	0xFE0
+   344                           indf2	equ	0xFDF
+   345                           postinc2	equ	0xFDE
+   346                           postdec2	equ	0xFDD
+   347                           preinc2	equ	0xFDC
+   348                           plusw2	equ	0xFDB
+   349                           fsr2h	equ	0xFDA
+   350                           fsr2l	equ	0xFD9
+   351                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95      0       0
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15           56      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+                     _Configurations
+ ---------------------------------------------------------------------------------
+ (1) _Configurations                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Configurations
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5F      0       0       0        0.0%
+EEDATA             400      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5F      0       0       1        0.0%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BITBANK12          100      0       0      28        0.0%
+BANK12             100      0       0      29        0.0%
+BITBANK13          100      0       0      30        0.0%
+BANK13             100      0       0      31        0.0%
+BITBANK14          100      0       0      32        0.0%
+BANK14             100      0       0      33        0.0%
+BITBANK15           38      0       0      34        0.0%
+BANK15              38      0       0      35        0.0%
+BITBIGSFRh          2C      0       0      36        0.0%
+BITBIGSFRlh         97      0       0      37        0.0%
+BITBIGSFRll          2      0       0      38        0.0%
+ABS                  0      0       0      39        0.0%
+BIGRAM             F37      0       0      40        0.0%
+BIGSFR               0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Fri Feb 02 23:37:38 2024
+
+                     l13 1016                       l14 1016                       l19 1010  
+                    l695 1002                      l697 1012                     _main 1012  
+                   start 0000             ___param_bank 0000                    ?_main 0000  
+        __initialization 101E             __end_of_main 101E                   ??_main 0000  
+          __activetblptr 0000                   _ANSELC 0F3A                   _ANSELD 0F3B  
+                 _OSCCON 0FD3                   isa$std 0001             __mediumconst 0000  
+             __accesstop 0060  __end_of__initialization 101E            ___rparam_used 0001  
+         __pcstackCOMRAM 0000                  __Hparam 0000                  __Lparam 0000  
+           __psmallconst 1000                  __pcinit 101E                  __ramtop 1000  
+                __ptext0 1012                  __ptext1 1002     end_of_initialization 101E  
+    start_initialization 101E           _Configurations 1002   __end_of_Configurations 1012  
+            __smallconst 1000          ?_Configurations 0000                 __Hrparam 0000  
+               __Lrparam 0000                 isa$xinst 0000         ??_Configurations 0000  
