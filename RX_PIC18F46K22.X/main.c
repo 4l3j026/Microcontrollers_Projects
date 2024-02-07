@@ -8,6 +8,7 @@
 //Headers
 #include <xc.h>
 #include <string.h>
+#include <stdio.h>
 #include "Fuses_Configuration.h"
 
 //Instructions or commands of the LCD 
@@ -29,31 +30,24 @@
 #define EN LATCbits.LATC5 //Define pin (RC5) Enable as bit flag.   
 
 //Prototype functions. 
-void Configurations(void);
+void Configurations(void); //Set registers OSCCON, TRIS, LAT, Interrupts, EUSART
 void Init_LCD(void); //Function to initialize the LCD. 
 void LCD_Instruction(unsigned char Instruction); //Function to send data or instruction inside LCD.
 void Send_Instruction_Data(unsigned char Instruction, unsigned char Data); //Function to enable or disable RS.
-void LCD_Message(void);
-void Counter_Rx(unsigned char units, unsigned char tens);
 
 //Variables. 
-unsigned char CountRX_Units = 0x30;
-unsigned char CountRX_Tens = 0x30;
-int Rx_Counter = 0;
-unsigned char Rx_Buffer;
-unsigned char Rx_Text_1 [] = {"Inter Counter : "};
+unsigned char Rx_Buffer; //Variable used to save data inside RCREG1
+
+//Main function.
 
 void main(void) {
 
     //Call functions. 
     Configurations();
     Init_LCD();
-    LCD_Message();
 
-
+    //Infinite loop. 
     while (1) {
-
-
 
     }
 
@@ -113,21 +107,33 @@ void Configurations(void) {
 
 }
 
+//Develop interrupt function. 
+
 void __interrupt() RX_EUSART(void) {
 
-    if (PIR1bits.RC1IF) {
+    if (PIR1bits.RC1IF) { //Check interrupt has been activated. 
 
-        //Rx_Buffer = RCREG1;
+        Rx_Buffer = RCREG1; //Assign data to the variable to be read. 
 
-        if (RCREG1 == 'A') {
+        if (Rx_Buffer == 'A') { 
 
-            Rx_Counter++;
+            Send_Instruction_Data(Set, ROW2); //Set cursor on LCD.
+
+        } else if (Rx_Buffer == 0x0D) { 
+
+            Send_Instruction_Data(Set, RH); //Return home. 
+
+        } else {
+
+            Send_Instruction_Data(Write, Rx_Buffer); //Send the remaining data. 
 
         }
 
     }
 
 }
+
+//Develop function. 
 
 void Init_LCD(void) {
 
@@ -158,38 +164,22 @@ void Send_Instruction_Data(unsigned char Instruction, unsigned char Data) {
 
 //Develop LCD instruction.
 
+/*
+ Important Note: In this function, Usually delays set as: 
+ * __delay_ms(15); 
+ * For send data or instruction. However, the EUSART module can send 
+ * data most faster than LCD print (Thanks to slowly delays), 
+ * so we can send instructions using __delay_us (less than the time
+ * to send data through EUSART module 104.67 us) 
+ */
+
 void LCD_Instruction(unsigned char Instruction) {
 
     EN = 1; //Pin ENabled. 
-    __delay_ms(15); //Wait for the instruction. 
+    __delay_us(90); //Wait for the instruction. 
     LATD = Instruction; //Send Instruction to the port. 
-    __delay_ms(15); //Wait for the instruction. 
+    __delay_us(90); //Wait for the instruction. 
     EN = 0; //Pin disabled.
-    __delay_ms(15); //Wait for the instruction. 
-
-}
-
-void LCD_Message(void) {
-
-    Send_Instruction_Data(Set, ROW1);
-
-    for (int i = 0; i < strlen(Rx_Text_1); i++) {
-
-        Send_Instruction_Data(Write, Rx_Text_1[i]);
-
-    }
-
-}
-
-void Counter_Rx(unsigned char units, unsigned char tens) {
-
-    while (!PIR1bits.TX1IF); //Wait for empty buffer. 
-    TXREG1 = units;
-
-    while (!PIR1bits.TX1IF); //Wait for empty buffer. 
-    TXREG1 = tens;
-
-    while (!PIR1bits.TX1IF); //Wait for empty buffer. 
-    TXREG1 = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
+    __delay_us(90); //Wait for the instruction. 
 
 }
