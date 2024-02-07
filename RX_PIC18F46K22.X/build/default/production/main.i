@@ -9785,12 +9785,16 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 
 #pragma config EBTRB = OFF
 # 11 "main.c" 2
-
-
-
+# 32 "main.c"
 void Configurations (void);
+void Init_LCD(void);
+void LCD_Instruction(unsigned char Instruction);
+void Send_Instruction_Data(unsigned char Instruction, unsigned char Data);
 
 
+unsigned char CountRX_Units = 0x30;
+unsigned char CountRX_Tens = 0x30;
+unsigned char Rx_Text_1 [] = {"Interrupt Counter : "};
 
 void main(void) {
 
@@ -9841,11 +9845,67 @@ void Configurations (void){
 
 
     BAUDCON1bits.BRG16 = 0;
-# 77 "main.c"
+# 101 "main.c"
 }
 
 void __attribute__((picinterrupt(("")))) RX_EUSART (void){
 
+    if (PIR1bits.RC1IF){
 
+
+
+    }
+
+}
+
+void Init_LCD(void) {
+
+    _delay((unsigned long)((20)*(16000000/4000.0)));
+    Send_Instruction_Data(0, 0x30);
+    _delay((unsigned long)((5)*(16000000/4000.0)));
+    Send_Instruction_Data(0, 0x30);
+    _delay((unsigned long)((5)*(16000000/4000.0)));
+    Send_Instruction_Data(0, 0x30);
+    Send_Instruction_Data(0, 0x02);
+    Send_Instruction_Data(0, 0x06);
+    Send_Instruction_Data(0, 0x0F);
+    Send_Instruction_Data(0, 0x28);
+    Send_Instruction_Data(0, 0x01);
+    _delay((unsigned long)((50)*(16000000/4000.0)));
+
+}
+
+
+
+void Send_Instruction_Data(unsigned char Instruction, unsigned char Data) {
+
+    LATCbits.LATC4 = Instruction;
+    LCD_Instruction(Data >> 4);
+    LCD_Instruction(Data);
+
+}
+
+
+
+void LCD_Instruction(unsigned char Instruction) {
+
+    LATCbits.LATC5 = 1;
+    _delay((unsigned long)((15)*(16000000/4000.0)));
+    LATD = Instruction;
+    _delay((unsigned long)((15)*(16000000/4000.0)));
+    LATCbits.LATC5 = 0;
+    _delay((unsigned long)((15)*(16000000/4000.0)));
+
+}
+
+void LCD_Message (void){
+
+    Send_Instruction_Data(0, 0X80);
+
+    for (int i = 0;i < strlen(Rx_Text_1) ; i++){
+
+        Send_Instruction_Data(1, Rx_Text_1[i]);
+
+    }
 
 }
