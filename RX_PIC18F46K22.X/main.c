@@ -29,47 +29,60 @@
 #define EN LATCbits.LATC5 //Define pin (RC5) Enable as bit flag.   
 
 //Prototype functions. 
-void Configurations (void); 
+void Configurations(void);
 void Init_LCD(void); //Function to initialize the LCD. 
 void LCD_Instruction(unsigned char Instruction); //Function to send data or instruction inside LCD.
 void Send_Instruction_Data(unsigned char Instruction, unsigned char Data); //Function to enable or disable RS.
+void LCD_Message(void);
+void Counter_Rx(unsigned char units, unsigned char tens);
 
 //Variables. 
 unsigned char CountRX_Units = 0x30;
 unsigned char CountRX_Tens = 0x30;
-unsigned char Rx_Text_1 [] = {"Interrupt Counter : "};
+int Rx_Counter = 0;
+unsigned char Rx_Buffer;
+unsigned char Rx_Text_1 [] = {"Inter Counter : "};
 
 void main(void) {
-    
+
     //Call functions. 
-    Configurations(); 
-    
-    while (1){
-        
-        
-        
+    Configurations();
+    Init_LCD();
+    LCD_Message();
+
+
+    while (1) {
+
+
+
     }
 
 }
 
-void Configurations (void){
-    
+void Configurations(void) {
+
     OSCCON = 0x72; //Set internal oscillator. 
-    
+
     //Set pins as digital. 
-    ANSELC = 0x00; 
-    ANSELD = 0x00; 
+    ANSELC = 0x00;
+    ANSELD = 0x00;
     //Set pins as outputs. 
-    TRISD = 0x00; 
-    
+    TRISCbits.RC4 = 0;
+    TRISCbits.RC5 = 0;
+    TRISD = 0x00;
+
+    //Clean ports 
+    LATCbits.LC4 = 0;
+    LATCbits.LC5 = 0;
+
     //---- Interrupts Configurations ----
     INTCONbits.GIE = 1; //Global Interrupt Enabled. 
-    INTCONbits.PEIE = 1;  //Peripheral Interrupt Enabled. 
+    INTCONbits.PEIE = 1; //Peripheral Interrupt Enabled. 
     RCONbits.IPEN = 0; //Interrupt Priority disabled. 
-    
+
     PIE1bits.RC1IE = 1; //Receive Enabled. 
     PIR1bits.RC1IF = 0; //Receive Flag cleared. 
-    
+
     //---- EUSART Configurations ----
     SPBRG = 103; //Configuration 9600 bauds. 
     TRISCbits.RC6 = 1; //Enable pin RC6 (TX1).
@@ -97,17 +110,23 @@ void Configurations (void){
         TXREG1; ----> Transmitter buffer.
       
      */
-    
+
 }
 
-void __interrupt () RX_EUSART (void){
-    
-    if (PIR1bits.RC1IF){
-        
-        
-        
+void __interrupt() RX_EUSART(void) {
+
+    if (PIR1bits.RC1IF) {
+
+        //Rx_Buffer = RCREG1;
+
+        if (RCREG1 == 'A') {
+
+            Rx_Counter++;
+
+        }
+
     }
-    
+
 }
 
 void Init_LCD(void) {
@@ -150,14 +169,27 @@ void LCD_Instruction(unsigned char Instruction) {
 
 }
 
-void LCD_Message (void){
-    
+void LCD_Message(void) {
+
     Send_Instruction_Data(Set, ROW1);
-    
-    for (int i = 0;i < strlen(Rx_Text_1) ; i++){
-        
-        Send_Instruction_Data(Write, Rx_Text_1[i]); 
-        
+
+    for (int i = 0; i < strlen(Rx_Text_1); i++) {
+
+        Send_Instruction_Data(Write, Rx_Text_1[i]);
+
     }
-    
+
+}
+
+void Counter_Rx(unsigned char units, unsigned char tens) {
+
+    while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+    TXREG1 = units;
+
+    while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+    TXREG1 = tens;
+
+    while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+    TXREG1 = 0x0D; //Send command to TXREG buffer the ASCII character \r (Return to Home).
+
 }

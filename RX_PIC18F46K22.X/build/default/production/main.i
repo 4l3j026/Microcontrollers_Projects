@@ -9786,22 +9786,29 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 #pragma config EBTRB = OFF
 # 11 "main.c" 2
 # 32 "main.c"
-void Configurations (void);
+void Configurations(void);
 void Init_LCD(void);
 void LCD_Instruction(unsigned char Instruction);
 void Send_Instruction_Data(unsigned char Instruction, unsigned char Data);
+void LCD_Message(void);
+void Counter_Rx(unsigned char units, unsigned char tens);
 
 
 unsigned char CountRX_Units = 0x30;
 unsigned char CountRX_Tens = 0x30;
-unsigned char Rx_Text_1 [] = {"Interrupt Counter : "};
+int Rx_Counter = 0;
+unsigned char Rx_Buffer;
+unsigned char Rx_Text_1 [] = {"Inter Counter : "};
 
 void main(void) {
 
 
     Configurations();
+    Init_LCD();
+    LCD_Message();
 
-    while (1){
+
+    while (1) {
 
 
 
@@ -9809,7 +9816,7 @@ void main(void) {
 
 }
 
-void Configurations (void){
+void Configurations(void) {
 
     OSCCON = 0x72;
 
@@ -9817,7 +9824,13 @@ void Configurations (void){
     ANSELC = 0x00;
     ANSELD = 0x00;
 
+    TRISCbits.RC4 = 0;
+    TRISCbits.RC5 = 0;
     TRISD = 0x00;
+
+
+    LATCbits.LC4 = 0;
+    LATCbits.LC5 = 0;
 
 
     INTCONbits.GIE = 1;
@@ -9845,14 +9858,20 @@ void Configurations (void){
 
 
     BAUDCON1bits.BRG16 = 0;
-# 101 "main.c"
+# 114 "main.c"
 }
 
-void __attribute__((picinterrupt(("")))) RX_EUSART (void){
+void __attribute__((picinterrupt(("")))) RX_EUSART(void) {
 
-    if (PIR1bits.RC1IF){
+    if (PIR1bits.RC1IF) {
 
 
+
+        if (RCREG1 == 'A') {
+
+            Rx_Counter++;
+
+        }
 
     }
 
@@ -9898,14 +9917,27 @@ void LCD_Instruction(unsigned char Instruction) {
 
 }
 
-void LCD_Message (void){
+void LCD_Message(void) {
 
     Send_Instruction_Data(0, 0X80);
 
-    for (int i = 0;i < strlen(Rx_Text_1) ; i++){
+    for (int i = 0; i < strlen(Rx_Text_1); i++) {
 
         Send_Instruction_Data(1, Rx_Text_1[i]);
 
     }
+
+}
+
+void Counter_Rx(unsigned char units, unsigned char tens) {
+
+    while (!PIR1bits.TX1IF);
+    TXREG1 = units;
+
+    while (!PIR1bits.TX1IF);
+    TXREG1 = tens;
+
+    while (!PIR1bits.TX1IF);
+    TXREG1 = 0x0D;
 
 }
