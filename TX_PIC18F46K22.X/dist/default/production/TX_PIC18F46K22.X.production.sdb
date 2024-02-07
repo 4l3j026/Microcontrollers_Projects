@@ -35,9 +35,9 @@
 [v _Configuration Configuration `(v  1 e 1 0 ]
 "92
 [v _TX_EUSART TX_EUSART `IIH(v  1 e 1 0 ]
-"115
+"118
 [v _TX_Numbers TX_Numbers `(v  1 e 1 0 ]
-"128
+"131
 [v _Counter_Message Counter_Message `(v  1 e 1 0 ]
 [s S48 . 1 `uc 1 ANSB0 1 0 :1:0 
 `uc 1 ANSB1 1 0 :1:1 
@@ -319,7 +319,7 @@
 "20
 [v _Count0_Tens Count0_Tens `uc  1 e 1 0 ]
 "21
-[v _TX_Text_1 TX_Text_1 `[23]uc  1 e 23 0 ]
+[v _TX_Text_1 TX_Text_1 `[17]uc  1 e 17 0 ]
 "25
 [v _main main `(v  1 e 1 0 ]
 {
@@ -333,23 +333,23 @@
 "92
 [v _TX_EUSART TX_EUSART `IIH(v  1 e 1 0 ]
 {
-"113
+"116
 } 0
-"115
+"118
 [v _TX_Numbers TX_Numbers `(v  1 e 1 0 ]
 {
 [v TX_Numbers@Units Units `uc  1 a 1 wreg ]
 [v TX_Numbers@Units Units `uc  1 a 1 wreg ]
 [v TX_Numbers@Tens Tens `ui  1 p 2 0 ]
 [v TX_Numbers@Units Units `uc  1 a 1 2 ]
-"126
+"129
 } 0
-"128
+"131
 [v _Counter_Message Counter_Message `(v  1 e 1 0 ]
 {
-"130
+"133
 [v Counter_Message@i i `i  1 a 2 3 ]
-"137
+"140
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]

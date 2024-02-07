@@ -9795,7 +9795,7 @@ void Counter_Message(void);
 
 unsigned char Count0_Units = 0x30;
 unsigned char Count0_Tens = 0x30;
-unsigned char TX_Text_1 [] = {"0 Interrupt Counter : "};
+unsigned char TX_Text_1 [] = {"0 Int Counter : "};
 
 
 
@@ -9863,6 +9863,9 @@ void __attribute__((picinterrupt(("")))) TX_EUSART(void) {
 
         INTCONbits.INT0IF = 0;
 
+        while (!PIR1bits.TX1IF);
+        TXREG1 = 'A';
+
         Counter_Message();
 
         Count0_Units++;
@@ -9893,12 +9896,12 @@ void TX_Numbers(unsigned char Units, unsigned Tens) {
 
 }
 
-void Counter_Message (void){
+void Counter_Message(void) {
 
-    for (int i = 0; i < strlen(TX_Text_1); i++){
+    for (int i = 0; i < strlen(TX_Text_1); i++) {
 
-       while (!PIR1bits.TX1IF);
-       TXREG1 = TX_Text_1[i];
+        while (!PIR1bits.TX1IF);
+        TXREG1 = TX_Text_1[i];
 
     }
 

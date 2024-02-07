@@ -18,7 +18,7 @@ void Counter_Message(void); //Send data info.
 //Global variables. 
 unsigned char Count0_Units = 0x30;
 unsigned char Count0_Tens = 0x30;
-unsigned char TX_Text_1 [] = {"0 Interrupt Counter : "};
+unsigned char TX_Text_1 [] = {"0 Int Counter : "};
 
 //Main functions. 
 
@@ -94,8 +94,11 @@ void __interrupt() TX_EUSART(void) {
     if (INTCONbits.INT0F) {
 
         INTCONbits.INT0IF = 0; //Clean the flag. 
-        
-        Counter_Message(); 
+
+        while (!PIR1bits.TX1IF); //Wait for empty buffer. 
+        TXREG1 = 'A';
+
+        Counter_Message();
 
         Count0_Units++; //Counter of interrupt 0.
 
@@ -125,13 +128,13 @@ void TX_Numbers(unsigned char Units, unsigned Tens) {
 
 }
 
-void Counter_Message (void){
-    
-    for (int i = 0; i < strlen(TX_Text_1); i++){
-        
-       while (!PIR1bits.TX1IF); 
-       TXREG1 = TX_Text_1[i];  
-        
+void Counter_Message(void) {
+
+    for (int i = 0; i < strlen(TX_Text_1); i++) {
+
+        while (!PIR1bits.TX1IF);
+        TXREG1 = TX_Text_1[i];
+
     }
-    
+
 }
