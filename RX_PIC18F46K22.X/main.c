@@ -115,13 +115,17 @@ void __interrupt() RX_EUSART(void) {
 
         Rx_Buffer = RCREG1; //Assign data to the variable to be read. 
 
-        if (Rx_Buffer == 'A') { 
+        if (Rx_Buffer == 'A') {
 
             Send_Instruction_Data(Set, ROW2); //Set cursor on LCD.
 
-        } else if (Rx_Buffer == 0x0D) { 
+        } else if (Rx_Buffer == 0x0D) {
 
             Send_Instruction_Data(Set, RH); //Return home. 
+
+        } else if (Rx_Buffer == 'W') {
+
+            Send_Instruction_Data(Set, CLR); //Return home. 
 
         } else {
 
@@ -148,7 +152,7 @@ void Init_LCD(void) {
     Send_Instruction_Data(Set, DC);
     Send_Instruction_Data(Set, FS);
     Send_Instruction_Data(Set, CLR);
-    __delay_ms(50); //Delay set by the manufacturer. 
+    __delay_ms(100); //Delay set by the manufacturer. 
 
 }
 
@@ -156,6 +160,7 @@ void Init_LCD(void) {
 
 void Send_Instruction_Data(unsigned char Instruction, unsigned char Data) {
 
+    EN = 0;
     RS = Instruction; //Enable or disabled the register select to write data, or send instruction set.
     LCD_Instruction(Data >> 4); //Send first the most significant bits
     LCD_Instruction(Data); //Send the least significant bits. 
@@ -175,11 +180,10 @@ void Send_Instruction_Data(unsigned char Instruction, unsigned char Data) {
 
 void LCD_Instruction(unsigned char Instruction) {
 
-    EN = 1; //Pin ENabled. 
-    __delay_us(90); //Wait for the instruction. 
     LATD = Instruction; //Send Instruction to the port. 
-    __delay_us(90); //Wait for the instruction. 
+    EN = 1; //Pin ENabled.  
+    __delay_us(150); //Wait for the instruction. 
     EN = 0; //Pin disabled.
-    __delay_us(90); //Wait for the instruction. 
+    __delay_us(100); //Wait for the instruction. 
 
 }

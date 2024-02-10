@@ -10024,6 +10024,10 @@ void __attribute__((picinterrupt(("")))) RX_EUSART(void) {
 
             Send_Instruction_Data(0, 0x02);
 
+        } else if (Rx_Buffer == 'W') {
+
+            Send_Instruction_Data(0, 0x01);
+
         } else {
 
             Send_Instruction_Data(1, Rx_Buffer);
@@ -10040,16 +10044,16 @@ void Init_LCD(void) {
 
     _delay((unsigned long)((20)*(16000000/4000.0)));
     Send_Instruction_Data(0, 0x30);
-    _delay((unsigned long)((5)*(16000000/4000.0)));
+    _delay((unsigned long)((10)*(16000000/4000.0)));
     Send_Instruction_Data(0, 0x30);
-    _delay((unsigned long)((5)*(16000000/4000.0)));
+    _delay((unsigned long)((10)*(16000000/4000.0)));
     Send_Instruction_Data(0, 0x30);
     Send_Instruction_Data(0, 0x02);
     Send_Instruction_Data(0, 0x06);
     Send_Instruction_Data(0, 0x0F);
     Send_Instruction_Data(0, 0x28);
     Send_Instruction_Data(0, 0x01);
-    _delay((unsigned long)((50)*(16000000/4000.0)));
+    _delay((unsigned long)((100)*(16000000/4000.0)));
 
 }
 
@@ -10057,19 +10061,19 @@ void Init_LCD(void) {
 
 void Send_Instruction_Data(unsigned char Instruction, unsigned char Data) {
 
+    LATCbits.LATC5 = 0;
     LATCbits.LATC4 = Instruction;
     LCD_Instruction(Data >> 4);
     LCD_Instruction(Data);
 
 }
-# 176 "main.c"
+# 181 "main.c"
 void LCD_Instruction(unsigned char Instruction) {
 
-    LATCbits.LATC5 = 1;
-    _delay((unsigned long)((90)*(16000000/4000000.0)));
     LATD = Instruction;
-    _delay((unsigned long)((90)*(16000000/4000000.0)));
+    LATCbits.LATC5 = 1;
+    _delay((unsigned long)((150)*(16000000/4000000.0)));
     LATCbits.LATC5 = 0;
-    _delay((unsigned long)((90)*(16000000/4000000.0)));
+    _delay((unsigned long)((100)*(16000000/4000000.0)));
 
 }
