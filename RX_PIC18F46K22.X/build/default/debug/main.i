@@ -9724,6 +9724,160 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 10 "main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 11 "main.c" 2
+
 # 1 "./Fuses_Configuration.h" 1
 # 10 "./Fuses_Configuration.h"
 #pragma config FOSC = INTIO67
@@ -9784,25 +9938,24 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 
 
 #pragma config EBTRB = OFF
-# 11 "main.c" 2
+# 12 "main.c" 2
+# 33 "main.c"
+void Configurations(void);
+void Init_LCD(void);
+void LCD_Instruction(unsigned char Instruction);
+void Send_Instruction_Data(unsigned char Instruction, unsigned char Data);
 
 
-
-void Configuration(void);
-void TX_Numbers(unsigned char Units, unsigned Tens);
-void Counter_Message(void);
-
-
-unsigned char Count0_Units = 0x30;
-unsigned char Count0_Tens = 0x30;
-unsigned char TX_Text_1 [] = {"0 Int Counter : "};
+unsigned char Rx_Buffer;
 
 
 
 void main(void) {
 
 
-    Configuration();
+    Configurations();
+    Init_LCD();
+
 
     while (1) {
 
@@ -9810,29 +9963,29 @@ void main(void) {
 
 }
 
-
-
-void Configuration(void) {
+void Configurations(void) {
 
     OSCCON = 0x72;
 
-    ANSELCbits.ANSC6 = 0;
-    ANSELCbits.ANSC7 = 0;
-    ANSELBbits.ANSB0 = 0;
 
-    TRISBbits.RB0 = 1;
+    ANSELC = 0x00;
+    ANSELD = 0x00;
+
+    TRISCbits.RC4 = 0;
+    TRISCbits.RC5 = 0;
+    TRISD = 0x00;
+
+
+    LATCbits.LC4 = 0;
+    LATCbits.LC5 = 0;
 
 
     INTCONbits.GIE = 1;
-    RCONbits.IPEN = 0;
     INTCONbits.PEIE = 1;
+    RCONbits.IPEN = 0;
+
     PIE1bits.RC1IE = 1;
-    PIE1bits.TX1IE = 1;
-    PIR1bits.TX1IF = 0;
     PIR1bits.RC1IF = 0;
-    INTCONbits.INT0E = 1;
-    INTCONbits.INT0F = 0;
-    INTCON2bits.INTEDG0 = 0;
 
 
     SPBRG = 103;
@@ -9852,57 +10005,75 @@ void Configuration(void) {
 
 
     BAUDCON1bits.BRG16 = 0;
-# 88 "main.c"
+# 108 "main.c"
 }
 
 
 
-void __attribute__((picinterrupt(("")))) TX_EUSART(void) {
+void __attribute__((picinterrupt(("")))) RX_EUSART(void) {
 
-    if (INTCONbits.INT0F) {
+    if (PIR1bits.RC1IF) {
 
-        INTCONbits.INT0IF = 0;
+        Rx_Buffer = RCREG1;
 
-        while (!PIR1bits.TX1IF);
-        TXREG1 = 'A';
+        if (Rx_Buffer == 'A') {
 
-        Counter_Message();
+            Send_Instruction_Data(0, 0xC0);
 
-        Count0_Units++;
+        } else if (Rx_Buffer == 0x0D) {
 
-        if (Count0_Units == ':') {
+            Send_Instruction_Data(0, 0x02);
 
-            Count0_Units = 0x30;
-            Count0_Tens++;
+        } else if (Rx_Buffer == 'W') {
+
+            Send_Instruction_Data(0, 0x01);
+
+        } else {
+
+            Send_Instruction_Data(1, Rx_Buffer);
 
         }
 
-        TX_Numbers(Count0_Tens, Count0_Units);
-
     }
 
 }
 
-void TX_Numbers(unsigned char Units, unsigned Tens) {
 
-    while (!PIR1bits.TX1IF);
-    TXREG1 = Units;
 
-    while (!PIR1bits.TX1IF);
-    TXREG1 = Tens;
+void Init_LCD(void) {
 
-    while (!PIR1bits.TX1IF);
-    TXREG1 = 0x0D;
+    _delay((unsigned long)((20)*(16000000/4000.0)));
+    Send_Instruction_Data(0, 0x30);
+    _delay((unsigned long)((10)*(16000000/4000.0)));
+    Send_Instruction_Data(0, 0x30);
+    _delay((unsigned long)((10)*(16000000/4000.0)));
+    Send_Instruction_Data(0, 0x30);
+    Send_Instruction_Data(0, 0x02);
+    Send_Instruction_Data(0, 0x06);
+    Send_Instruction_Data(0, 0x0F);
+    Send_Instruction_Data(0, 0x28);
+    Send_Instruction_Data(0, 0x01);
+    _delay((unsigned long)((100)*(16000000/4000.0)));
 
 }
 
-void Counter_Message(void) {
 
-    for (int i = 0; i < strlen(TX_Text_1); i++) {
 
-        while (!PIR1bits.TX1IF);
-        TXREG1 = TX_Text_1[i];
+void Send_Instruction_Data(unsigned char Instruction, unsigned char Data) {
 
-    }
+    LATCbits.LATC5 = 0;
+    LATCbits.LATC4 = Instruction;
+    LCD_Instruction(Data >> 4);
+    LCD_Instruction(Data);
+
+}
+# 181 "main.c"
+void LCD_Instruction(unsigned char Instruction) {
+
+    LATD = Instruction;
+    LATCbits.LATC5 = 1;
+    _delay((unsigned long)((150)*(16000000/4000000.0)));
+    LATCbits.LATC5 = 0;
+    _delay((unsigned long)((100)*(16000000/4000000.0)));
 
 }
